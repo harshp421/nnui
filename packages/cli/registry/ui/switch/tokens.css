@@ -1,0 +1,142 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SWITCH — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Switch component.
+   This file is automatically added when you run: npx nnuikit add switch
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-toggles-switch-off-default: var(--color-surface-neutral-l5);
+	--color-toggles-switch-off-hover: var(--color-surface-neutral-quaternary);
+	--color-toggles-switch-off-disabled: var(--color-surface-neutral-l4);
+	--color-toggles-switch-handle-default: var(--color-surface-statics-pure-white);
+	--color-toggles-switch-handle-disabled: var(--color-surface-statics-pure-white);
+	--color-toggles-switch-on-default: var(--color-surface-brand-primary);
+	--color-toggles-switch-on-hover: var(--color-surface-brand-secondary);
+	--color-toggles-switch-on-disabled: var(--color-surface-brand-tertiary);
+	--color-toggles-dark-night-border: var(--color-border-neutral-l3);
+	--color-toggles-dark-night-active-surface: var(--color-surface-brand-primary);
+	--color-toggles-dark-night-icon-inactive: var(--color-icon-neutral-secondary);
+	--color-toggles-dark-night-icon-active: var(--color-icon-statics-pure-white);
+	--size-toggle-basic-handle: var(--spacing-12);
+	--size-toggle-basic-height: var(--spacing-16);
+	--size-toggle-basic-width: var(--spacing-32);
+	--size-toggle-basic-padding-all-sides: var(--spacing-2);
+	--size-toggle-basic-radius: var(--radius-full);
+	--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-large-height: var(--spacing-40);
+	--size-toggle-season-switcher-large-width: var(--spacing-72);
+	--size-toggle-season-switcher-large-radius: var(--radius-full);
+	--size-toggle-season-switcher-large-gap: var(--spacing-8);
+	--size-toggle-season-switcher-large-padding: var(--spacing-8);
+	--size-toggle-season-switcher-border: var(--size-border-width-l1);
+	--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
+	--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-medium-height: var(--spacing-32);
+	--size-toggle-season-switcher-medium-width: var(--spacing-64);
+	--size-toggle-season-switcher-medium-radius: var(--radius-full);
+	--size-toggle-season-switcher-medium-gap: var(--spacing-8);
+	--size-toggle-season-switcher-medium-padding: var(--spacing-4);
+	--size-toggle-season-switcher-selector: var(--spacing-24);
+	--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-small-height: var(--spacing-28);
+	--size-toggle-season-switcher-small-width: var(--spacing-56);
+	--size-toggle-season-switcher-small-radius: var(--radius-full);
+	--size-toggle-season-switcher-small-gap: var(--spacing-4);
+	--size-toggle-season-switcher-small-padding: var(--spacing-2);
+	--size-toggle-basic-handle: var(--spacing-12);
+	--size-toggle-basic-height: var(--spacing-16);
+	--size-toggle-basic-width: var(--spacing-32);
+	--size-toggle-basic-padding-all-sides: var(--spacing-2);
+	--size-toggle-basic-radius: var(--radius-full);
+	--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-large-height: var(--spacing-40);
+	--size-toggle-season-switcher-large-width: var(--spacing-72);
+	--size-toggle-season-switcher-large-radius: var(--radius-full);
+	--size-toggle-season-switcher-large-gap: var(--spacing-8);
+	--size-toggle-season-switcher-large-padding: var(--spacing-8);
+	--size-toggle-season-switcher-border: var(--size-border-width-l1);
+	--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
+	--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-medium-height: var(--spacing-32);
+	--size-toggle-season-switcher-medium-width: var(--spacing-64);
+	--size-toggle-season-switcher-medium-radius: var(--radius-full);
+	--size-toggle-season-switcher-medium-gap: var(--spacing-8);
+	--size-toggle-season-switcher-medium-padding: var(--spacing-4);
+	--size-toggle-season-switcher-selector: var(--spacing-24);
+	--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-small-height: var(--spacing-28);
+	--size-toggle-season-switcher-small-width: var(--spacing-56);
+	--size-toggle-season-switcher-small-radius: var(--radius-full);
+	--size-toggle-season-switcher-small-gap: var(--spacing-4);
+	--size-toggle-season-switcher-small-padding: var(--spacing-2);
+	--size-toggle-basic-handle: var(--spacing-12);
+	--size-toggle-basic-height: var(--spacing-16);
+	--size-toggle-basic-width: var(--spacing-32);
+	--size-toggle-basic-padding-all-sides: var(--spacing-2);
+	--size-toggle-basic-radius: var(--radius-full);
+	--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-large-height: var(--spacing-40);
+	--size-toggle-season-switcher-large-width: var(--spacing-72);
+	--size-toggle-season-switcher-large-radius: var(--radius-full);
+	--size-toggle-season-switcher-large-gap: var(--spacing-8);
+	--size-toggle-season-switcher-large-padding: var(--spacing-8);
+	--size-toggle-season-switcher-border: var(--size-border-width-l1);
+	--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
+	--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-medium-height: var(--spacing-32);
+	--size-toggle-season-switcher-medium-width: var(--spacing-64);
+	--size-toggle-season-switcher-medium-radius: var(--radius-full);
+	--size-toggle-season-switcher-medium-gap: var(--spacing-8);
+	--size-toggle-season-switcher-medium-padding: var(--spacing-4);
+	--size-toggle-season-switcher-selector: var(--spacing-24);
+	--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
+	--size-toggle-season-switcher-small-height: var(--spacing-28);
+	--size-toggle-season-switcher-small-width: var(--spacing-56);
+	--size-toggle-season-switcher-small-radius: var(--radius-full);
+	--size-toggle-season-switcher-small-gap: var(--spacing-4);
+	--size-toggle-season-switcher-small-padding: var(--spacing-2);
+}
+
+@theme {
+	--color-toggles-switch-off-default: var(--color-toggles-switch-off-default);
+	--color-toggles-switch-off-hover: var(--color-toggles-switch-off-hover);
+	--color-toggles-switch-off-disabled: var(--color-toggles-switch-off-disabled);
+	--color-toggles-switch-handle-default: var(--color-toggles-switch-handle-default);
+	--color-toggles-switch-handle-disabled: var(--color-toggles-switch-handle-disabled);
+	--color-toggles-switch-on-default: var(--color-toggles-switch-on-default);
+	--color-toggles-switch-on-hover: var(--color-toggles-switch-on-hover);
+	--color-toggles-switch-on-disabled: var(--color-toggles-switch-on-disabled);
+	--color-toggles-dark-night-border: var(--color-toggles-dark-night-border);
+	--color-toggles-dark-night-active-surface: var(--color-toggles-dark-night-active-surface);
+	--color-toggles-dark-night-icon-inactive: var(--color-toggles-dark-night-icon-inactive);
+	--color-toggles-dark-night-icon-active: var(--color-toggles-dark-night-icon-active);
+	--spacing-toggle-basic-handle: var(--size-toggle-basic-handle);
+	--spacing-toggle-basic-height: var(--size-toggle-basic-height);
+	--spacing-toggle-basic-width: var(--size-toggle-basic-width);
+	--spacing-toggle-basic-padding-all-sides: var(--size-toggle-basic-padding-all-sides);
+	--radius-toggle-basic-radius: var(--size-toggle-basic-radius);
+	--spacing-toggle-season-switcher-large-icon-size: var(--size-toggle-season-switcher-large-icon-size);
+	--spacing-toggle-season-switcher-large-height: var(--size-toggle-season-switcher-large-height);
+	--spacing-toggle-season-switcher-large-width: var(--size-toggle-season-switcher-large-width);
+	--radius-toggle-season-switcher-large-radius: var(--size-toggle-season-switcher-large-radius);
+	--spacing-toggle-season-switcher-large-gap: var(--size-toggle-season-switcher-large-gap);
+	--spacing-toggle-season-switcher-large-padding: var(--size-toggle-season-switcher-large-padding);
+	--spacing-toggle-season-switcher-border: var(--size-toggle-season-switcher-border);
+	--spacing-toggle-season-switcher-icon-wrapper-size: var(--size-toggle-season-switcher-icon-wrapper-size);
+	--spacing-toggle-season-switcher-medium-icon-size: var(--size-toggle-season-switcher-medium-icon-size);
+	--spacing-toggle-season-switcher-medium-height: var(--size-toggle-season-switcher-medium-height);
+	--spacing-toggle-season-switcher-medium-width: var(--size-toggle-season-switcher-medium-width);
+	--radius-toggle-season-switcher-medium-radius: var(--size-toggle-season-switcher-medium-radius);
+	--spacing-toggle-season-switcher-medium-gap: var(--size-toggle-season-switcher-medium-gap);
+	--spacing-toggle-season-switcher-medium-padding: var(--size-toggle-season-switcher-medium-padding);
+	--spacing-toggle-season-switcher-selector: var(--size-toggle-season-switcher-selector);
+	--spacing-toggle-season-switcher-small-icon-size: var(--size-toggle-season-switcher-small-icon-size);
+	--spacing-toggle-season-switcher-small-height: var(--size-toggle-season-switcher-small-height);
+	--spacing-toggle-season-switcher-small-width: var(--size-toggle-season-switcher-small-width);
+	--radius-toggle-season-switcher-small-radius: var(--size-toggle-season-switcher-small-radius);
+	--spacing-toggle-season-switcher-small-gap: var(--size-toggle-season-switcher-small-gap);
+	--spacing-toggle-season-switcher-small-padding: var(--size-toggle-season-switcher-small-padding);
+}

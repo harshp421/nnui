@@ -1,0 +1,44 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   PROGRESS — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Progress component.
+   This file is automatically added when you run: npx nnuikit add progress
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-progress-bar-track-bar: var(--color-surface-neutral-l4);
+	--color-progress-bar-progress-bar-brand: var(--color-brand-700);
+	--color-progress-bar-progress-bar-neutral: var(--color-surface-neutral-primary);
+	--color-progress-bar-progress-bar-red: var(--color-surface-destructive-primary);
+	--color-progress-bar-progress-bar-yellow: var(--color-surface-warning-primary);
+	--color-progress-bar-progress-bar-success: var(--color-surface-success-primary);
+	--color-progress-bar-progress-bar-blue: var(--color-surface-info-primary);
+	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-radius: var(--radius-full);
+	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-radius: var(--radius-full);
+	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-radius: var(--radius-full);
+	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-radius: var(--radius-full);
+	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-radius: var(--radius-full);
+	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-radius: var(--radius-full);
+}
+
+@theme {
+	--color-progress-bar-track-bar: var(--color-progress-bar-track-bar);
+	--color-progress-bar-progress-bar-brand: var(--color-progress-bar-progress-bar-brand);
+	--color-progress-bar-progress-bar-neutral: var(--color-progress-bar-progress-bar-neutral);
+	--color-progress-bar-progress-bar-red: var(--color-progress-bar-progress-bar-red);
+	--color-progress-bar-progress-bar-yellow: var(--color-progress-bar-progress-bar-yellow);
+	--color-progress-bar-progress-bar-success: var(--color-progress-bar-progress-bar-success);
+	--color-progress-bar-progress-bar-blue: var(--color-progress-bar-progress-bar-blue);
+	--spacing-progress-bar-tube-hegiht: var(--size-progress-bar-tube-hegiht);
+	--radius-progress-bar-tube-radius: var(--size-progress-bar-tube-radius);
+	--spacing-progress-bar-water-hegiht: var(--size-progress-bar-water-hegiht);
+	--radius-progress-bar-water-radius: var(--size-progress-bar-water-radius);
+}

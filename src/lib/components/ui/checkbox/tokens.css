@@ -1,0 +1,60 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   CHECKBOX — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Checkbox component.
+   This file is automatically added when you run: npx nnuikit add checkbox
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-checkbox---radio-hover: var(--color-surface-statics-vv-white);
+	--color-checkbox---radio-disabled: var(--color-surface-neutral-quaternary);
+	--color-checkbox---radio-checked: var(--color-surface-brand-primary);
+	--color-checkbox---radio-default-surface: var(--color-surface-statics-vv-white);
+	--color-checkbox---radio-default-border: var(--color-border-neutral-l5);
+	--size-checkbox---radio-small-size: var(--spacing-16);
+	--size-checkbox---radio-small-radius: var(--radius-4);
+	--size-checkbox---radio-small-icon-border-size: var(--size-border-width-l3);
+	--size-checkbox---radio-medium-size: var(--spacing-20);
+	--size-checkbox---radio-medium-radius: var(--radius-6);
+	--size-checkbox---radio-medium-icon-border-size: var(--size-border-width-l3);
+	--size-checkbox---radio-large-size: var(--spacing-24);
+	--size-checkbox---radio-large-radius: var(--radius-6);
+	--size-checkbox---radio-large-icon-border-size: var(--size-border-width-l4);
+	--size-checkbox---radio-small-size: var(--spacing-16);
+	--size-checkbox---radio-small-radius: var(--radius-4);
+	--size-checkbox---radio-small-icon-border-size: var(--size-border-width-l3);
+	--size-checkbox---radio-medium-size: var(--spacing-20);
+	--size-checkbox---radio-medium-radius: var(--radius-6);
+	--size-checkbox---radio-medium-icon-border-size: var(--size-border-width-l3);
+	--size-checkbox---radio-large-size: var(--spacing-24);
+	--size-checkbox---radio-large-radius: var(--radius-6);
+	--size-checkbox---radio-large-icon-border-size: var(--size-border-width-l4);
+	--size-checkbox---radio-small-size: var(--spacing-16);
+	--size-checkbox---radio-small-radius: var(--radius-4);
+	--size-checkbox---radio-small-icon-border-size: var(--size-border-width-l3);
+	--size-checkbox---radio-medium-size: var(--spacing-20);
+	--size-checkbox---radio-medium-radius: var(--radius-6);
+	--size-checkbox---radio-medium-icon-border-size: var(--size-border-width-l3);
+	--size-checkbox---radio-large-size: var(--spacing-24);
+	--size-checkbox---radio-large-radius: var(--radius-6);
+	--size-checkbox---radio-large-icon-border-size: var(--size-border-width-l4);
+}
+
+@theme {
+	--color-checkbox---radio-hover: var(--color-checkbox---radio-hover);
+	--color-checkbox---radio-disabled: var(--color-checkbox---radio-disabled);
+	--color-checkbox---radio-checked: var(--color-checkbox---radio-checked);
+	--color-checkbox---radio-default-surface: var(--color-checkbox---radio-default-surface);
+	--color-checkbox---radio-default-border: var(--color-checkbox---radio-default-border);
+	--spacing-checkbox---radio-small-size: var(--size-checkbox---radio-small-size);
+	--radius-checkbox---radio-small-radius: var(--size-checkbox---radio-small-radius);
+	--spacing-checkbox---radio-small-icon-border-size: var(--size-checkbox---radio-small-icon-border-size);
+	--spacing-checkbox---radio-medium-size: var(--size-checkbox---radio-medium-size);
+	--radius-checkbox---radio-medium-radius: var(--size-checkbox---radio-medium-radius);
+	--spacing-checkbox---radio-medium-icon-border-size: var(--size-checkbox---radio-medium-icon-border-size);
+	--spacing-checkbox---radio-large-size: var(--size-checkbox---radio-large-size);
+	--radius-checkbox---radio-large-radius: var(--size-checkbox---radio-large-radius);
+	--spacing-checkbox---radio-large-icon-border-size: var(--size-checkbox---radio-large-icon-border-size);
+}
