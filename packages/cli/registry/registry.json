@@ -1,0 +1,142 @@
+{
+  "name": "nnuikit",
+  "version": "0.0.1",
+  "components": {
+    "button": {
+      "name": "button",
+      "description": "A versatile button component with multiple variants, sizes, and icon support",
+      "files": [
+        { "path": "ui/button/button.svelte", "source": "src/lib/components/ui/button/button.svelte" },
+        { "path": "ui/button/index.ts", "source": "src/lib/components/ui/button/index.ts" },
+        { "path": "ui/button/tokens.css", "source": "src/lib/components/ui/button/tokens.css", "type": "tokens" }
+      ],
+      "dependencies": ["tailwind-variants"],
+      "registryDependencies": ["utils"],
+      "cssImport": "$lib/components/ui/button/tokens.css",
+      "docs": "/docs/components/button"
+    },
+    "checkbox": {
+      "name": "checkbox",
+      "description": "A checkbox component with multiple sizes, indeterminate state, and accessible design",
+      "files": [
+        { "path": "ui/checkbox/checkbox.svelte", "source": "src/lib/components/ui/checkbox/checkbox.svelte" },
+        { "path": "ui/checkbox/index.ts", "source": "src/lib/components/ui/checkbox/index.ts" },
+        { "path": "ui/checkbox/tokens.css", "source": "src/lib/components/ui/checkbox/tokens.css", "type": "tokens" }
+      ],
+      "dependencies": ["@lucide/svelte"],
+      "registryDependencies": ["utils"],
+      "cssImport": "$lib/components/ui/checkbox/tokens.css",
+      "docs": "/docs/components/checkbox"
+    },
+    "input": {
+      "name": "input",
+      "description": "A text input component with multiple states, validation, and design token support",
+      "files": [
+        { "path": "ui/input/input.svelte", "source": "src/lib/components/ui/input/input.svelte" },
+        { "path": "ui/input/index.ts", "source": "src/lib/components/ui/input/index.ts" },
+        { "path": "ui/input/tokens.css", "source": "src/lib/components/ui/input/tokens.css", "type": "tokens" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils"],
+      "cssImport": "$lib/components/ui/input/tokens.css",
+      "docs": "/docs/components/input"
+    },
+    "input-group": {
+      "name": "input-group",
+      "description": "A compound input component with addons, buttons, and inline text/textarea support",
+      "files": [
+        { "path": "ui/input-group/input-group.svelte", "source": "src/lib/components/ui/input-group/input-group.svelte" },
+        { "path": "ui/input-group/input-group-addon.svelte", "source": "src/lib/components/ui/input-group/input-group-addon.svelte" },
+        { "path": "ui/input-group/input-group-button.svelte", "source": "src/lib/components/ui/input-group/input-group-button.svelte" },
+        { "path": "ui/input-group/input-group-input.svelte", "source": "src/lib/components/ui/input-group/input-group-input.svelte" },
+        { "path": "ui/input-group/input-group-text.svelte", "source": "src/lib/components/ui/input-group/input-group-text.svelte" },
+        { "path": "ui/input-group/input-group-textarea.svelte", "source": "src/lib/components/ui/input-group/input-group-textarea.svelte" },
+        { "path": "ui/input-group/index.ts", "source": "src/lib/components/ui/input-group/index.ts" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils", "input"],
+      "docs": "/docs/components/input-group"
+    },
+    "label": {
+      "name": "label",
+      "description": "A form label component with disabled state support",
+      "files": [
+        { "path": "ui/label/label.svelte", "source": "src/lib/components/ui/label/label.svelte" },
+        { "path": "ui/label/index.ts", "source": "src/lib/components/ui/label/index.ts" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils"],
+      "docs": "/docs/components/label"
+    },
+    "progress": {
+      "name": "progress",
+      "description": "A progress bar component with multiple variants, sizes, and animation support",
+      "files": [
+        { "path": "ui/progress/progress.svelte", "source": "src/lib/components/ui/progress/progress.svelte" },
+        { "path": "ui/progress/index.ts", "source": "src/lib/components/ui/progress/index.ts" },
+        { "path": "ui/progress/tokens.css", "source": "src/lib/components/ui/progress/tokens.css", "type": "tokens" }
+      ],
+      "dependencies": ["tailwind-variants"],
+      "registryDependencies": ["utils"],
+      "cssImport": "$lib/components/ui/progress/tokens.css",
+      "docs": "/docs/components/progress"
+    },
+    "radio-group": {
+      "name": "radio-group",
+      "description": "A radio group component with multiple sizes and accessible design using native inputs",
+      "files": [
+        { "path": "ui/radio-group/radio-group.svelte", "source": "src/lib/components/ui/radio-group/radio-group.svelte" },
+        { "path": "ui/radio-group/radio-group-item.svelte", "source": "src/lib/components/ui/radio-group/radio-group-item.svelte" },
+        { "path": "ui/radio-group/context.ts", "source": "src/lib/components/ui/radio-group/context.ts" },
+        { "path": "ui/radio-group/index.ts", "source": "src/lib/components/ui/radio-group/index.ts" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils"],
+      "docs": "/docs/components/radio-group"
+    },
+    "skeleton": {
+      "name": "skeleton",
+      "description": "A loading placeholder component with pulse animation",
+      "files": [
+        { "path": "ui/skeleton/skeleton.svelte", "source": "src/lib/components/ui/skeleton/skeleton.svelte" },
+        { "path": "ui/skeleton/index.ts", "source": "src/lib/components/ui/skeleton/index.ts" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils"],
+      "docs": "/docs/components/skeleton"
+    },
+    "switch": {
+      "name": "switch",
+      "description": "A toggle switch component with multiple sizes and accessible design using native checkbox",
+      "files": [
+        { "path": "ui/switch/switch.svelte", "source": "src/lib/components/ui/switch/switch.svelte" },
+        { "path": "ui/switch/index.ts", "source": "src/lib/components/ui/switch/index.ts" },
+        { "path": "ui/switch/tokens.css", "source": "src/lib/components/ui/switch/tokens.css", "type": "tokens" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils"],
+      "cssImport": "$lib/components/ui/switch/tokens.css",
+      "docs": "/docs/components/switch"
+    },
+    "textarea": {
+      "name": "textarea",
+      "description": "A textarea component with multiple states, validation, and design token support",
+      "files": [
+        { "path": "ui/textarea/textarea.svelte", "source": "src/lib/components/ui/textarea/textarea.svelte" },
+        { "path": "ui/textarea/index.ts", "source": "src/lib/components/ui/textarea/index.ts" }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["utils"],
+      "docs": "/docs/components/textarea"
+    }
+  },
+  "utils": {
+    "files": [
+      {
+        "path": "utils/tailwindUtil.ts",
+        "source": "src/lib/utils/tailwindUtil.ts"
+      }
+    ],
+    "dependencies": ["clsx", "tailwind-merge"]
+  }
+}

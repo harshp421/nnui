@@ -1,0 +1,33 @@
+{
+  "name": "nnuikit",
+  "version": "0.0.4",
+  "description": "CLI for adding nnuikit components to your Svelte project",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "nnuikit": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "registry"
+  ],
+  "scripts": {
+    "test": "node --test tests/cli.test.js",
+    "sync-registry": "node scripts/sync-registry.js",
+    "prepublishOnly": "node scripts/sync-registry.js"
+  },
+  "keywords": [
+    "svelte",
+    "components",
+    "ui",
+    "design-system",
+    "tailwindcss"
+  ],
+  "dependencies": {
+    "commander": "^13.0.0",
+    "prompts": "^2.4.2",
+    "chalk": "^5.4.0",
+    "ora": "^8.1.0",
+    "fs-extra": "^11.2.0"
+  }
+}
