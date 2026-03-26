@@ -11,6 +11,7 @@
     PropsTable,
     ComponentSource,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   let disabled = $state(false);
   let placeholder = $state("Type your message here.");
@@ -46,6 +47,8 @@
     },
   ];
 </script>
+
+<Seo title="Textarea" description="A textarea component with auto-resize, character count, validation states, and design token support." />
 
 <DocsPage>
   <PageHeader

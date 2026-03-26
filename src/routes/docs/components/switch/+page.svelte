@@ -10,6 +10,7 @@
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   const sizes = [
     { value: "sm" as const, label: "Small" },
@@ -60,6 +61,8 @@
     },
   ];
 </script>
+
+<Seo title="Switch" description="A toggle switch component using native checkbox input with accessible design. Multiple sizes and design token support." />
 
 <DocsPage>
   <PageHeader

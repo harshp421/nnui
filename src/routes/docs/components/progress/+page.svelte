@@ -11,6 +11,7 @@
     PropsTable,
     ComponentSource,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   let value = $state(50);
   const max = 100;
@@ -69,6 +70,8 @@
     }
   });
 </script>
+
+<Seo title="Progress" description="A progress bar component with multiple variants, sizes, animation support, and design tokens." />
 
 <DocsPage>
   <PageHeader

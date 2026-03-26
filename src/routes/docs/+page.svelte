@@ -1,10 +1,13 @@
 <script lang="ts">
+	import Seo from '$lib/components/seo.svelte';
 	import DocsPage from '$lib/components/docs/docs-page.svelte';
 
 	import PageHeader from '$lib/components/docs/page-header.svelte';
 
 	import CodeBlock from '$lib/components/docs/code-block.svelte';
 </script>
+
+<Seo title="Introduction" description="nnuikit is a collection of accessible Svelte 5 components with a customizable design token system. Copy and paste components into your project." />
 
 <DocsPage>
 	<PageHeader

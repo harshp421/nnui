@@ -18,16 +18,7 @@
 
 /* Root Variables (Default Theme) */
 :root {
-	--background: oklch(0.9911 0 0);
-	--foreground: oklch(0.2046 0 0);
-	--card: oklch(0.9911 0 0);
-	--card-foreground: oklch(0.2046 0 0);
-	--popover: oklch(0.9911 0 0);
-	--popover-foreground: oklch(0.4386 0 0);
-	--border: oklch(0.9037 0 0);
-	--input: oklch(0.9731 0 0);
-	--ring: oklch(0.9731 0 0);
-
+	
 	--color-pin-complain-active-surface: var(--color-surface-complain-active);
 	--color-pin-complain-active-frame: var(--color-surface-complain-active);
 	--color-pin-complain-active-icon: var(--color-base-pure-white);

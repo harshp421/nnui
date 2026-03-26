@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/seo.svelte';
 	import {
 		DocsPage,
 		PageHeader,
@@ -51,6 +52,8 @@
 		}
 	];
 </script>
+
+<Seo title="Checkbox" description="An accessible checkbox component using native HTML input with hidden input + styled sibling pattern. Supports indeterminate state, 3 sizes, and design tokens." />
 
 <DocsPage>
 	<PageHeader

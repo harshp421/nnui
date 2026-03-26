@@ -1,12 +1,23 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: '404.html',
+			precompress: false
+		}),
+		prerender: {
+			entries: ['*'],
+			handleHttpError: ({ path }) => {
+				// Ignore missing OG image and other static assets during prerender
+				if (path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.svg')) {
+					return;
+				}
+			}
+		}
 	},
 	vitePlugin: {
 		dynamicCompileOptions: ({ filename }) =>

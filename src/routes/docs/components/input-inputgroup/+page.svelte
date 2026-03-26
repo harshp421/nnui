@@ -11,6 +11,7 @@
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   const inputTypes = [
     { value: "text" as const, label: "Text" },
@@ -106,6 +107,8 @@ import * as InputGroup from "$lib/components/ui/input-group";`;
     },
   ];
 </script>
+
+<Seo title="Input & Input Group" description="Text input and compound input group components with addons, buttons, validation states, and design token support." />
 
 <DocsPage>
   <PageHeader

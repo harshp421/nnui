@@ -8,6 +8,7 @@
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   const installationCode = `import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";`;
 
@@ -20,6 +21,8 @@
     },
   ];
 </script>
+
+<Seo title="Skeleton" description="A loading placeholder component with pulse animation. Zero dependencies, pure CSS." />
 
 <DocsPage>
   <PageHeader

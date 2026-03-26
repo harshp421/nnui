@@ -10,6 +10,7 @@
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   const orientations = [
     { value: "vertical", label: "Vertical" },
@@ -89,6 +90,8 @@
     },
   ];
 </script>
+
+<Seo title="Radio Group" description="A radio group component using native radio inputs with Svelte context for state management. 3 sizes, fully accessible." />
 
 <DocsPage>
   <PageHeader

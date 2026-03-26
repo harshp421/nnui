@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/seo.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { CodeBlock } from '$lib/components/docs';
 
@@ -53,6 +54,11 @@
 		}
 	];
 </script>
+
+<Seo
+	description="A design-token-driven Svelte 5 component library with 3-layer token architecture. Add components via CLI — npx nnuikit add. Built with Tailwind CSS v4, fully accessible, zero dependencies."
+	keywords="svelte 5 ui library, svelte component library, design tokens, tailwindcss v4, shadcn svelte, CLI component library, accessible components"
+/>
 
 <div class="relative flex min-h-screen flex-col overflow-hidden bg-surface-statics-vv-white">
 

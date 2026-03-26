@@ -1,6 +1,9 @@
 <script lang="ts">
+	import Seo from '$lib/components/seo.svelte';
 	import { DocsPage, PageHeader, CodeBlock } from '$lib/components/docs';
 </script>
+
+<Seo title="Theming" description="Learn the 3-layer design token architecture in nnuikit. Base palette, semantic tokens, and component tokens — how they work together for dark mode, themes, and customization." />
 
 <DocsPage>
 	<PageHeader

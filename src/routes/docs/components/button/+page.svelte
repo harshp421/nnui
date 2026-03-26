@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/seo.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import {
 		DocsPage,
@@ -170,6 +171,8 @@
 		}
 	];
 </script>
+
+<Seo title="Button" description="A versatile button component with 9 variants, 7 sizes, icon support, and full keyboard accessibility. Built with design tokens and Tailwind CSS v4." />
 
 <DocsPage>
 	<PageHeader
