@@ -1,0 +1,48 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   INPUT GROUP — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Input Group component.
+   This file is automatically added when you run: npx nnuikit add input-group
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   Note: Shares input-box token namespace with Input component
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-input-box-default-surface: var(--color-surface-neutral-l1);
+	--color-input-box-default-border: var(--color-border-neutral-l3);
+	--color-input-box-default-text: var(--color-text-neutral-secondary);
+	--color-input-box-default-icon: var(--color-icon-neutral-secondary);
+	--color-input-box-hover-surface: var(--color-surface-neutral-l2);
+	--color-input-box-hover-border: var(--color-border-neutral-l4);
+	--color-input-box-hover-text: var(--color-text-neutral-secondary);
+	--color-input-box-hover-icon: var(--color-icon-neutral-secondary);
+	--color-input-box-active-surface: var(--color-surface-brand-l1);
+	--color-input-box-active-border: var(--color-brand-700);
+	--color-input-box-active-text: var(--color-text-neutral-primary);
+	--color-input-box-active-icon: var(--color-icon-neutral-primary);
+	--color-input-box-filled-surface: var(--color-surface-neutral-l2);
+	--color-input-box-filled-border: var(--color-border-neutral-l4);
+	--color-input-box-filled-text: var(--color-text-neutral-primary);
+	--color-input-box-filled-icon: var(--color-icon-neutral-primary);
+	--color-input-box-disabled-surface: var(--color-surface-neutral-l1);
+	--color-input-box-disabled-border: var(--color-border-neutral-l1);
+	--color-input-box-disabled-text: var(--color-text-neutral-qauternary);
+	--color-input-box-disabled-icon: var(--color-icon-neutral-qauternary);
+	--color-input-box-destructive-surface: var(--color-surface-destructive-l1);
+	--color-input-box-destructive-border: var(--color-border-destructive-primary);
+	--color-input-box-destructive-text: var(--color-text-neutral-primary);
+	--color-input-box-destructive-icon: var(--color-icon-neutral-primary);
+	--color-input-box-warning-surface: var(--color-surface-warning-l1);
+	--color-input-box-warning-border: var(--color-border-warning-primary);
+	--color-input-box-warning-text: var(--color-text-neutral-primary);
+	--color-input-box-warning-icon: var(--color-icon-neutral-primary);
+	--color-input-label-default: var(--color-text-neutral-primary);
+	--color-input-label-disabled: var(--color-text-neutral-tertiary);
+	--size-input-default-height: var(--spacing-48);
+	--size-input-default-radius: var(--radius-10);
+	--size-input-default-gap: var(--radius-10);
+	--size-input-default-padding-all-sides: var(--radius-10);
+	--size-input-default-text-padding-left-right: var(--radius-10);
+	--size-input-default-icon-size: var(--radius-10);
+}

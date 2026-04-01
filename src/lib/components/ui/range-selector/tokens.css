@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   RANGE SELECTOR — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Range Selector component.
+   This file is automatically added when you run: npx nnuikit add range-selector
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-range-selector-track--bar: var(--color-surface-neutral-l3);
+	--color-range-selector-value-bar-default: var(--color-surface-brand-primary);
+	--color-range-selector-handle-default-surface: var(--color-surface-neutral-l2);
+	--color-range-selector-handle-default-border: var(--color-border-neutral-l5);
+	--color-range-selector-handle-active-surface: var(--color-surface-statics-vv-white);
+	--color-range-selector-handle-active-border: var(--color-border-brand-primary);
+	--color-range-selector-value-bar-disabled: var(--color-neutral-500);
+	--size-range-selector-tool-tip-radius: var(--radius-8);
+	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-tube-radius: var(--radius-full);
+	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-water-radius: var(--radius-full);
+	--size-range-selector-handle-height: var(--spacing-20);
+	--size-range-selector-handle-width: var(--spacing-20);
+	--size-range-selector-handle-border: var(--border-width-l1);
+	--size-range-selector-handle-radius: var(--radius-full);
+	--size-range-selector-tool-tip-radius: var(--radius-8);
+	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-tube-radius: var(--radius-full);
+	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-water-radius: var(--radius-full);
+	--size-range-selector-handle-height: var(--spacing-20);
+	--size-range-selector-handle-width: var(--spacing-20);
+	--size-range-selector-handle-border: var(--border-width-l1);
+	--size-range-selector-handle-radius: var(--radius-full);
+	--size-range-selector-tool-tip-radius: var(--radius-8);
+	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-tube-radius: var(--radius-full);
+	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-water-radius: var(--radius-full);
+	--size-range-selector-handle-height: var(--spacing-20);
+	--size-range-selector-handle-width: var(--spacing-20);
+	--size-range-selector-handle-border: var(--border-width-l1);
+	--size-range-selector-handle-radius: var(--radius-full);
+}

@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   BADGE — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Badge component.
+   This file is automatically added when you run: npx nnuikit add badge
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-badge-brand-default-surface: var(--color-surface-brand-l2);
+	--color-badge-brand-default-text: var(--color-text-brand-primary);
+	--color-badge-brand-default-icon: var(--color-icon-brand-primary);
+	--color-badge-brand-bordered-surface: var(--color-surface-brand-l1);
+	--color-badge-brand-bordered-text: var(--color-text-brand-secondary);
+	--color-badge-brand-bordered-icon: var(--color-icon-brand-secondary);
+	--color-badge-brand-bordered-border: var(--color-border-brand-l4);
+	--color-badge-brand-solid-surface: var(--color-surface-brand-primary);
+	--color-badge-brand-solid-text: var(--color-text-statics-pure-white);
+	--color-badge-brand-solid-icon: var(--color-icon-statics-pure-white);
+	--color-badge-neutral-default-surface: var(--color-surface-neutral-l4);
+	--color-badge-neutral-default-text: var(--color-text-neutral-secondary);
+	--color-badge-neutral-default-icon: var(--color-icon-neutral-secondary);
+	--color-badge-neutral-bordered-surface: var(--color-surface-neutral-l1);
+	--color-badge-neutral-bordered-text: var(--color-text-neutral-secondary);
+	--color-badge-neutral-bordered-icon: var(--color-icon-neutral-secondary);
+	--color-badge-neutral-bordered-border: var(--color-border-neutral-l3);
+	--color-badge-neutral-solid-surface: var(--color-surface-neutral-primary);
+	--color-badge-neutral-solid-text: var(--color-text-statics-pure-white);
+	--color-badge-neutral-solid-icon: var(--color-icon-statics-pure-white);
+	--color-badge-destructive-default-surface: var(--color-surface-destructive-l2);
+	--color-badge-destructive-default-text: var(--color-text-destructive-secondary);
+	--color-badge-destructive-default-icon: var(--color-icon-destructive-secondary);
+	--color-badge-destructive-bordered-surface: var(--color-surface-destructive-l1);
+	--color-badge-destructive-bordered-text: var(--color-text-destructive-secondary);
+	--color-badge-destructive-bordered-icon: var(--color-icon-destructive-secondary);
+	--color-badge-destructive-bordered-border: var(--color-border-destructive-l4);
+	--color-badge-destructive-solid-surface: var(--color-surface-destructive-secondary);
+	--color-badge-destructive-solid-text: var(--color-text-statics-pure-white);
+	--color-badge-destructive-solid-icon: var(--color-icon-statics-pure-white);
+	--color-badge-warnig-default-surface: var(--color-surface-warning-l2);
+	--color-badge-warnig-default-text: var(--color-text-warning-primary);
+	--color-badge-warnig-default-icon: var(--color-icon-warning-primary);
+	--color-badge-warnig-bordered-surface: var(--color-surface-warning-l1);
+	--color-badge-warnig-bordered-text: var(--color-text-warning-primary);
+	--color-badge-warnig-bordered-icon: var(--color-icon-warning-primary);
+	--color-badge-warnig-bordered-border: var(--color-border-warning-l4);
+	--color-badge-warnig-solid-surface: var(--color-surface-warning-primary);
+	--color-badge-warnig-solid-text: var(--color-text-statics-pure-black);
+	--color-badge-warnig-solid-icon: var(--color-icon-statics-pure-black);
+	--color-badge-success-default-surface: var(--color-surface-success-l2);
+	--color-badge-success-default-text: var(--color-text-success-primary);
+	--color-badge-success-default-icon: var(--color-icon-success-primary);
+	--color-badge-success-bordered-surface: var(--color-surface-success-l1);
+	--color-badge-success-bordered-text: var(--color-text-success-secondary);
+	--color-badge-success-bordered-icon: var(--color-icon-success-secondary);
+	--color-badge-success-bordered-border: var(--color-border-success-l4);
+	--color-badge-success-solid-surface: var(--color-surface-success-primary);
+	--color-badge-success-solid-text: var(--color-text-statics-pure-white);
+	--color-badge-success-solid-icon: var(--color-icon-statics-pure-white);
+	--color-badge-info-default-surface: var(--color-surface-info-l2);
+	--color-badge-info-default-text: var(--color-text-info-primary);
+	--color-badge-info-default-icon: var(--color-icon-info-primary);
+	--color-badge-info-bordered-surface: var(--color-surface-info-l1);
+	--color-badge-info-bordered-text: var(--color-text-info-secondary);
+	--color-badge-info-bordered-icon: var(--color-icon-info-secondary);
+	--color-badge-info-bordered-border: var(--color-border-info-l4);
+	--color-badge-info-solid-surface: var(--color-surface-info-primary);
+	--color-badge-info-solid-text: var(--color-text-statics-pure-white);
+	--color-badge-info-solid-icon: var(--color-icon-statics-pure-white);
+
+	--size-badge-small-size: var(--spacing-24);
+	--size-badge-small-icon-size: var(--spacing-16);
+	--size-badge-small-icon-border-size: var(--border-width-l1);
+	--size-badge-small-gap: var(--spacing-2);
+	--size-badge-small-text-padding-left-right: var(--spacing-4);
+	--size-badge-small-padding-all-sides: var(--spacing-4);
+	--size-badge-small-radius-semirounded: var(--radius-6);
+	--size-badge-small-radius-fully-rounded: var(--radius-full);
+	--size-badge-medium-size: var(--spacing-28);
+	--size-badge-medium-icon-size: var(--spacing-18);
+	--size-badge-medium-icon-border-size: var(--border-width-l1);
+	--size-badge-medium-gap: var(--spacing-2);
+	--size-badge-medium-padding-all-sides: var(--spacing-4);
+	--size-badge-medium-text-padding-left-right: var(--spacing-4);
+	--size-badge-medium-radius-semirounded: var(--radius-6);
+	--size-badge-medium-radius-fully-rounded: var(--radius-full);
+	--size-badge-large-size: var(--spacing-32);
+	--size-badge-large-icon-size: var(--spacing-20);
+	--size-badge-large-icon-border-size: var(--border-width-l1);
+	--size-badge-large-gap: var(--spacing-2);
+	--size-badge-large-padding-all-sides: var(--spacing-6);
+	--size-badge-large-text-padding-left-right: var(--spacing-4);
+	--size-badge-large-radius-semirounded: var(--radius-8);
+	--size-badge-large-radius-fully-rounded: var(--radius-full);
+}

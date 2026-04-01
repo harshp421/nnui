@@ -1,0 +1,51 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   FILE UPLOADER — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the File Uploader component.
+   This file is automatically added when you run: npx nnuikit add file-uploader
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-darg-drop-box-default-surface: var(--color-surface-neutral-l2);
+	--color-darg-drop-box-default-border: var(--color-border-neutral-l2);
+	--color-darg-drop-box-default-primary-text: var(--color-text-neutral-primary);
+	--color-darg-drop-box-default-secondary-text: var(--color-text-neutral-tertiary);
+	--color-darg-drop-box-default-highlight-text: var(--color-text-brand-primary);
+	--color-darg-drop-box-default-icon-surface: var(--color-surface-brand-primary);
+	--color-darg-drop-box-default-icon: var(--color-icon-statics-pure-white);
+	--color-darg-drop-box-active-surface: var(--color-surface-brand-l1);
+	--color-darg-drop-box-active-border: var(--color-border-brand-primary);
+	--color-darg-drop-box-active-primary-text: var(--color-text-neutral-primary);
+	--color-darg-drop-box-active-secondary-text: var(--color-text-neutral-tertiary);
+	--color-darg-drop-box-active-highlight-text: var(--color-text-brand-primary);
+	--color-darg-drop-box-active-icon-surface: var(--color-surface-brand-primary);
+	--color-darg-drop-box-active-icon: var(--color-icon-statics-pure-white);
+	--color-darg-drop-attachment-default-surface: var(--color-surface-neutral-l2);
+	--color-darg-drop-attachment-default-border: var(--color-border-neutral-l1);
+	--color-darg-drop-attachment-default-text-file-title: var(--color-text-neutral-primary);
+	--color-darg-drop-attachment-default-text-flie-size: var(--color-text-neutral-tertiary);
+	--color-darg-drop-attachment-default-text-progress: var(--color-text-info-primary);
+	--color-darg-drop-attachment-success-surface: var(--color-surface-success-l1);
+	--color-darg-drop-attachment-success-border: var(--color-border-success-l3);
+	--color-darg-drop-attachment-success-text-file-title: var(--color-text-neutral-primary);
+	--color-darg-drop-attachment-success-text-flie-size: var(--color-text-neutral-tertiary);
+	--color-darg-drop-attachment-success-text-progress: var(--color-text-success-primary);
+	--color-darg-drop-attachment-error-surface: var(--color-surface-destructive-l1);
+	--color-darg-drop-attachment-error-border: var(--color-border-destructive-l3);
+	--color-darg-drop-attachment-error-text-file-title: var(--color-text-neutral-primary);
+	--color-darg-drop-attachment-error-text-flie-size: var(--color-text-neutral-tertiary);
+	--color-darg-drop-attachment-error-text-progress: var(--color-text-destructive-primary);
+	--size-input-drag-drop-attachment-height: 0;
+	--size-input-drag-drop-attachment-gap: 0;
+	--size-input-drag-drop-attachment-padding-all-sides: 0;
+	--size-input-drag-drop-attachment-text-vertical-gap: 0;
+	--size-input-drag-drop-attachment-actions-gap: 0;
+	--size-input-drag-drop-attachment-radius: 0;
+	--size-input-drag-drop-box-icon-indicator-size: String value;
+	--size-input-drag-drop-box-radius: var(--radius-10);
+	--size-input-drag-drop-box-gap: var(--radius-10);
+	--size-input-drag-drop-box-text-gap: var(--radius-10);
+	--size-input-drag-drop-box-padding-all-sides: var(--radius-10);
+}

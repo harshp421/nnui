@@ -3,8 +3,11 @@ import path from "path";
 import fs from "fs-extra";
 import ora from "ora";
 import { execSync } from "child_process";
+import { fileURLToPath } from "url";
 import { writeConfig } from "../utils/config.js";
 import { logger } from "../utils/logger.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export async function initCommand(options) {
   logger.info("Initializing nnuikit in your project...\n");
@@ -143,15 +146,51 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
     }
   }
 
+  // Write base design tokens to user's CSS file
+  const tokenSpinner = ora("Writing base design tokens...").start();
+  try {
+    const baseTokensSource = path.resolve(__dirname, "../../registry/base-tokens.css");
+    const baseTokensContent = await fs.readFile(baseTokensSource, "utf-8");
+
+    const cssFilePath = path.resolve(process.cwd(), response.cssPath);
+
+    if (await fs.pathExists(cssFilePath)) {
+      // Append @import for base tokens after any existing @import lines
+      const existing = await fs.readFile(cssFilePath, "utf-8");
+      const importLine = `@import '$lib/nnuikit-tokens.css';`;
+
+      if (!existing.includes("nnuikit-tokens.css")) {
+        const lines = existing.split("\n");
+        let insertAt = 0;
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].trim().startsWith("@import")) insertAt = i + 1;
+        }
+        lines.splice(insertAt, 0, importLine);
+        await fs.writeFile(cssFilePath, lines.join("\n"));
+      }
+    }
+
+    // Write the token file to src/lib/
+    const tokenDest = path.resolve(process.cwd(), "src/lib/nnuikit-tokens.css");
+    await fs.ensureDir(path.dirname(tokenDest));
+    if (!(await fs.pathExists(tokenDest))) {
+      await fs.writeFile(tokenDest, baseTokensContent);
+      tokenSpinner.succeed("Created src/lib/nnuikit-tokens.css  (base design tokens)");
+    } else {
+      tokenSpinner.succeed("src/lib/nnuikit-tokens.css already exists, skipping");
+    }
+  } catch {
+    tokenSpinner.warn("Could not write base tokens — copy them manually from the docs");
+  }
+
   logger.break();
   logger.success("nnuikit initialized successfully!");
   logger.break();
   logger.info("Next steps:");
-  console.log("  1. Add design tokens to your CSS file (see docs)");
-  console.log("  2. Run: npx nnuikit add button");
-  console.log(
-    "  3. Import: import { Button } from '$lib/components/ui/button'"
-  );
+  console.log("  1. Base design tokens written to src/lib/nnuikit-tokens.css");
+  console.log("  2. Customize your brand color: https://nnuikit.dev/docs/getting-started/theming");
+  console.log("  3. Run: npx nnuikit add button");
+  console.log("  4. Import: import { Button } from '$lib/components/ui/button'");
   logger.break();
 }
 

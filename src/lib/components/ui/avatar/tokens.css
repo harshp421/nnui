@@ -1,0 +1,26 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   AVATAR — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Avatar component.
+   This file is automatically added when you run: npx nnuikit add avatar
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-avatars-surface: var(--color-surface-brand-l2);
+	--color-avatars-online: var(--color-surface-success-primary);
+	--color-avatars-online-indicator-border: var(--color-surface-statics-vv-white);
+	--color-avatars-offline: var(--color-icon-neutral-tertiary);
+	--color-avatars-icon: var(--color-surface-brand-primary);
+	--size-avatar-user-profile-xxs: 0;
+	--size-avatar-user-profile-xs: 0;
+	--size-avatar-user-profile-s: 0;
+	--size-avatar-user-profile-m: 0;
+	--size-avatar-user-profile-l: 0;
+	--size-avatar-user-profile-xl: 0;
+	--size-avatar-user-profile-xxl: 0;
+	--size-avatar-online-indicator-s: 0;
+	--size-avatar-online-indicator-m: 0;
+	--size-avatar-online-indicator-l: 0;
+}

@@ -1,0 +1,24 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   DROPDOWN MENU — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Dropdown Menu component.
+   This file is automatically added when you run: npx nnuikit add dropdown-menu
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   Note: Uses glass UI tokens for frosted backdrop styling
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-glass-blur-surface: rgba(255, 255, 255, 0.75);
+	--color-glass-blur-border: rgba(255, 255, 255, 0.85);
+	--color-glass-text-primary: var(--transparency-viceversa-black-900);
+	--color-glass-text-secondary: var(--transparency-viceversa-black-600);
+	--color-glass-text-tertiary: var(--transparency-viceversa-black-400);
+	--color-glass-surface-default: var(--transparency-viceversa-white-500);
+	--color-glass-surface-hover: var(--transparency-viceversa-white-500);
+	--color-glass-surface-active: var(--transparency-viceversa-black-950);
+	--color-glass-icon-default: var(--transparency-viceversa-black-500);
+	--color-glass-icon-hover: var(--transparency-viceversa-black-600);
+	--color-glass-icon-active: var(--transparency-viceversa-white-950);
+	--color-glass-border-l1: var(--transparency-viceversa-white-400);
+}

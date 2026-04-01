@@ -1,400 +1,520 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo.svelte';
 	import { DocsPage, PageHeader, CodeBlock } from '$lib/components/docs';
+	import {
+		generatePalette,
+		applyBrandPalette,
+		applyPresetTheme,
+		exportCssTokens,
+		extractColorsFromImage,
+		askGeminiBrandColor,
+		askGeminiPickFromColors,
+		PALETTE_STEPS,
+		type BrandPalette,
+		type PaletteStep
+	} from '$lib/utils/theme-utils';
+
+	// ── Builder state ──────────────────────────────────────────────────
+
+	let activeTab = $state<'preset' | 'hex' | 'logo' | 'ai'>('preset');
+	let activePreset = $state('green');
+
+	// Hex tab
+	let hexColor = $state('#30a46c');
+	let hexInputText = $state('#30a46c');
+	let hexError = $state('');
+
+	// Logo tab
+	let isDragging = $state(false);
+	let logoPreviewUrl = $state<string | null>(null);
+	let extractedColors = $state<string[]>([]);
+	let extracting = $state(false);
+	let logoSelectedIdx = $state(0);
+	let logoInput = $state<HTMLInputElement | null>(null);
+
+	// AI tab
+	let geminiKey = $state('');
+	let brandDesc = $state('');
+	let aiLoading = $state(false);
+	let aiError = $state('');
+	let aiResult = $state<{ color: string; rationale: string } | null>(null);
+
+	// Current palette (always in sync with applied theme)
+	let currentPalette = $state<BrandPalette>(generatePalette('#30a46c'));
+
+	// Export
+	let copied = $state(false);
+
+	const PRESETS = [
+		{ name: 'green',  label: 'Green',  hex: '#30a46c' },
+		{ name: 'blue',   label: 'Blue',   hex: '#3e63dd' },
+		{ name: 'violet', label: 'Violet', hex: '#6e56cf' },
+		{ name: 'pink',   label: 'Pink',   hex: '#e93d82' },
+		{ name: 'cyan',   label: 'Cyan',   hex: '#05a2c2' },
+		{ name: 'orange', label: 'Orange', hex: '#f76808' }
+	];
+
+	// Load saved API key on mount
+	$effect(() => {
+		const saved = localStorage.getItem('nnuikit_gemini_key');
+		if (saved) geminiKey = saved;
+	});
+
+	// ── Actions ────────────────────────────────────────────────────────
+
+	function pickPreset(name: string, hex: string) {
+		activePreset = name;
+		currentPalette = generatePalette(hex);
+		hexColor = hex;
+		hexInputText = hex;
+		applyPresetTheme(name);
+	}
+
+	function handleHexInput(val: string) {
+		hexInputText = val;
+		const clean = val.startsWith('#') ? val : `#${val}`;
+		if (/^#[0-9a-fA-F]{6}$/.test(clean)) {
+			hexError = '';
+			hexColor = clean;
+			currentPalette = generatePalette(clean);
+			applyBrandPalette(currentPalette);
+			activePreset = 'custom';
+		} else {
+			hexError = 'Enter a valid 6-digit hex like #7c3aed';
+		}
+	}
+
+	function handleColorPicker(e: Event) {
+		const val = (e.target as HTMLInputElement).value;
+		hexColor = val;
+		hexInputText = val;
+		hexError = '';
+		currentPalette = generatePalette(val);
+		applyBrandPalette(currentPalette);
+		activePreset = 'custom';
+	}
+
+	async function handleLogoFile(file: File) {
+		if (!file.type.startsWith('image/')) return;
+		if (logoPreviewUrl) URL.revokeObjectURL(logoPreviewUrl);
+		logoPreviewUrl = URL.createObjectURL(file);
+		extracting = true;
+		extractedColors = [];
+		extractedColors = await extractColorsFromImage(file);
+		extracting = false;
+		logoSelectedIdx = 0;
+		if (extractedColors.length > 0) applyExtracted(0);
+	}
+
+	function applyExtracted(idx: number) {
+		logoSelectedIdx = idx;
+		const color = extractedColors[idx];
+		if (!color) return;
+		currentPalette = generatePalette(color);
+		hexColor = color;
+		hexInputText = color;
+		applyBrandPalette(currentPalette);
+		activePreset = 'custom';
+	}
+
+	async function generateAiColor() {
+		if (!geminiKey.trim()) { aiError = 'Enter your Gemini API key first.'; return; }
+		if (!brandDesc.trim()) { aiError = 'Describe your brand first.'; return; }
+		aiLoading = true; aiError = ''; aiResult = null;
+		try {
+			const result = await askGeminiBrandColor(geminiKey, brandDesc);
+			aiResult = result;
+			currentPalette = generatePalette(result.color);
+			hexColor = result.color;
+			hexInputText = result.color;
+			applyBrandPalette(currentPalette);
+			activePreset = 'custom';
+			localStorage.setItem('nnuikit_gemini_key', geminiKey);
+		} catch (e: unknown) {
+			aiError = e instanceof Error ? e.message : 'AI request failed.';
+		} finally {
+			aiLoading = false;
+		}
+	}
+
+	async function aiPickFromLogo() {
+		if (!geminiKey.trim()) { aiError = 'Enter your Gemini API key first.'; return; }
+		if (extractedColors.length === 0) { aiError = 'Upload a logo first (in the Logo tab).'; return; }
+		aiLoading = true; aiError = ''; aiResult = null;
+		try {
+			const result = await askGeminiPickFromColors(geminiKey, extractedColors);
+			aiResult = result;
+			const idx = extractedColors.indexOf(result.color);
+			applyExtracted(idx >= 0 ? idx : 0);
+			localStorage.setItem('nnuikit_gemini_key', geminiKey);
+		} catch (e: unknown) {
+			aiError = e instanceof Error ? e.message : 'AI request failed.';
+		} finally {
+			aiLoading = false;
+		}
+	}
+
+	function copyTokens() {
+		navigator.clipboard.writeText(exportCssTokens(currentPalette));
+		copied = true;
+		setTimeout(() => (copied = false), 2000);
+	}
+
+	function isDarkStep(step: number): boolean {
+		return step >= 500;
+	}
 </script>
 
-<Seo title="Theming" description="Learn the 3-layer design token architecture in nnuikit. Base palette, semantic tokens, and component tokens — how they work together for dark mode, themes, and customization." />
+<Seo title="Theming" description="Customize your brand color with the interactive Theme Builder. Pick a preset, enter a hex, upload your logo, or use AI — then copy the generated CSS tokens into your project." />
 
 <DocsPage>
 	<PageHeader
 		title="Theming"
-		description="nnuikit uses a 3-layer design token architecture built on CSS custom properties and Tailwind CSS v4. Here's why — and how to use it."
+		description="Customize your brand color interactively. Pick a preset, enter a hex value, upload your logo, or ask AI — the page updates live so you can see how every component looks."
 	/>
 
-	<div class="mt-12 flex flex-col gap-12">
-		<!-- SECTION: Why 3 Layers? -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">Why 3 Layers of Design Tokens?</h2>
-			<p class="text-text-neutral-secondary leading-relaxed">
-				You might think: "Why not just use <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">--color-brand-800</code> directly everywhere?"
-				That works — until you need dark mode, theme switching, or component-specific overrides.
-				Here's why nnuikit uses a 3-layer architecture.
-			</p>
-		</section>
+	<div class="mt-8 flex flex-col gap-10">
 
-		<!-- SECTION: The 3 Layers Explained -->
-		<section class="space-y-6">
-			<h2 class="text-2xl font-bold tracking-tight">The 3-Layer Token Architecture</h2>
+		<!-- ═══════════════════════════════════════════════════════════════
+		     INTERACTIVE THEME BUILDER
+		     ═══════════════════════════════════════════════════════════════ -->
+		<section class="flex flex-col gap-5 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
 
-			<div class="space-y-4">
-				<div class="rounded-xl border border-border-brand-l3 bg-surface-brand-l1 p-6">
-					<div class="mb-2 flex items-center gap-3">
-						<span class="inline-flex size-8 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">1</span>
-						<h3 class="text-lg font-semibold">Base Palette — "What colors exist?"</h3>
-					</div>
-					<p class="text-sm text-text-neutral-secondary">
-						Raw color values with no meaning attached. Just shades of each color.
+			<!-- Header -->
+			<div>
+				<h2 class="text-xl font-bold tracking-tight">Theme Builder</h2>
+				<p class="mt-1 text-sm text-text-neutral-tertiary">
+					Pick a preset, enter a hex color, upload your logo, or use AI — the entire page updates live.
+				</p>
+			</div>
+
+			<!-- Tab bar -->
+			<div class="flex gap-1 rounded-xl border border-border-neutral-l4 bg-surface-statics-vv-white p-1">
+				{#each [['preset','Presets'], ['hex','Color'], ['logo','Logo'], ['ai','AI']] as [tab, label]}
+					<button
+						onclick={() => (activeTab = tab as typeof activeTab)}
+						class="flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-all
+							{activeTab === tab
+								? 'bg-surface-brand-l1 text-text-brand-primary shadow-sm'
+								: 'text-text-neutral-tertiary hover:text-text-neutral-primary'}"
+					>
+						{label}
+					</button>
+				{/each}
+			</div>
+
+			<!-- ── Tab: Presets ───────────────────────────────────────────── -->
+			{#if activeTab === 'preset'}
+				<div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+					{#each PRESETS as preset}
+						<button
+							onclick={() => pickPreset(preset.name, preset.hex)}
+							class="flex flex-col items-center gap-2.5 rounded-xl border-2 py-4 transition-all
+								{activePreset === preset.name
+									? 'border-border-brand-l3 bg-surface-brand-l1'
+									: 'border-border-neutral-l4 hover:border-border-neutral-l2 hover:bg-surface-neutral-l1'}"
+						>
+							<div class="size-8 rounded-full shadow-sm" style="background-color: {preset.hex}"></div>
+							<span class="text-xs font-medium {activePreset === preset.name ? 'text-text-brand-primary' : 'text-text-neutral-secondary'}">
+								{preset.label}
+							</span>
+						</button>
+					{/each}
+				</div>
+
+			<!-- ── Tab: Custom Hex ────────────────────────────────────────── -->
+			{:else if activeTab === 'hex'}
+				<div class="flex flex-col gap-4">
+					<p class="text-sm leading-relaxed text-text-neutral-secondary">
+						Enter any hex — it becomes <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">brand-700</code> and a full 12-step palette is generated around it automatically.
 					</p>
-					<div class="mt-3">
-						<CodeBlock
-							code={`--color-brand-100: #dbeafe;   /* lightest */
---color-brand-400: #60a5fa;
---color-brand-700: #1d4ed8;
---color-brand-800: #1e3a8a;   /* darkest */`}
-							language="css"
+					<div class="flex items-center gap-3">
+						<input
+							type="color"
+							value={hexColor}
+							oninput={handleColorPicker}
+							onchange={handleColorPicker}
+							class="h-10 w-10 shrink-0 cursor-pointer rounded-lg border border-border-neutral-l2 p-0.5"
+						/>
+						<input
+							type="text"
+							value={hexInputText}
+							oninput={(e) => handleHexInput((e.target as HTMLInputElement).value)}
+							placeholder="#30a46c"
+							spellcheck={false}
+							class="flex-1 rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-3 py-2 font-mono text-sm outline-none focus:border-border-brand-l3 focus:ring-2 focus:ring-surface-brand-l2"
 						/>
 					</div>
+					{#if hexError}
+						<p class="text-xs text-red-500">{hexError}</p>
+					{/if}
 				</div>
 
-				<div class="flex justify-center">
-					<svg class="size-6 text-text-neutral-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-					</svg>
-				</div>
-
-				<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
-					<div class="mb-2 flex items-center gap-3">
-						<span class="inline-flex size-8 items-center justify-center rounded-full bg-surface-neutral-primary text-sm font-bold text-text-statics-pure-white">2</span>
-						<h3 class="text-lg font-semibold">Semantic Tokens — "What do they mean?"</h3>
-					</div>
-					<p class="text-sm text-text-neutral-secondary">
-						Maps shades to roles. This layer defines WHICH shade means "primary surface" or "disabled state."
+			<!-- ── Tab: Logo Upload ───────────────────────────────────────── -->
+			{:else if activeTab === 'logo'}
+				<div class="flex flex-col gap-4">
+					<p class="text-sm leading-relaxed text-text-neutral-secondary">
+						Upload your brand logo — dominant colors are extracted entirely in-browser using the Canvas API, no server required. Pick which color becomes your brand.
 					</p>
-					<div class="mt-3">
-						<CodeBlock
-							code={`--color-surface-brand-primary:    var(--color-brand-800);  /* strong, prominent */
---color-surface-brand-secondary:  var(--color-brand-700);  /* slightly less */
---color-surface-brand-quaternary: var(--color-brand-400);  /* muted, disabled */
---color-surface-brand-l1:         var(--color-brand-50);   /* subtle tint */`}
-							language="css"
+
+					<!-- Drop zone -->
+					<!-- svelte-ignore a11y_no_static_element_interactions -->
+					<div
+						role="button"
+						tabindex="0"
+						class="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-6 py-10 transition-colors
+							{isDragging ? 'border-border-brand-l3 bg-surface-brand-l1' : 'border-border-neutral-l3 hover:border-border-neutral-l2 hover:bg-surface-neutral-l1'}"
+						ondragover={(e) => { e.preventDefault(); isDragging = true; }}
+						ondragleave={() => (isDragging = false)}
+						ondrop={(e) => { e.preventDefault(); isDragging = false; const f = e.dataTransfer?.files[0]; if (f) handleLogoFile(f); }}
+						onclick={() => logoInput?.click()}
+						onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') logoInput?.click(); }}
+					>
+						<input
+							bind:this={logoInput}
+							type="file"
+							accept="image/*"
+							class="hidden"
+							onchange={(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) handleLogoFile(f); }}
 						/>
+						{#if logoPreviewUrl}
+							<img src={logoPreviewUrl} alt="Uploaded logo" class="h-16 w-auto rounded object-contain" />
+							<p class="text-xs text-text-neutral-tertiary">Click or drop to replace</p>
+						{:else}
+							<svg class="size-9 text-text-neutral-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+							</svg>
+							<p class="text-sm font-medium text-text-neutral-secondary">Drop your logo or click to upload</p>
+							<p class="text-xs text-text-neutral-tertiary">PNG, JPG, SVG, WebP</p>
+						{/if}
 					</div>
+
+					{#if extracting}
+						<div class="flex items-center gap-2 text-sm text-text-neutral-tertiary">
+							<svg class="size-4 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+							</svg>
+							Extracting colors from image...
+						</div>
+					{:else if extractedColors.length > 0}
+						<div>
+							<p class="mb-2.5 text-xs font-medium text-text-neutral-secondary">Extracted colors — click to apply</p>
+							<div class="flex flex-wrap gap-2">
+								{#each extractedColors as color, i}
+									<button
+										onclick={() => applyExtracted(i)}
+										title={color}
+										class="relative size-10 rounded-lg border-2 transition-all
+											{logoSelectedIdx === i
+												? 'scale-110 border-border-brand-l3'
+												: 'border-transparent hover:scale-105 hover:border-border-neutral-l2'}"
+										style="background-color: {color}"
+									>
+										{#if logoSelectedIdx === i}
+											<span class="absolute inset-0 flex items-center justify-center">
+												<svg class="size-4 drop-shadow-sm" fill="none" stroke="white" viewBox="0 0 24 24">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+												</svg>
+											</span>
+										{/if}
+									</button>
+								{/each}
+							</div>
+						</div>
+					{/if}
 				</div>
 
-				<div class="flex justify-center">
-					<svg class="size-6 text-text-neutral-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-					</svg>
-				</div>
+			<!-- ── Tab: AI Assistant ──────────────────────────────────────── -->
+			{:else if activeTab === 'ai'}
+				<div class="flex flex-col gap-4">
 
-				<div class="rounded-xl border border-border-neutral-l4 p-6">
-					<div class="mb-2 flex items-center gap-3">
-						<span class="inline-flex size-8 items-center justify-center rounded-full bg-surface-neutral-tertiary text-sm font-bold text-text-statics-pure-white">3</span>
-						<h3 class="text-lg font-semibold">Component Tokens — "Where exactly is it used?"</h3>
-					</div>
-					<p class="text-sm text-text-neutral-secondary">
-						Maps semantic roles to specific component states. This is what the component actually reads.
-					</p>
-					<div class="mt-3">
-						<CodeBlock
-							code={`--color-button-brand-default-surface:  var(--color-surface-brand-primary);
---color-button-brand-hover-surface:    var(--color-surface-brand-secondary);
---color-button-brand-disabled-surface: var(--color-surface-brand-quaternary);`}
-							language="css"
+					<!-- API Key -->
+					<div>
+						<label for="gemini-key" class="mb-1.5 block text-xs font-medium text-text-neutral-secondary">
+							Gemini API Key
+							<span class="ml-1 font-normal text-text-neutral-tertiary">— stored in your browser only</span>
+						</label>
+						<input
+							id="gemini-key"
+							type="password"
+							bind:value={geminiKey}
+							placeholder="AIzaSy..."
+							spellcheck={false}
+							class="w-full rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-3 py-2 font-mono text-sm outline-none focus:border-border-brand-l3"
 						/>
+						<p class="mt-1 text-xs text-text-neutral-tertiary">
+							Free key at
+							<a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer" class="text-text-brand-primary underline">aistudio.google.com</a>
+							— 1M tokens/day free with Gemini Flash.
+						</p>
 					</div>
+
+					<!-- Brand description -->
+					<div>
+						<label class="block">
+							<span class="mb-1.5 block text-xs font-medium text-text-neutral-secondary">Describe your brand</span>
+							<textarea
+								bind:value={brandDesc}
+								placeholder="e.g. A modern fintech startup — trustworthy, professional, minimal..."
+								rows={2}
+								class="w-full resize-none rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-3 py-2 text-sm outline-none focus:border-border-brand-l3"
+							></textarea>
+						</label>
+					</div>
+
+					<!-- Action buttons -->
+					<div class="flex flex-wrap gap-2">
+						<button
+							onclick={generateAiColor}
+							disabled={aiLoading}
+							class="flex items-center gap-2 rounded-lg bg-surface-brand-primary px-4 py-2 text-sm font-medium text-text-statics-pure-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+						>
+							{#if aiLoading}
+								<svg class="size-4 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+								</svg>
+								Generating...
+							{:else}
+								<svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+								</svg>
+								Generate from description
+							{/if}
+						</button>
+
+						{#if extractedColors.length > 0}
+							<button
+								onclick={aiPickFromLogo}
+								disabled={aiLoading}
+								class="flex items-center gap-2 rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-4 py-2 text-sm font-medium text-text-neutral-secondary transition-colors hover:bg-surface-neutral-l2 disabled:cursor-not-allowed disabled:opacity-50"
+							>
+								<svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01" />
+								</svg>
+								AI pick from logo colors
+							</button>
+						{/if}
+					</div>
+
+					{#if aiError}
+						<div class="rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-xs text-red-700">
+							{aiError}
+						</div>
+					{/if}
+
+					{#if aiResult}
+						<div class="flex items-start gap-3 rounded-lg border border-border-brand-l3 bg-surface-brand-l1 p-3">
+							<div class="mt-0.5 size-6 shrink-0 rounded-full shadow-sm" style="background-color: {aiResult.color}"></div>
+							<div>
+								<p class="font-mono text-sm font-semibold text-text-neutral-primary">{aiResult.color}</p>
+								<p class="mt-0.5 text-xs text-text-neutral-secondary">{aiResult.rationale}</p>
+							</div>
+						</div>
+					{/if}
+				</div>
+			{/if}
+
+			<!-- ── Palette strip (always visible) ────────────────────────── -->
+			<div>
+				<p class="mb-2 text-[11px] font-medium tracking-widest text-text-neutral-tertiary uppercase">
+					Generated palette
+				</p>
+				<div class="flex overflow-hidden rounded-xl border border-border-neutral-l4">
+					{#each PALETTE_STEPS as step}
+						<div
+							class="group relative flex-1 py-7"
+							style="background-color: {currentPalette[step as PaletteStep]}"
+							title="{step}: {currentPalette[step as PaletteStep]}"
+						>
+							<span
+								class="absolute bottom-1 left-0 right-0 text-center text-[9px] font-medium opacity-0 transition-opacity group-hover:opacity-80"
+								style="color: {isDarkStep(step) ? '#fff' : '#000'}"
+							>
+								{step}
+							</span>
+						</div>
+					{/each}
 				</div>
 			</div>
-		</section>
 
-		<!-- SECTION: Why Not Just Use brand-800 Directly? -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">Why Not Just Use brand-800 Directly?</h2>
-			<p class="text-text-neutral-secondary leading-relaxed">
-				The short answer: <strong>dark mode doesn't just make colors lighter — it remaps WHICH shade
-				goes WHERE</strong>, and different use cases remap differently.
-			</p>
-
-			<p class="text-text-neutral-secondary leading-relaxed">
-				Look at how different parts of the UI use different shades, and how they
-				flip in opposite directions:
-			</p>
-
-			<div class="overflow-x-auto rounded-lg border border-border-neutral-l4">
-				<table class="w-full text-sm">
-					<thead>
-						<tr class="border-b border-border-neutral-l4 bg-surface-neutral-l2">
-							<th class="px-4 py-3 text-left font-medium">Use Case</th>
-							<th class="px-4 py-3 text-left font-medium">Light Mode</th>
-							<th class="px-4 py-3 text-left font-medium">Dark Mode</th>
-							<th class="px-4 py-3 text-left font-medium">Direction</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Button bg (prominent)</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-800</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-200</td>
-							<td class="px-4 py-3">dark → light</td>
-						</tr>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Button hover</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-700</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-300</td>
-							<td class="px-4 py-3">dark → light</td>
-						</tr>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Badge bg (subtle)</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-100</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-900</td>
-							<td class="px-4 py-3">light → dark</td>
-						</tr>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Border</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-200</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-800</td>
-							<td class="px-4 py-3">light → dark</td>
-						</tr>
-						<tr>
-							<td class="px-4 py-3 font-medium">Disabled state</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-400</td>
-							<td class="px-4 py-3 font-mono text-xs">brand-600</td>
-							<td class="px-4 py-3">middle shift</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<p class="text-text-neutral-secondary leading-relaxed">
-				Button surfaces flip from <strong>dark shades to light</strong>. Badge backgrounds flip
-				from <strong>light shades to dark</strong>. Disabled states shift
-				toward the <strong>middle</strong>. There's no single transformation that handles all
-				three — each use case has its own light↔dark mapping.
-			</p>
-
-			<p class="text-text-neutral-secondary leading-relaxed">
-				If you just reverse all shades globally (brand-800 becomes light, brand-100 becomes dark),
-				the button looks correct but borders become invisible and badges become too prominent.
-				<strong>That's why Layer 2 exists</strong> — it defines the mapping per role, not per shade.
-			</p>
-		</section>
-
-		<!-- SECTION: What Each Layer Solves -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">What Each Layer Solves</h2>
-
-			<div class="overflow-x-auto rounded-lg border border-border-neutral-l4">
-				<table class="w-full text-sm">
-					<thead>
-						<tr class="border-b border-border-neutral-l4 bg-surface-neutral-l2">
-							<th class="px-4 py-3 text-left font-medium">Scenario</th>
-							<th class="px-4 py-3 text-left font-medium">Which Layer to Change</th>
-							<th class="px-4 py-3 text-left font-medium">How Many Overrides</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Rebrand (new blue)</td>
-							<td class="px-4 py-3">Layer 1 — base palette</td>
-							<td class="px-4 py-3 font-mono text-xs">~12 values</td>
-						</tr>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Dark mode</td>
-							<td class="px-4 py-3">Layer 2 — semantic tokens</td>
-							<td class="px-4 py-3 font-mono text-xs">~30 values</td>
-						</tr>
-						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 font-medium">Theme switch (blue → violet)</td>
-							<td class="px-4 py-3">Layer 1 — swap brand palette</td>
-							<td class="px-4 py-3 font-mono text-xs">~12 values</td>
-						</tr>
-						<tr>
-							<td class="px-4 py-3 font-medium">One component exception</td>
-							<td class="px-4 py-3">Layer 3 — component token</td>
-							<td class="px-4 py-3 font-mono text-xs">1 value</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<p class="text-text-neutral-secondary">
-				Without layers, dark mode alone would require overriding every component x every state
-				x every property. With 10 components, 4 states, 3 properties, and 5 themes — that's
-				<strong>2000+ overrides</strong>. With layers, it's roughly <strong>~100 total</strong>.
-			</p>
-		</section>
-
-		<!-- SECTION: The Cascade in Action -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">The Cascade in Action</h2>
-			<p class="text-text-neutral-secondary leading-relaxed">
-				Here's what happens when you switch to the violet theme. One change at Layer 1
-				cascades through all three layers:
-			</p>
-			<CodeBlock
-				code={`/* Layer 1: .violet swaps base palette (12 lines) */
-.violet {
-  --color-brand-800: var(--color-violet-800);
-}
-
-        ↓ cascades to
-
-/* Layer 2: semantic token auto-updates (no change needed) */
---color-surface-brand-primary: var(--color-brand-800);
-/*                              now resolves to violet-800 */
-
-        ↓ cascades to
-
-/* Layer 3: component token auto-updates (no change needed) */
---color-button-brand-default-surface: var(--color-surface-brand-primary);
-/*                                     now resolves to violet-800 */`}
-				language="css"
-			/>
-			<p class="text-text-neutral-secondary">
-				12 lines of CSS. Every component, every state, every mode updates instantly.
-			</p>
-		</section>
-
-		<!-- SECTION: How Tokens Work -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">How Tokens Reach Your Components</h2>
-			<p class="text-text-neutral-secondary leading-relaxed">
-				Each component's tokens are defined in a <code
-					class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">tokens.css</code>
-				file that ships with the component. When you run <code
-					class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit add button</code>,
-				the CLI copies the component files AND its tokens, then adds an
-				<code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">@import</code>
-				to your CSS.
-			</p>
-			<CodeBlock
-				code={`/* Your layout.css after adding button */
-@import 'tailwindcss';
-@import '$lib/components/ui/button/tokens.css';   /* ← added by CLI */
-
-/* tokens.css defines :root variables + @theme registrations */
-/* The component uses them via Tailwind classes like: */
-/* bg-button-brand-default-surface → var(--color-button-brand-default-surface) */`}
-				language="css"
-			/>
-		</section>
-
-		<!-- SECTION: Token Categories -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">Token Categories</h2>
-			<div class="grid gap-4 md:grid-cols-2">
-				<div class="rounded-xl border border-border-neutral-l4 p-6">
-					<h3 class="font-semibold">Color Tokens</h3>
-					<p class="mt-1 text-sm text-text-neutral-secondary">
-						Surface, text, icon, and border colors for all component states (default, hover,
-						focused, disabled).
-					</p>
-				</div>
-				<div class="rounded-xl border border-border-neutral-l4 p-6">
-					<h3 class="font-semibold">Spacing Tokens</h3>
-					<p class="mt-1 text-sm text-text-neutral-secondary">
-						Padding, gap, margin, and min-width values for different component sizes.
-					</p>
-				</div>
-				<div class="rounded-xl border border-border-neutral-l4 p-6">
-					<h3 class="font-semibold">Size Tokens</h3>
-					<p class="mt-1 text-sm text-text-neutral-secondary">
-						Heights, widths, icon sizes, and border radius for small, medium, and large variants.
-					</p>
-				</div>
-				<div class="rounded-xl border border-border-neutral-l4 p-6">
-					<h3 class="font-semibold">Theme Variants</h3>
-					<p class="mt-1 text-sm text-text-neutral-secondary">
-						Support for dark mode and custom color themes (blue, violet, pink, cyan, orange).
-					</p>
+			<!-- ── Live UI preview ───────────────────────────────────────── -->
+			<div>
+				<p class="mb-3 text-[11px] font-medium tracking-widest text-text-neutral-tertiary uppercase">
+					Live preview
+				</p>
+				<div class="flex flex-wrap items-center gap-3">
+					<div class="rounded-lg bg-surface-brand-primary px-4 py-2 text-sm font-medium text-text-statics-pure-white shadow-sm">
+						Primary button
+					</div>
+					<div class="rounded-lg border border-border-brand-l3 bg-surface-brand-l1 px-4 py-2 text-sm font-medium text-text-brand-primary">
+						Subtle badge
+					</div>
+					<div class="rounded-lg border border-border-brand-l3 px-4 py-2 text-sm font-medium text-text-brand-primary">
+						Outline
+					</div>
+					<span class="text-sm font-medium text-text-brand-primary underline underline-offset-2 cursor-pointer">
+						Brand link
+					</span>
+					<div class="size-4 rounded-sm border-2 border-border-brand-l3 bg-surface-brand-primary"></div>
 				</div>
 			</div>
-		</section>
 
-		<!-- SECTION: Setting Up Tokens -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">Setting Up Tokens</h2>
-			<p class="text-text-neutral-secondary">
-				Your global CSS file should contain the base palette and semantic tokens.
-				Component tokens come automatically when you add components via the CLI.
-			</p>
-			<CodeBlock
-				code={`/* layout.css */
-@import "tailwindcss";
-@import "$lib/components/ui/button/tokens.css";   /* auto-added by CLI */
-
-@custom-variant dark (&:is(.dark *));
-
-:root {
-  /* Layer 1: Base palette */
-  --color-brand-800: #1e3a8a;
-  --color-brand-700: #1d4ed8;
-  /* ... */
-
-  /* Layer 2: Semantic tokens */
-  --color-surface-brand-primary: var(--color-brand-800);
-  --color-surface-brand-secondary: var(--color-brand-700);
-  /* ... */
-}
-
-/* Layer 2 overrides for dark mode */
-.dark {
-  --color-surface-brand-primary: var(--color-brand-200);
-  --color-surface-brand-secondary: var(--color-brand-300);
-}
-
-/* Layer 1 swap for theme switching */
-.violet {
-  --color-brand-800: var(--color-violet-800);
-  --color-brand-700: var(--color-violet-700);
-  /* ... all shades remap, entire UI updates */
-}`}
-				language="css"
-			/>
-		</section>
-
-		<!-- SECTION: Customizing -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">Customizing Themes</h2>
-			<p class="text-text-neutral-secondary">
-				Override at the layer that matches your need:
-			</p>
-			<CodeBlock
-				code={`/* Rebrand — change Layer 1 (affects everything) */
-:root {
-  --color-brand-800: #7c3aed;   /* new brand purple */
-  --color-brand-700: #8b5cf6;
-}
-
-/* Dark mode — change Layer 2 (affects shade mapping) */
-.dark {
-  --color-surface-brand-primary: var(--color-brand-200);
-}
-
-/* One component exception — change Layer 3 */
-.special-section {
-  --color-button-brand-default-surface: var(--color-surface-brand-tertiary);
-  /* Only buttons in .special-section are affected */
-}`}
-				language="css"
-			/>
-		</section>
-
-		<!-- SECTION: Summary -->
-		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight">TL;DR</h2>
-			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
-				<div class="space-y-3 text-sm text-text-neutral-secondary">
-					<p>
-						<strong class="text-text-neutral-primary">Layer 1 (Base Palette):</strong>
-						"What colors exist?" — Raw hex values. Change here to rebrand or switch themes.
+			<!-- ── Generated tokens export ───────────────────────────────── -->
+			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l2">
+				<div class="flex items-center justify-between border-b border-border-neutral-l4 px-4 py-3">
+					<p class="text-[11px] font-medium tracking-widest text-text-neutral-tertiary uppercase">
+						Your CSS tokens
 					</p>
-					<p>
-						<strong class="text-text-neutral-primary">Layer 2 (Semantic Tokens):</strong>
-						"What do they mean?" — Maps shades to roles. Change here for dark mode,
-						because dark mode remaps which shade goes where (not just lighter/darker).
-					</p>
-					<p>
-						<strong class="text-text-neutral-primary">Layer 3 (Component Tokens):</strong>
-						"Where exactly?" — Maps roles to specific component states.
-						Change here when one component needs to break the pattern.
-					</p>
-					<p class="mt-4 border-t border-border-neutral-l4 pt-4 font-medium text-text-neutral-primary">
-						More setup once. Dramatically less work as the system grows.
-						5 themes x 2 modes x 50 components = 2000+ overrides without layers, ~100 with.
-					</p>
+					<button
+						onclick={copyTokens}
+						class="flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors
+							{copied
+								? 'bg-green-100 text-green-700'
+								: 'text-text-brand-primary hover:bg-surface-brand-l1'}"
+					>
+						{#if copied}
+							<svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+							Copied!
+						{:else}
+							<svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+							Copy
+						{/if}
+					</button>
+				</div>
+				<pre class="overflow-x-auto px-4 py-3 font-mono text-xs leading-relaxed text-text-neutral-secondary">{exportCssTokens(currentPalette)}</pre>
+				<div class="border-t border-border-neutral-l4 px-4 py-3 text-xs text-text-neutral-tertiary">
+					Paste at the bottom of <code class="rounded bg-surface-neutral-l1 px-1 py-0.5 font-mono">src/lib/nnuikit-tokens.css</code> to override brand colors project-wide.
 				</div>
 			</div>
+
 		</section>
+		<!-- end Theme Builder -->
+
+		<!-- Link to Architecture docs -->
+		<a
+			href="/docs/getting-started/theming/architecture"
+			class="group flex items-start justify-between gap-6 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6 transition-all hover:border-border-brand-l3 hover:bg-surface-brand-l1 hover:shadow-sm"
+		>
+			<div class="flex flex-col gap-2">
+				<p class="text-[11px] font-semibold uppercase tracking-widest text-text-neutral-tertiary group-hover:text-text-brand-primary">
+					Next
+				</p>
+				<h3 class="text-lg font-semibold text-text-neutral-primary group-hover:text-text-brand-primary">
+					Token Architecture
+				</h3>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					Understand the 3-layer design token system — why it's structured this way, how dark mode and theme switching work without writing hundreds of overrides, and how to customize at the right level.
+				</p>
+			</div>
+			<svg
+				class="mt-1 size-5 shrink-0 text-text-neutral-tertiary transition-transform group-hover:translate-x-1 group-hover:text-text-brand-primary"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+			</svg>
+		</a>
+
 	</div>
 </DocsPage>

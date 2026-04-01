@@ -1,0 +1,40 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TABS — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Tabs component.
+   This file is automatically added when you run: npx nnuikit add tabs
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	/* ─── Color ─── */
+	--color-tab-default-normal-surface: var(--color-surface-alpha-zero-transparency);
+	--color-tab-default-contained-surface: var(--color-surface-alpha-zero-transparency);
+	--color-tab-default-text: var(--color-text-neutral-tertiary);
+	--color-tab-default-icon: var(--color-icon-neutral-tertiary);
+	--color-tab-hover-normal-surface: var(--color-surface-neutral-l3);
+	--color-tab-hover-contained-hover: var(--color-surface-neutral-l3);
+	--color-tab-hover-border: var(--color-border-neutral-l5);
+	--color-tab-hover-text: var(--color-text-neutral-secondary);
+	--color-tab-hover-icon: var(--color-icon-neutral-secondary);
+	--color-tab-active-normal-normal-surface: var(--color-surface-alpha-zero-transparency);
+	--color-tab-active-normal-contained-surface: var(--color-surface-neutral-l3);
+	--color-tab-active-normal-border: var(--color-border-neutral-primary);
+	--color-tab-active-normal-text: var(--color-text-neutral-primary);
+	--color-tab-active-normal-icon: var(--color-icon-neutral-primary);
+	--color-tab-active-brand-normal-surface: var(--color-surface-alpha-zero-transparency);
+	--color-tab-active-brand-contained-surface: var(--color-surface-brand-l2);
+	--color-tab-active-brand-border: var(--color-border-brand-primary);
+	--color-tab-active-brand-icon: var(--color-icon-brand-primary);
+	--color-tab-active-brand-text: var(--color-text-brand-primary);
+
+	/* ─── Size ─── */
+	--size-tabs-height: var(--spacing-40);
+	--size-tabs-padding-all-sides: var(--spacing-10);
+	--size-tabs-gap: var(--spacing-4);
+	--size-tabs-text-padding-left-right: var(--spacing-4);
+	--size-tabs-icon-size: var(--spacing-16);
+	--size-tabs-radius: var(--radius-0);
+	--size-tabs-border-size: var(--border-width-l2);
+}

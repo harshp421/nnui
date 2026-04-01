@@ -1,0 +1,190 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TOAST — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Toast component.
+   This file is automatically added when you run: npx nnuikit add toast
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	/* ── Color: Inline Toasts ── */
+	--color-toasts-inline-brand-surface: var(--color-surface-brand-l2);
+	--color-toasts-inline-brand-border: var(--color-border-brand-l3);
+	--color-toasts-inline-brand-primary-icon: var(--color-icon-brand-primary);
+	--color-toasts-inline-brand-primary-text: var(--color-text-brand-primary);
+	--color-toasts-inline-brand-secondary-text: var(--color-text-alpha-vv-black-tertiary);
+	--color-toasts-inline-brand-secondary-icon: var(--color-icon-alpha-vv-black-tertiary);
+	--color-toasts-inline-neutral-surface: var(--color-surface-neutral-l1);
+	--color-toasts-inline-neutral-border: var(--color-border-neutral-l3);
+	--color-toasts-inline-neutral-primary-icon: var(--color-icon-neutral-primary);
+	--color-toasts-inline-neutral-primary-text: var(--color-text-neutral-primary);
+	--color-toasts-inline-neutral-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-inline-neutral-secondary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-inline-success-surface: var(--color-surface-success-l2);
+	--color-toasts-inline-success-border: var(--color-border-success-l3);
+	--color-toasts-inline-success-primary-icon: var(--color-icon-success-primary);
+	--color-toasts-inline-success-primary-text: var(--color-text-success-primary);
+	--color-toasts-inline-success-secondary-text: var(--color-text-alpha-vv-black-tertiary);
+	--color-toasts-inline-success-secondary-icon: var(--color-icon-alpha-vv-black-tertiary);
+	--color-toasts-inline-info-surface: var(--color-surface-info-l3);
+	--color-toasts-inline-info-border: var(--color-border-info-l4);
+	--color-toasts-inline-info-primary-icon: var(--color-icon-info-primary);
+	--color-toasts-inline-info-primary-text: var(--color-text-info-primary);
+	--color-toasts-inline-info-secondary-text: var(--color-text-alpha-vv-black-tertiary);
+	--color-toasts-inline-info-secondary-icon: var(--color-icon-alpha-vv-black-tertiary);
+	--color-toasts-inline-warning-surface: var(--color-surface-warning-l2);
+	--color-toasts-inline-warning-border: var(--color-border-warning-l4);
+	--color-toasts-inline-warning-primary-icon: var(--color-icon-warning-primary);
+	--color-toasts-inline-warning-primary-text: var(--color-text-warning-primary);
+	--color-toasts-inline-warning-secondary-text: var(--color-text-alpha-vv-black-tertiary);
+	--color-toasts-inline-warning-secondary-icon: var(--color-icon-alpha-vv-black-tertiary);
+	--color-toasts-inline-destructive-surface: var(--color-surface-destructive-l2);
+	--color-toasts-inline-destructive-border: var(--color-border-destructive-l4);
+	--color-toasts-inline-destructive-primary-icon: var(--color-icon-destructive-primary);
+	--color-toasts-inline-destructive-primary-text: var(--color-text-destructive-primary);
+	--color-toasts-inline-destructive-secondary-text: var(--color-text-alpha-vv-black-tertiary);
+	--color-toasts-inline-destructive-secondary-icon: var(--color-icon-alpha-vv-black-tertiary);
+
+	/* ── Color: Expanded Toasts ── */
+	--color-toasts-expanded-brand-surface: var(--color-surface-brand-l1);
+	--color-toasts-expanded-brand-primary-border: var(--color-border-brand-primary);
+	--color-toasts-expanded-brand-secondary-border: var(--color-border-neutral-l3);
+	--color-toasts-expanded-brand-primary-text: var(--color-text-brand-primary);
+	--color-toasts-expanded-brand-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-expanded-brand-primary-icon: var(--color-icon-brand-primary);
+	--color-toasts-expanded-brand-secodnary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-expanded-brand-primary-action-type: brand;
+	--color-toasts-expanded-neutral-surface: var(--color-surface-neutral-l1);
+	--color-toasts-expanded-neutral-primary-border: var(--color-border-neutral-primary);
+	--color-toasts-expanded-neutral-secondary-border: var(--color-border-neutral-l3);
+	--color-toasts-expanded-neutral-primary-text: var(--color-text-neutral-primary);
+	--color-toasts-expanded-neutral-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-expanded-neutral-primary-icon: var(--color-icon-neutral-primary);
+	--color-toasts-expanded-neutral-secodnary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-expanded-neutral-primary-action-type: neutral;
+	--color-toasts-expanded-secodnary-action-type: tertiary;
+	--color-toasts-expanded-success-surface: var(--color-surface-brand-l1);
+	--color-toasts-expanded-success-primary-border: var(--color-border-success-primary);
+	--color-toasts-expanded-success-secondary-border: var(--color-border-neutral-l3);
+	--color-toasts-expanded-success-primary-text: var(--color-text-success-primary);
+	--color-toasts-expanded-success-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-expanded-success-primary-icon: var(--color-icon-success-primary);
+	--color-toasts-expanded-success-secodnary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-expanded-success-primary-action-type: success;
+	--color-toasts-expanded-destructive-surface: var(--color-surface-destructive-l1);
+	--color-toasts-expanded-destructive-primary-border: var(--color-border-destructive-primary);
+	--color-toasts-expanded-destructive-secondary-border: var(--color-border-neutral-l3);
+	--color-toasts-expanded-destructive-primary-text: var(--color-text-destructive-primary);
+	--color-toasts-expanded-destructive-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-expanded-destructive-primary-icon: var(--color-icon-destructive-primary);
+	--color-toasts-expanded-destructive-secodnary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-expanded-destructive-primary-action-type: destructive;
+	--color-toasts-expanded-warning-surface: var(--color-surface-warning-l1);
+	--color-toasts-expanded-warning-primary-border: var(--color-border-warning-primary);
+	--color-toasts-expanded-warning-secondary-border: var(--color-border-neutral-l3);
+	--color-toasts-expanded-warning-primary-text: var(--color-text-warning-primary);
+	--color-toasts-expanded-warning-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-expanded-warning-primary-icon: var(--color-icon-warning-primary);
+	--color-toasts-expanded-warning-secodnary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-expanded-warning-primary-action-type: warning;
+	--color-toasts-expanded-info-surface: var(--color-surface-info-l1);
+	--color-toasts-expanded-info-primary-border: var(--color-border-info-primary);
+	--color-toasts-expanded-info-secondary-border: var(--color-border-neutral-l3);
+	--color-toasts-expanded-info-primary-text: var(--color-text-info-primary);
+	--color-toasts-expanded-info-secondary-text: var(--color-text-neutral-secondary);
+	--color-toasts-expanded-info-primary-icon: var(--color-icon-info-primary);
+	--color-toasts-expanded-info-secodnary-icon: var(--color-icon-neutral-secondary);
+	--color-toasts-expanded-info-primary-action-type: info;
+
+	/* ── Size: Expanded Toasts (base / mobile) ── */
+	--size-toasts-expanded-width: 0;
+	--size-toasts-expanded-icon-size: 0;
+	--size-toasts-expanded-icon-border: 0;
+	--size-toasts-expanded-padding-all-sides: 0;
+	--size-toasts-expanded-card-gap: 0;
+	--size-toasts-expanded-text-padding: 0;
+	--size-toasts-expanded-text-gap: 0;
+	--size-toasts-expanded-text-action-gap: 0;
+	--size-toasts-expanded-actions-padding: 0;
+	--size-toasts-expanded-action-gap: 0;
+	--size-toasts-expanded-priamry-border-width: 0;
+	--size-toasts-expanded-secondary-border-width-2: 0;
+	--size-toasts-expanded-action-size: String value;
+	--size-toasts-expanded-radius: 0;
+
+	/* ── Size: Inline Toasts (base / mobile) ── */
+	--size-toasts-inline-width: 0;
+	--size-toasts-inline-height: 0;
+	--size-toasts-inline-icon-size: 0;
+	--size-toasts-inline-icon-border: 0;
+	--size-toasts-inline-padding-all-sides: 0;
+	--size-toasts-inline-card-gap: 0;
+	--size-toasts-inline-text-padding: 0;
+	--size-toasts-inline-text-gap: 0;
+	--size-toasts-inline-action-size: String value;
+	--size-toasts-inline-border-size: 0;
+	--size-toasts-inline-radius: 0;
+}
+
+/* ── Tablet Overrides (min-width: 1024px) ── */
+@media (min-width: 1024px) {
+	:root {
+		--size-toasts-expanded-width: 0;
+		--size-toasts-expanded-icon-size: 0;
+		--size-toasts-expanded-icon-border: 0;
+		--size-toasts-expanded-padding-all-sides: 0;
+		--size-toasts-expanded-card-gap: 0;
+		--size-toasts-expanded-text-padding: 0;
+		--size-toasts-expanded-text-gap: 0;
+		--size-toasts-expanded-text-action-gap: 0;
+		--size-toasts-expanded-actions-padding: 0;
+		--size-toasts-expanded-action-gap: 0;
+		--size-toasts-expanded-priamry-border-width: 0;
+		--size-toasts-expanded-secondary-border-width-2: 0;
+		--size-toasts-expanded-action-size: String value;
+		--size-toasts-expanded-radius: 0;
+		--size-toasts-inline-width: 0;
+		--size-toasts-inline-height: 0;
+		--size-toasts-inline-icon-size: 0;
+		--size-toasts-inline-icon-border: 0;
+		--size-toasts-inline-padding-all-sides: 0;
+		--size-toasts-inline-card-gap: 0;
+		--size-toasts-inline-text-padding: 0;
+		--size-toasts-inline-text-gap: 0;
+		--size-toasts-inline-action-size: String value;
+		--size-toasts-inline-border-size: 0;
+		--size-toasts-inline-radius: 0;
+	}
+}
+
+/* ── Desktop Overrides (min-width: 1440px) ── */
+@media (min-width: 1440px) {
+	:root {
+		--size-toasts-expanded-width: var(--spacing-520);
+		--size-toasts-expanded-icon-size: var(--spacing-24);
+		--size-toasts-expanded-icon-border: var(--border-width-l2);
+		--size-toasts-expanded-padding-all-sides: var(--spacing-16);
+		--size-toasts-expanded-card-gap: var(--spacing-4);
+		--size-toasts-expanded-text-padding: var(--spacing-8);
+		--size-toasts-expanded-text-gap: var(--spacing-4);
+		--size-toasts-expanded-text-action-gap: var(--spacing-12);
+		--size-toasts-expanded-actions-padding: var(--spacing-8);
+		--size-toasts-expanded-action-gap: var(--spacing-8);
+		--size-toasts-expanded-priamry-border-width: var(--border-width-l4);
+		--size-toasts-expanded-secondary-border-width-2: var(--border-width-l2);
+		--size-toasts-expanded-action-size: small;
+		--size-toasts-expanded-radius: var(--radius-0);
+		--size-toasts-inline-width: var(--spacing-520);
+		--size-toasts-inline-height: var(--spacing-48);
+		--size-toasts-inline-icon-size: var(--spacing-24);
+		--size-toasts-inline-icon-border: var(--border-width-l2);
+		--size-toasts-inline-padding-all-sides: var(--spacing-12);
+		--size-toasts-inline-card-gap: var(--spacing-0);
+		--size-toasts-inline-text-padding: var(--spacing-8);
+		--size-toasts-inline-text-gap: var(--spacing-8);
+		--size-toasts-inline-action-size: large;
+		--size-toasts-inline-border-size: var(--border-width-l1);
+		--size-toasts-inline-radius: var(--radius-8);
+	}
+}

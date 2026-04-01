@@ -20,7 +20,7 @@
 
   let checked = $state(false);
   let disabled = $state(false);
-  let showIcon = $state(false);
+  let showIcon = $state(false); // visual only — not a component prop
   let size = $state<(typeof sizes)[number]["value"]>("md");
 
   function getSwitchCode() {
@@ -122,7 +122,7 @@
             <div class="flex flex-col items-center justify-center gap-8 py-10">
               {#key [size, disabled, showIcon]}
                 <div class="flex items-center gap-3">
-                  <Switch bind:checked {disabled} {size} {showIcon} />
+                  <Switch bind:checked {disabled} {size} />
                   <span class="text-sm font-medium" class:opacity-50={disabled}>
                     Enable notifications
                   </span>

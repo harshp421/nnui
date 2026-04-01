@@ -1,0 +1,13 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SKELETON — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Skeleton component.
+   This file is automatically added when you run: npx nnuikit add skeleton
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-skeleton-surface: var(--color-surface-neutral-l3);
+	--color-skeleton-highlight: var(--color-surface-neutral-l2);
+}

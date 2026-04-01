@@ -1,0 +1,36 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   ITEM — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Item component.
+   This file is automatically added when you run: npx nnuikit add item
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   Note: Shares drag-drop attachment tokens with File Uploader component
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-darg-drop-attachment-default-surface: var(--color-surface-neutral-l1);
+	--color-darg-drop-attachment-default-border: var(--color-border-neutral-l1);
+	--color-darg-drop-attachment-default-primary-text: var(--color-text-neutral-primary);
+	--color-darg-drop-attachment-default-secondary-text: var(--color-text-neutral-secondary);
+	--color-darg-drop-attachment-default-icon: var(--color-icon-neutral-secondary);
+	--color-darg-drop-attachment-default-action-icon: var(--color-icon-neutral-tertiary);
+	--color-darg-drop-attachment-success-surface: var(--color-surface-success-l1);
+	--color-darg-drop-attachment-success-border: var(--color-border-success-primary);
+	--color-darg-drop-attachment-success-primary-text: var(--color-text-neutral-primary);
+	--color-darg-drop-attachment-success-secondary-text: var(--color-text-neutral-secondary);
+	--color-darg-drop-attachment-success-icon: var(--color-icon-success-primary);
+	--color-darg-drop-attachment-success-action-icon: var(--color-icon-neutral-tertiary);
+	--color-darg-drop-attachment-error-surface: var(--color-surface-destructive-l1);
+	--color-darg-drop-attachment-error-border: var(--color-border-destructive-primary);
+	--color-darg-drop-attachment-error-primary-text: var(--color-text-neutral-primary);
+	--color-darg-drop-attachment-error-secondary-text: var(--color-text-neutral-secondary);
+	--color-darg-drop-attachment-error-icon: var(--color-icon-destructive-primary);
+	--color-darg-drop-attachment-error-action-icon: var(--color-icon-neutral-tertiary);
+	--size-input-drag-drop-attachment-height: 0;
+	--size-input-drag-drop-attachment-gap: 0;
+	--size-input-drag-drop-attachment-padding-all-sides: 0;
+	--size-input-drag-drop-attachment-text-vertical-gap: 0;
+	--size-input-drag-drop-attachment-actions-gap: 0;
+	--size-input-drag-drop-attachment-radius: 0;
+}

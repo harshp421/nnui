@@ -1,0 +1,14 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TOOLTIP — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Tooltip component.
+   This file is automatically added when you run: npx nnuikit add tooltip
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-tool-tip-bg: var(--color-alpha-zero-transparency);
+	--color-tool-tip-body: var(--color-surface-brand-primary);
+	--color-tool-tip-text: var(--color-text-statics-pure-white);
+}

@@ -1,0 +1,13 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   LABEL — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Label component.
+   This file is automatically added when you run: npx nnuikit add label
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+	--color-input-label-default: var(--color-text-neutral-primary);
+	--color-input-label-disabled: var(--color-text-neutral-tertiary);
+}

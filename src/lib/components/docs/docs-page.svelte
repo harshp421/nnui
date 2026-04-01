@@ -2,6 +2,6 @@
   let { children } = $props();
 </script>
 
-<div class="container max-w-6xl mx-auto px-16 py-18 md:px-8">
+<div class="mx-auto max-w-5xl">
   {@render children?.()}
 </div>
