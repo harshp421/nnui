@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build ",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "^0.577.0",
+		"@sveltejs/adapter-vercel": "^6.3.3",
 		"bits-ui": "^2.16.5",
 		"clsx": "^2.1.1",
 		"tailwind-merge": "^3.5.0",
