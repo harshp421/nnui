@@ -7,17 +7,21 @@
 		{ name: 'Button', desc: '9 variants, 7 sizes, icon support', href: '/docs/components/button' },
 		{ name: 'Checkbox', desc: 'Native input, indeterminate state', href: '/docs/components/checkbox' },
 		{ name: 'Input', desc: 'States, validation, icon slots', href: '/docs/components/input-inputgroup' },
-		{ name: 'Textarea', desc: 'Auto-resize, character count', href: '/docs/components/textarea' },
-		{ name: 'Radio Group', desc: 'Native radio, 3 sizes', href: '/docs/components/radio-group' },
-		{ name: 'Switch', desc: 'Toggle with smooth transition', href: '/docs/components/switch' },
-		{ name: 'Progress', desc: '6 color variants', href: '/docs/components/progress' },
-		{ name: 'Skeleton', desc: 'Loading placeholder', href: '/docs/components/skeleton' }
+		{ name: 'Dialog', desc: 'Modal with focus trap & backdrop', href: '/docs/components/dialog' },
+		{ name: 'Dropdown Menu', desc: 'Submenus, shortcuts, radio items', href: '/docs/components/dropdown-menu' },
+		{ name: 'Tabs', desc: 'Tabbed panels, brand & neutral', href: '/docs/components/tabs' },
+		{ name: 'Toast', desc: 'Inline & expanded notifications', href: '/docs/components/toast' },
+		{ name: 'Avatar', desc: 'Image, fallback, status indicator', href: '/docs/components/avatar' },
+		{ name: 'Badge', desc: '18 variants, 3 sizes', href: '/docs/components/badge' },
+		{ name: 'Sheet', desc: 'Slide-in side panel overlay', href: '/docs/components/sheet' },
+		{ name: 'Drawer', desc: 'Touch-friendly swipe panel', href: '/docs/components/drawer' },
+		{ name: 'Tooltip', desc: 'Contextual hint on hover', href: '/docs/components/tooltip' }
 	];
 
 	const stats = [
-		{ value: `${components.length}+`, label: 'Components' },
+		{ value: '25+', label: 'Components' },
 		{ value: '3', label: 'Token Layers' },
-		{ value: '0', label: 'Dependencies' },
+		{ value: '5', label: 'Color Themes' },
 		{ value: '100%', label: 'Accessible' }
 	];
 
@@ -33,8 +37,8 @@
 			icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01'
 		},
 		{
-			title: 'Native HTML First',
-			desc: 'No headless UI libraries. Checkboxes use real inputs. Radios use real radios. Zero dependency overhead.',
+			title: 'Accessible by Default',
+			desc: 'Built on Bits UI primitives — keyboard navigation, ARIA, focus management, and screen reader support come standard.',
 			icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
 		},
 		{
@@ -56,7 +60,7 @@
 </script>
 
 <Seo
-	description="A design-token-driven Svelte 5 component library with 3-layer token architecture. Add components via CLI — npx nnuikit add. Built with Tailwind CSS v4, fully accessible, zero dependencies."
+	description="A design-token-driven Svelte 5 component library with 25+ accessible components, 3-layer token architecture, and 5 built-in themes. Add components via CLI — npx nnuikit add. Built with Tailwind CSS v4 and Bits UI."
 	keywords="svelte 5 ui library, svelte component library, design tokens, tailwindcss v4, shadcn svelte, CLI component library, accessible components"
 />
 
@@ -142,13 +146,13 @@
 	<section class="mx-auto w-full max-w-[960px] px-24 py-80">
 		<div class="mb-48 text-center">
 			<h2 class="text-[32px] font-bold tracking-tight text-text-neutral-primary md:text-[40px]">
-				{components.length} Components
+				25+ Components
 				<span class="text-text-neutral-tertiary">&amp; growing</span>
 			</h2>
-			<p class="mt-12 text-[15px] text-text-neutral-tertiary">Each component ships with its own design tokens.</p>
+			<p class="mt-12 text-[15px] text-text-neutral-tertiary">Each component ships with its own design tokens. From forms to overlays, everything you need.</p>
 		</div>
 
-		<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
 			{#each components as comp}
 				<a
 					href={comp.href}
@@ -161,7 +165,7 @@
 		</div>
 
 		<div class="mt-32 text-center">
-			<Button href="/docs/components/button" variant="tertiary" size="default">
+			<Button href="/docs/components" variant="tertiary" size="default">
 				View all components
 			</Button>
 		</div>
@@ -225,7 +229,7 @@
 			</div>
 			<div class="flex items-center gap-24 text-[13px] text-text-neutral-tertiary">
 				<a href="/docs" class="hover:text-text-neutral-primary transition-colors">Docs</a>
-				<a href="/docs/components/button" class="hover:text-text-neutral-primary transition-colors">Components</a>
+				<a href="/docs/components" class="hover:text-text-neutral-primary transition-colors">Components</a>
 				<a href="https://github.com/harshparmar/nnuikit" class="hover:text-text-neutral-primary transition-colors">GitHub</a>
 			</div>
 			<p class="text-[11px] text-text-neutral-tertiary">Built with Svelte 5 & Tailwind CSS v4</p>

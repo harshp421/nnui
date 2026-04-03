@@ -51,12 +51,10 @@
         { "path": "ui/input-group/input-group-input.svelte", "source": "src/lib/components/ui/input-group/input-group-input.svelte" },
         { "path": "ui/input-group/input-group-text.svelte", "source": "src/lib/components/ui/input-group/input-group-text.svelte" },
         { "path": "ui/input-group/input-group-textarea.svelte", "source": "src/lib/components/ui/input-group/input-group-textarea.svelte" },
-        { "path": "ui/input-group/index.ts", "source": "src/lib/components/ui/input-group/index.ts" },
-        { "path": "ui/input-group/tokens.css", "source": "src/lib/components/ui/input-group/tokens.css", "type": "tokens" }
+        { "path": "ui/input-group/index.ts", "source": "src/lib/components/ui/input-group/index.ts" }
       ],
       "dependencies": [],
       "registryDependencies": ["utils", "input"],
-      "cssImport": "$lib/components/ui/input-group/tokens.css",
       "docs": "/docs/components/input-group"
     },
     "label": {
@@ -64,12 +62,10 @@
       "description": "A form label component with disabled state support",
       "files": [
         { "path": "ui/label/label.svelte", "source": "src/lib/components/ui/label/label.svelte" },
-        { "path": "ui/label/index.ts", "source": "src/lib/components/ui/label/index.ts" },
-        { "path": "ui/label/tokens.css", "source": "src/lib/components/ui/label/tokens.css", "type": "tokens" }
+        { "path": "ui/label/index.ts", "source": "src/lib/components/ui/label/index.ts" }
       ],
       "dependencies": [],
       "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/label/tokens.css",
       "docs": "/docs/components/label"
     },
     "progress": {
@@ -92,12 +88,10 @@
         { "path": "ui/radio-group/radio-group.svelte", "source": "src/lib/components/ui/radio-group/radio-group.svelte" },
         { "path": "ui/radio-group/radio-group-item.svelte", "source": "src/lib/components/ui/radio-group/radio-group-item.svelte" },
         { "path": "ui/radio-group/context.ts", "source": "src/lib/components/ui/radio-group/context.ts" },
-        { "path": "ui/radio-group/index.ts", "source": "src/lib/components/ui/radio-group/index.ts" },
-        { "path": "ui/radio-group/tokens.css", "source": "src/lib/components/ui/radio-group/tokens.css", "type": "tokens" }
+        { "path": "ui/radio-group/index.ts", "source": "src/lib/components/ui/radio-group/index.ts" }
       ],
       "dependencies": [],
       "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/radio-group/tokens.css",
       "docs": "/docs/components/radio-group"
     },
     "skeleton": {
@@ -105,12 +99,10 @@
       "description": "A loading placeholder component with pulse animation",
       "files": [
         { "path": "ui/skeleton/skeleton.svelte", "source": "src/lib/components/ui/skeleton/skeleton.svelte" },
-        { "path": "ui/skeleton/index.ts", "source": "src/lib/components/ui/skeleton/index.ts" },
-        { "path": "ui/skeleton/tokens.css", "source": "src/lib/components/ui/skeleton/tokens.css", "type": "tokens" }
+        { "path": "ui/skeleton/index.ts", "source": "src/lib/components/ui/skeleton/index.ts" }
       ],
       "dependencies": [],
       "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/skeleton/tokens.css",
       "docs": "/docs/components/skeleton"
     },
     "switch": {
@@ -131,244 +123,11 @@
       "description": "A textarea component with multiple states, validation, and design token support",
       "files": [
         { "path": "ui/textarea/textarea.svelte", "source": "src/lib/components/ui/textarea/textarea.svelte" },
-        { "path": "ui/textarea/index.ts", "source": "src/lib/components/ui/textarea/index.ts" },
-        { "path": "ui/textarea/tokens.css", "source": "src/lib/components/ui/textarea/tokens.css", "type": "tokens" }
+        { "path": "ui/textarea/index.ts", "source": "src/lib/components/ui/textarea/index.ts" }
       ],
       "dependencies": [],
       "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/textarea/tokens.css",
       "docs": "/docs/components/textarea"
-    },
-    "avatar": {
-      "name": "avatar",
-      "description": "A user avatar component with image, fallback initials, and status indicators",
-      "files": [
-        { "path": "ui/avatar/avatar.svelte", "source": "src/lib/components/ui/avatar/avatar.svelte" },
-        { "path": "ui/avatar/avatar-image.svelte", "source": "src/lib/components/ui/avatar/avatar-image.svelte" },
-        { "path": "ui/avatar/avatar-fallback.svelte", "source": "src/lib/components/ui/avatar/avatar-fallback.svelte" },
-        { "path": "ui/avatar/index.ts", "source": "src/lib/components/ui/avatar/index.ts" },
-        { "path": "ui/avatar/tokens.css", "source": "src/lib/components/ui/avatar/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": [],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/avatar/tokens.css",
-      "docs": "/docs/components/avatar"
-    },
-    "badge": {
-      "name": "badge",
-      "description": "A compact label component for status, counts, and categories with multiple variants",
-      "files": [
-        { "path": "ui/badge/badge.svelte", "source": "src/lib/components/ui/badge/badge.svelte" },
-        { "path": "ui/badge/index.ts", "source": "src/lib/components/ui/badge/index.ts" },
-        { "path": "ui/badge/tokens.css", "source": "src/lib/components/ui/badge/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["tailwind-variants"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/badge/tokens.css",
-      "docs": "/docs/components/badge"
-    },
-    "breadcrumb": {
-      "name": "breadcrumb",
-      "description": "A navigation breadcrumb component showing page hierarchy",
-      "files": [
-        { "path": "ui/breadcrumb/breadcrumb.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb.svelte" },
-        { "path": "ui/breadcrumb/breadcrumb-ellipsis.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb-ellipsis.svelte" },
-        { "path": "ui/breadcrumb/breadcrumb-item.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb-item.svelte" },
-        { "path": "ui/breadcrumb/breadcrumb-link.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb-link.svelte" },
-        { "path": "ui/breadcrumb/breadcrumb-list.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb-list.svelte" },
-        { "path": "ui/breadcrumb/breadcrumb-page.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb-page.svelte" },
-        { "path": "ui/breadcrumb/breadcrumb-separator.svelte", "source": "src/lib/components/ui/breadcrumb/breadcrumb-separator.svelte" },
-        { "path": "ui/breadcrumb/index.ts", "source": "src/lib/components/ui/breadcrumb/index.ts" },
-        { "path": "ui/breadcrumb/tokens.css", "source": "src/lib/components/ui/breadcrumb/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": [],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/breadcrumb/tokens.css",
-      "docs": "/docs/components/breadcrumb"
-    },
-    "dialog": {
-      "name": "dialog",
-      "description": "A modal dialog component with backdrop, focus trap, and accessible design",
-      "files": [
-        { "path": "ui/dialog/dialog.svelte", "source": "src/lib/components/ui/dialog/dialog.svelte" },
-        { "path": "ui/dialog/dialog-close.svelte", "source": "src/lib/components/ui/dialog/dialog-close.svelte" },
-        { "path": "ui/dialog/dialog-content.svelte", "source": "src/lib/components/ui/dialog/dialog-content.svelte" },
-        { "path": "ui/dialog/dialog-description.svelte", "source": "src/lib/components/ui/dialog/dialog-description.svelte" },
-        { "path": "ui/dialog/dialog-footer.svelte", "source": "src/lib/components/ui/dialog/dialog-footer.svelte" },
-        { "path": "ui/dialog/dialog-header.svelte", "source": "src/lib/components/ui/dialog/dialog-header.svelte" },
-        { "path": "ui/dialog/dialog-overlay.svelte", "source": "src/lib/components/ui/dialog/dialog-overlay.svelte" },
-        { "path": "ui/dialog/dialog-portal.svelte", "source": "src/lib/components/ui/dialog/dialog-portal.svelte" },
-        { "path": "ui/dialog/dialog-title.svelte", "source": "src/lib/components/ui/dialog/dialog-title.svelte" },
-        { "path": "ui/dialog/dialog-trigger.svelte", "source": "src/lib/components/ui/dialog/dialog-trigger.svelte" },
-        { "path": "ui/dialog/index.ts", "source": "src/lib/components/ui/dialog/index.ts" },
-        { "path": "ui/dialog/tokens.css", "source": "src/lib/components/ui/dialog/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["bits-ui"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/dialog/tokens.css",
-      "docs": "/docs/components/dialog"
-    },
-    "drawer": {
-      "name": "drawer",
-      "description": "A drawer component that slides in from the edge with touch gestures",
-      "files": [
-        { "path": "ui/drawer/drawer.svelte", "source": "src/lib/components/ui/drawer/drawer.svelte" },
-        { "path": "ui/drawer/drawer-close.svelte", "source": "src/lib/components/ui/drawer/drawer-close.svelte" },
-        { "path": "ui/drawer/drawer-content.svelte", "source": "src/lib/components/ui/drawer/drawer-content.svelte" },
-        { "path": "ui/drawer/drawer-description.svelte", "source": "src/lib/components/ui/drawer/drawer-description.svelte" },
-        { "path": "ui/drawer/drawer-footer.svelte", "source": "src/lib/components/ui/drawer/drawer-footer.svelte" },
-        { "path": "ui/drawer/drawer-header.svelte", "source": "src/lib/components/ui/drawer/drawer-header.svelte" },
-        { "path": "ui/drawer/drawer-nested.svelte", "source": "src/lib/components/ui/drawer/drawer-nested.svelte" },
-        { "path": "ui/drawer/drawer-overlay.svelte", "source": "src/lib/components/ui/drawer/drawer-overlay.svelte" },
-        { "path": "ui/drawer/drawer-portal.svelte", "source": "src/lib/components/ui/drawer/drawer-portal.svelte" },
-        { "path": "ui/drawer/drawer-title.svelte", "source": "src/lib/components/ui/drawer/drawer-title.svelte" },
-        { "path": "ui/drawer/drawer-trigger.svelte", "source": "src/lib/components/ui/drawer/drawer-trigger.svelte" },
-        { "path": "ui/drawer/index.ts", "source": "src/lib/components/ui/drawer/index.ts" },
-        { "path": "ui/drawer/tokens.css", "source": "src/lib/components/ui/drawer/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["bits-ui"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/drawer/tokens.css",
-      "docs": "/docs/components/drawer"
-    },
-    "dropdown-menu": {
-      "name": "dropdown-menu",
-      "description": "A dropdown menu component with submenus, checkbox items, radio items, and shortcuts",
-      "files": [
-        { "path": "ui/dropdown-menu/dropdown-menu-checkbox-group.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-checkbox-group.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-checkbox-item.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-checkbox-item.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-content.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-content.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-group-heading.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-group-heading.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-group.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-group.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-item.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-item.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-label.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-label.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-radio-group.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-radio-group.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-radio-item.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-radio-item.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-separator.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-separator.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-shortcut.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-shortcut.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-sub-content.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-sub-content.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-sub-trigger.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-sub-trigger.svelte" },
-        { "path": "ui/dropdown-menu/dropdown-menu-trigger.svelte", "source": "src/lib/components/ui/dropdown-menu/dropdown-menu-trigger.svelte" },
-        { "path": "ui/dropdown-menu/index.ts", "source": "src/lib/components/ui/dropdown-menu/index.ts" },
-        { "path": "ui/dropdown-menu/tokens.css", "source": "src/lib/components/ui/dropdown-menu/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["bits-ui"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/dropdown-menu/tokens.css",
-      "docs": "/docs/components/dropdown-menu"
-    },
-    "item": {
-      "name": "item",
-      "description": "A compound list item component with header, content, media, and action slots",
-      "files": [
-        { "path": "ui/item/item.svelte", "source": "src/lib/components/ui/item/item.svelte" },
-        { "path": "ui/item/item-actions.svelte", "source": "src/lib/components/ui/item/item-actions.svelte" },
-        { "path": "ui/item/item-content.svelte", "source": "src/lib/components/ui/item/item-content.svelte" },
-        { "path": "ui/item/item-description.svelte", "source": "src/lib/components/ui/item/item-description.svelte" },
-        { "path": "ui/item/item-footer.svelte", "source": "src/lib/components/ui/item/item-footer.svelte" },
-        { "path": "ui/item/item-group.svelte", "source": "src/lib/components/ui/item/item-group.svelte" },
-        { "path": "ui/item/item-header.svelte", "source": "src/lib/components/ui/item/item-header.svelte" },
-        { "path": "ui/item/item-media.svelte", "source": "src/lib/components/ui/item/item-media.svelte" },
-        { "path": "ui/item/item-separator.svelte", "source": "src/lib/components/ui/item/item-separator.svelte" },
-        { "path": "ui/item/item-title.svelte", "source": "src/lib/components/ui/item/item-title.svelte" },
-        { "path": "ui/item/index.ts", "source": "src/lib/components/ui/item/index.ts" },
-        { "path": "ui/item/tokens.css", "source": "src/lib/components/ui/item/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": [],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/item/tokens.css",
-      "docs": "/docs/components/item"
-    },
-    "range-selector": {
-      "name": "range-selector",
-      "description": "A dual-thumb range slider for selecting min/max value ranges",
-      "files": [
-        { "path": "ui/range-selector/range-selector.svelte", "source": "src/lib/components/ui/range-selector/range-selector.svelte" },
-        { "path": "ui/range-selector/index.ts", "source": "src/lib/components/ui/range-selector/index.ts" },
-        { "path": "ui/range-selector/tokens.css", "source": "src/lib/components/ui/range-selector/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": [],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/range-selector/tokens.css",
-      "docs": "/docs/components/range-selector"
-    },
-    "sheet": {
-      "name": "sheet",
-      "description": "A side panel overlay component for secondary content and forms",
-      "files": [
-        { "path": "ui/sheet/sheet-close.svelte", "source": "src/lib/components/ui/sheet/sheet-close.svelte" },
-        { "path": "ui/sheet/sheet-content.svelte", "source": "src/lib/components/ui/sheet/sheet-content.svelte" },
-        { "path": "ui/sheet/sheet-description.svelte", "source": "src/lib/components/ui/sheet/sheet-description.svelte" },
-        { "path": "ui/sheet/sheet-footer.svelte", "source": "src/lib/components/ui/sheet/sheet-footer.svelte" },
-        { "path": "ui/sheet/sheet-header.svelte", "source": "src/lib/components/ui/sheet/sheet-header.svelte" },
-        { "path": "ui/sheet/sheet-overlay.svelte", "source": "src/lib/components/ui/sheet/sheet-overlay.svelte" },
-        { "path": "ui/sheet/sheet-title.svelte", "source": "src/lib/components/ui/sheet/sheet-title.svelte" },
-        { "path": "ui/sheet/sheet-trigger.svelte", "source": "src/lib/components/ui/sheet/sheet-trigger.svelte" },
-        { "path": "ui/sheet/index.ts", "source": "src/lib/components/ui/sheet/index.ts" },
-        { "path": "ui/sheet/tokens.css", "source": "src/lib/components/ui/sheet/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["bits-ui"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/sheet/tokens.css",
-      "docs": "/docs/components/sheet"
-    },
-    "tabs": {
-      "name": "tabs",
-      "description": "A tabbed interface component for switching between content panels",
-      "files": [
-        { "path": "ui/tabs/tabs.svelte", "source": "src/lib/components/ui/tabs/tabs.svelte" },
-        { "path": "ui/tabs/tabs-content.svelte", "source": "src/lib/components/ui/tabs/tabs-content.svelte" },
-        { "path": "ui/tabs/tabs-list.svelte", "source": "src/lib/components/ui/tabs/tabs-list.svelte" },
-        { "path": "ui/tabs/tabs-trigger.svelte", "source": "src/lib/components/ui/tabs/tabs-trigger.svelte" },
-        { "path": "ui/tabs/index.ts", "source": "src/lib/components/ui/tabs/index.ts" },
-        { "path": "ui/tabs/tokens.css", "source": "src/lib/components/ui/tabs/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["bits-ui"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/tabs/tokens.css",
-      "docs": "/docs/components/tabs"
-    },
-    "toast": {
-      "name": "toast",
-      "description": "A toast notification component with variants, positions, and auto-dismiss",
-      "files": [
-        { "path": "ui/toast/toast.svelte", "source": "src/lib/components/ui/toast/toast.svelte" },
-        { "path": "ui/toast/toaster.svelte", "source": "src/lib/components/ui/toast/toaster.svelte" },
-        { "path": "ui/toast/toast-state.svelte.ts", "source": "src/lib/components/ui/toast/toast-state.svelte.ts" },
-        { "path": "ui/toast/index.ts", "source": "src/lib/components/ui/toast/index.ts" },
-        { "path": "ui/toast/tokens.css", "source": "src/lib/components/ui/toast/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": [],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/toast/tokens.css",
-      "docs": "/docs/components/toast"
-    },
-    "tooltip": {
-      "name": "tooltip",
-      "description": "A tooltip component for contextual hints on hover or focus",
-      "files": [
-        { "path": "ui/tooltip/tooltip-content.svelte", "source": "src/lib/components/ui/tooltip/tooltip-content.svelte" },
-        { "path": "ui/tooltip/tooltip-trigger.svelte", "source": "src/lib/components/ui/tooltip/tooltip-trigger.svelte" },
-        { "path": "ui/tooltip/index.ts", "source": "src/lib/components/ui/tooltip/index.ts" },
-        { "path": "ui/tooltip/tokens.css", "source": "src/lib/components/ui/tooltip/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": ["bits-ui"],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/tooltip/tokens.css",
-      "docs": "/docs/components/tooltip"
-    },
-    "file-uploader": {
-      "name": "file-uploader",
-      "description": "A drag-and-drop file upload component with progress tracking and validation",
-      "files": [
-        { "path": "ui/file-uploader/file-uploader.svelte", "source": "src/lib/components/ui/file-uploader/file-uploader.svelte" },
-        { "path": "ui/file-uploader/index.ts", "source": "src/lib/components/ui/file-uploader/index.ts" },
-        { "path": "ui/file-uploader/tokens.css", "source": "src/lib/components/ui/file-uploader/tokens.css", "type": "tokens" }
-      ],
-      "dependencies": [],
-      "registryDependencies": ["utils"],
-      "cssImport": "$lib/components/ui/file-uploader/tokens.css",
-      "docs": "/docs/components/file-uploader"
     }
   },
   "utils": {

@@ -13,6 +13,7 @@
 		type BrandPalette,
 		type PaletteStep
 	} from '$lib/utils/theme-utils';
+	import Button from '$lib/components/ui/button/button.svelte';
 
 	// ── Builder state ──────────────────────────────────────────────────
 
@@ -178,10 +179,10 @@
 		<!-- ═══════════════════════════════════════════════════════════════
 		     INTERACTIVE THEME BUILDER
 		     ═══════════════════════════════════════════════════════════════ -->
-		<section class="flex flex-col gap-5 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
+		<section class="flex flex-col px-16 mt-16 py-16 gap-8 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
 
 			<!-- Header -->
-			<div>
+			<div class="py-16 px-8">
 				<h2 class="text-xl font-bold tracking-tight">Theme Builder</h2>
 				<p class="mt-1 text-sm text-text-neutral-tertiary">
 					Pick a preset, enter a hex color, upload your logo, or use AI — the entire page updates live.
@@ -189,24 +190,23 @@
 			</div>
 
 			<!-- Tab bar -->
-			<div class="flex gap-1 rounded-xl border border-border-neutral-l4 bg-surface-statics-vv-white p-1">
-				{#each [['preset','Presets'], ['hex','Color'], ['logo','Logo'], ['ai','AI']] as [tab, label]}
-					<button
+			<div class="flex gap-1 my-12 rounded-xl border border-border-neutral-l4 bg-surface-statics-vv-white p-1">
+				{#each [['preset','Presets'], ['hex','Color'], ['logo','Logo'], ['ai','AI']] as [tab, label] (tab)}
+					<Button
 						onclick={() => (activeTab = tab as typeof activeTab)}
-						class="flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-all
-							{activeTab === tab
-								? 'bg-surface-brand-l1 text-text-brand-primary shadow-sm'
-								: 'text-text-neutral-tertiary hover:text-text-neutral-primary'}"
+						variant={activeTab === tab ? 'primary' : 'orphan'}
+						class="flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-all"
+					
 					>
 						{label}
-					</button>
+					</Button>
 				{/each}
 			</div>
 
 			<!-- ── Tab: Presets ───────────────────────────────────────────── -->
 			{#if activeTab === 'preset'}
 				<div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-					{#each PRESETS as preset}
+					{#each PRESETS as preset (preset.name)}
 						<button
 							onclick={() => pickPreset(preset.name, preset.hex)}
 							class="flex flex-col items-center gap-2.5 rounded-xl border-2 py-4 transition-all
@@ -415,14 +415,14 @@
 			{/if}
 
 			<!-- ── Palette strip (always visible) ────────────────────────── -->
-			<div>
-				<p class="mb-2 text-[11px] font-medium tracking-widest text-text-neutral-tertiary uppercase">
+			<div class="flex flex-col gap-4 py-16">
+				<p class="mb-8 text-[11px] font-medium tracking-widest text-text-neutral-tertiary uppercase">
 					Generated palette
 				</p>
 				<div class="flex overflow-hidden rounded-xl border border-border-neutral-l4">
-					{#each PALETTE_STEPS as step}
+					{#each PALETTE_STEPS as step (step)}
 						<div
-							class="group relative flex-1 py-7"
+							class="group relative flex-1 py-56"
 							style="background-color: {currentPalette[step as PaletteStep]}"
 							title="{step}: {currentPalette[step as PaletteStep]}"
 						>
@@ -437,27 +437,7 @@
 				</div>
 			</div>
 
-			<!-- ── Live UI preview ───────────────────────────────────────── -->
-			<div>
-				<p class="mb-3 text-[11px] font-medium tracking-widest text-text-neutral-tertiary uppercase">
-					Live preview
-				</p>
-				<div class="flex flex-wrap items-center gap-3">
-					<div class="rounded-lg bg-surface-brand-primary px-4 py-2 text-sm font-medium text-text-statics-pure-white shadow-sm">
-						Primary button
-					</div>
-					<div class="rounded-lg border border-border-brand-l3 bg-surface-brand-l1 px-4 py-2 text-sm font-medium text-text-brand-primary">
-						Subtle badge
-					</div>
-					<div class="rounded-lg border border-border-brand-l3 px-4 py-2 text-sm font-medium text-text-brand-primary">
-						Outline
-					</div>
-					<span class="text-sm font-medium text-text-brand-primary underline underline-offset-2 cursor-pointer">
-						Brand link
-					</span>
-					<div class="size-4 rounded-sm border-2 border-border-brand-l3 bg-surface-brand-primary"></div>
-				</div>
-			</div>
+			
 
 			<!-- ── Generated tokens export ───────────────────────────────── -->
 			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l2">
@@ -493,10 +473,10 @@
 		<!-- Link to Architecture docs -->
 		<a
 			href="/docs/getting-started/theming/architecture"
-			class="group flex items-start justify-between gap-6 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6 transition-all hover:border-border-brand-l3 hover:bg-surface-brand-l1 hover:shadow-sm"
+			class="group flex items-start justify-between gap-8 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 px-8 py-12 transition-all hover:border-border-brand-l3 hover:bg-surface-brand-l1 hover:shadow-sm"
 		>
-			<div class="flex flex-col gap-2">
-				<p class="text-[11px] font-semibold uppercase tracking-widest text-text-neutral-tertiary group-hover:text-text-brand-primary">
+			<div class="flex flex-col px-8 gap-8">
+				<p class="text-[11px] py-4 font-semibold uppercase tracking-widest text-text-neutral-tertiary group-hover:text-text-brand-primary">
 					Next
 				</p>
 				<h3 class="text-lg font-semibold text-text-neutral-primary group-hover:text-text-brand-primary">

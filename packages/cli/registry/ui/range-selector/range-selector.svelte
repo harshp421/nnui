@@ -42,8 +42,9 @@ get along, so we shut typescript up by casting `value` to `never`.
         )}
       />
     </span>
+    <Tooltip.Provider delayDuration={0}>
     {#each thumbs as thumb (thumb)}
-      <Tooltip.Root delayDuration={0}>
+      <Tooltip.Root>
         <Tooltip.Trigger>
           {#snippet child({ props })}
             <SliderPrimitive.Thumb
@@ -59,5 +60,6 @@ get along, so we shut typescript up by casting `value` to `never`.
         </Tooltip.Content>
       </Tooltip.Root>
     {/each}
+    </Tooltip.Provider>
   {/snippet}
 </SliderPrimitive.Root>

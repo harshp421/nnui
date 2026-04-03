@@ -15,17 +15,17 @@
 	--color-progress-bar-progress-bar-yellow: var(--color-surface-warning-primary);
 	--color-progress-bar-progress-bar-success: var(--color-surface-success-primary);
 	--color-progress-bar-progress-bar-blue: var(--color-surface-info-primary);
-	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-height: var(--spacing-8);
 	--size-progress-bar-tube-radius: var(--radius-full);
-	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-height: var(--spacing-8);
 	--size-progress-bar-water-radius: var(--radius-full);
-	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-height: var(--spacing-8);
 	--size-progress-bar-tube-radius: var(--radius-full);
-	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-height: var(--spacing-8);
 	--size-progress-bar-water-radius: var(--radius-full);
-	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-height: var(--spacing-8);
 	--size-progress-bar-tube-radius: var(--radius-full);
-	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-height: var(--spacing-8);
 	--size-progress-bar-water-radius: var(--radius-full);
 }
 
@@ -37,8 +37,8 @@
 	--color-progress-bar-progress-bar-yellow: var(--color-progress-bar-progress-bar-yellow);
 	--color-progress-bar-progress-bar-success: var(--color-progress-bar-progress-bar-success);
 	--color-progress-bar-progress-bar-blue: var(--color-progress-bar-progress-bar-blue);
-	--spacing-progress-bar-tube-hegiht: var(--size-progress-bar-tube-hegiht);
+	--spacing-progress-bar-tube-height: var(--size-progress-bar-tube-height);
 	--radius-progress-bar-tube-radius: var(--size-progress-bar-tube-radius);
-	--spacing-progress-bar-water-hegiht: var(--size-progress-bar-water-hegiht);
+	--spacing-progress-bar-water-height: var(--size-progress-bar-water-height);
 	--radius-progress-bar-water-radius: var(--size-progress-bar-water-radius);
 }

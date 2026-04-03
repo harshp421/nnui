@@ -12,7 +12,7 @@
   import IconIndicator from "$lib/components/ui/icon-indicator/icon-indicator.svelte";
 
   import IconUpload from "$lib/icons/icon-upload.svelte";
-  import { cn } from "$lib/utils/utils";
+  import { cn } from "$lib/utils/tailwindUtil";
   let {
     maxFileSize = 10 * 1024 * 1024, // 10 MB
     acceptedFileTypes = [".csv", ".pdf", ".xlsx"],

@@ -109,7 +109,7 @@
 
 <script lang="ts">
   import type { HTMLAnchorAttributes } from "svelte/elements";
-  import { cn } from "$lib/utils/utils";
+  import { cn } from "$lib/utils/tailwindUtil";
   import type { WithElementRef } from "bits-ui";
 
   let {

@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from 'tailwind-variants';
 
 	export const progressVariants = tv({
-		base: 'h-progress-bar-tube-hegiht w-full overflow-hidden flex-1 rounded-progress-bar-tube-radius transition-all',
+		base: 'h-progress-bar-tube-height w-full overflow-hidden flex-1 rounded-progress-bar-tube-radius transition-all',
 		variants: {
 			variant: {
 				default: 'bg-progress-bar-progress-bar-brand',
@@ -49,7 +49,7 @@
 	aria-valuemin={0}
 	aria-valuemax={max}
 	class={cn(
-		'bg-progress-bar-track-bar relative h-progress-bar-tube-hegiht w-full overflow-hidden rounded-progress-bar-tube-radius',
+		'bg-progress-bar-track-bar relative h-progress-bar-tube-height w-full overflow-hidden rounded-progress-bar-tube-radius',
 		className
 	)}
 	{...restProps}

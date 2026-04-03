@@ -58,7 +58,7 @@
 			<div class="flex flex-col gap-1">
 				<div class="flex gap-4">
 					<div class="flex flex-col items-center">
-						<div class="flex size-6 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-xs font-bold text-text-statics-pure-white">1</div>
+						<div class="flex size-24 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-xs font-bold text-text-statics-pure-white">1</div>
 						<div class="mt-1 w-px flex-1 bg-border-neutral-l4"></div>
 					</div>
 					<div class="flex flex-col gap-2 pb-6 min-w-0">
@@ -69,7 +69,7 @@
 				</div>
 				<div class="flex gap-4">
 					<div class="flex flex-col items-center">
-						<div class="flex size-6 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-xs font-bold text-text-statics-pure-white">2</div>
+						<div class="flex size-24 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-xs font-bold text-text-statics-pure-white">2</div>
 						<div class="mt-1 w-px flex-1 bg-border-neutral-l4"></div>
 					</div>
 					<div class="flex flex-col gap-2 pb-6 min-w-0">
@@ -80,7 +80,7 @@
 				</div>
 				<div class="flex gap-4">
 					<div class="flex flex-col items-center">
-						<div class="flex size-6 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-xs font-bold text-text-statics-pure-white">3</div>
+						<div class="flex size-24 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-xs font-bold text-text-statics-pure-white">3</div>
 					</div>
 					<div class="flex flex-col gap-2 min-w-0">
 						<p class="text-sm font-medium text-text-neutral-primary">Import and use</p>
@@ -97,34 +97,7 @@
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-4">
-			<h2 class="text-2xl font-bold tracking-tight">Available Components</h2>
-			<p class="text-sm leading-relaxed text-text-neutral-secondary">Click a component to see its documentation, variants, and usage examples.</p>
-			<div class="grid gap-3 md:grid-cols-2">
-				<a
-					href="/docs/components/button"
-					class="group flex flex-col gap-1 rounded-xl border border-border-neutral-l4 p-5 transition-all hover:border-border-brand-l3 hover:bg-surface-brand-l1"
-				>
-					<h3 class="text-sm font-semibold text-text-neutral-primary group-hover:text-text-brand-primary">
-						Button
-					</h3>
-					<p class="text-xs leading-relaxed text-text-neutral-secondary">
-						Multiple variants, sizes, icon support, and accessible design.
-					</p>
-				</a>
-				<a
-					href="/docs/components/checkbox"
-					class="group flex flex-col gap-1 rounded-xl border border-border-neutral-l4 p-5 transition-all hover:border-border-brand-l3 hover:bg-surface-brand-l1"
-				>
-					<h3 class="text-sm font-semibold text-text-neutral-primary group-hover:text-text-brand-primary">
-						Checkbox
-					</h3>
-					<p class="text-xs leading-relaxed text-text-neutral-secondary">
-						Multiple sizes, indeterminate state, and keyboard accessible.
-					</p>
-				</a>
-			</div>
-		</section>
+	
 
 	</div>
 </DocsPage>
