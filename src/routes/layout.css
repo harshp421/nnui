@@ -8,6 +8,7 @@
 @custom-variant pink (&:is(.pink *));
 @custom-variant cyan (&:is(.cyan *));
 @custom-variant orange (&:is(.orange *));
+@custom-variant glass (&:is(.glass-track *));
 @import '$lib/components/ui/button/tokens.css';
 @import '$lib/components/ui/checkbox/tokens.css';
 @import '$lib/components/ui/input/tokens.css';
@@ -65,33 +66,36 @@
 	--color-pin-alert-l6-icon: var(--icon-action-on-action);
 	--color-pin-device-surface: var(--color-neutral-950);
 	--color-pin-device-frame: var(--color-neutral-900);
-	--color-glass-blur-surface: rgba(255, 255, 255, 0.75);
-	--color-glass-blur-border: rgba(255, 255, 255, 0.85);
-	--color-glass-blanket: var(--transparency-viceversa-black-50);
-	--color-glass-button-default: var(--transparency-viceversa-black-500);
-	--color-glass-button-hover: var(--transparency-viceversa-black-700);
-	--color-glass-button-active: var(--transparency-viceversa-white-950);
+
+	--color-glass-blur-surface: var(--color-alpha-viceversa-white-700);
+	--color-glass-blur-border: var(--color-alpha-viceversa-white-800);
+	--color-glass-blanket: var(--color-alpha-viceversa-black-50);
+	--color-glass-button-default: var(--color-alpha-viceversa-black-500);
+	--color-glass-button-hover: var(--color-alpha-viceversa-black-700);
+	--color-glass-button-active: var(--color-alpha-viceversa-white-950);
 	--color-glass-button-brand-active: var(--color-surface-brand-primary);
-	--color-glass-button-text-action-active: var(--transparency-viceversa-black-950);
-	--color-glass-button-disabled: var(--transparency-viceversa-black-200);
-	--color-glass-text-primary: var(--transparency-viceversa-black-900);
-	--color-glass-text-secondary: var(--transparency-viceversa-black-600);
-	--color-glass-text-tertiary: var(--transparency-viceversa-black-400);
+	--color-glass-button-text-action-active: var(--color-alpha-viceversa-black-950);
+	--color-glass-button-disabled: var(--color-alpha-viceversa-black-200);
+	--color-glass-text-primary: var(--color-alpha-viceversa-black-500);
+	--color-glass-text-secondary: var(--color-alpha-viceversa-black-600);
+	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-400);
 	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
-	--color-glass-surface-default: var(--transparency-viceversa-white-500);
-	--color-glass-surface-hover: var(--transparency-viceversa-white-500);
-	--color-glass-surface-active: var(--transparency-viceversa-black-950);
-	--color-glass-surface-disabled: var(--transparency-viceversa-white-200);
-	--color-glass-icon-default: var(--transparency-viceversa-black-500);
-	--color-glass-icon-hover: var(--transparency-viceversa-black-600);
-	--color-glass-icon-active: var(--transparency-viceversa-white-950);
-	--color-glass-icon-disabled: var(--transparency-viceversa-black-200);
-	--color-glass-icon-icon-action-ative: var(--transparency-viceversa-black-950);
-	--color-glass-border-l1: var(--transparency-viceversa-white-400);
-	--color-glass-border-l2: var(--transparency-viceversa-white-500);
-	--color-glass-border-l3: var(--transparency-viceversa-white-600);
-	--color-glass-border-l4: var(--transparency-viceversa-white-700);
-	--color-glass-border-l5: var(--transparency-viceversa-white-800);
+	--color-glass-surface-default: var(--color-alpha-viceversa-white-500);
+	--color-glass-surface-hover: var(--color-alpha-viceversa-white-500);
+	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
+	--color-glass-surface-disabled: var(--color-alpha-viceversa-white-200);
+	--color-glass-icon-default: var(--color-alpha-viceversa-black-500);
+	--color-glass-icon-hover: var(--color-alpha-viceversa-black-600);
+	--color-glass-icon-active: var(--color-alpha-viceversa-white-950);
+	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-200);
+	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
+	--color-glass-border-l1: var(--color-alpha-viceversa-white-400);
+	--color-glass-border-l2: var(--color-alpha-viceversa-white-500);
+	--color-glass-border-l3: var(--color-alpha-viceversa-white-600);
+	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
+	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
+
+	
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50: #6ecc58;
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--50-100: #eac736;
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--100-150: #ed9a2e;
@@ -317,7 +321,9 @@
 	--color-alpha-viceversa-black-950: rgba(0, 0, 0, 0.95);
 	--color-alpha-zero-transparency: rgba(255, 255, 255, 0);
 	--color-alpha-point1-transparency: rgba(255, 255, 255, 0.001);
-	--color-base-map: Light;
+	
+	
+   	
 	--color-surface-brand-l1: var(--color-brand-50);
 	--color-surface-brand-l2: var(--color-brand-100);
 	--color-surface-brand-l3: var(--color-brand-200);
@@ -2759,33 +2765,27 @@
 	--color-pin-alert-l6-icon: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--300-);
 	--color-pin-device-surface: var(--color-border-neutral-l1);
 	--color-pin-device-frame: var(--color-surface-statics-vv-black);
-	--color-glass-blur-surface: rgba(255, 255, 255, 0.1);
-	--color-glass-blur-border: rgba(255, 255, 255, 0.15);
-	--color-glass-blanket: var(--transparency-viceversa-white-400);
-	--color-glass-button-default: var(--transparency-viceversa-black-500);
-	--color-glass-button-hover: var(--transparency-viceversa-black-700);
-	--color-glass-button-active: var(--transparency-viceversa-black-950);
-	--color-glass-button-brand-active: var(--color-surface-brand-primary);
-	--color-glass-button-text-action-active: var(--transparency-viceversa-black-950);
-	--color-glass-button-disabled: var(--transparency-viceversa-black-500);
-	--color-glass-text-primary: var(--color-alpha-viceversa-black-950);
+	--color-glass-blur-surface: var(--color-alpha-viceversa-white-50);
+	--color-glass-blur-border: var(--color-alpha-viceversa-white-100);
+	--color-glass-blanket: var(--color-alpha-viceversa-white-400);
+	--color-glass-text-primary: var(--color-alpha-viceversa-black-500);
 	--color-glass-text-secondary: var(--color-alpha-viceversa-black-700);
 	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-500);
 	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
-	--color-glass-surface-default: var(--transparency-viceversa-black-100);
-	--color-glass-surface-hover: var(--transparency-viceversa-black-200);
-	--color-glass-surface-active: var(--transparency-viceversa-black-950);
-	--color-glass-surface-disabled: var(--transparency-viceversa-black-25);
-	--color-glass-icon-default: var(--transparency-viceversa-black-700);
-	--color-glass-icon-hover: var(--transparency-viceversa-black-700);
-	--color-glass-icon-active: var(--transparency-viceversa-white-950);
-	--color-glass-icon-disabled: var(--transparency-viceversa-black-500);
-	--color-glass-icon-icon-action-ative: var(--transparency-viceversa-black-950);
-	--color-glass-border-l1: var(--transparency-viceversa-black-25);
-	--color-glass-border-l2: var(--transparency-viceversa-black-50);
-	--color-glass-border-l3: var(--transparency-viceversa-black-100);
-	--color-glass-border-l4: var(--transparency-viceversa-black-200);
-	--color-glass-border-l5: var(--transparency-viceversa-black-300);
+	--color-glass-surface-default: var(--color-alpha-viceversa-black-25);
+	--color-glass-surface-hover: var(--color-alpha-viceversa-black-100);
+	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
+	--color-glass-surface-disabled: var(--color-alpha-viceversa-black-25);
+	--color-glass-icon-default: var(--color-alpha-viceversa-black-700);
+	--color-glass-icon-hover: var(--color-alpha-viceversa-black-700);
+	--color-glass-icon-active: var(--color-alpha-viceversa-white-950);
+	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-500);
+	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
+	--color-glass-border-l1: var(--color-alpha-viceversa-black-25);
+	--color-glass-border-l2: var(--color-alpha-viceversa-black-50);
+	--color-glass-border-l3: var(--color-alpha-viceversa-black-100);
+	--color-glass-border-l4: var(--color-alpha-viceversa-black-200);
+	--color-glass-border-l5: var(--color-alpha-viceversa-black-300);
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50: #6ecc58;
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--50-100: #eac736;
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--100-150: #ed9a2e;
@@ -3214,6 +3214,105 @@
 	--color-brand-900: var(--color-violet-900);
 	--color-brand-950: var(--color-violet-950);
 }
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN TRACKS — Visual language presets
+   Apply via class on <html>: class="glass-track", class="violet glass-track dark"
+   Composable with color themes and dark mode.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Glass Track (Glassmorphism) ─────────────────────────────────────── */
+.glass-track {
+	/* Surface overrides → translucent with blur */
+	--color-surface-statics-vv-white: rgba(255, 255, 255, 0.65);
+	--color-surface-neutral-l1: rgba(255, 255, 255, 0.45);
+	--color-surface-neutral-l2: rgba(255, 255, 255, 0.55);
+	--color-surface-neutral-l3: rgba(255, 255, 255, 0.35);
+	--color-surface-neutral-l4: rgba(255, 255, 255, 0.25);
+	--color-surface-neutral-l5: rgba(255, 255, 255, 0.15);
+	--color-surface-brand-l1: rgba(var(--color-brand-500-rgb, 48, 164, 108), 0.08);
+	--color-surface-brand-l2: rgba(var(--color-brand-500-rgb, 48, 164, 108), 0.15);
+
+	/* Border overrides → subtle white/translucent */
+	--color-border-neutral-l1: rgba(255, 255, 255, 0.15);
+	--color-border-neutral-l2: rgba(255, 255, 255, 0.25);
+	--color-border-neutral-l3: rgba(255, 255, 255, 0.3);
+	--color-border-neutral-l4: rgba(255, 255, 255, 0.2);
+	--color-border-neutral-l5: rgba(255, 255, 255, 0.15);
+
+	/* Modal / dialog surface */
+	--color-modal-surface: rgba(255, 255, 255, 0.7);
+	--color-modal-border: rgba(255, 255, 255, 0.3);
+
+	/* Component surface overrides */
+	--color-button-tertiary-default-surface: rgba(255, 255, 255, 0.3);
+	--color-button-tertiary-hover-surface: rgba(255, 255, 255, 0.5);
+	--color-button-tertiary-default-border: rgba(255, 255, 255, 0.25);
+	--color-button-tertiary-hover-border: rgba(255, 255, 255, 0.35);
+
+	--color-input-box-default-surface: rgba(255, 255, 255, 0.35);
+	--color-input-box-hover-surface: rgba(255, 255, 255, 0.45);
+	--color-input-box-active-surface: rgba(255, 255, 255, 0.55);
+	--color-input-box-filled-surface: rgba(255, 255, 255, 0.45);
+	--color-input-box-default-border: rgba(255, 255, 255, 0.25);
+	--color-input-box-hover-border: rgba(255, 255, 255, 0.35);
+
+	/* Tab surface overrides */
+	--color-tab-default-contained-surface: rgba(255, 255, 255, 0.3);
+
+	/* Toast overrides */
+	--color-toasts-inline-neutral-surface: rgba(255, 255, 255, 0.6);
+	--color-toasts-inline-brand-surface: rgba(var(--color-brand-500-rgb, 48, 164, 108), 0.12);
+
+	/* Drag-drop / file uploader */
+	--color-darg-drop-box-default-surface: rgba(255, 255, 255, 0.25);
+	--color-darg-drop-box-active-surface: rgba(var(--color-brand-500-rgb, 48, 164, 108), 0.12);
+
+	/* Checkbox / radio */
+	--color-checkbox---radio-default-surface: rgba(255, 255, 255, 0.5);
+	--color-checkbox---radio-hover: rgba(255, 255, 255, 0.65);
+}
+
+/* Glass Track — Dark mode adjustments */
+.dark.glass-track,
+.dark .glass-track {
+	--color-surface-statics-vv-white: rgba(0, 0, 0, 0.55);
+	--color-surface-neutral-l1: rgba(255, 255, 255, 0.06);
+	--color-surface-neutral-l2: rgba(255, 255, 255, 0.1);
+	--color-surface-neutral-l3: rgba(255, 255, 255, 0.04);
+	--color-surface-neutral-l4: rgba(255, 255, 255, 0.03);
+	--color-surface-neutral-l5: rgba(255, 255, 255, 0.02);
+
+	--color-border-neutral-l1: rgba(255, 255, 255, 0.06);
+	--color-border-neutral-l2: rgba(255, 255, 255, 0.1);
+	--color-border-neutral-l3: rgba(255, 255, 255, 0.14);
+	--color-border-neutral-l4: rgba(255, 255, 255, 0.08);
+	--color-border-neutral-l5: rgba(255, 255, 255, 0.06);
+
+	--color-modal-surface: rgba(20, 20, 20, 0.75);
+	--color-modal-border: rgba(255, 255, 255, 0.1);
+
+	--color-button-tertiary-default-surface: rgba(255, 255, 255, 0.06);
+	--color-button-tertiary-hover-surface: rgba(255, 255, 255, 0.12);
+	--color-button-tertiary-default-border: rgba(255, 255, 255, 0.1);
+	--color-button-tertiary-hover-border: rgba(255, 255, 255, 0.18);
+
+	--color-input-box-default-surface: rgba(255, 255, 255, 0.06);
+	--color-input-box-hover-surface: rgba(255, 255, 255, 0.1);
+	--color-input-box-active-surface: rgba(255, 255, 255, 0.14);
+	--color-input-box-filled-surface: rgba(255, 255, 255, 0.1);
+	--color-input-box-default-border: rgba(255, 255, 255, 0.1);
+	--color-input-box-hover-border: rgba(255, 255, 255, 0.16);
+
+	--color-tab-default-contained-surface: rgba(255, 255, 255, 0.06);
+
+	--color-toasts-inline-neutral-surface: rgba(255, 255, 255, 0.08);
+
+	--color-darg-drop-box-default-surface: rgba(255, 255, 255, 0.04);
+
+	--color-checkbox---radio-default-surface: rgba(255, 255, 255, 0.08);
+	--color-checkbox---radio-hover: rgba(255, 255, 255, 0.14);
+}
+
 /* Theme Configuration */
 @theme {
 	--breakpoint-sm: 375px;
@@ -3286,6 +3385,8 @@
 	--color-pin-alert-l6-icon: var(--color-pin-alert-l6-icon);
 	--color-pin-device-surface: var(--color-pin-device-surface);
 	--color-pin-device-frame: var(--color-pin-device-frame);
+
+	
 	--color-glass-blur-surface: var(--color-glass-blur-surface);
 	--color-glass-blur-border: var(--color-glass-blur-border);
 	--color-glass-blanket: var(--color-glass-blanket);
@@ -3313,6 +3414,8 @@
 	--color-glass-border-l3: var(--color-glass-border-l3);
 	--color-glass-border-l4: var(--color-glass-border-l4);
 	--color-glass-border-l5: var(--color-glass-border-l5);
+
+
 	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50: var(
 		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50
 	);
@@ -5341,6 +5444,62 @@
 	--jumper-nav-tab-width-collapsed: var(--spacing-48);
 	--jumper-nav-user-profile: var(--spacing-32);
 	--jumper-nav-project-icom: var(--spacing-32);
+
+
+	 --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+    --shadow-l1: 2px 2px 12px 0px var(--color-alpha-pure-black-100);
+    --shadow-l2: 2px 2px 16px 0px var(--color-alpha-pure-black-100);
+    --shadow-l3: 2px 2px 24px 0px var(--color-alpha-pure-black-100);
+    --shadow-l4: 2px 2px 32px 0px var(--color-alpha-pure-black-100);
+    --shadow-l5: 2px 2px 100px 0px var(--color-alpha-pure-black-100);
+
+    --inset-shadow-2xs: inset 0 1px rgb(0 0 0 / 0.05);
+    --inset-shadow-xs: inset 0 1px 1px rgb(0 0 0 / 0.05);
+    --inset-shadow-sm: inset 0 2px 4px rgb(0 0 0 / 0.05);
+
+    --drop-shadow-xs: 0 1px 1px rgb(0 0 0 / 0.05);
+    --drop-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.15);
+    --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
+    --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+    --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 0.1);
+    --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
+
+
+    --drop-shadow-l1: 0px 1px 2px var(--color-surface-alpha-pure-black-l1);
+    --drop-shadow-l2: 0px 1px 3px var(--color-surface-alpha-pure-black-l2);
+    --drop-shadow-l3: 0px 4px 8px var(--color-surface-alpha-pure-black-l3);
+    --drop-shadow-l4: 0px 12px 16px var(--color-surface-alpha-pure-black-l3);
+    --drop-shadow-l5: 0px 20px 24px var(--color-surface-alpha-pure-black-l3);
+    --drop-shadow-l6: 0px 24px 48px var(--color-surface-alpha-pure-black-l3);
+    --drop-shadow-l7: 0px 32px 64px var(--color-surface-alpha-pure-black-l3);
+
+
+   
+    --blur-xs: 4px;
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --blur-lg: 16px;
+    --blur-xl: 24px;
+    --blur-2xl: 40px;
+    --blur-3xl: 64px;
+
+    --blur-light: 16px;
+    --blur-medium: 24px;
+    --blur-heavy: 32px;
+    --blur-full: 100px;
+
+    --backdrop-filter-blur-light: blur(16px);
+    --backdrop-filter-blur-medium: blur(24px);
+    --backdrop-filter-blur-heavy: blur(32px);
+    --backdrop-filter-blur-full: blur(100px);
+
 }
 
 .blanker {

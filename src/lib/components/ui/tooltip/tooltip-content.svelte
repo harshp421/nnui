@@ -22,7 +22,7 @@
     {sideOffset}
     {side}
     class={cn(
-      "bg-tool-tip-body text-tool-tip-text text-p-xsmall font-medium",
+      "bg-tool-tip-body text-tool-tip-text text-p-xsmall font-medium glass:backdrop-blur-xl glass:backdrop-saturate-150",
       "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
       "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-end-2 data-[side=right]:slide-in-from-start-2 data-[side=top]:slide-in-from-bottom-2",
       "origin-(--bits-tooltip-content-transform-origin) z-50 w-fit text-balance rounded-6 px-8 py-4",

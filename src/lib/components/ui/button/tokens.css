@@ -8,10 +8,6 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-	--color-button-primary-default: var(--color-brand-500);
-	--color-button-primary-hover: var(--color-brand-600);
-	--color-button-primary-focused: var(--color-brand-500);
-	--color-button-primary-disabled: var(--color-brand-200);
 	--color-button-brand-default-surface: var(--color-surface-brand-primary);
 	--color-button-brand-default-icon: var(--color-icon-statics-pure-white);
 	--color-button-brand-default-text: var(--color-text-statics-pure-white);
@@ -124,6 +120,20 @@
 	--color-button-success-disabled-surface: var(--color-surface-success-quaternary);
 	--color-button-success-disabled-icon: var(--color-icon-alpha-pure-black-tertiary);
 	--color-button-success-disabled-text: var(--color-text-alpha-pure-black-tertiary);
+
+	--color-button-glass-default-surface: var(--color-glass-surface-default);
+	--color-button-glass-default-icon: var(--color-glass-icon-default);
+	--color-button-glass-default-text: var(--color-glass-text-primary);
+	--color-button-glass-hover-surface: var(--color-glass-surface-hover);
+	--color-button-glass-hover-icon: var(--color-glass-icon-hover);
+	--color-button-glass-hover-text: var(--color-glass-text-secondary);
+	--color-button-glass-focused-surface: var(--color-glass-surface-active);
+	--color-button-glass-focused-icon: var(--color-glass-icon-active);
+	--color-button-glass-focused-text: var(--color-text-alpha-vv-white-primary);
+	--color-button-glass-disabled-surface: var(--color-glass-surface-disabled);
+	--color-button-glass-disabled-icon: var(--color-glass-icon-disabled);
+	--color-button-glass-disabled-text: var(--color-glass-text-primary);
+
 	--size-button-large-normal-height: var(--spacing-40);
 	--size-button-large-normal-min-width: var(--spacing-40);
 	--size-button-large-normal-gap: var(--spacing-0);
@@ -265,10 +275,6 @@
 }
 
 @theme {
-	--color-button-primary-default: var(--color-button-primary-default);
-	--color-button-primary-hover: var(--color-button-primary-hover);
-	--color-button-primary-focused: var(--color-button-primary-focused);
-	--color-button-primary-disabled: var(--color-button-primary-disabled);
 	--color-button-brand-default-surface: var(--color-button-brand-default-surface);
 	--color-button-brand-default-icon: var(--color-button-brand-default-icon);
 	--color-button-brand-default-text: var(--color-button-brand-default-text);
@@ -381,6 +387,20 @@
 	--color-button-success-disabled-surface: var(--color-button-success-disabled-surface);
 	--color-button-success-disabled-icon: var(--color-button-success-disabled-icon);
 	--color-button-success-disabled-text: var(--color-button-success-disabled-text);
+
+	--color-button-glass-default-surface: var(--color-button-glass-default-surface);
+	--color-button-glass-default-icon: var(--color-button-glass-default-icon);
+	--color-button-glass-default-text: var(--color-button-glass-default-text);
+	--color-button-glass-hover-surface: var(--color-button-glass-hover-surface);
+	--color-button-glass-hover-icon: var(--color-button-glass-hover-icon);
+	--color-button-glass-hover-text: var(--color-button-glass-hover-text);
+	--color-button-glass-focused-surface: var(--color-button-glass-focused-surface);
+	--color-button-glass-focused-icon: var(--color-button-glass-focused-icon);
+	--color-button-glass-focused-text: var(--color-button-glass-focused-text);
+	--color-button-glass-disabled-surface: var(--color-button-glass-disabled-surface);
+	--color-button-glass-disabled-icon: var(--color-button-glass-disabled-icon);
+	--color-button-glass-disabled-text: var(--color-button-glass-disabled-text);
+	
 	--spacing-button-large-normal-height: var(--size-button-large-normal-height);
 	--spacing-button-large-normal-min-width: var(--size-button-large-normal-min-width);
 	--spacing-button-large-normal-gap: var(--size-button-large-normal-gap);

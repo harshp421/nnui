@@ -48,7 +48,7 @@
     bind:this={ref}
     data-slot={dataSlot}
     class={cn(
-      "h-input-default-height rounded-input-default-radius shadow-xs w-full min-w-0 border p-input-default-padding-all-sides text-base outline-none transition-[color,box-shadow,background-color] md:text-sm",
+      "h-input-default-height rounded-input-default-radius shadow-xs w-full min-w-0 border p-input-default-padding-all-sides text-base outline-none transition-[color,box-shadow,background-color] md:text-sm glass:backdrop-blur-md",
       "bg-input-box-default-surface border-input-box-default-border text-input-box-default-text placeholder:text-input-box-default-icon",
       "hover:bg-input-box-hover-surface hover:border-input-box-hover-border hover:text-input-box-hover-text hover:placeholder:text-input-box-hover-icon",
       "focus-visible:bg-input-box-active-surface focus-visible:border-input-box-active-border focus-visible:ring-3 focus-visible:ring-surface-brand-primary/50 focus-visible:text-input-box-active-text focus-visible:placeholder:text-input-box-active-icon",

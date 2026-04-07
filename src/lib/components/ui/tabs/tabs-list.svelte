@@ -35,7 +35,7 @@
   bind:ref
   data-slot="tabs-list"
   class={cn(
-    "inline-flex w-full items-center justify-center",
+    "inline-flex w-full items-center justify-center glass:backdrop-blur-xl glass:backdrop-saturate-150",
     listVariantClasses,
     variant === "contained"
       ? "rounded-tabs-radius bg-tab-default-contained-surface p-tabs-padding-all-sides"

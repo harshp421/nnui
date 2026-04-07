@@ -82,7 +82,7 @@
 
 <div
   class={cn(
-    "relative flex cursor-pointer select-none flex-col items-center justify-center rounded-input-drag-drop-box-radius border p-input-drag-drop-box-padding-all-sides transition-colors duration-200 ease-in-out",
+    "relative flex cursor-pointer select-none flex-col items-center justify-center rounded-input-drag-drop-box-radius border p-input-drag-drop-box-padding-all-sides transition-colors duration-200 ease-in-out glass:backdrop-blur-md",
     `${dragOver ? "bg-darg-drop-box-active-surface border-darg-drop-box-active-border" : "bg-darg-drop-box-default-surface border-darg-drop-box-default-border"}`,
     "hover:bg-darg-drop-box-active-surface hover:border-darg-drop-box-active-border",
     errorMessage ? "border-destructive" : dragOver ? "border-dashed" : "",

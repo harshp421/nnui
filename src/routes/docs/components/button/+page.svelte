@@ -392,12 +392,12 @@
 									>
 								</Button>
 							{:else}
-								<Button size={size.value as any} variant="tertiary">{size.label}</Button>
+								<Button size={size.value as any} variant="primary">{size.label}</Button>
 							{/if}
 						</div>
 
 						<CodeBlock
-							code={getButtonCode('default', size.value)}
+							code={getButtonCode('primary', size.value)}
 							language="svelte"
 							class="text-xs"
 						/>

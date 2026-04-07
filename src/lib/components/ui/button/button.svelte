@@ -3,7 +3,7 @@
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import { type VariantProps, tv } from 'tailwind-variants';
 	export const buttonVariants = tv({
-		base: "inline-flex shrink-0 items-center justify-center whitespace-nowrap text-sm font-medium outline-none transition-all disabled:pointer-events-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-16 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+		base: "inline-flex shrink-0 items-center justify-center whitespace-nowrap text-sm font-medium outline-none transition-all disabled:pointer-events-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-16 [&_svg]:pointer-events-none [&_svg]:shrink-0 glass:backdrop-blur-md",
 		variants: {
 			variant: {
 				primary: [
@@ -64,10 +64,11 @@
 					'disabled:bg-button-link-disabled-surface disabled:text-button-link-disabled-text disabled:[&>svg]:text-button-link-disabled-icon'
 				].join(' '),
 				glass: [
-					'bg-glass-surface-default text-glass-text-primary [&>svg]:text-glass-icon-default border border-glass-border-l1',
-					'hover:bg-glass-surface-hover hover:text-glass-text-primary hover:[&>svg]:text-glass-icon-hover',
-					'focus-visible:bg-glass-surface-active focus-visible:text-glass-icon-active',
-					'disabled:bg-glass-surface-disabled disabled:text-glass-text-tertiary disabled:[&>svg]:text-glass-icon-disabled'
+					'bg-button-glass-default-surface text-button-glass-default-text [&>svg]:text-button-glass-default-icon border border-glass-border-l1',
+					'hover:bg-button-glass-hover-surface hover:text-button-glass-hover-text hover:[&>svg]:text-button-glass-hover-icon',
+					'focus-visible:bg-button-glass-focused-surface focus-visible:text-button-glass-focused-text focus-visible:[&>svg]:text-button-glass-focused-icon',
+					'disabled:bg-button-glass-disabled-surface disabled:text-button-glass-disabled-text disabled:[&>svg]:text-button-glass-disabled-icon',
+					'shadow-l1 backdrop-blur-light'
 				].join(' ')
 			},
 			size: {
@@ -140,7 +141,7 @@
 	<button
 		bind:this={ref}
 		data-slot="button"
-		class={cn(buttonVariants({ variant, size, fullyRounded }), className)}
+		class={cn(buttonVariants({ variant, size, fullyRounded }), className,'')}
 		{type}
 		{disabled}
 		{...restProps}

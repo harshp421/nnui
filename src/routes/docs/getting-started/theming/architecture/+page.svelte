@@ -14,23 +14,23 @@
 		description="How nnuikit's 3-layer design token system makes theming, dark mode, and customization scalable — without hundreds of overrides."
 	/>
 
-	<div class="mt-8 flex flex-col gap-10">
+	<div class="mt-10 flex flex-col gap-12">
 
 		<!-- Section 1: The 3 Layers -->
-		<section class="flex flex-col gap-6">
+		<section class="flex flex-col gap-7">
 			<h2 class="text-2xl font-bold tracking-tight">The 3 Layers</h2>
 			<p class="text-base leading-relaxed text-text-neutral-secondary">
 				nnuikit's component system is built on three layers of CSS custom properties. Each layer has a single responsibility — and together they let you switch themes, enable dark mode, or override one component, all with minimal CSS.
 			</p>
 
 			<!-- Layer 1: Base Palette -->
-			<div class="rounded-xl border border-border-brand-l3 bg-surface-brand-l1 p-6">
-				<div class="mb-4 flex items-start gap-4">
+			<div class="rounded-xl border border-border-brand-l3 bg-surface-brand-l1 p-5">
+				<div class="mb-5 flex items-start gap-3.5">
 					<span class="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">1</span>
 					<div>
 						<p class="text-xs font-medium tracking-wide text-text-brand-primary uppercase">What colors exist?</p>
 						<h3 class="text-base font-semibold text-text-neutral-primary">Base Palette</h3>
-						<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+						<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 							Raw named color values — just shades of each hue, no semantic meaning attached. Changing these 12 values rebrands your entire UI.
 						</p>
 					</div>
@@ -54,13 +54,13 @@
 			</div>
 
 			<!-- Layer 2: Semantic Tokens -->
-			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
-				<div class="mb-4 flex items-start gap-4">
+			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-5">
+				<div class="mb-5 flex items-start gap-3.5">
 					<span class="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">2</span>
 					<div>
 						<p class="text-xs font-medium tracking-wide text-text-neutral-tertiary uppercase">What do they mean?</p>
 						<h3 class="text-base font-semibold text-text-neutral-primary">Semantic Tokens</h3>
-						<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+						<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 							Maps raw shades to roles. This is where intent lives — "primary button surface", "subtle badge background", "disabled state". Changing this layer enables dark mode, because dark mode remaps which shade fills each role.
 						</p>
 					</div>
@@ -82,13 +82,13 @@
 			</div>
 
 			<!-- Layer 3: Component Tokens -->
-			<div class="rounded-xl border border-border-neutral-l4 p-6">
-				<div class="mb-4 flex items-start gap-4">
+			<div class="rounded-xl border border-border-neutral-l4 p-5">
+				<div class="mb-5 flex items-start gap-3.5">
 					<span class="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">3</span>
 					<div>
 						<p class="text-xs font-medium tracking-wide text-text-neutral-tertiary uppercase">Where exactly?</p>
 						<h3 class="text-base font-semibold text-text-neutral-primary">Component Tokens</h3>
-						<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+						<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 							Maps semantic roles to specific component states. Each component reads only its own tokens, which point at semantic tokens. This isolates components — you can override one button variant without affecting anything else.
 						</p>
 					</div>
@@ -104,7 +104,7 @@
 		</section>
 
 		<!-- Section 2: The Dark Mode Problem -->
-		<section class="flex flex-col gap-4">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">Why Not Just Use <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xl">--color-brand-800</code> Directly?</h2>
 			<p class="text-base leading-relaxed text-text-neutral-secondary">
 				If you hardcode <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">var(--color-brand-800)</code> in a component, inverting all shades for dark mode breaks some use cases while fixing others — because different parts of the UI remap in opposite directions.
@@ -114,42 +114,42 @@
 				<table class="w-full text-sm">
 					<thead>
 						<tr class="border-b border-border-neutral-l4 bg-surface-neutral-l2">
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Use Case</th>
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Light Mode</th>
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Dark Mode</th>
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Direction</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Use Case</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Light Mode</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Dark Mode</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Direction</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Button bg (prominent)</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-800</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-200</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">dark → light</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Button bg (prominent)</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-800</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-200</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">dark → light</td>
 						</tr>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Button hover</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-700</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-300</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">dark → light</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Button hover</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-700</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-300</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">dark → light</td>
 						</tr>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Badge bg (subtle)</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-100</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-900</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">light → dark</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Badge bg (subtle)</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-100</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-900</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">light → dark</td>
 						</tr>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Border</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-200</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-800</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">light → dark</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Border</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-200</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-800</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">light → dark</td>
 						</tr>
 						<tr>
-							<td class="px-4 py-3 text-text-neutral-primary">Disabled state</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-400</td>
-							<td class="px-4 py-3 font-mono text-xs text-text-neutral-secondary">brand-600</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">middle shift</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Disabled state</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-400</td>
+							<td class="px-5 py-3 font-mono text-xs text-text-neutral-secondary">brand-600</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">middle shift</td>
 						</tr>
 					</tbody>
 				</table>
@@ -161,38 +161,38 @@
 		</section>
 
 		<!-- Section 3: What Each Layer Solves -->
-		<section class="flex flex-col gap-4">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">Choosing the Right Layer to Override</h2>
 
 			<div class="overflow-x-auto rounded-lg border border-border-neutral-l4">
 				<table class="w-full text-sm">
 					<thead>
 						<tr class="border-b border-border-neutral-l4 bg-surface-neutral-l2">
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Scenario</th>
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Override Layer</th>
-							<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Lines of CSS</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Scenario</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Override Layer</th>
+							<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Lines of CSS</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Rebrand to a new color</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">Layer 1 — base palette</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">~12</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Rebrand to a new color</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">Layer 1 — base palette</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">~12</td>
 						</tr>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Enable dark mode</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">Layer 2 — semantic tokens</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">~30</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Enable dark mode</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">Layer 2 — semantic tokens</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">~30</td>
 						</tr>
 						<tr class="border-b border-border-neutral-l4">
-							<td class="px-4 py-3 text-text-neutral-primary">Switch to a preset theme (blue → violet)</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">Layer 1 — swap brand palette</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">~12</td>
+							<td class="px-5 py-3 text-text-neutral-primary">Switch to a preset theme (blue → violet)</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">Layer 1 — swap brand palette</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">~12</td>
 						</tr>
 						<tr>
-							<td class="px-4 py-3 text-text-neutral-primary">One component exception</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">Layer 3 — component token</td>
-							<td class="px-4 py-3 text-text-neutral-secondary">1</td>
+							<td class="px-5 py-3 text-text-neutral-primary">One component exception</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">Layer 3 — component token</td>
+							<td class="px-5 py-3 text-text-neutral-secondary">1</td>
 						</tr>
 					</tbody>
 				</table>
@@ -204,7 +204,7 @@
 		</section>
 
 		<!-- Section 4: The Cascade in Action -->
-		<section class="flex flex-col gap-4">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">One Change, Everything Updates</h2>
 			<p class="text-base leading-relaxed text-text-neutral-secondary">
 				Here's what happens when you switch to the violet theme. A single Layer 1 override cascades through all three layers automatically:
@@ -234,31 +234,31 @@
 		</section>
 
 		<!-- Section 5: Token Categories -->
-		<section class="flex flex-col gap-4">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">Token Categories</h2>
 
 			<div class="grid gap-3 md:grid-cols-2">
 				<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-5">
 					<h3 class="text-base font-semibold text-text-neutral-primary">Color Tokens</h3>
-					<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+					<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 						Surface, text, icon, and border colors for all component states.
 					</p>
 				</div>
 				<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-5">
 					<h3 class="text-base font-semibold text-text-neutral-primary">Spacing Tokens</h3>
-					<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+					<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 						Padding, gap, and margin values for each component size (sm/md/lg).
 					</p>
 				</div>
 				<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-5">
 					<h3 class="text-base font-semibold text-text-neutral-primary">Size Tokens</h3>
-					<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+					<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 						Heights, widths, icon sizes, and border radius by size variant.
 					</p>
 				</div>
 				<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-5">
 					<h3 class="text-base font-semibold text-text-neutral-primary">Theme Variants</h3>
-					<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">
+					<p class="mt-1.5 text-sm leading-relaxed text-text-neutral-secondary">
 						CSS classes (<code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">.blue</code>, <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">.violet</code>, <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">.pink</code>, <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">.cyan</code>, <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">.orange</code>) that swap Layer 1.
 					</p>
 				</div>
@@ -266,7 +266,7 @@
 		</section>
 
 		<!-- Section 6: Adding Tokens to Your Project -->
-		<section class="flex flex-col gap-4">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">Adding Tokens to Your Project</h2>
 			<p class="text-base leading-relaxed text-text-neutral-secondary">
 				When you run <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit init</code>, the base design tokens are written to <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/lib/nnuikit-tokens.css</code> and imported automatically. Component tokens are added when you run <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit add &lt;component&gt;</code>.
@@ -282,7 +282,7 @@
 		</section>
 
 		<!-- Section 7: Customizing -->
-		<section class="flex flex-col gap-4">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">Customizing at the Right Layer</h2>
 
 			<CodeBlock
@@ -307,32 +307,32 @@
 		</section>
 
 		<!-- Section 8: TL;DR -->
-		<section class="flex flex-col gap-3">
+		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">TL;DR</h2>
 
-			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-6">
-				<div class="flex flex-col gap-4">
-					<div class="flex items-start gap-3">
+			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-5">
+				<div class="flex flex-col gap-5">
+					<div class="flex items-start gap-3.5">
 						<span class="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">1</span>
 						<div>
 							<p class="text-sm font-semibold text-text-neutral-primary">Layer 1 — Base Palette</p>
-							<p class="mt-0.5 text-sm leading-relaxed text-text-neutral-secondary">Raw color values. Override here to rebrand or switch themes.</p>
+							<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">Raw color values. Override here to rebrand or switch themes.</p>
 						</div>
 					</div>
 
-					<div class="flex items-start gap-3">
+					<div class="flex items-start gap-3.5">
 						<span class="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">2</span>
 						<div>
 							<p class="text-sm font-semibold text-text-neutral-primary">Layer 2 — Semantic Tokens</p>
-							<p class="mt-0.5 text-sm leading-relaxed text-text-neutral-secondary">Role mappings. Override here for dark mode — because modes remap which shade fills each role.</p>
+							<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">Role mappings. Override here for dark mode — because modes remap which shade fills each role.</p>
 						</div>
 					</div>
 
-					<div class="flex items-start gap-3">
+					<div class="flex items-start gap-3.5">
 						<span class="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-brand-primary text-sm font-bold text-text-statics-pure-white">3</span>
 						<div>
 							<p class="text-sm font-semibold text-text-neutral-primary">Layer 3 — Component Tokens</p>
-							<p class="mt-0.5 text-sm leading-relaxed text-text-neutral-secondary">Component state mappings. Override here to break the pattern for one specific component.</p>
+							<p class="mt-1 text-sm leading-relaxed text-text-neutral-secondary">Component state mappings. Override here to break the pattern for one specific component.</p>
 						</div>
 					</div>
 				</div>

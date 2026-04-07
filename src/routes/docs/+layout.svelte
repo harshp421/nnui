@@ -14,7 +14,8 @@
 				{ label: 'Installation', href: '/docs/getting-started/installation' },
 				{ label: 'Colors', href: '/docs/getting-started/colors' },
 				{ label: 'Theming', href: '/docs/getting-started/theming' },
-				{ label: 'Token Architecture', href: '/docs/getting-started/theming/architecture' }
+				{ label: 'Token Architecture', href: '/docs/getting-started/theming/architecture' },
+				{ label: 'Design Tracks', href: '/docs/getting-started/design-tracks' }
 			]
 		},
 		{
