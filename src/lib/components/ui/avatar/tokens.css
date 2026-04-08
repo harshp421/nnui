@@ -8,19 +8,75 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
+	/* Color tokens */
 	--color-avatars-surface: var(--color-surface-brand-l2);
 	--color-avatars-online: var(--color-surface-success-primary);
 	--color-avatars-online-indicator-border: var(--color-surface-statics-vv-white);
 	--color-avatars-offline: var(--color-icon-neutral-tertiary);
 	--color-avatars-icon: var(--color-surface-brand-primary);
-	--size-avatar-user-profile-xxs: 0;
-	--size-avatar-user-profile-xs: 0;
-	--size-avatar-user-profile-s: 0;
-	--size-avatar-user-profile-m: 0;
-	--size-avatar-user-profile-l: 0;
-	--size-avatar-user-profile-xl: 0;
-	--size-avatar-user-profile-xxl: 0;
-	--size-avatar-online-indicator-s: 0;
-	--size-avatar-online-indicator-m: 0;
-	--size-avatar-online-indicator-l: 0;
+
+	/* Size tokens — mobile (compact) */
+	--size-avatar-user-profile-xxs: var(--spacing-16);
+	--size-avatar-user-profile-xs: var(--spacing-20);
+	--size-avatar-user-profile-s: var(--spacing-24);
+	--size-avatar-user-profile-m: var(--spacing-32);
+	--size-avatar-user-profile-l: var(--spacing-40);
+	--size-avatar-user-profile-xl: var(--spacing-48);
+	--size-avatar-user-profile-xxl: var(--spacing-56);
+	--size-avatar-online-indicator-s: var(--spacing-6);
+	--size-avatar-online-indicator-m: var(--spacing-8);
+	--size-avatar-online-indicator-l: var(--spacing-10);
+}
+
+/* Tablet */
+@media (min-width: 1024px) {
+	:root {
+		--size-avatar-user-profile-xxs: var(--spacing-18);
+		--size-avatar-user-profile-xs: var(--spacing-24);
+		--size-avatar-user-profile-s: var(--spacing-28);
+		--size-avatar-user-profile-m: var(--spacing-36);
+		--size-avatar-user-profile-l: var(--spacing-44);
+		--size-avatar-user-profile-xl: var(--spacing-56);
+		--size-avatar-user-profile-xxl: var(--spacing-64);
+		--size-avatar-online-indicator-s: var(--spacing-6);
+		--size-avatar-online-indicator-m: var(--spacing-8);
+		--size-avatar-online-indicator-l: var(--spacing-10);
+	}
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+	:root {
+		--size-avatar-user-profile-xxs: var(--spacing-20);
+		--size-avatar-user-profile-xs: var(--spacing-24);
+		--size-avatar-user-profile-s: var(--spacing-32);
+		--size-avatar-user-profile-m: var(--spacing-40);
+		--size-avatar-user-profile-l: var(--spacing-48);
+		--size-avatar-user-profile-xl: var(--spacing-56);
+		--size-avatar-user-profile-xxl: var(--spacing-72);
+		--size-avatar-online-indicator-s: var(--spacing-6);
+		--size-avatar-online-indicator-m: var(--spacing-8);
+		--size-avatar-online-indicator-l: var(--spacing-10);
+	}
+}
+
+@theme {
+	/* Color registrations */
+	--color-avatars-surface: var(--color-avatars-surface);
+	--color-avatars-online: var(--color-avatars-online);
+	--color-avatars-online-indicator-border: var(--color-avatars-online-indicator-border);
+	--color-avatars-offline: var(--color-avatars-offline);
+	--color-avatars-icon: var(--color-avatars-icon);
+
+	/* Size registrations */
+	--spacing-avatar-user-profile-xxs: var(--size-avatar-user-profile-xxs);
+	--spacing-avatar-user-profile-xs: var(--size-avatar-user-profile-xs);
+	--spacing-avatar-user-profile-s: var(--size-avatar-user-profile-s);
+	--spacing-avatar-user-profile-m: var(--size-avatar-user-profile-m);
+	--spacing-avatar-user-profile-l: var(--size-avatar-user-profile-l);
+	--spacing-avatar-user-profile-xl: var(--size-avatar-user-profile-xl);
+	--spacing-avatar-user-profile-xxl: var(--size-avatar-user-profile-xxl);
+	--spacing-avatar-online-indicator-s: var(--size-avatar-online-indicator-s);
+	--spacing-avatar-online-indicator-m: var(--size-avatar-online-indicator-m);
+	--spacing-avatar-online-indicator-l: var(--size-avatar-online-indicator-l);
 }
