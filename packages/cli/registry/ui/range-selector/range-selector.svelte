@@ -32,13 +32,13 @@ get along, so we shut typescript up by casting `value` to `never`.
       data-orientation={orientation}
       data-slot="slider-track"
       class={cn(
-        "bg-range-selector-track--bar rounded-range-selector-tube-water-tube-radius relative grow overflow-hidden data-[orientation=horizontal]:h-range-selector-tube-water-tube-hegiht data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-1.5",
+        "bg-range-selector-track--bar rounded-range-selector-tube-water-tube-radius relative grow overflow-hidden data-[orientation=horizontal]:h-range-selector-tube-water-tube-height data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-1.5",
       )}
     >
       <SliderPrimitive.Range
         data-slot="slider-range"
         class={cn(
-          "bg-range-selector-value-bar-default h-range-selector-tube-water-water-hegiht rounded-range-selector-tube-water-water-radius data-disabled:bg-range-selector-value-bar-disabled focus-within:bg-range-selector-handle-active-surface focus-within:border-range-selector-handle-active-border absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
+          "bg-range-selector-value-bar-default h-range-selector-tube-water-water-height rounded-range-selector-tube-water-water-radius data-disabled:bg-range-selector-value-bar-disabled focus-within:bg-range-selector-handle-active-surface focus-within:border-range-selector-handle-active-border absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
         )}
       />
     </span>

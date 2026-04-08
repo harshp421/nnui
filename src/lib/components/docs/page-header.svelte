@@ -6,11 +6,11 @@
 </script>
 
 <div class="flex flex-col gap-16 py-24 mb-8 border-b border-border-neutral-l4">
-  <h1 class="text-4xl font-bold tracking-tight text-text-neutral-primary">
+  <h1 class="type-display-md  text-text-neutral-primary">
     {title}
   </h1>
   {#if description}
-    <p class="text-base leading-relaxed text-text-neutral-secondary">
+    <p class="type-body-lg text-text-neutral-secondary">
       {description}
     </p>
   {/if}

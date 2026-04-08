@@ -16,30 +16,31 @@
 	--color-range-selector-handle-active-border: var(--color-border-brand-primary);
 	--color-range-selector-value-bar-disabled: var(--color-neutral-500);
 	--size-range-selector-tool-tip-radius: var(--radius-8);
-	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-tube-height: var(--spacing-8);
 	--size-range-selector-tube-water-tube-radius: var(--radius-full);
-	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
+	--size-range-selector-tube-water-water-height: var(--spacing-8);
 	--size-range-selector-tube-water-water-radius: var(--radius-full);
 	--size-range-selector-handle-height: var(--spacing-20);
 	--size-range-selector-handle-width: var(--spacing-20);
 	--size-range-selector-handle-border: var(--border-width-l1);
 	--size-range-selector-handle-radius: var(--radius-full);
-	--size-range-selector-tool-tip-radius: var(--radius-8);
-	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
-	--size-range-selector-tube-water-tube-radius: var(--radius-full);
-	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
-	--size-range-selector-tube-water-water-radius: var(--radius-full);
-	--size-range-selector-handle-height: var(--spacing-20);
-	--size-range-selector-handle-width: var(--spacing-20);
-	--size-range-selector-handle-border: var(--border-width-l1);
-	--size-range-selector-handle-radius: var(--radius-full);
-	--size-range-selector-tool-tip-radius: var(--radius-8);
-	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
-	--size-range-selector-tube-water-tube-radius: var(--radius-full);
-	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
-	--size-range-selector-tube-water-water-radius: var(--radius-full);
-	--size-range-selector-handle-height: var(--spacing-20);
-	--size-range-selector-handle-width: var(--spacing-20);
-	--size-range-selector-handle-border: var(--border-width-l1);
-	--size-range-selector-handle-radius: var(--radius-full);
+}
+
+@theme {
+	--color-range-selector-track--bar: var(--color-range-selector-track--bar);
+	--color-range-selector-value-bar-default: var(--color-range-selector-value-bar-default);
+	--color-range-selector-handle-default-surface: var(--color-range-selector-handle-default-surface);
+	--color-range-selector-handle-default-border: var(--color-range-selector-handle-default-border);
+	--color-range-selector-handle-active-surface: var(--color-range-selector-handle-active-surface);
+	--color-range-selector-handle-active-border: var(--color-range-selector-handle-active-border);
+	--color-range-selector-value-bar-disabled: var(--color-range-selector-value-bar-disabled);
+	--radius-range-selector-tool-tip-radius: var(--size-range-selector-tool-tip-radius);
+	--spacing-range-selector-tube-water-tube-height: var(--size-range-selector-tube-water-tube-height);
+	--radius-range-selector-tube-water-tube-radius: var(--size-range-selector-tube-water-tube-radius);
+	--spacing-range-selector-tube-water-water-height: var(--size-range-selector-tube-water-water-height);
+	--radius-range-selector-tube-water-water-radius: var(--size-range-selector-tube-water-water-radius);
+	--spacing-range-selector-handle-height: var(--size-range-selector-handle-height);
+	--spacing-range-selector-handle-width: var(--size-range-selector-handle-width);
+	--spacing-range-selector-handle-border: var(--size-range-selector-handle-border);
+	--radius-range-selector-handle-radius: var(--size-range-selector-handle-radius);
 }

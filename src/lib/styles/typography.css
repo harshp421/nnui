@@ -1,0 +1,579 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY — Design Tokens & Presets
+   ═══════════════════════════════════════════════════════════════════════
+   Complete typography system for nnuikit.
+   Font families, weights, type scale, letter spacing, and preset classes.
+
+   Import: @import '$lib/styles/typography.css';
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Font Family Tokens ──────────────────────────────────────────── */
+
+:root {
+	--font-sans: 'Host Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+	--font-display: 'Host Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── 2. Font Weight Tokens ──────────────────────────────────────────── */
+
+:root {
+	--weight-light: 300;
+	--weight-regular: 400;
+	--weight-medium: 500;
+	--weight-semibold: 600;
+	--weight-bold: 700;
+	--weight-extrabold: 800;
+}
+
+/* ── 3. Letter Spacing Tokens ───────────────────────────────────────── */
+
+:root {
+	--tracking-tighter: -0.05em;
+	--tracking-tight: -0.025em;
+	--tracking-normal: 0em;
+	--tracking-wide: 0.025em;
+	--tracking-wider: 0.05em;
+	--tracking-widest: 0.1em;
+}
+
+/* ── 4. Line Height Tokens ──────────────────────────────────────────── */
+
+:root {
+	--leading-none: 1;
+	--leading-tight: 1.15;
+	--leading-snug: 1.3;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.625;
+	--leading-loose: 1.8;
+}
+
+/* ── 5. Type Scale — Base (Mobile-first) ────────────────────────────── */
+
+:root {
+	/* Display — hero headings, landing pages */
+	--text-display-2xl: 3.5rem;     /* 56px */
+	--text-display-xl: 3rem;        /* 48px */
+	--text-display-lg: 2.5rem;      /* 40px */
+	--text-display-md: 2.25rem;     /* 36px */
+	--text-display-sm: 2rem;        /* 32px */
+
+	/* Heading — section titles */
+	--text-heading-xl: 1.875rem;    /* 30px */
+	--text-heading-lg: 1.5rem;      /* 24px */
+	--text-heading-md: 1.25rem;     /* 20px */
+	--text-heading-sm: 1.125rem;    /* 18px */
+	--text-heading-xs: 1rem;        /* 16px */
+
+	/* Body — paragraph text */
+	--text-body-lg: 1.125rem;       /* 18px */
+	--text-body-md: 1rem;           /* 16px */
+	--text-body-sm: 0.875rem;       /* 14px */
+	--text-body-xs: 0.75rem;        /* 12px */
+
+	/* Label — form labels, buttons, UI elements */
+	--text-label-lg: 0.875rem;      /* 14px */
+	--text-label-md: 0.8125rem;     /* 13px */
+	--text-label-sm: 0.75rem;       /* 12px */
+	--text-label-xs: 0.6875rem;     /* 11px */
+
+	/* Caption & Overline */
+	--text-caption: 0.6875rem;      /* 11px */
+	--text-overline-size: 0.625rem; /* 10px */
+}
+
+/* ── 6. Responsive Type Scale ───────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+	:root {
+		--text-display-2xl: 4.5rem;     /* 72px */
+		--text-display-xl: 3.75rem;     /* 60px */
+		--text-display-lg: 3rem;        /* 48px */
+		--text-display-md: 2.5rem;      /* 40px */
+		--text-display-sm: 2.25rem;     /* 36px */
+
+		--text-heading-xl: 2.25rem;     /* 36px */
+		--text-heading-lg: 1.75rem;     /* 28px */
+		--text-heading-md: 1.375rem;    /* 22px */
+	}
+}
+
+@media (min-width: 1440px) {
+	:root {
+		--text-display-2xl: 5rem;       /* 80px */
+		--text-display-xl: 4rem;        /* 64px */
+		--text-display-lg: 3.25rem;     /* 52px */
+		--text-display-md: 2.75rem;     /* 44px */
+		--text-display-sm: 2.5rem;      /* 40px */
+
+		--text-heading-xl: 2.5rem;      /* 40px */
+		--text-heading-lg: 2rem;        /* 32px */
+		--text-heading-md: 1.5rem;      /* 24px */
+	}
+}
+
+/* ── 7. Register in Tailwind @theme ─────────────────────────────────── */
+
+@theme {
+	/* Font families */
+	--font-sans: var(--font-sans);
+	--font-mono: var(--font-mono);
+	--font-display: var(--font-display);
+
+	/* Display scale */
+	--text-display-2xl: var(--text-display-2xl);
+	--text-display-2xl--line-height: var(--leading-none);
+	--text-display-2xl--letter-spacing: var(--tracking-tighter);
+	--text-display-xl: var(--text-display-xl);
+	--text-display-xl--line-height: var(--leading-none);
+	--text-display-xl--letter-spacing: var(--tracking-tighter);
+	--text-display-lg: var(--text-display-lg);
+	--text-display-lg--line-height: var(--leading-tight);
+	--text-display-lg--letter-spacing: var(--tracking-tight);
+	--text-display-md: var(--text-display-md);
+	--text-display-md--line-height: var(--leading-tight);
+	--text-display-md--letter-spacing: var(--tracking-tight);
+	--text-display-sm: var(--text-display-sm);
+	--text-display-sm--line-height: var(--leading-tight);
+	--text-display-sm--letter-spacing: var(--tracking-tight);
+
+	/* Heading scale */
+	--text-heading-xl: var(--text-heading-xl);
+	--text-heading-xl--line-height: var(--leading-tight);
+	--text-heading-xl--letter-spacing: var(--tracking-tight);
+	--text-heading-lg: var(--text-heading-lg);
+	--text-heading-lg--line-height: var(--leading-snug);
+	--text-heading-lg--letter-spacing: var(--tracking-tight);
+	--text-heading-md: var(--text-heading-md);
+	--text-heading-md--line-height: var(--leading-snug);
+	--text-heading-md--letter-spacing: var(--tracking-normal);
+	--text-heading-sm: var(--text-heading-sm);
+	--text-heading-sm--line-height: var(--leading-snug);
+	--text-heading-sm--letter-spacing: var(--tracking-normal);
+	--text-heading-xs: var(--text-heading-xs);
+	--text-heading-xs--line-height: var(--leading-snug);
+	--text-heading-xs--letter-spacing: var(--tracking-normal);
+
+	/* Body scale */
+	--text-body-lg: var(--text-body-lg);
+	--text-body-lg--line-height: var(--leading-relaxed);
+	--text-body-md: var(--text-body-md);
+	--text-body-md--line-height: var(--leading-relaxed);
+	--text-body-sm: var(--text-body-sm);
+	--text-body-sm--line-height: var(--leading-normal);
+	--text-body-xs: var(--text-body-xs);
+	--text-body-xs--line-height: var(--leading-normal);
+
+	/* Label scale */
+	--text-label-lg: var(--text-label-lg);
+	--text-label-lg--line-height: var(--leading-none);
+	--text-label-lg--font-weight: var(--weight-medium);
+	--text-label-md: var(--text-label-md);
+	--text-label-md--line-height: var(--leading-none);
+	--text-label-md--font-weight: var(--weight-medium);
+	--text-label-sm: var(--text-label-sm);
+	--text-label-sm--line-height: var(--leading-none);
+	--text-label-sm--font-weight: var(--weight-medium);
+	--text-label-xs: var(--text-label-xs);
+	--text-label-xs--line-height: var(--leading-none);
+	--text-label-xs--font-weight: var(--weight-medium);
+
+	/* Caption & Overline */
+	--text-caption: var(--text-caption);
+	--text-caption--line-height: var(--leading-normal);
+	--text-overline-size: var(--text-overline-size);
+	--text-overline-size--line-height: var(--leading-none);
+	--text-overline-size--font-weight: var(--weight-semibold);
+	--text-overline-size--letter-spacing: var(--tracking-widest);
+
+	/* Tracking */
+	--tracking-tighter: var(--tracking-tighter);
+	--tracking-tight: var(--tracking-tight);
+	--tracking-normal: var(--tracking-normal);
+	--tracking-wide: var(--tracking-wide);
+	--tracking-wider: var(--tracking-wider);
+	--tracking-widest: var(--tracking-widest);
+
+	/* Leading */
+	--leading-none: var(--leading-none);
+	--leading-tight: var(--leading-tight);
+	--leading-snug: var(--leading-snug);
+	--leading-normal: var(--leading-normal);
+	--leading-relaxed: var(--leading-relaxed);
+	--leading-loose: var(--leading-loose);
+}
+
+/* ── 8. Typography Preset Classes ───────────────────────────────────── */
+/* Compound classes that bundle size + weight + line-height + tracking  */
+/* Usage: <h1 class="type-display-lg">Hero Title</h1>                  */
+
+/* Display presets */
+.type-display-2xl {
+	font-family: var(--font-display);
+	font-size: var(--text-display-2xl);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-tighter);
+}
+
+.type-display-xl {
+	font-family: var(--font-display);
+	font-size: var(--text-display-xl);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-tighter);
+}
+
+.type-display-lg {
+	font-family: var(--font-display);
+	font-size: var(--text-display-lg);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking-tight);
+}
+
+.type-display-md {
+	font-family: var(--font-display);
+	font-size: var(--text-display-md);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking-tight);
+}
+
+.type-display-sm {
+	font-family: var(--font-display);
+	font-size: var(--text-display-sm);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking-tight);
+}
+
+/* Heading presets */
+.type-heading-xl {
+	font-family: var(--font-sans);
+	font-size: var(--text-heading-xl);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking-tight);
+}
+
+.type-heading-lg {
+	font-family: var(--font-sans);
+	font-size: var(--text-heading-lg);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	letter-spacing: var(--tracking-tight);
+}
+
+.type-heading-md {
+	font-family: var(--font-sans);
+	font-size: var(--text-heading-md);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-heading-sm {
+	font-family: var(--font-sans);
+	font-size: var(--text-heading-sm);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-heading-xs {
+	font-family: var(--font-sans);
+	font-size: var(--text-heading-xs);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	letter-spacing: var(--tracking-normal);
+}
+
+/* Body presets */
+.type-body-lg {
+	font-family: var(--font-sans);
+	font-size: var(--text-body-lg);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-relaxed);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-body-md {
+	font-family: var(--font-sans);
+	font-size: var(--text-body-md);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-relaxed);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-body-sm {
+	font-family: var(--font-sans);
+	font-size: var(--text-body-sm);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-normal);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-body-xs {
+	font-family: var(--font-sans);
+	font-size: var(--text-body-xs);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-normal);
+	letter-spacing: var(--tracking-normal);
+}
+
+/* Label presets */
+.type-label-lg {
+	font-family: var(--font-sans);
+	font-size: var(--text-label-lg);
+	font-weight: var(--weight-medium);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-label-md {
+	font-family: var(--font-sans);
+	font-size: var(--text-label-md);
+	font-weight: var(--weight-medium);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-label-sm {
+	font-family: var(--font-sans);
+	font-size: var(--text-label-sm);
+	font-weight: var(--weight-medium);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-wide);
+}
+
+.type-label-xs {
+	font-family: var(--font-sans);
+	font-size: var(--text-label-xs);
+	font-weight: var(--weight-medium);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-wide);
+}
+
+/* Caption & Overline presets */
+.type-caption {
+	font-family: var(--font-sans);
+	font-size: var(--text-caption);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-normal);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-overline {
+	font-family: var(--font-sans);
+	font-size: var(--text-overline-size);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-widest);
+	text-transform: uppercase;
+}
+
+/* Code preset */
+.type-code {
+	font-family: var(--font-mono);
+	font-size: var(--text-body-sm);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-normal);
+	letter-spacing: var(--tracking-normal);
+}
+
+.type-code-sm {
+	font-family: var(--font-mono);
+	font-size: var(--text-body-xs);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-normal);
+	letter-spacing: var(--tracking-normal);
+}
+
+/* ── 9. Text Truncation Utilities ───────────────────────────────────── */
+
+.text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.text-clamp-2 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
+.text-clamp-3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.text-clamp-4 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+}
+
+/* ── 10. Prose — Content Styling ────────────────────────────────────── */
+/* Apply to containers with raw HTML/markdown content.                  */
+/* Usage: <div class="nn-prose">{@html content}</div>                   */
+
+.nn-prose {
+	font-family: var(--font-sans);
+	font-size: var(--text-body-md);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-relaxed);
+	letter-spacing: var(--tracking-normal);
+	color: var(--color-text-neutral-secondary);
+}
+
+.nn-prose h1 {
+	font-size: var(--text-heading-xl);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking-tight);
+	color: var(--color-text-neutral-primary);
+	margin-top: 2em;
+	margin-bottom: 0.75em;
+}
+
+.nn-prose h2 {
+	font-size: var(--text-heading-lg);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	letter-spacing: var(--tracking-tight);
+	color: var(--color-text-neutral-primary);
+	margin-top: 1.75em;
+	margin-bottom: 0.5em;
+}
+
+.nn-prose h3 {
+	font-size: var(--text-heading-md);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	color: var(--color-text-neutral-primary);
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+.nn-prose h4 {
+	font-size: var(--text-heading-sm);
+	font-weight: var(--weight-semibold);
+	line-height: var(--leading-snug);
+	color: var(--color-text-neutral-primary);
+	margin-top: 1.25em;
+	margin-bottom: 0.5em;
+}
+
+.nn-prose p {
+	margin-bottom: 1.25em;
+}
+
+.nn-prose strong {
+	font-weight: var(--weight-semibold);
+	color: var(--color-text-neutral-primary);
+}
+
+.nn-prose a {
+	color: var(--color-text-brand-primary);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.nn-prose a:hover {
+	opacity: 0.8;
+}
+
+.nn-prose ul,
+.nn-prose ol {
+	padding-left: 1.5em;
+	margin-bottom: 1.25em;
+}
+
+.nn-prose li {
+	margin-bottom: 0.35em;
+}
+
+.nn-prose ul li {
+	list-style-type: disc;
+}
+
+.nn-prose ol li {
+	list-style-type: decimal;
+}
+
+.nn-prose blockquote {
+	border-left: 3px solid var(--color-border-brand-primary);
+	padding-left: 1em;
+	margin: 1.5em 0;
+	color: var(--color-text-neutral-tertiary);
+	font-style: italic;
+}
+
+.nn-prose code {
+	font-family: var(--font-mono);
+	font-size: 0.875em;
+	background: var(--color-surface-neutral-l2);
+	border-radius: 4px;
+	padding: 0.15em 0.4em;
+}
+
+.nn-prose pre {
+	font-family: var(--font-mono);
+	font-size: var(--text-body-sm);
+	background: var(--color-surface-neutral-l2);
+	border-radius: 8px;
+	padding: 1em 1.25em;
+	margin: 1.5em 0;
+	overflow-x: auto;
+}
+
+.nn-prose pre code {
+	background: none;
+	padding: 0;
+	border-radius: 0;
+}
+
+.nn-prose hr {
+	border: none;
+	border-top: 1px solid var(--color-border-neutral-l3);
+	margin: 2em 0;
+}
+
+.nn-prose img {
+	border-radius: 8px;
+	margin: 1.5em 0;
+	max-width: 100%;
+}
+
+.nn-prose table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5em 0;
+}
+
+.nn-prose th {
+	font-weight: var(--weight-semibold);
+	text-align: left;
+	padding: 0.5em 0.75em;
+	border-bottom: 2px solid var(--color-border-neutral-l3);
+	color: var(--color-text-neutral-primary);
+}
+
+.nn-prose td {
+	padding: 0.5em 0.75em;
+	border-bottom: 1px solid var(--color-border-neutral-l4);
+}
+
+.nn-prose > *:first-child {
+	margin-top: 0;
+}
+
+.nn-prose > *:last-child {
+	margin-bottom: 0;
+}

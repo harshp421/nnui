@@ -90,7 +90,7 @@
 		</div>
 
 		<!-- Component groups -->
-		{#each components as group}
+		{#each components as group (group.category)}
 			<section class="flex flex-col gap-4">
 				<div class="flex items-center gap-3">
 					<h2 class="text-sm font-semibold uppercase tracking-widest text-text-neutral-tertiary">{group.category}</h2>
@@ -99,7 +99,7 @@
 				</div>
 
 				<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-					{#each group.items as item}
+					{#each group.items as item (item.href)}
 						<a
 							href={item.href}
 							class="group flex flex-col gap-1.5 rounded-xl border border-border-neutral-l4 bg-surface-statics-vv-white p-5 transition-all hover:border-border-brand-l3 hover:bg-surface-brand-l1 hover:shadow-sm"

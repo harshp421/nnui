@@ -14,6 +14,8 @@
 @import '$lib/components/ui/input/tokens.css';
 @import '$lib/components/ui/progress/tokens.css';
 @import '$lib/components/ui/switch/tokens.css';
+@import '$lib/components/ui/range-selector/tokens.css';
+@import '$lib/styles/typography.css';
 
 /* Root Variables (Default Theme) */
 :root {
@@ -863,13 +865,6 @@
 	--color-avatars-online-indicator-border: var(--color-surface-statics-vv-white);
 	--color-avatars-offline: var(--color-icon-neutral-tertiary);
 	--color-avatars-icon: var(--color-surface-brand-primary);
-	--color-range-selector-track--bar: var(--color-surface-neutral-l3);
-	--color-range-selector-value-bar-default: var(--color-surface-brand-primary);
-	--color-range-selector-handle-default-surface: var(--color-surface-neutral-l2);
-	--color-range-selector-handle-default-border: var(--color-border-neutral-l5);
-	--color-range-selector-handle-active-surface: var(--color-surface-statics-vv-white);
-	--color-range-selector-handle-active-border: var(--color-border-brand-primary);
-	--color-range-selector-value-bar-disabled: var(--color-neutral-500);
 	--color-navigation-nav-surface: var(--color-surface-statics-vv-white);
 	--color-navigation-nav-border: var(--color-border-neutral-l3);
 	--color-navigation-worksapce-tab-surface: var(--color-surface-alpha-zero-transparency);
@@ -1253,20 +1248,7 @@
 	--spacing-256: 256px;
 	--spacing-320: 320px;
 	--spacing-520: 520px;
-	--typo-font-font-title: Host Grotesk;
-	--typo-font-font-body: Host Grotesk;
-	--typo-letter-spacing-relaxed: 1px;
-	--typo-letter-spacing-normal: 0;
-	--typo-letter-spacing-s: -0.25px;
-	--typo-letter-spacing-m: -0.5px;
-	--typo-letter-spacing-l: -1px;
-	--typo-letter-spacing-xl: -2px;
-	--typo-font-weight-light: Light;
-	--typo-font-weight-regular: Regular;
-	--typo-font-weight-medium: Medium;
-	--typo-font-weight-semibold: SemiBold;
-	--typo-font-weight-bold: Bold;
-	--typo-font-weight-extrabold: ExtraBold;
+	
 	--radius-0: 0;
 	--radius-2: 2px;
 	--radius-4: 4px;
@@ -1551,19 +1533,10 @@
 	--size-toggle-season-switcher-small-radius: var(--radius-full);
 	--size-toggle-season-switcher-small-gap: var(--spacing-4);
 	--size-toggle-season-switcher-small-padding: var(--spacing-2);
-	--size-progress-bar-tube-hegiht: var(--spacing-8);
+	--size-progress-bar-tube-height: var(--spacing-8);
 	--size-progress-bar-tube-radius: var(--radius-full);
-	--size-progress-bar-water-hegiht: var(--spacing-8);
+	--size-progress-bar-water-height: var(--spacing-8);
 	--size-progress-bar-water-radius: var(--radius-full);
-	--size-range-selector-tool-tip-radius: var(--radius-8);
-	--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
-	--size-range-selector-tube-water-tube-radius: var(--radius-full);
-	--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
-	--size-range-selector-tube-water-water-radius: var(--radius-full);
-	--size-range-selector-handle-height: var(--spacing-20);
-	--size-range-selector-handle-width: var(--spacing-20);
-	--size-range-selector-handle-border: var(--border-width-l1);
-	--size-range-selector-handle-radius: var(--radius-full);
 	--size-toasts-expanded-width: 0;
 	--size-toasts-expanded-icon-size: 0;
 	--size-toasts-expanded-icon-border: 0;
@@ -2032,19 +2005,10 @@
 		--size-toggle-season-switcher-small-radius: var(--radius-full);
 		--size-toggle-season-switcher-small-gap: var(--spacing-4);
 		--size-toggle-season-switcher-small-padding: var(--spacing-2);
-		--size-progress-bar-tube-hegiht: var(--spacing-8);
+		--size-progress-bar-tube-height: var(--spacing-8);
 		--size-progress-bar-tube-radius: var(--radius-full);
-		--size-progress-bar-water-hegiht: var(--spacing-8);
+		--size-progress-bar-water-height: var(--spacing-8);
 		--size-progress-bar-water-radius: var(--radius-full);
-		--size-range-selector-tool-tip-radius: var(--radius-8);
-		--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
-		--size-range-selector-tube-water-tube-radius: var(--radius-full);
-		--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
-		--size-range-selector-tube-water-water-radius: var(--radius-full);
-		--size-range-selector-handle-height: var(--spacing-20);
-		--size-range-selector-handle-width: var(--spacing-20);
-		--size-range-selector-handle-border: var(--border-width-l1);
-		--size-range-selector-handle-radius: var(--radius-full);
 		--size-toasts-expanded-width: 0;
 		--size-toasts-expanded-icon-size: 0;
 		--size-toasts-expanded-icon-border: 0;
@@ -2514,19 +2478,10 @@
 		--size-toggle-season-switcher-small-radius: var(--radius-full);
 		--size-toggle-season-switcher-small-gap: var(--spacing-4);
 		--size-toggle-season-switcher-small-padding: var(--spacing-2);
-		--size-progress-bar-tube-hegiht: var(--spacing-8);
+		--size-progress-bar-tube-height: var(--spacing-8);
 		--size-progress-bar-tube-radius: var(--radius-full);
-		--size-progress-bar-water-hegiht: var(--spacing-8);
+		--size-progress-bar-water-height: var(--spacing-8);
 		--size-progress-bar-water-radius: var(--radius-full);
-		--size-range-selector-tool-tip-radius: var(--radius-8);
-		--size-range-selector-tube-water-tube-hegiht: var(--spacing-8);
-		--size-range-selector-tube-water-tube-radius: var(--radius-full);
-		--size-range-selector-tube-water-water-hegiht: var(--spacing-8);
-		--size-range-selector-tube-water-water-radius: var(--radius-full);
-		--size-range-selector-handle-height: var(--spacing-20);
-		--size-range-selector-handle-width: var(--spacing-20);
-		--size-range-selector-handle-border: var(--border-width-l1);
-		--size-range-selector-handle-radius: var(--radius-full);
 		--size-toasts-expanded-width: var(--spacing-520);
 		--size-toasts-expanded-icon-size: var(--spacing-24);
 		--size-toasts-expanded-icon-border: var(--border-width-l2);
@@ -3318,38 +3273,7 @@
 	--breakpoint-sm: 375px;
 	--breakpoint-md: 1024px;
 	--breakpoint-lg: 1440px;
-	/* start typography here */
-	--text-h1: var(--text-h1);
-	--text-h1--line-height: var(--text-h1--line-height);
-	--text-h2: var(--text-h2);
-	--text-h2--line-height: var(--text-h2--line-height);
-	--text-h3: var(--text-h3);
-	--text-h3--line-height: var(--text-h3--line-height);
-	--text-h4: var(--text-h4);
-	--text-h4--line-height: var(--text-h4--line-height);
-	--text-h5: var(--text-h5);
-	--text-h5--line-height: var(--text-h5--line-height);
-	--text-h6: var(--text-h6);
-	--text-h6--line-height: var(--text-h6--line-height);
-
-	--text-p-small: var(--text-p-small);
-	--text-p-small--line-height: var(--text-p-small--line-height);
-	--text-p-medium: var(--text-p-medium);
-	--text-p-medium--line-height: var(--text-p-medium--line-height);
-	--text-p-large: var(--text-p-large);
-	--text-p-large--line-height: var(--text-p-large--line-height);
-	--text-p-xsmall: var(--text-p-xsmall);
-	--text-p-xsmall--line-height: var(--text-p-xsmall--line-height);
-	--text-p-xxsmall: var(--text-p-xxsmall);
-	--text-p-xxsmall--line-height: var(--text-p-xxsmall--line-height);
-
-	--text-overline-large: var(--text-overline-large);
-	--text-overline-large--line-height: var(--text-overline-large--line-height);
-	--text-overline-medium: var(--text-overline-medium);
-	--text-overline-medium--line-height: var(--text-overline-medium--line-height);
-	--text-overline-small: var(--text-overline-small);
-	--text-overline-small--line-height: var(--text-overline-small--line-height);
-
+	
 	--color-pin-shade: var(--color-pin-shade);
 	--color-pin-complain-active-surface: var(--color-pin-complain-active-surface);
 	--color-pin-complain-active-frame: var(--color-pin-complain-active-frame);
@@ -4273,13 +4197,6 @@
 	--color-avatars-online-indicator-border: var(--color-avatars-online-indicator-border);
 	--color-avatars-offline: var(--color-avatars-offline);
 	--color-avatars-icon: var(--color-avatars-icon);
-	--color-range-selector-track--bar: var(--color-range-selector-track--bar);
-	--color-range-selector-value-bar-default: var(--color-range-selector-value-bar-default);
-	--color-range-selector-handle-default-surface: var(--color-range-selector-handle-default-surface);
-	--color-range-selector-handle-default-border: var(--color-range-selector-handle-default-border);
-	--color-range-selector-handle-active-surface: var(--color-range-selector-handle-active-surface);
-	--color-range-selector-handle-active-border: var(--color-range-selector-handle-active-border);
-	--color-range-selector-value-bar-disabled: var(--color-range-selector-value-bar-disabled);
 	--color-navigation-nav-surface: var(--color-navigation-nav-surface);
 	--color-navigation-nav-border: var(--color-navigation-nav-border);
 	--color-navigation-worksapce-tab-surface: var(--color-navigation-worksapce-tab-surface);
@@ -5019,27 +4936,10 @@
 	--spacing-toggle-season-switcher-small-radius: var(--size-toggle-season-switcher-small-radius);
 	--spacing-toggle-season-switcher-small-gap: var(--size-toggle-season-switcher-small-gap);
 	--spacing-toggle-season-switcher-small-padding: var(--size-toggle-season-switcher-small-padding);
-	--spacing-progress-bar-tube-hegiht: var(--size-progress-bar-tube-hegiht);
+	--spacing-progress-bar-tube-height: var(--size-progress-bar-tube-height);
 	--spacing-progress-bar-tube-radius: var(--size-progress-bar-tube-radius);
-	--spacing-progress-bar-water-hegiht: var(--size-progress-bar-water-hegiht);
+	--spacing-progress-bar-water-height: var(--size-progress-bar-water-height);
 	--spacing-progress-bar-water-radius: var(--size-progress-bar-water-radius);
-	--spacing-range-selector-tool-tip-radius: var(--size-range-selector-tool-tip-radius);
-	--spacing-range-selector-tube-water-tube-hegiht: var(
-		--size-range-selector-tube-water-tube-hegiht
-	);
-	--spacing-range-selector-tube-water-tube-radius: var(
-		--size-range-selector-tube-water-tube-radius
-	);
-	--spacing-range-selector-tube-water-water-hegiht: var(
-		--size-range-selector-tube-water-water-hegiht
-	);
-	--spacing-range-selector-tube-water-water-radius: var(
-		--size-range-selector-tube-water-water-radius
-	);
-	--spacing-range-selector-handle-height: var(--size-range-selector-handle-height);
-	--spacing-range-selector-handle-width: var(--size-range-selector-handle-width);
-	--spacing-range-selector-handle-border: var(--size-range-selector-handle-border);
-	--spacing-range-selector-handle-radius: var(--size-range-selector-handle-radius);
 	--spacing-toasts-expanded-width: var(--size-toasts-expanded-width);
 	--spacing-toasts-expanded-icon-size: var(--size-toasts-expanded-icon-size);
 	--spacing-toasts-expanded-icon-border: var(--size-toasts-expanded-icon-border);
@@ -5402,21 +5302,7 @@
 	--spacing-520: var(--spacing-520);
 	--spacing-auto: var(--spacing-auto);
 	--spacing-36: var(--spacing-36);
-	--typo-font-font-title: var(--typo-font-font-title);
-	--typo-font-font-body: var(--typo-font-font-body);
-	--typo-letter-spacing-relaxed: var(--typo-letter-spacing-relaxed);
-	--typo-letter-spacing-normal: var(--typo-letter-spacing-normal);
-	--typo-letter-spacing-s: var(--typo-letter-spacing-s);
-	--typo-letter-spacing-m: var(--typo-letter-spacing-m);
-	--typo-letter-spacing-l: var(--typo-letter-spacing-l);
-	--typo-letter-spacing-xl: var(--typo-letter-spacing-xl);
-	--typo-font-weight-light: var(--typo-font-weight-light);
-	--typo-font-weight-regular: var(--typo-font-weight-regular);
-	--typo-font-weight-medium: var(--typo-font-weight-medium);
-	--typo-font-weight-semibold: var(--typo-font-weight-semibold);
-	--typo-font-weight-bold: var(--typo-font-weight-bold);
-	--typo-font-weight-extrabold: var(--typo-font-weight-extrabold);
-	--radius-0: var(--radius-0);
+  --radius-0: var(--radius-0);
 	--radius-2: var(--radius-2);
 	--radius-4: var(--radius-4);
 	--radius-6: var(--radius-6);
