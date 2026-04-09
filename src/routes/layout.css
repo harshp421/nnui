@@ -28,55 +28,6 @@
 
 /* Root Variables (Default Theme) */
 :root {
-	--color-pin-shade: false;
-	--color-pin-complain-active-surface: var(--surface-complain-active);
-	--color-pin-complain-active-frame: var(--surface-complain-active);
-	--color-pin-complain-active-icon: var(--base-pure-white);
-	--color-pin-complain-ongoing-surface: var(--surface-complain-on-going);
-	--color-pin-complain-ongoing-frame: var(--surface-complain-on-going);
-	--color-pin-complain-ongoing-icon: var(--base-pure-white);
-	--color-pin-complain-rseolved-surface: var(--surface-complain-resolved);
-	--color-pin-complain-rseolved-frame: var(--surface-complain-resolved);
-	--color-pin-complain-rseolved-icon: var(--base-pure-white);
-	--color-pin-complain-adding-surface: var(--color-surface-brand-primary);
-	--color-pin-complain-adding-frame: var(--color-surface-brand-primary);
-	--color-pin-complain-adding-icon: var(--base-pure-white);
-	--color-pin-alert-l1-surface: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50);
-	--color-pin-alert-l1-frame: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50);
-	--color-pin-alert-l1-icon: var(--icon-action-on-action);
-	--color-pin-alert-shade: false;
-	--color-pin-alert-surface: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50);
-	--color-pin-alert-l2-surface: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--50-100
-	);
-	--color-pin-alert-l2-frame: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--50-100);
-	--color-pin-alert-l2-icon: var(--icon-action-on-action);
-	--color-pin-alert-l3-surface: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--100-150
-	);
-	--color-pin-alert-l3-frame: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--100-150
-	);
-	--color-pin-alert-l3-icon: var(--icon-action-on-action);
-	--color-pin-alert-l4-surface: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--150-200
-	);
-	--color-pin-alert-l4-frame: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--150-200
-	);
-	--color-pin-alert-l4-icon: var(--icon-action-on-action);
-	--color-pin-alert-l5-surface: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--200-300
-	);
-	--color-pin-alert-l5-frame: var(
-		--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--200-300
-	);
-	--color-pin-alert-l5-icon: var(--icon-action-on-action);
-	--color-pin-alert-l6-surface: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--300-);
-	--color-pin-alert-l6-frame: var(--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--300-);
-	--color-pin-alert-l6-icon: var(--icon-action-on-action);
-	--color-pin-device-surface: var(--color-neutral-950);
-	--color-pin-device-frame: var(--color-neutral-900);
 
 	--color-glass-blur-surface: var(--color-alpha-pure-white-700);
 	--color-glass-blur-border: var(--color-alpha-pure-white-800);
@@ -100,45 +51,7 @@
 	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
 	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
 
-	
-	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--0-50: #6ecc58;
-	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--50-100: #eac736;
-	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--100-150: #ed9a2e;
-	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--150-200: #d63636;
-	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--200-300: #8f3f97;
-	--color-aqi-gcc--uae-saudi--kuwait--qatar--bahrain--oman--300-: #7e0023;
-	--color-aqi-us--united-states--0-50: #6ecc58;
-	--color-aqi-us--united-states--50-100: #eac736;
-	--color-aqi-us--united-states--100-150: #ed9a2e;
-	--color-aqi-us--united-states--150-200: #d63636;
-	--color-aqi-us--united-states--200-300: #8f3f97;
-	--color-aqi-us--united-states--300-: #7e0023;
-	--color-aqi-eaqi--europe--0-50: #50f0e6;
-	--color-aqi-eaqi--europe--50-100: #50ccaa;
-	--color-aqi-eaqi--europe--100-150: #f0e641;
-	--color-aqi-eaqi--europe--150-200: #ff5050;
-	--color-aqi-eaqi--europe--200-300: #960032;
-	--color-aqi-eaqi--europe--300-: #7d2181;
-	--color-aqi-haqi--bangladesh--0-50: #6ecc58;
-	--color-aqi-haqi--bangladesh--50-100: #bbcf4c;
-	--color-aqi-haqi--bangladesh--100-200: #eac736;
-	--color-aqi-haqi--bangladesh--200-300: #ed9a2e;
-	--color-aqi-haqi--bangladesh--300-400: #e8633a;
-	--color-aqi-haqi--bangladesh--400-: #d63636;
-	--color-aqi-ispu--indonesia--0-50: #00b050;
-	--color-aqi-ispu--indonesia--50-100: #4472c4;
-	--color-aqi-ispu--indonesia--100-200: #ffff00;
-	--color-aqi-ispu--indonesia--200-300: #ff0000;
-	--color-aqi-ispu--indonesia--300-: #000000;
-	--color-aqi-caqi--europe--0-50: #79bc6a;
-	--color-aqi-caqi--europe--50-100: #bbcf4c;
-	--color-aqi-caqi--europe--100-200: #eec20b;
-	--color-aqi-caqi--europe--200-300: #f29305;
-	--color-aqi-caqi--europe--300-: #e8416f;
-	--color-aqi-aqhi--canada--0-3: #006699;
-	--color-aqi-aqhi--canada--3-6: #ff9933;
-	--color-aqi-aqhi--canada--6-10: #ff0000;
-	--color-aqi-aqhi--canada--10-: #660000;
+
 	--color-base-pure-white: #ffffff;
 	--color-base-pure-black: #000000;
 	--color-base-vv-white: #ffffff;
@@ -327,8 +240,6 @@
 	--color-alpha-zero-transparency: rgba(255, 255, 255, 0);
 	--color-alpha-point1-transparency: rgba(255, 255, 255, 0.001);
 	
-	
-   	
 	--color-surface-brand-l1: var(--color-brand-50);
 	--color-surface-brand-l2: var(--color-brand-100);
 	--color-surface-brand-l3: var(--color-brand-200);
@@ -568,8 +479,8 @@
 	--color-border-statics-pure-white: var(--color-base-pure-white);
 	--color-border-statics-vv-black: var(--color-base-vv-black);
 	--color-border-statics-vv-white: var(--color-base-vv-white);
-	--color-map-layer: var(--base-map);
-	--color-aqi-name: OAQI;
+	
+	
 	--color-color-icon-indicator-border: var(--color-border-alpha-vv-black-l1);
 	--color-color-icon-indicator-complain-active: var(--status-complain-active);
 	--color-color-icon-indicator-complain-on-going: var(--status-complain-on-going);
@@ -938,6 +849,7 @@
 	--radius-48: 48px;
 	--radius-full: 999px;
 	--size-screen-size: 375px;
+
 	--size-page-header-page-header-icon: xl;
 	--size-page-header-header-variant: mobile;
 	--size-page-header-page-nav-options: mobile;

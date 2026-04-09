@@ -14,8 +14,7 @@
 		{ name: 'Avatar', desc: 'Image, fallback, status indicator', href: '/docs/components/avatar' },
 		{ name: 'Badge', desc: '18 variants, 3 sizes', href: '/docs/components/badge' },
 		{ name: 'Sheet', desc: 'Slide-in side panel overlay', href: '/docs/components/sheet' },
-		{ name: 'Drawer', desc: 'Touch-friendly swipe panel', href: '/docs/components/drawer' },
-		{ name: 'Tooltip', desc: 'Contextual hint on hover', href: '/docs/components/tooltip' }
+{ name: 'Tooltip', desc: 'Contextual hint on hover', href: '/docs/components/tooltip' }
 	];
 
 	const stats = [

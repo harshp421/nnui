@@ -47,8 +47,7 @@
 			title: 'Overlay',
 			items: [
 				{ label: 'Dialog', href: '/docs/components/dialog' },
-				{ label: 'Drawer', href: '/docs/components/drawer' },
-				{ label: 'Dropdown Menu', href: '/docs/components/dropdown-menu' },
+{ label: 'Dropdown Menu', href: '/docs/components/dropdown-menu' },
 				{ label: 'Sheet', href: '/docs/components/sheet' },
 				{ label: 'Toast', href: '/docs/components/toast' },
 				{ label: 'Tooltip', href: '/docs/components/tooltip' }

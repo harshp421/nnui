@@ -192,7 +192,7 @@
           <div class="space-y-4">
             <label for="demo" class="text-sm font-bold">Size</label>
             <div class="grid grid-cols-2 gap-2">
-              {#each sizes as opt}
+              {#each sizes as opt (opt.value)}
                 <Button
                   variant={size === opt.value ? "primary" : "tertiary"}
                   size="sm"
@@ -207,7 +207,7 @@
           <div class="space-y-4">
             <label for="demo" class="text-sm font-bold">Variant</label>
             <div class="grid grid-cols-3 gap-2">
-              {#each variants as opt}
+              {#each variants as opt (opt.value)}
                 <Button
                   variant={variant === opt.value ? "primary" : "tertiary"}
                   size="sm"

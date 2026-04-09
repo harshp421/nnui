@@ -31,8 +31,7 @@
 			category: 'Overlay',
 			items: [
 				{ label: 'Dialog', href: '/docs/components/dialog', description: 'Modal dialog with backdrop, focus trap, and animations.' },
-				{ label: 'Drawer', href: '/docs/components/drawer', description: 'Touch-friendly panel with swipe-to-dismiss gestures.' },
-				{ label: 'Dropdown Menu', href: '/docs/components/dropdown-menu', description: 'Context and action menus with submenus and shortcuts.' },
+{ label: 'Dropdown Menu', href: '/docs/components/dropdown-menu', description: 'Context and action menus with submenus and shortcuts.' },
 				{ label: 'Sheet', href: '/docs/components/sheet', description: 'Side panel overlay for secondary content and forms.' },
 				{ label: 'Toast', href: '/docs/components/toast', description: 'Temporary notification with variants and auto-dismiss.' },
 				{ label: 'Tooltip', href: '/docs/components/tooltip', description: 'Contextual hint displayed on hover or focus.' }
