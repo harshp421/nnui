@@ -15,7 +15,7 @@
   data-slot="dialog-header"
   class={cn(
     "flex flex-col bg-modal-header-surface",
-    "gap-modal-header-text-gap p-modal-header-padding",
+    "gap-modal-header-text-gap py-modal-header-padding",
     "border-b border-modal-header-border",
     "text-center sm:text-start",
     className,

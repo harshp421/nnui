@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo.svelte';
-	import { DocsPage, PageHeader, CodeBlock } from '$lib/components/docs';
+	import { DocsPage, PageHeader, CodeBlock, Icon } from '$lib/components/docs';
 	import favicon from '$lib/assets/favicon.svg';
 
 	let selectedFramework = $state<'svelte' | 'react'>('svelte');
@@ -46,9 +46,7 @@
 				<div class="flex flex-col gap-3">
 					{#each ['Svelte 5+ (runes support)', 'SvelteKit — recommended for routing and SSR', 'Tailwind CSS v4', 'TypeScript — recommended'] as item}
 						<div class="flex items-center gap-2.5 text-sm text-text-neutral-secondary">
-							<svg class="size-16 shrink-0 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-							</svg>
+							<Icon name="check" class="size-4 shrink-0 text-text-brand-primary" />
 							{item}
 						</div>
 					{/each}

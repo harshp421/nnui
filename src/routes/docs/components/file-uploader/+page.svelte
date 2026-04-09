@@ -14,6 +14,7 @@
     CodeBlock,
     PropsTable,
     ComponentSource,
+    Icon,
   } from "$lib/components/docs";
 
   let files = $state<File[]>([]);
@@ -217,7 +218,7 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     description="Drag-and-drop file upload with built-in validation for types, sizes, and quantities. Fully keyboard accessible."
   />
 
-  <div class="mt-10 flex flex-col gap-12">
+  <div class="mt-28 flex flex-col gap-32">
 
     <div>
       <ComponentSource
@@ -227,14 +228,14 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     </div>
 
     <!-- Installation -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Installation</h2>
       <CodeBlock code={installationCode} language="bash" title="CLI" />
       <CodeBlock code={importCode} language="typescript" title="Imports" />
     </section>
 
     <!-- Quick Start — basic -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Quick Start</h2>
       <p class="text-sm leading-relaxed text-text-neutral-secondary">
         The simplest usage — just the drop zone with a callback.
@@ -254,7 +255,7 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     </section>
 
     <!-- With file list -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">With File List</h2>
       <p class="text-sm leading-relaxed text-text-neutral-secondary">
         Combine with the Item component to show uploaded files with name, size, and a remove button.
@@ -307,17 +308,17 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     </section>
 
     <!-- Interactive Playground -->
-    <section class="flex flex-col gap-5">
-      <div>
+    <section class="space-y-20">
+      <div class="space-y-4">
         <h2 class="text-2xl font-bold tracking-tight">Interactive Playground</h2>
-        <p class="mt-1.5 text-sm text-text-neutral-secondary">
+        <p class="text-text-neutral-secondary">
           Configure validation rules and see the generated code.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-5 items-start">
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
         <!-- Left: uploader + file list -->
-        <div class="flex flex-col gap-5 rounded-xl border border-border-neutral-l4 p-5">
+        <div class="flex flex-col gap-8 rounded-xl border border-border-neutral-l4 p-12">
           <FileUploader
             onFilesChange={(newFiles: File[]) => (files = [...files, ...newFiles])}
             maxFilesToUpload={maxFiles}
@@ -361,7 +362,7 @@ import Button from "$lib/components/ui/button/button.svelte";`;
         </div>
 
         <!-- Right: controls -->
-        <div class="flex flex-col gap-7 rounded-xl border border-border-neutral-l4 p-5">
+        <div class="flex flex-col gap-8 p-6">
           <div class="flex flex-col gap-2.5">
             <div class="flex justify-between items-center text-sm font-semibold text-text-neutral-primary">
               <span>Max Files</span>
@@ -411,11 +412,11 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     </section>
 
     <!-- Examples -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Examples</h2>
 
-      <div class="grid gap-5 md:grid-cols-2">
-        <div class="flex flex-col gap-3 rounded-xl border border-border-neutral-l4 p-5">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="flex flex-col gap-8 rounded-xl border border-border-neutral-l4 p-12">
           <p class="text-sm font-semibold text-text-neutral-primary">PDF Only (single file)</p>
           <FileUploader
             onFilesChange={() => {}}
@@ -425,7 +426,7 @@ import Button from "$lib/components/ui/button/button.svelte";`;
           />
         </div>
 
-        <div class="flex flex-col gap-3 rounded-xl border border-border-neutral-l4 p-5">
+        <div class="flex flex-col gap-8 rounded-xl border border-border-neutral-l4 p-12">
           <p class="text-sm font-semibold text-text-neutral-primary">Multi-Image (up to 5)</p>
           <FileUploader
             onFilesChange={() => {}}
@@ -437,7 +438,7 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     </section>
 
     <!-- Accessibility -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
       <div class="flex flex-col gap-2.5">
         {#each [
@@ -448,9 +449,7 @@ import Button from "$lib/components/ui/button/button.svelte";`;
           'Disabled: native disabled attribute on input + pointer-events-none'
         ] as item (item)}
           <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
-            <svg class="size-4 shrink-0 mt-0.5 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
             {item}
           </div>
         {/each}
@@ -458,8 +457,8 @@ import Button from "$lib/components/ui/button/button.svelte";`;
     </section>
 
     <!-- Props -->
-    <section class="flex flex-col gap-5">
-      <h2 class="text-2xl font-bold tracking-tight">API Reference</h2>
+    <section class="space-y-8">
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
       <PropsTable props={uploaderProps} />
     </section>
 

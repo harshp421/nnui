@@ -12,52 +12,36 @@
 	}>();
 </script>
 
-<div
-	class="my-6 w-full overflow-y-auto rounded-lg border border-border-neutral-l4 bg-surface-neutral-l2"
->
-	<table class="w-full caption-bottom text-sm">
-		<thead class="[&_tr]:border-b">
-			<tr
-				class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b border-border-neutral-l4 text-lg transition-colors"
-			>
-				<th class="text-muted-foreground px-4 text-left align-middle text-lg font-medium">Prop</th>
-				<th class="text-muted-foreground px-4 py-4 text-left align-middle text-lg font-medium"
-					>Type</th
-				>
-				<th class="text-muted-foreground px-4 py-4 text-left align-middle text-lg font-medium"
-					>Default</th
-				>
-				<th class="text-muted-foreground px-4 py-4 text-left align-middle text-lg font-medium"
-					>Description</th
-				>
+<div class="w-full overflow-x-auto rounded-xl border border-border-neutral-l4">
+	<table class="w-full text-sm">
+		<thead>
+			<tr class="border-b border-border-neutral-l4 bg-surface-neutral-l2">
+				<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Prop</th>
+				<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Type</th>
+				<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Default</th>
+				<th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Description</th>
 			</tr>
 		</thead>
-		<tbody class="[&_tr:last-child]:border-0">
+		<tbody class="divide-y divide-border-neutral-l4">
 			{#each props as prop (prop.name)}
-				<tr
-					class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b border-border-neutral-l4 transition-colors"
-				>
-					<td class="p-4 align-middle font-mono font-semibold">
-						{prop.name}
+				<tr class="transition-colors hover:bg-surface-neutral-l1">
+					<td class="px-5 py-3 align-top">
+						<code class="font-mono text-xs font-semibold text-text-brand-primary">{prop.name}</code>
 						{#if prop.required}
-							<span class="text-destructive">*</span>
+							<span class="ml-1 text-surface-destructive-primary text-xs">*</span>
 						{/if}
 					</td>
-					<td class="text-muted-foreground p-4 align-middle font-mono text-xs">
-						<code
-							class="relative rounded bg-surface-neutral-l2 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
-						>
+					<td class="px-5 py-3 align-top">
+						<code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-[11px] text-text-neutral-secondary">
 							{prop.type}
 						</code>
 					</td>
-					<td class="p-4 align-middle font-mono text-xs">
-						{#if prop.default}
-							{prop.default}
-						{:else}
-							<span class="text-muted-foreground">-</span>
-						{/if}
+					<td class="px-5 py-3 align-top font-mono text-xs text-text-neutral-tertiary">
+						{prop.default || '-'}
 					</td>
-					<td class="p-4 align-middle">{prop.description || '-'}</td>
+					<td class="px-5 py-3 align-top text-xs leading-relaxed text-text-neutral-secondary">
+						{prop.description || '-'}
+					</td>
 				</tr>
 			{/each}
 		</tbody>

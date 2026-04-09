@@ -1,8 +1,14 @@
 /* ═══════════════════════════════════════════════════════════════════════
    DIALOG — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   These tokens power the Dialog component.
+   This file is automatically added when you run: npx nnuikit add dialog
+
+   Dependencies: Requires global base palette + semantic tokens from layout.css
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
+	/* Color */
 	--color-modal-surface: var(--color-surface-neutral-l1);
 	--color-modal-border: var(--color-border-neutral-l2);
 	--color-modal-header-primary-text: var(--color-text-neutral-primary);
@@ -11,55 +17,56 @@
 	--color-modal-header-secondary-text: var(--color-text-neutral-secondary);
 	--color-modal-footer-surface: var(--color-alpha-zero-transparency);
 	--color-modal-footer-border-top: var(--color-border-neutral-l2);
-	--size-modal-width: 0;
-	--size-modal-max-height: 0;
-	--size-modal-gap: 0;
-	--size-modal-radius: 0;
-	--size-modal-header-header-gap: 0;
-	--size-modal-header-padding: 0;
-	--size-modal-header-text-gap: 0;
-	--size-modal-header-bottom-border-size: 0;
-	--size-modal-footer-padding: 0;
-	--size-modal-footer-footer-gap: 0;
-	--size-modal-footer-top-border-size: 0;
-	--size-modal-footer-actions-padding: 0;
+
+	/* Size — mobile */
+	--size-modal-width: 420px;
+	--size-modal-max-height: 85vh;
+	--size-modal-gap: var(--spacing-0);
+	--size-modal-radius: var(--radius-10);
+	--size-modal-header-header-gap: var(--spacing-12);
+	--size-modal-header-padding: var(--spacing-16);
+	--size-modal-header-text-gap: var(--spacing-6);
+	--size-modal-header-bottom-border-size: var(--border-width-l1);
+	--size-modal-content-padding: var(--spacing-16);
+	--size-modal-footer-padding: var(--spacing-16);
+	--size-modal-footer-footer-gap: var(--spacing-12);
+	--size-modal-footer-top-border-size: var(--border-width-l1);
+	--size-modal-footer-actions-padding: var(--spacing-6);
 }
 
+/* Tablet */
 @media (min-width: 1024px) {
 	:root {
-		--size-modal-width: 0;
-		--size-modal-max-height: 0;
-		--size-modal-gap: 0;
-		--size-modal-radius: 0;
-		--size-modal-header-header-gap: 0;
-		--size-modal-header-padding: 0;
-		--size-modal-header-text-gap: 0;
-		--size-modal-header-bottom-border-size: 0;
-		--size-modal-footer-padding: 0;
-		--size-modal-footer-footer-gap: 0;
-		--size-modal-footer-top-border-size: 0;
-		--size-modal-footer-actions-padding: 0;
+		--size-modal-width: 480px;
+		--size-modal-max-height: 80vh;
+		--size-modal-radius: var(--radius-12);
+		--size-modal-header-header-gap: var(--spacing-14);
+		--size-modal-header-padding: var(--spacing-18);
+		--size-modal-header-text-gap: var(--spacing-8);
+		--size-modal-content-padding: var(--spacing-16);
+		--size-modal-footer-padding: var(--spacing-18);
+		--size-modal-footer-footer-gap: var(--spacing-14);
 	}
 }
 
+/* Desktop */
 @media (min-width: 1440px) {
 	:root {
 		--size-modal-width: var(--spacing-520);
 		--size-modal-max-height: 716px;
-		--size-modal-gap: var(--spacing-0);
 		--size-modal-radius: var(--radius-12);
 		--size-modal-header-header-gap: var(--spacing-16);
 		--size-modal-header-padding: var(--spacing-20);
 		--size-modal-header-text-gap: var(--spacing-8);
-		--size-modal-header-bottom-border-size: var(--border-width-l1);
+		--size-modal-content-padding: var(--spacing-16);
 		--size-modal-footer-padding: var(--spacing-20);
 		--size-modal-footer-footer-gap: var(--spacing-16);
-		--size-modal-footer-top-border-size: var(--border-width-l1);
 		--size-modal-footer-actions-padding: var(--spacing-6);
 	}
 }
 
 @theme {
+	/* Color registrations */
 	--color-modal-surface: var(--color-modal-surface);
 	--color-modal-border: var(--color-modal-border);
 	--color-modal-header-primary-text: var(--color-modal-header-primary-text);
@@ -68,6 +75,8 @@
 	--color-modal-header-secondary-text: var(--color-modal-header-secondary-text);
 	--color-modal-footer-surface: var(--color-modal-footer-surface);
 	--color-modal-footer-border-top: var(--color-modal-footer-border-top);
+
+	/* Size registrations */
 	--spacing-modal-width: var(--size-modal-width);
 	--spacing-modal-max-height: var(--size-modal-max-height);
 	--spacing-modal-gap: var(--size-modal-gap);
@@ -75,6 +84,7 @@
 	--spacing-modal-header-header-gap: var(--size-modal-header-header-gap);
 	--spacing-modal-header-padding: var(--size-modal-header-padding);
 	--spacing-modal-header-text-gap: var(--size-modal-header-text-gap);
+	--spacing-modal-content-padding: var(--size-modal-content-padding);
 	--spacing-modal-header-bottom-border-size: var(--size-modal-header-bottom-border-size);
 	--spacing-modal-footer-padding: var(--size-modal-footer-padding);
 	--spacing-modal-footer-footer-gap: var(--size-modal-footer-footer-gap);
