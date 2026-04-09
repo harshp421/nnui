@@ -5,13 +5,24 @@
    This file is automatically added when you run: npx nnuikit add sheet
 
    Dependencies: Requires global base palette + semantic tokens from layout.css
-   Note: Uses base semantic tokens — no component-specific overrides needed
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
 	--color-sheet-surface: var(--color-surface-statics-vv-white);
-	--color-sheet-overlay: var(--color-alpha-viceversa-black-200);
+	--color-sheet-border: var(--color-border-neutral-l2);
 	--color-sheet-text: var(--color-text-neutral-primary);
 	--color-sheet-text-secondary: var(--color-text-neutral-secondary);
-	--color-sheet-border: var(--color-border-neutral-l2);
+	--color-sheet-close-icon: var(--color-icon-neutral-tertiary);
+	--color-sheet-close-hover: var(--color-icon-neutral-primary);
+	--color-sheet-overlay: var(--color-alpha-viceversa-black-200);
+}
+
+@theme {
+	--color-sheet-surface: var(--color-sheet-surface);
+	--color-sheet-border: var(--color-sheet-border);
+	--color-sheet-text: var(--color-sheet-text);
+	--color-sheet-text-secondary: var(--color-sheet-text-secondary);
+	--color-sheet-close-icon: var(--color-sheet-close-icon);
+	--color-sheet-close-hover: var(--color-sheet-close-hover);
+	--color-sheet-overlay: var(--color-sheet-overlay);
 }

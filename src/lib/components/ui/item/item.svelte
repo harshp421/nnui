@@ -6,7 +6,7 @@
     variants: {
       variant: {
         attachment:
-          "bg-darg-drop-attachment-default-surface border-darg-drop-attachment-default-border",
+         "bg-darg-drop-attachment-default-surface border-darg-drop-attachment-default-border",
         "attachment-success":
           "bg-darg-drop-attachment-success-surface border-darg-drop-attachment-success-border",
         "attachment-error":

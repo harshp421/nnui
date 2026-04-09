@@ -9,10 +9,9 @@
 </script>
 
 <script lang="ts">
-  import IconIndicator from "$lib/components/ui/icon-indicator/icon-indicator.svelte";
-
   import IconUpload from "$lib/icons/icon-upload.svelte";
   import { cn } from "$lib/utils/tailwindUtil";
+
   let {
     maxFileSize = 10 * 1024 * 1024, // 10 MB
     acceptedFileTypes = [".csv", ".pdf", ".xlsx"],
@@ -23,7 +22,10 @@
 
   let dragOver = $state(false);
   let errorMessage = $state<string | null>(null);
-  let filesToUpload = $state<File[]>([]);
+  let fileInput = $state<HTMLInputElement | null>(null);
+
+  const inputId = `file-upload-${Math.random().toString(36).slice(2, 9)}`;
+  const errorId = `${inputId}-error`;
 
   function processFile(files: FileList) {
     if (files.length > maxFilesToUpload) {
@@ -52,7 +54,6 @@
       filesArray.push(file);
     }
     errorMessage = null;
-    filesToUpload = filesArray;
     onFilesChange(filesArray);
   }
 
@@ -62,14 +63,17 @@
       processFile(input.files);
     }
   }
+
   function handleDragOver(event: DragEvent) {
     event.preventDefault();
     dragOver = true;
   }
+
   function handleDragLeave(event: DragEvent) {
     event.preventDefault();
     dragOver = false;
   }
+
   function handleDrop(event: DragEvent) {
     event.preventDefault();
     dragOver = false;
@@ -78,75 +82,120 @@
       processFile(files);
     }
   }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      fileInput?.click();
+    }
+  }
 </script>
 
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   class={cn(
-    "relative flex cursor-pointer select-none flex-col items-center justify-center rounded-input-drag-drop-box-radius border p-input-drag-drop-box-padding-all-sides transition-colors duration-200 ease-in-out glass:backdrop-blur-md",
-    `${dragOver ? "bg-darg-drop-box-active-surface border-darg-drop-box-active-border" : "bg-darg-drop-box-default-surface border-darg-drop-box-default-border"}`,
+    "group relative flex cursor-pointer select-none flex-col items-center justify-center rounded-input-drag-drop-box-radius border-2 border-dashed p-input-drag-drop-box-padding-all-sides transition-all duration-200 ease-in-out outline-none glass:backdrop-blur-md",
+    dragOver
+      ? "bg-darg-drop-box-active-surface border-darg-drop-box-active-border"
+      : "bg-darg-drop-box-default-surface border-darg-drop-box-default-border",
     "hover:bg-darg-drop-box-active-surface hover:border-darg-drop-box-active-border",
-    errorMessage ? "border-destructive" : dragOver ? "border-dashed" : "",
+    "focus-within:border-darg-drop-box-active-border",
+    errorMessage && "border-surface-destructive-primary",
     disable && "pointer-events-none opacity-50",
   )}
-  role="button"
-  tabindex="0"
   ondragover={handleDragOver}
   ondragleave={handleDragLeave}
   ondrop={handleDrop}
 >
-  <div class="flex flex-col items-center gap-input-drag-drop-box-gap">
-    <IconIndicator
-      size="md"
-      className={`ms-2 bg-darg-drop-box-default-icon-surface ${dragOver ? "text-darg-drop-box-active-icon" : "text-darg-drop-box-default-icon"}`}
+  <label
+    for={inputId}
+    class="flex cursor-pointer flex-col items-center gap-input-drag-drop-box-gap"
+  >
+    <div
+      class={cn(
+        "rounded-full p-12 transition-colors",
+        dragOver
+          ? "bg-darg-drop-box-active-icon-surface text-darg-drop-box-active-icon"
+          : "bg-darg-drop-box-default-icon-surface text-darg-drop-box-default-icon",
+      )}
     >
-      <IconUpload
-        size={20}
-        className={`ms-2 ${dragOver ? "text-darg-drop-box-active-icon" : "text-darg-drop-box-default-icon"}`}
-      />
-    </IconIndicator>
-    <div class="flex flex-col gap-[0.375rem]">
+      <IconUpload size="20" />
+    </div>
+
+    <div class="flex flex-col gap-1.5">
       <div
-        class={`flex gap-[0.25rem] justify-center text-p-small font-medium capitalize ${dragOver ? "text-darg-drop-box-active-primary-text" : "text-darg-drop-box-default-primary-text"}`}
+        class={cn(
+          "flex gap-1 justify-center text-sm font-medium capitalize transition-colors",
+          dragOver
+            ? "text-darg-drop-box-active-primary-text"
+            : "text-darg-drop-box-default-primary-text",
+        )}
       >
         <span>Drag & Drop</span>
         <span>or</span>
         <span
-          class={`underline underline-offset-2 ${dragOver ? "text-darg-drop-box-active-highlight-text" : "text-darg-drop-box-default-highlight-text"}`}
-          >Choose file</span
+          class={cn(
+            "underline underline-offset-2",
+            dragOver
+              ? "text-darg-drop-box-active-highlight-text"
+              : "text-darg-drop-box-default-highlight-text",
+          )}>Choose file</span
         >
         <span>to upload</span>
       </div>
+
       <p
-        class={`text-p-xsmall font-normal text-center ${dragOver ? "text-darg-drop-box-active-secondary-text" : "text-darg-drop-box-default-secondary-text"}`}
+        class={cn(
+          "text-xs font-normal text-center transition-colors",
+          dragOver
+            ? "text-darg-drop-box-active-secondary-text"
+            : "text-darg-drop-box-default-secondary-text",
+        )}
       >
         <span>Supported formats:</span>
-        <span class="uppercase">{acceptedFileTypes.join(", ")} </span>
+        <span class="uppercase">{acceptedFileTypes.join(", ")}</span>
       </p>
+
       <p
-        class={`text-p-xxsmall font-normal text-center ${dragOver ? "text-darg-drop-box-active-secondary-text" : "text-darg-drop-box-default-secondary-text"}`}
+        class={cn(
+          "text-xs font-normal text-center transition-colors",
+          dragOver
+            ? "text-darg-drop-box-active-secondary-text"
+            : "text-darg-drop-box-default-secondary-text",
+        )}
       >
         <span>Max file size: {maxFileSize / (1024 * 1024)} MB</span>
-        <span
-          >• {maxFilesToUpload > 1
+        <span>
+          • {maxFilesToUpload > 1
             ? `Max ${maxFilesToUpload} files`
-            : "Single file"}</span
-        >
+            : "Single file"}
+        </span>
       </p>
+
       {#if errorMessage}
         <p
-          class="mt-8 text-p-xsmall font-medium text-surface-destructive-primary"
+          id={errorId}
+          class="mt-2 text-xs font-medium text-surface-destructive-primary"
+          role="alert"
         >
           {errorMessage}
         </p>
       {/if}
     </div>
-  </div>
+  </label>
+
   <input
+    bind:this={fileInput}
+    id={inputId}
     type="file"
     onchange={handleFileChange}
-    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+    onkeydown={handleKeydown}
+    class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
     accept={acceptedFileTypes.join(",")}
     disabled={disable}
     multiple={maxFilesToUpload > 1}
+    aria-label="Upload file"
+    aria-describedby={errorMessage ? errorId : undefined}
+    aria-invalid={errorMessage ? "true" : undefined}
   />
 </div>

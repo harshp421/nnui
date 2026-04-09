@@ -49,3 +49,108 @@
 	--size-input-drag-drop-box-text-gap: var(--radius-10);
 	--size-input-drag-drop-box-padding-all-sides: var(--radius-10);
 }
+
+/* Tablet */
+@media (min-width: 1024px) {
+	:root {
+		--size-input-drag-drop-attachment-height: 0;
+		--size-input-drag-drop-attachment-gap: 0;
+		--size-input-drag-drop-attachment-padding-all-sides: 0;
+		--size-input-drag-drop-attachment-text-vertical-gap: 0;
+		--size-input-drag-drop-attachment-actions-gap: 0;
+		--size-input-drag-drop-attachment-radius: 0;
+		--size-input-drag-drop-box-icon-indicator-size: md;
+		--size-input-drag-drop-box-radius: var(--radius-10);
+		--size-input-drag-drop-box-gap: var(--spacing-18);
+		--size-input-drag-drop-box-text-gap: var(--spacing-6);
+		--size-input-drag-drop-box-padding-all-sides: var(--radius-10);
+	}
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+	:root {
+		--size-input-drag-drop-attachment-height: var(--spacing-56);
+		--size-input-drag-drop-attachment-gap: var(--spacing-12);
+		--size-input-drag-drop-attachment-padding-all-sides: var(--spacing-12);
+		--size-input-drag-drop-attachment-text-vertical-gap: var(--spacing-4);
+		--size-input-drag-drop-attachment-actions-gap: var(--spacing-6);
+		--size-input-drag-drop-attachment-radius: var(--spacing-8);
+		--size-input-drag-drop-box-icon-indicator-size: md;
+		--size-input-drag-drop-box-radius: var(--radius-8);
+		--size-input-drag-drop-box-gap: var(--spacing-16);
+		--size-input-drag-drop-box-text-gap: var(--spacing-6);
+		--size-input-drag-drop-box-padding-all-sides: var(--spacing-32);
+	}
+}
+
+@theme {
+	--color-darg-drop-box-default-surface: var(--color-darg-drop-box-default-surface);
+	--color-darg-drop-box-default-border: var(--color-darg-drop-box-default-border);
+	--color-darg-drop-box-default-primary-text: var(--color-darg-drop-box-default-primary-text);
+	--color-darg-drop-box-default-secondary-text: var(--color-darg-drop-box-default-secondary-text);
+	--color-darg-drop-box-default-highlight-text: var(--color-darg-drop-box-default-highlight-text);
+	--color-darg-drop-box-default-icon-surface: var(--color-darg-drop-box-default-icon-surface);
+	--color-darg-drop-box-default-icon: var(--color-darg-drop-box-default-icon);
+	--color-darg-drop-box-active-surface: var(--color-darg-drop-box-active-surface);
+	--color-darg-drop-box-active-border: var(--color-darg-drop-box-active-border);
+	--color-darg-drop-box-active-primary-text: var(--color-darg-drop-box-active-primary-text);
+	--color-darg-drop-box-active-secondary-text: var(--color-darg-drop-box-active-secondary-text);
+	--color-darg-drop-box-active-highlight-text: var(--color-darg-drop-box-active-highlight-text);
+	--color-darg-drop-box-active-icon-surface: var(--color-darg-drop-box-active-icon-surface);
+	--color-darg-drop-box-active-icon: var(--color-darg-drop-box-active-icon);
+	--color-darg-drop-attachment-default-surface: var(--color-darg-drop-attachment-default-surface);
+	--color-darg-drop-attachment-default-border: var(--color-darg-drop-attachment-default-border);
+	--color-darg-drop-attachment-default-text-file-title: var(
+		--color-darg-drop-attachment-default-text-file-title
+	);
+	--color-darg-drop-attachment-default-text-flie-size: var(
+		--color-darg-drop-attachment-default-text-flie-size
+	);
+	--color-darg-drop-attachment-default-text-progress: var(
+		--color-darg-drop-attachment-default-text-progress
+	);
+	--color-darg-drop-attachment-success-surface: var(--color-darg-drop-attachment-success-surface);
+	--color-darg-drop-attachment-success-border: var(--color-darg-drop-attachment-success-border);
+	--color-darg-drop-attachment-success-text-file-title: var(
+		--color-darg-drop-attachment-success-text-file-title
+	);
+	--color-darg-drop-attachment-success-text-flie-size: var(
+		--color-darg-drop-attachment-success-text-flie-size
+	);
+	--color-darg-drop-attachment-success-text-progress: var(
+		--color-darg-drop-attachment-success-text-progress
+	);
+	--color-darg-drop-attachment-error-surface: var(--color-darg-drop-attachment-error-surface);
+	--color-darg-drop-attachment-error-border: var(--color-darg-drop-attachment-error-border);
+	--color-darg-drop-attachment-error-text-file-title: var(
+		--color-darg-drop-attachment-error-text-file-title
+	);
+	--color-darg-drop-attachment-error-text-flie-size: var(
+		--color-darg-drop-attachment-error-text-flie-size
+	);
+	--color-darg-drop-attachment-error-text-progress: var(
+		--color-darg-drop-attachment-error-text-progress
+	);
+	--spacing-input-drag-drop-attachment-height: var(--size-input-drag-drop-attachment-height);
+	--spacing-input-drag-drop-attachment-gap: var(--size-input-drag-drop-attachment-gap);
+	--spacing-input-drag-drop-attachment-padding-all-sides: var(
+		--size-input-drag-drop-attachment-padding-all-sides
+	);
+	--spacing-input-drag-drop-attachment-text-vertical-gap: var(
+		--size-input-drag-drop-attachment-text-vertical-gap
+	);
+	--spacing-input-drag-drop-attachment-actions-gap: var(
+		--size-input-drag-drop-attachment-actions-gap
+	);
+	--radius-input-drag-drop-attachment-radius: var(--size-input-drag-drop-attachment-radius);
+	--spacing-input-drag-drop-box-icon-indicator-size: var(
+		--size-input-drag-drop-box-icon-indicator-size
+	);
+	--radius-input-drag-drop-box-radius: var(--size-input-drag-drop-box-radius);
+	--spacing-input-drag-drop-box-gap: var(--size-input-drag-drop-box-gap);
+	--spacing-input-drag-drop-box-text-gap: var(--size-input-drag-drop-box-text-gap);
+	--spacing-input-drag-drop-box-padding-all-sides: var(
+		--size-input-drag-drop-box-padding-all-sides
+	);
+}

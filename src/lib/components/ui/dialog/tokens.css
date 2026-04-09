@@ -1,10 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
    DIALOG — Design Tokens
-   ═══════════════════════════════════════════════════════════════════════
-   These tokens power the Dialog component.
-   This file is automatically added when you run: npx nnuikit add dialog
-
-   Dependencies: Requires global base palette + semantic tokens from layout.css
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
@@ -16,7 +11,6 @@
 	--color-modal-header-secondary-text: var(--color-text-neutral-secondary);
 	--color-modal-footer-surface: var(--color-alpha-zero-transparency);
 	--color-modal-footer-border-top: var(--color-border-neutral-l2);
-
 	--size-modal-width: 0;
 	--size-modal-max-height: 0;
 	--size-modal-gap: 0;
@@ -31,7 +25,6 @@
 	--size-modal-footer-actions-padding: 0;
 }
 
-/* Tablet Overrides (min-width: 1024px) */
 @media (min-width: 1024px) {
 	:root {
 		--size-modal-width: 0;
@@ -49,7 +42,6 @@
 	}
 }
 
-/* Desktop Overrides (min-width: 1440px) */
 @media (min-width: 1440px) {
 	:root {
 		--size-modal-width: var(--spacing-520);
@@ -65,4 +57,27 @@
 		--size-modal-footer-top-border-size: var(--border-width-l1);
 		--size-modal-footer-actions-padding: var(--spacing-6);
 	}
+}
+
+@theme {
+	--color-modal-surface: var(--color-modal-surface);
+	--color-modal-border: var(--color-modal-border);
+	--color-modal-header-primary-text: var(--color-modal-header-primary-text);
+	--color-modal-header-surface: var(--color-modal-header-surface);
+	--color-modal-header-border: var(--color-modal-header-border);
+	--color-modal-header-secondary-text: var(--color-modal-header-secondary-text);
+	--color-modal-footer-surface: var(--color-modal-footer-surface);
+	--color-modal-footer-border-top: var(--color-modal-footer-border-top);
+	--spacing-modal-width: var(--size-modal-width);
+	--spacing-modal-max-height: var(--size-modal-max-height);
+	--spacing-modal-gap: var(--size-modal-gap);
+	--radius-modal-radius: var(--size-modal-radius);
+	--spacing-modal-header-header-gap: var(--size-modal-header-header-gap);
+	--spacing-modal-header-padding: var(--size-modal-header-padding);
+	--spacing-modal-header-text-gap: var(--size-modal-header-text-gap);
+	--spacing-modal-header-bottom-border-size: var(--size-modal-header-bottom-border-size);
+	--spacing-modal-footer-padding: var(--size-modal-footer-padding);
+	--spacing-modal-footer-footer-gap: var(--size-modal-footer-footer-gap);
+	--spacing-modal-footer-top-border-size: var(--size-modal-footer-top-border-size);
+	--spacing-modal-footer-actions-padding: var(--size-modal-footer-actions-padding);
 }

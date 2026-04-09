@@ -8,7 +8,6 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-	/* ── Color: Inline Toasts ── */
 	--color-toasts-inline-brand-surface: var(--color-surface-brand-l2);
 	--color-toasts-inline-brand-border: var(--color-border-brand-l3);
 	--color-toasts-inline-brand-primary-icon: var(--color-icon-brand-primary);
@@ -45,8 +44,6 @@
 	--color-toasts-inline-destructive-primary-text: var(--color-text-destructive-primary);
 	--color-toasts-inline-destructive-secondary-text: var(--color-text-alpha-vv-black-tertiary);
 	--color-toasts-inline-destructive-secondary-icon: var(--color-icon-alpha-vv-black-tertiary);
-
-	/* ── Color: Expanded Toasts ── */
 	--color-toasts-expanded-brand-surface: var(--color-surface-brand-l1);
 	--color-toasts-expanded-brand-primary-border: var(--color-border-brand-primary);
 	--color-toasts-expanded-brand-secondary-border: var(--color-border-neutral-l3);
@@ -96,8 +93,6 @@
 	--color-toasts-expanded-info-primary-icon: var(--color-icon-info-primary);
 	--color-toasts-expanded-info-secodnary-icon: var(--color-icon-neutral-secondary);
 	--color-toasts-expanded-info-primary-action-type: info;
-
-	/* ── Size: Expanded Toasts (base / mobile) ── */
 	--size-toasts-expanded-width: 0;
 	--size-toasts-expanded-icon-size: 0;
 	--size-toasts-expanded-icon-border: 0;
@@ -112,8 +107,6 @@
 	--size-toasts-expanded-secondary-border-width-2: 0;
 	--size-toasts-expanded-action-size: String value;
 	--size-toasts-expanded-radius: 0;
-
-	/* ── Size: Inline Toasts (base / mobile) ── */
 	--size-toasts-inline-width: 0;
 	--size-toasts-inline-height: 0;
 	--size-toasts-inline-icon-size: 0;
@@ -127,7 +120,7 @@
 	--size-toasts-inline-radius: 0;
 }
 
-/* ── Tablet Overrides (min-width: 1024px) ── */
+/* Tablet */
 @media (min-width: 1024px) {
 	:root {
 		--size-toasts-expanded-width: 0;
@@ -158,7 +151,7 @@
 	}
 }
 
-/* ── Desktop Overrides (min-width: 1440px) ── */
+/* Desktop */
 @media (min-width: 1440px) {
 	:root {
 		--size-toasts-expanded-width: var(--spacing-520);
@@ -187,4 +180,177 @@
 		--size-toasts-inline-border-size: var(--border-width-l1);
 		--size-toasts-inline-radius: var(--radius-8);
 	}
+}
+
+@theme {
+	--color-toasts-inline-brand-surface: var(--color-toasts-inline-brand-surface);
+	--color-toasts-inline-brand-border: var(--color-toasts-inline-brand-border);
+	--color-toasts-inline-brand-primary-icon: var(--color-toasts-inline-brand-primary-icon);
+	--color-toasts-inline-brand-primary-text: var(--color-toasts-inline-brand-primary-text);
+	--color-toasts-inline-brand-secondary-text: var(--color-toasts-inline-brand-secondary-text);
+	--color-toasts-inline-brand-secondary-icon: var(--color-toasts-inline-brand-secondary-icon);
+	--color-toasts-inline-neutral-surface: var(--color-toasts-inline-neutral-surface);
+	--color-toasts-inline-neutral-border: var(--color-toasts-inline-neutral-border);
+	--color-toasts-inline-neutral-primary-icon: var(--color-toasts-inline-neutral-primary-icon);
+	--color-toasts-inline-neutral-primary-text: var(--color-toasts-inline-neutral-primary-text);
+	--color-toasts-inline-neutral-secondary-text: var(--color-toasts-inline-neutral-secondary-text);
+	--color-toasts-inline-neutral-secondary-icon: var(--color-toasts-inline-neutral-secondary-icon);
+	--color-toasts-inline-success-surface: var(--color-toasts-inline-success-surface);
+	--color-toasts-inline-success-border: var(--color-toasts-inline-success-border);
+	--color-toasts-inline-success-primary-icon: var(--color-toasts-inline-success-primary-icon);
+	--color-toasts-inline-success-primary-text: var(--color-toasts-inline-success-primary-text);
+	--color-toasts-inline-success-secondary-text: var(--color-toasts-inline-success-secondary-text);
+	--color-toasts-inline-success-secondary-icon: var(--color-toasts-inline-success-secondary-icon);
+	--color-toasts-inline-info-surface: var(--color-toasts-inline-info-surface);
+	--color-toasts-inline-info-border: var(--color-toasts-inline-info-border);
+	--color-toasts-inline-info-primary-icon: var(--color-toasts-inline-info-primary-icon);
+	--color-toasts-inline-info-primary-text: var(--color-toasts-inline-info-primary-text);
+	--color-toasts-inline-info-secondary-text: var(--color-toasts-inline-info-secondary-text);
+	--color-toasts-inline-info-secondary-icon: var(--color-toasts-inline-info-secondary-icon);
+	--color-toasts-inline-warning-surface: var(--color-toasts-inline-warning-surface);
+	--color-toasts-inline-warning-border: var(--color-toasts-inline-warning-border);
+	--color-toasts-inline-warning-primary-icon: var(--color-toasts-inline-warning-primary-icon);
+	--color-toasts-inline-warning-primary-text: var(--color-toasts-inline-warning-primary-text);
+	--color-toasts-inline-warning-secondary-text: var(--color-toasts-inline-warning-secondary-text);
+	--color-toasts-inline-warning-secondary-icon: var(--color-toasts-inline-warning-secondary-icon);
+	--color-toasts-inline-destructive-surface: var(--color-toasts-inline-destructive-surface);
+	--color-toasts-inline-destructive-border: var(--color-toasts-inline-destructive-border);
+	--color-toasts-inline-destructive-primary-icon: var(
+		--color-toasts-inline-destructive-primary-icon
+	);
+	--color-toasts-inline-destructive-primary-text: var(
+		--color-toasts-inline-destructive-primary-text
+	);
+	--color-toasts-inline-destructive-secondary-text: var(
+		--color-toasts-inline-destructive-secondary-text
+	);
+	--color-toasts-inline-destructive-secondary-icon: var(
+		--color-toasts-inline-destructive-secondary-icon
+	);
+	--color-toasts-expanded-brand-surface: var(--color-toasts-expanded-brand-surface);
+	--color-toasts-expanded-brand-primary-border: var(--color-toasts-expanded-brand-primary-border);
+	--color-toasts-expanded-brand-secondary-border: var(
+		--color-toasts-expanded-brand-secondary-border
+	);
+	--color-toasts-expanded-brand-primary-text: var(--color-toasts-expanded-brand-primary-text);
+	--color-toasts-expanded-brand-secondary-text: var(--color-toasts-expanded-brand-secondary-text);
+	--color-toasts-expanded-brand-primary-icon: var(--color-toasts-expanded-brand-primary-icon);
+	--color-toasts-expanded-brand-secodnary-icon: var(--color-toasts-expanded-brand-secodnary-icon);
+	--color-toasts-expanded-brand-primary-action-type: var(
+		--color-toasts-expanded-brand-primary-action-type
+	);
+	--color-toasts-expanded-neutral-surface: var(--color-toasts-expanded-neutral-surface);
+	--color-toasts-expanded-neutral-primary-border: var(
+		--color-toasts-expanded-neutral-primary-border
+	);
+	--color-toasts-expanded-neutral-secondary-border: var(
+		--color-toasts-expanded-neutral-secondary-border
+	);
+	--color-toasts-expanded-neutral-primary-text: var(--color-toasts-expanded-neutral-primary-text);
+	--color-toasts-expanded-neutral-secondary-text: var(
+		--color-toasts-expanded-neutral-secondary-text
+	);
+	--color-toasts-expanded-neutral-primary-icon: var(--color-toasts-expanded-neutral-primary-icon);
+	--color-toasts-expanded-neutral-secodnary-icon: var(
+		--color-toasts-expanded-neutral-secodnary-icon
+	);
+	--color-toasts-expanded-neutral-primary-action-type: var(
+		--color-toasts-expanded-neutral-primary-action-type
+	);
+	--color-toasts-expanded-secodnary-action-type: var(--color-toasts-expanded-secodnary-action-type);
+	--color-toasts-expanded-success-surface: var(--color-toasts-expanded-success-surface);
+	--color-toasts-expanded-success-primary-border: var(
+		--color-toasts-expanded-success-primary-border
+	);
+	--color-toasts-expanded-success-secondary-border: var(
+		--color-toasts-expanded-success-secondary-border
+	);
+	--color-toasts-expanded-success-primary-text: var(--color-toasts-expanded-success-primary-text);
+	--color-toasts-expanded-success-secondary-text: var(
+		--color-toasts-expanded-success-secondary-text
+	);
+	--color-toasts-expanded-success-primary-icon: var(--color-toasts-expanded-success-primary-icon);
+	--color-toasts-expanded-success-secodnary-icon: var(
+		--color-toasts-expanded-success-secodnary-icon
+	);
+	--color-toasts-expanded-success-primary-action-type: var(
+		--color-toasts-expanded-success-primary-action-type
+	);
+	--color-toasts-expanded-destructive-surface: var(--color-toasts-expanded-destructive-surface);
+	--color-toasts-expanded-destructive-primary-border: var(
+		--color-toasts-expanded-destructive-primary-border
+	);
+	--color-toasts-expanded-destructive-secondary-border: var(
+		--color-toasts-expanded-destructive-secondary-border
+	);
+	--color-toasts-expanded-destructive-primary-text: var(
+		--color-toasts-expanded-destructive-primary-text
+	);
+	--color-toasts-expanded-destructive-secondary-text: var(
+		--color-toasts-expanded-destructive-secondary-text
+	);
+	--color-toasts-expanded-destructive-primary-icon: var(
+		--color-toasts-expanded-destructive-primary-icon
+	);
+	--color-toasts-expanded-destructive-secodnary-icon: var(
+		--color-toasts-expanded-destructive-secodnary-icon
+	);
+	--color-toasts-expanded-destructive-primary-action-type: var(
+		--color-toasts-expanded-destructive-primary-action-type
+	);
+	--color-toasts-expanded-warning-surface: var(--color-toasts-expanded-warning-surface);
+	--color-toasts-expanded-warning-primary-border: var(
+		--color-toasts-expanded-warning-primary-border
+	);
+	--color-toasts-expanded-warning-secondary-border: var(
+		--color-toasts-expanded-warning-secondary-border
+	);
+	--color-toasts-expanded-warning-primary-text: var(--color-toasts-expanded-warning-primary-text);
+	--color-toasts-expanded-warning-secondary-text: var(
+		--color-toasts-expanded-warning-secondary-text
+	);
+	--color-toasts-expanded-warning-primary-icon: var(--color-toasts-expanded-warning-primary-icon);
+	--color-toasts-expanded-warning-secodnary-icon: var(
+		--color-toasts-expanded-warning-secodnary-icon
+	);
+	--color-toasts-expanded-warning-primary-action-type: var(
+		--color-toasts-expanded-warning-primary-action-type
+	);
+	--color-toasts-expanded-info-surface: var(--color-toasts-expanded-info-surface);
+	--color-toasts-expanded-info-primary-border: var(--color-toasts-expanded-info-primary-border);
+	--color-toasts-expanded-info-secondary-border: var(--color-toasts-expanded-info-secondary-border);
+	--color-toasts-expanded-info-primary-text: var(--color-toasts-expanded-info-primary-text);
+	--color-toasts-expanded-info-secondary-text: var(--color-toasts-expanded-info-secondary-text);
+	--color-toasts-expanded-info-primary-icon: var(--color-toasts-expanded-info-primary-icon);
+	--color-toasts-expanded-info-secodnary-icon: var(--color-toasts-expanded-info-secodnary-icon);
+	--color-toasts-expanded-info-primary-action-type: var(
+		--color-toasts-expanded-info-primary-action-type
+	);
+	--spacing-toasts-expanded-width: var(--size-toasts-expanded-width);
+	--spacing-toasts-expanded-icon-size: var(--size-toasts-expanded-icon-size);
+	--spacing-toasts-expanded-icon-border: var(--size-toasts-expanded-icon-border);
+	--spacing-toasts-expanded-padding-all-sides: var(--size-toasts-expanded-padding-all-sides);
+	--spacing-toasts-expanded-card-gap: var(--size-toasts-expanded-card-gap);
+	--spacing-toasts-expanded-text-padding: var(--size-toasts-expanded-text-padding);
+	--spacing-toasts-expanded-text-gap: var(--size-toasts-expanded-text-gap);
+	--spacing-toasts-expanded-text-action-gap: var(--size-toasts-expanded-text-action-gap);
+	--spacing-toasts-expanded-actions-padding: var(--size-toasts-expanded-actions-padding);
+	--spacing-toasts-expanded-action-gap: var(--size-toasts-expanded-action-gap);
+	--spacing-toasts-expanded-priamry-border-width: var(--size-toasts-expanded-priamry-border-width);
+	--spacing-toasts-expanded-secondary-border-width-2: var(
+		--size-toasts-expanded-secondary-border-width-2
+	);
+	--spacing-toasts-expanded-action-size: var(--size-toasts-expanded-action-size);
+	--radius-toasts-expanded-radius: var(--size-toasts-expanded-radius);
+	--spacing-toasts-inline-width: var(--size-toasts-inline-width);
+	--spacing-toasts-inline-height: var(--size-toasts-inline-height);
+	--spacing-toasts-inline-icon-size: var(--size-toasts-inline-icon-size);
+	--spacing-toasts-inline-icon-border: var(--size-toasts-inline-icon-border);
+	--spacing-toasts-inline-padding-all-sides: var(--size-toasts-inline-padding-all-sides);
+	--spacing-toasts-inline-card-gap: var(--size-toasts-inline-card-gap);
+	--spacing-toasts-inline-text-padding: var(--size-toasts-inline-text-padding);
+	--spacing-toasts-inline-text-gap: var(--size-toasts-inline-text-gap);
+	--spacing-toasts-inline-action-size: var(--size-toasts-inline-action-size);
+	--spacing-toasts-inline-border-size: var(--size-toasts-inline-border-size);
+	--radius-toasts-inline-radius: var(--size-toasts-inline-radius);
 }

@@ -55,7 +55,7 @@ get along, so we shut typescript up by casting `value` to `never`.
             />
           {/snippet}
         </Tooltip.Trigger>
-        <Tooltip.Content sideOffset={4}>
+        <Tooltip.Content sideOffset={4} >
           {Array.isArray(value) ? value[thumb] : value}
         </Tooltip.Content>
       </Tooltip.Root>

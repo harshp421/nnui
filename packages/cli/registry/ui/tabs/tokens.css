@@ -8,7 +8,6 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-	/* ─── Color ─── */
 	--color-tab-default-normal-surface: var(--color-surface-alpha-zero-transparency);
 	--color-tab-default-contained-surface: var(--color-surface-alpha-zero-transparency);
 	--color-tab-default-text: var(--color-text-neutral-tertiary);
@@ -28,8 +27,6 @@
 	--color-tab-active-brand-border: var(--color-border-brand-primary);
 	--color-tab-active-brand-icon: var(--color-icon-brand-primary);
 	--color-tab-active-brand-text: var(--color-text-brand-primary);
-
-	/* ─── Size ─── */
 	--size-tabs-height: var(--spacing-40);
 	--size-tabs-padding-all-sides: var(--spacing-10);
 	--size-tabs-gap: var(--spacing-4);
@@ -37,4 +34,59 @@
 	--size-tabs-icon-size: var(--spacing-16);
 	--size-tabs-radius: var(--radius-0);
 	--size-tabs-border-size: var(--border-width-l2);
+}
+
+/* Tablet */
+@media (min-width: 1024px) {
+	:root {
+		--size-tabs-height: var(--spacing-40);
+		--size-tabs-padding-all-sides: var(--spacing-10);
+		--size-tabs-gap: var(--spacing-4);
+		--size-tabs-text-padding-left-right: var(--spacing-4);
+		--size-tabs-icon-size: var(--spacing-16);
+		--size-tabs-radius: var(--radius-0);
+		--size-tabs-border-size: var(--border-width-l2);
+	}
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+	:root {
+		--size-tabs-height: var(--spacing-40);
+		--size-tabs-padding-all-sides: var(--spacing-10);
+		--size-tabs-gap: var(--spacing-4);
+		--size-tabs-text-padding-left-right: var(--spacing-4);
+		--size-tabs-icon-size: var(--spacing-16);
+		--size-tabs-radius: var(--radius-0);
+		--size-tabs-border-size: var(--border-width-l2);
+	}
+}
+
+@theme {
+	--color-tab-default-normal-surface: var(--color-tab-default-normal-surface);
+	--color-tab-default-contained-surface: var(--color-tab-default-contained-surface);
+	--color-tab-default-text: var(--color-tab-default-text);
+	--color-tab-default-icon: var(--color-tab-default-icon);
+	--color-tab-hover-normal-surface: var(--color-tab-hover-normal-surface);
+	--color-tab-hover-contained-hover: var(--color-tab-hover-contained-hover);
+	--color-tab-hover-border: var(--color-tab-hover-border);
+	--color-tab-hover-text: var(--color-tab-hover-text);
+	--color-tab-hover-icon: var(--color-tab-hover-icon);
+	--color-tab-active-normal-normal-surface: var(--color-tab-active-normal-normal-surface);
+	--color-tab-active-normal-contained-surface: var(--color-tab-active-normal-contained-surface);
+	--color-tab-active-normal-border: var(--color-tab-active-normal-border);
+	--color-tab-active-normal-text: var(--color-tab-active-normal-text);
+	--color-tab-active-normal-icon: var(--color-tab-active-normal-icon);
+	--color-tab-active-brand-normal-surface: var(--color-tab-active-brand-normal-surface);
+	--color-tab-active-brand-contained-surface: var(--color-tab-active-brand-contained-surface);
+	--color-tab-active-brand-border: var(--color-tab-active-brand-border);
+	--color-tab-active-brand-icon: var(--color-tab-active-brand-icon);
+	--color-tab-active-brand-text: var(--color-tab-active-brand-text);
+	--spacing-tabs-height: var(--size-tabs-height);
+	--spacing-tabs-padding-all-sides: var(--size-tabs-padding-all-sides);
+	--spacing-tabs-gap: var(--size-tabs-gap);
+	--spacing-tabs-text-padding-left-right: var(--size-tabs-text-padding-left-right);
+	--spacing-tabs-icon-size: var(--size-tabs-icon-size);
+	--radius-tabs-radius: var(--size-tabs-radius);
+	--spacing-tabs-border-size: var(--size-tabs-border-size);
 }

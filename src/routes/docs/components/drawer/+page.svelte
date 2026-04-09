@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as Drawer from "$lib/components/ui/drawer";
-  import Button from "$lib/components/ui/button/button.svelte";
+  import { Drawer as DrawerPrimitive } from "vaul-svelte";
   import {
     DocsPage,
     PageHeader,
@@ -15,39 +15,41 @@
 // Optional: Additional Components
 import Button from "$lib/components/ui/button/button.svelte";`;
 
-  const quickStartCode = `
+  const quickStartCode = `<script>
+  import { Drawer } from "vaul-svelte";
+  import DrawerContent from "$lib/components/ui/drawer/drawer-content.svelte";
+  import DrawerHeader from "$lib/components/ui/drawer/drawer-header.svelte";
+  import DrawerFooter from "$lib/components/ui/drawer/drawer-footer.svelte";
+  import DrawerTitle from "$lib/components/ui/drawer/drawer-title.svelte";
+  import DrawerDescription from "$lib/components/ui/drawer/drawer-description.svelte";
+${"</"+"script>"}
+
 <Drawer.Root>
-    <Drawer.Trigger>
-        <Button variant="primary">Open Drawer</Button>
+    <Drawer.Trigger class="your-button-classes">
+        Open Drawer
     </Drawer.Trigger>
-    <Drawer.Content>
-        <Drawer.Header>
-            <Drawer.Title>Edit Profile</Drawer.Title>
-            <Drawer.Description>
-                Make changes to your profile here. Swipe down to dismiss.
-            </Drawer.Description>
-        </Drawer.Header>
+    <DrawerContent>
+        <DrawerHeader>
+            <DrawerTitle>Edit Profile</DrawerTitle>
+            <DrawerDescription>
+                Make changes to your profile here.
+            </DrawerDescription>
+        </DrawerHeader>
         <div class="p-5">
-            <p class="text-text-neutral-secondary">
-                Drawer body content goes here. This panel slides
-                up from the bottom of the screen and supports
-                swipe-to-dismiss gestures.
-            </p>
+            <p>Drawer body content goes here.</p>
         </div>
-        <Drawer.Footer>
-            <Drawer.Close>
-                <Button variant="tertiary">Cancel</Button>
-            </Drawer.Close>
-            <Button variant="primary">Save</Button>
-        </Drawer.Footer>
-    </Drawer.Content>
+        <DrawerFooter>
+            <Drawer.Close class="your-button-classes">Cancel</Drawer.Close>
+            <button class="your-button-classes">Save</button>
+        </DrawerFooter>
+    </DrawerContent>
 </Drawer.Root>`;
 
   const nestedDrawerCode = `
 <Drawer.Root>
-    <Drawer.Trigger>
-        <Button variant="primary">Open Drawer</Button>
-    </Drawer.Trigger>
+    <DrawerPrimitive.Trigger class="...button styles...">
+        Open Drawer
+    </DrawerPrimitive.Trigger>
     <Drawer.Content>
         <Drawer.Header>
             <Drawer.Title>Parent Drawer</Drawer.Title>
@@ -57,9 +59,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
         </Drawer.Header>
         <div class="p-5">
             <Drawer.NestedRoot>
-                <Drawer.Trigger>
-                    <Button variant="secondary">Open Nested Drawer</Button>
-                </Drawer.Trigger>
+                <DrawerPrimitive.Trigger class="...button styles...">
+                    Open Nested Drawer
+                </DrawerPrimitive.Trigger>
                 <Drawer.Content>
                     <Drawer.Header>
                         <Drawer.Title>Nested Drawer</Drawer.Title>
@@ -74,26 +76,26 @@ import Button from "$lib/components/ui/button/button.svelte";`;
                         </p>
                     </div>
                     <Drawer.Footer>
-                        <Drawer.Close>
+                        <DrawerPrimitive.Close>
                             <Button variant="tertiary">Close Nested</Button>
-                        </Drawer.Close>
+                        </DrawerPrimitive.Close>
                     </Drawer.Footer>
                 </Drawer.Content>
             </Drawer.NestedRoot>
         </div>
         <Drawer.Footer>
-            <Drawer.Close>
+            <DrawerPrimitive.Close>
                 <Button variant="tertiary">Close</Button>
-            </Drawer.Close>
+            </DrawerPrimitive.Close>
         </Drawer.Footer>
     </Drawer.Content>
 </Drawer.Root>`;
 
   const directionCode = `
 <Drawer.Root direction="right">
-    <Drawer.Trigger>
-        <Button variant="secondary">Open Right Drawer</Button>
-    </Drawer.Trigger>
+    <DrawerPrimitive.Trigger class="...button styles...">
+        Open Right Drawer
+    </DrawerPrimitive.Trigger>
     <Drawer.Content>
         <Drawer.Header>
             <Drawer.Title>Right Drawer</Drawer.Title>
@@ -108,9 +110,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
             </p>
         </div>
         <Drawer.Footer>
-            <Drawer.Close>
+            <DrawerPrimitive.Close>
                 <Button variant="tertiary">Close</Button>
-            </Drawer.Close>
+            </DrawerPrimitive.Close>
         </Drawer.Footer>
     </Drawer.Content>
 </Drawer.Root>`;
@@ -229,9 +231,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
         {#snippet preview()}
           <div class="flex items-center justify-center p-10 w-full">
             <Drawer.Root>
-              <Drawer.Trigger>
-                <Button variant="primary">Open Drawer</Button>
-              </Drawer.Trigger>
+              <DrawerPrimitive.Trigger class="inline-flex items-center justify-center rounded-button-medium-normal-radius bg-button-brand-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-brand-default-text hover:bg-button-brand-hover-surface transition-colors">
+                Open Drawer
+              </DrawerPrimitive.Trigger>
               <Drawer.Content>
                 <Drawer.Header>
                   <Drawer.Title>Edit Profile</Drawer.Title>
@@ -246,10 +248,12 @@ import Button from "$lib/components/ui/button/button.svelte";`;
                   </p>
                 </div>
                 <Drawer.Footer>
-                  <Drawer.Close>
-                    <Button variant="tertiary">Cancel</Button>
-                  </Drawer.Close>
-                  <Button variant="primary">Save</Button>
+                  <DrawerPrimitive.Close class="inline-flex items-center justify-center rounded-button-medium-normal-radius border border-button-tertiary-default-border bg-button-tertiary-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-tertiary-default-text hover:bg-button-tertiary-hover-surface transition-colors">
+                    Cancel
+                  </DrawerPrimitive.Close>
+                  <button class="inline-flex items-center justify-center rounded-button-medium-normal-radius bg-button-brand-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-brand-default-text hover:bg-button-brand-hover-surface transition-colors">
+                    Save
+                  </button>
                 </Drawer.Footer>
               </Drawer.Content>
             </Drawer.Root>
@@ -272,9 +276,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
         {#snippet preview()}
           <div class="flex items-center justify-center p-10 w-full">
             <Drawer.Root direction="right">
-              <Drawer.Trigger>
-                <Button variant="secondary">Open Right Drawer</Button>
-              </Drawer.Trigger>
+              <DrawerPrimitive.Trigger class="inline-flex items-center justify-center rounded-button-medium-normal-radius bg-button-neutral-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-neutral-default-text hover:bg-button-neutral-hover-surface transition-colors">
+                Open Right Drawer
+              </DrawerPrimitive.Trigger>
               <Drawer.Content>
                 <Drawer.Header>
                   <Drawer.Title>Right Drawer</Drawer.Title>
@@ -289,9 +293,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
                   </p>
                 </div>
                 <Drawer.Footer>
-                  <Drawer.Close>
-                    <Button variant="tertiary">Close</Button>
-                  </Drawer.Close>
+                  <DrawerPrimitive.Close class="inline-flex items-center justify-center rounded-button-medium-normal-radius border border-button-tertiary-default-border bg-button-tertiary-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-tertiary-default-text hover:bg-button-tertiary-hover-surface transition-colors">
+                    Close
+                  </DrawerPrimitive.Close>
                 </Drawer.Footer>
               </Drawer.Content>
             </Drawer.Root>
@@ -313,9 +317,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
         {#snippet preview()}
           <div class="flex items-center justify-center p-10 w-full">
             <Drawer.Root>
-              <Drawer.Trigger>
-                <Button variant="primary">Open Drawer</Button>
-              </Drawer.Trigger>
+              <DrawerPrimitive.Trigger class="inline-flex items-center justify-center rounded-button-medium-normal-radius bg-button-brand-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-brand-default-text hover:bg-button-brand-hover-surface transition-colors">
+                Open Drawer
+              </DrawerPrimitive.Trigger>
               <Drawer.Content>
                 <Drawer.Header>
                   <Drawer.Title>Parent Drawer</Drawer.Title>
@@ -325,11 +329,9 @@ import Button from "$lib/components/ui/button/button.svelte";`;
                 </Drawer.Header>
                 <div class="p-5">
                   <Drawer.NestedRoot>
-                    <Drawer.Trigger>
-                      <Button variant="secondary"
-                        >Open Nested Drawer</Button
-                      >
-                    </Drawer.Trigger>
+                    <DrawerPrimitive.Trigger class="inline-flex items-center justify-center rounded-button-medium-normal-radius bg-button-neutral-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-neutral-default-text hover:bg-button-neutral-hover-surface transition-colors">
+                      Open Nested Drawer
+                    </DrawerPrimitive.Trigger>
                     <Drawer.Content>
                       <Drawer.Header>
                         <Drawer.Title>Nested Drawer</Drawer.Title>
@@ -344,17 +346,17 @@ import Button from "$lib/components/ui/button/button.svelte";`;
                         </p>
                       </div>
                       <Drawer.Footer>
-                        <Drawer.Close>
-                          <Button variant="tertiary">Close Nested</Button>
-                        </Drawer.Close>
+                        <DrawerPrimitive.Close class="inline-flex items-center justify-center rounded-button-medium-normal-radius border border-button-tertiary-default-border bg-button-tertiary-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-tertiary-default-text hover:bg-button-tertiary-hover-surface transition-colors">
+                          Close Nested
+                        </DrawerPrimitive.Close>
                       </Drawer.Footer>
                     </Drawer.Content>
                   </Drawer.NestedRoot>
                 </div>
                 <Drawer.Footer>
-                  <Drawer.Close>
-                    <Button variant="tertiary">Close</Button>
-                  </Drawer.Close>
+                  <DrawerPrimitive.Close class="inline-flex items-center justify-center rounded-button-medium-normal-radius border border-button-tertiary-default-border bg-button-tertiary-default-surface px-button-medium-normal-padding-left-right py-button-medium-normal-padding-top-bottom text-sm font-medium text-button-tertiary-default-text hover:bg-button-tertiary-hover-surface transition-colors">
+                    Close
+                  </DrawerPrimitive.Close>
                 </Drawer.Footer>
               </Drawer.Content>
             </Drawer.Root>

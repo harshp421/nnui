@@ -181,9 +181,9 @@
                   </p>
                 </div>
                 <Sheet.Footer>
-                  <Sheet.Close>
+                  
                     <Button variant="tertiary">Cancel</Button>
-                  </Sheet.Close>
+                 
                   <Button variant="primary">Save</Button>
                 </Sheet.Footer>
               </Sheet.Content>

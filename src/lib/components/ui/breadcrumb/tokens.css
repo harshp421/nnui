@@ -1,18 +1,41 @@
 /* ═══════════════════════════════════════════════════════════════════════
    BREADCRUMB — Design Tokens
-   ═══════════════════════════════════════════════════════════════════════
-   These tokens power the Breadcrumb component.
-   This file is automatically added when you run: npx nnuikit add breadcrumb
-
-   Dependencies: Requires global base palette + semantic tokens from layout.css
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
 	--color-breadcrumb-default: var(--button-link-disabled-text);
 	--color-breadcrumb-hover: var(--button-link-hover-text);
 	--color-breadcrumb-active: var(--button-link-focused-text);
-	--size-breadcrumb-gap: var(--spacing-0);
-	--size-breadcrumb-height: var(--spacing-20);
-	--size-breadcrumb-icon-size: var(--spacing-20);
-	--size-breadcrumb-border-size: var(--border-width-l2);
+	--size-breadcrumb-gap: 0;
+	--size-breadcrumb-height: 0;
+	--size-breadcrumb-icon-size: 0;
+	--size-breadcrumb-border-size: 0;
+}
+
+@media (min-width: 1024px) {
+	:root {
+		--size-breadcrumb-gap: 0;
+		--size-breadcrumb-height: 0;
+		--size-breadcrumb-icon-size: 0;
+		--size-breadcrumb-border-size: 0;
+	}
+}
+
+@media (min-width: 1440px) {
+	:root {
+		--size-breadcrumb-gap: var(--spacing-0);
+		--size-breadcrumb-height: var(--spacing-20);
+		--size-breadcrumb-icon-size: var(--spacing-20);
+		--size-breadcrumb-border-size: var(--border-width-l2);
+	}
+}
+
+@theme {
+	--color-breadcrumb-default: var(--color-breadcrumb-default);
+	--color-breadcrumb-hover: var(--color-breadcrumb-hover);
+	--color-breadcrumb-active: var(--color-breadcrumb-active);
+	--spacing-breadcrumb-gap: var(--size-breadcrumb-gap);
+	--spacing-breadcrumb-height: var(--size-breadcrumb-height);
+	--spacing-breadcrumb-icon-size: var(--size-breadcrumb-icon-size);
+	--spacing-breadcrumb-border-size: var(--size-breadcrumb-border-size);
 }

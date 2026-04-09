@@ -14,7 +14,7 @@
   bind:this={ref}
   data-slot="item-title"
   class={cn(
-    "flex w-fit items-center gap-2 text-p-small tracking-normal font-medium leading-snug",
+    "flex w-fit items-center gap-2 text-sm tracking-normal font-medium leading-snug",
     "group-data-[variant=attachment]/item:text-darg-drop-attachment-default-text-file-title",
     "group-data-[variant=attachment-success]/item:text-darg-drop-attachment-success-text-file-title",
     "group-data-[variant=attachment-error]/item:text-darg-drop-attachment-error-text-file-title",
