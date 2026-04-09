@@ -4,7 +4,7 @@
   import type { ComponentProps, Snippet } from "svelte";
   import DialogPortal from "./dialog-portal.svelte";
   import * as Dialog from "./index.js";
-  import IconCross from "$lib/icons/icon-cross.svelte";
+  import IconCross from "./icon-cross.svelte";
 
   let {
     ref = $bindable(null),

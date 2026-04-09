@@ -15,9 +15,9 @@
   data-slot="item-footer"
   class={cn(
     "flex basis-full items-center justify-between gap-2",
-    "group-data-[variant=attachment]/item:text-darg-drop-attachment-default-text-progress",
-    "group-data-[variant=attachment-success]/item:text-darg-drop-attachment-success-text-progress",
-    "group-data-[variant=attachment-error]/item:text-darg-drop-attachment-error-text-progress",
+    "group-data-[variant=default]/item:text-item-default-footer",
+    "group-data-[variant=success]/item:text-item-success-footer",
+    "group-data-[variant=error]/item:text-item-error-footer",
     className,
   )}
   {...restProps}

@@ -23,7 +23,7 @@
 	import type { Snippet } from "svelte";
 	import SheetOverlay from "./sheet-overlay.svelte";
 	import { cn, type WithoutChildrenOrChild } from "$lib/utils/tailwindUtil.js";
-    import IconCross from "$lib/icons/icon-cross.svelte";
+    import IconCross from "./icon-cross.svelte";
 
 	let {
 		ref = $bindable(null),

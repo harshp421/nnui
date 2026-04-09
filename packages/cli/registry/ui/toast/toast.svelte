@@ -15,11 +15,11 @@
 </script>
 
 <script lang="ts">
-  import IconCheck from "$lib/icons/icon-check.svelte";
-  import IconAlertCircle from "$lib/icons/icon-alert-circle.svelte";
-  import IconAlert from "$lib/icons/icon-alert.svelte";
-  import IconInfo from "$lib/icons/icon-info.svelte";
-  import { IconCross } from "$lib/icons/index.js";
+  import IconCheck from "./icon-check.svelte";
+  import IconAlertCircle from "./icon-alert-circle.svelte";
+  import IconAlert from "./icon-alert.svelte";
+  import IconInfo from "./icon-info.svelte";
+  import IconCross from "./icon-cross.svelte";
   import { Button } from "$lib/components/ui/button";
 
   let {
@@ -105,7 +105,7 @@
     class={cn(
       "group pointer-events-auto relative flex w-full items-center",
       "h-toasts-inline-height p-toasts-inline-padding-all-sides gap-toasts-inline-card-gap rounded-toasts-inline-radius border",
-      "shadow-lg drop-shadow-l3 transition-all",
+      "shadow-lg drop-shadow-l3 transition-all glass:backdrop-blur-xl glass:backdrop-saturate-150",
       variantClass,
       className,
     )}
@@ -166,7 +166,7 @@
     class={cn(
       "group pointer-events-auto relative flex w-full",
       "p-toasts-expanded-padding-all-sides gap-toasts-expanded-card-gap rounded-toasts-expanded-radius border",
-      "shadow-lg drop-shadow-l3 transition-all",
+      "shadow-lg drop-shadow-l3 transition-all glass:backdrop-blur-xl glass:backdrop-saturate-150",
       variantClass,
       className,
     )}

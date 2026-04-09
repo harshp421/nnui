@@ -15,11 +15,11 @@
 </script>
 
 <script lang="ts">
-  import IconCheck from "$lib/icons/icon-check.svelte";
-  import IconAlertCircle from "$lib/icons/icon-alert-circle.svelte";
-  import IconAlert from "$lib/icons/icon-alert.svelte";
-  import IconInfo from "$lib/icons/icon-info.svelte";
-  import { IconCross } from "$lib/icons/index.js";
+  import IconCheck from "./icon-check.svelte";
+  import IconAlertCircle from "./icon-alert-circle.svelte";
+  import IconAlert from "./icon-alert.svelte";
+  import IconInfo from "./icon-info.svelte";
+  import IconCross from "./icon-cross.svelte";
   import { Button } from "$lib/components/ui/button";
 
   let {

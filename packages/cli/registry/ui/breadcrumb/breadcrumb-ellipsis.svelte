@@ -5,7 +5,7 @@
 		type WithElementRef,
 		type WithoutChildren,
 	} from "$lib/utils/tailwindUtil.js";
-	import IconDots from "$lib/icons/icon-dots.svelte";
+	import IconDots from "./icon-dots.svelte";
 
 	let {
 		ref = $bindable(null),

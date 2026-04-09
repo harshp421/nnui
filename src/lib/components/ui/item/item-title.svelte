@@ -14,10 +14,10 @@
   bind:this={ref}
   data-slot="item-title"
   class={cn(
-    "flex w-fit items-center gap-2 text-sm tracking-normal font-medium leading-snug",
-    "group-data-[variant=attachment]/item:text-darg-drop-attachment-default-text-file-title",
-    "group-data-[variant=attachment-success]/item:text-darg-drop-attachment-success-text-file-title",
-    "group-data-[variant=attachment-error]/item:text-darg-drop-attachment-error-text-file-title",
+    "flex w-fit items-center gap-2 text-sm font-medium leading-snug tracking-normal",
+    "group-data-[variant=default]/item:text-item-default-title",
+    "group-data-[variant=success]/item:text-item-success-title",
+    "group-data-[variant=error]/item:text-item-error-title",
     className,
   )}
   {...restProps}

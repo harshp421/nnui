@@ -4,7 +4,7 @@
   import type { ComponentProps, Snippet } from "svelte";
   import DialogPortal from "./dialog-portal.svelte";
   import * as Dialog from "./index.js";
-  import IconCross from "$lib/icons/icon-cross.svelte";
+  import IconCross from "./icon-cross.svelte";
 
   let {
     ref = $bindable(null),
@@ -26,7 +26,7 @@
     bind:ref
     data-slot="dialog-content"
     class={cn(
-      "rounded-modal-radius bg-modal-surface border border-modal-border shadow-lg",
+      "rounded-modal-radius bg-modal-surface border border-modal-border shadow-lg glass:backdrop-blur-xl glass:backdrop-saturate-150",
       "fixed start-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%]",
       "grid w-full max-w-[calc(100%-2rem)] sm:w-modal-width",
       "max-h-modal-max-height overflow-hidden",

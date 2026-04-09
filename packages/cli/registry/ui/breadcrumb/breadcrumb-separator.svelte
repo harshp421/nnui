@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconChevronRight from "$lib/icons/icon-chevron-right.svelte";
+	import IconChevronRight from "./icon-chevron-right.svelte";
 	import { cn, type WithElementRef } from "$lib/utils/tailwindUtil.js";
 	import type { HTMLLiAttributes } from "svelte/elements";
 

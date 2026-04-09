@@ -61,7 +61,7 @@
 </script>
 
 <div
-    class="fixed z-100 flex max-h-screen w-full flex-col-reverse gap-8 p-16 sm:flex-col md:max-w-[520px] {positionClass} {className ||
+    class="pointer-events-none fixed z-100 flex max-h-screen w-full flex-col-reverse gap-8 p-16 sm:flex-col md:max-w-[520px] {positionClass} {className ||
         ''}"
     aria-label="Notifications"
     role="region"
@@ -72,6 +72,7 @@
     {#each visibleToasts as item (item.id)}
        
         <div
+            class="pointer-events-auto"
             animate:flip={{ duration: 200 }}
             in:fly={{
                 x: position.includes("right")

@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import { tv, type VariantProps } from "tailwind-variants";
 	export const sheetVariants = tv({
-		base: "bg-sheet-surface border border-sheet-border text-sheet-text data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 glass:backdrop-blur-xl glass:backdrop-saturate-150",
+		base: "bg-sheet-surface border border-sheet-border text-sheet-text data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-16 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 glass:backdrop-blur-xl glass:backdrop-saturate-150",
 		variants: {
 			side: {
 				top: "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
@@ -23,7 +23,7 @@
 	import type { Snippet } from "svelte";
 	import SheetOverlay from "./sheet-overlay.svelte";
 	import { cn, type WithoutChildrenOrChild } from "$lib/utils/tailwindUtil.js";
-    import IconCross from "$lib/icons/icon-cross.svelte";
+    import IconCross from "./icon-cross.svelte";
 
 	let {
 		ref = $bindable(null),

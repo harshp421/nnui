@@ -2,19 +2,19 @@
   import { tv, type VariantProps } from "tailwind-variants";
 
   export const itemVariants = tv({
-    base: "group/item   gap-input-drag-drop-attachment-gap p-input-drag-drop-attachment-padding-all-sides [a]:hover:bg-accent/50 [a]:transition-colors focus-visible:border-ring focus-visible:ring-ring/50 flex flex-wrap items-center rounded-input-drag-drop-attachment-radius border border-transparent text-sm outline-none transition-colors duration-100 focus-visible:ring-[3px]",
+    base: "group/item gap-item-gap p-item-padding flex flex-wrap items-center rounded-item-radius border border-transparent text-sm outline-none transition-colors duration-100 focus-visible:ring-2 focus-visible:ring-surface-brand-primary/50",
     variants: {
       variant: {
-        attachment:
-         "bg-darg-drop-attachment-default-surface border-darg-drop-attachment-default-border",
-        "attachment-success":
-          "bg-darg-drop-attachment-success-surface border-darg-drop-attachment-success-border",
-        "attachment-error":
-          "bg-darg-drop-attachment-error-surface border-darg-drop-attachment-error-border",
+        default:
+          "bg-item-default-surface border-item-default-border",
+        success:
+          "bg-item-success-surface border-item-success-border",
+        error:
+          "bg-item-error-surface border-item-error-border",
       },
     },
     defaultVariants: {
-      variant: "attachment",
+      variant: "default",
     },
   });
 
@@ -30,7 +30,7 @@
     ref = $bindable(null),
     class: className,
     child,
-    variant,
+    variant = "default",
     ...restProps
   }: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
     child?: Snippet<[{ props: Record<string, unknown> }]>;

@@ -1,5 +1,12 @@
 <script lang="ts">
+  import Seo from "$lib/components/seo.svelte";
   import * as Item from "$lib/components/ui/item";
+  import type { ItemVariant } from "$lib/components/ui/item/item.svelte";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import IconPdf from "$lib/icons/icon-pdf.svelte";
+  import IconPhoto from "$lib/icons/icon-photo.svelte";
+  import IconCheck from "$lib/icons/icon-check.svelte";
+  import IconCross from "$lib/icons/icon-cross.svelte";
   import {
     DocsPage,
     PageHeader,
@@ -9,339 +16,340 @@
     PropsTable,
   } from "$lib/components/docs";
 
-  const installationCode = `import * as Item from "$lib/components/ui/item";`;
+  // Playground state
+  let playgroundVariant = $state<NonNullable<ItemVariant>>("default");
+  let showMedia = $state(true);
+  let showActions = $state(true);
+  let showDescription = $state(true);
+
+  const variants: { value: NonNullable<ItemVariant>; label: string }[] = [
+    { value: "default", label: "Default" },
+    { value: "success", label: "Success" },
+    { value: "error", label: "Error" },
+  ];
+
+  function getPlaygroundCode() {
+    const variantAttr = playgroundVariant !== "default" ? ` variant="${playgroundVariant}"` : "";
+    let code = `<Item.Root${variantAttr}>`;
+    if (showMedia) code += `\n  <Item.Media>\n    <IconPdf />\n  </Item.Media>`;
+    code += `\n  <Item.Content>\n    <Item.Title>Document.pdf</Item.Title>`;
+    if (showDescription) code += `\n    <Item.Description>245 KB</Item.Description>`;
+    code += `\n  </Item.Content>`;
+    if (showActions) code += `\n  <Item.Actions>\n    <Button variant="orphan" size="icon-sm">✕</Button>\n  </Item.Actions>`;
+    code += `\n</Item.Root>`;
+    return code;
+  }
+
+  const installationCode = `npx nnuikit add item
+
+# Optional: for action buttons
+npx nnuikit add button`;
+
+  const importCode = `import * as Item from "$lib/components/ui/item";`;
 
   const quickStartCode = `<Item.Root>
   <Item.Media>
-    <svg class="size-10 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-    </svg>
+    <IconPdf />
   </Item.Media>
   <Item.Content>
-    <Item.Title>Design Tokens</Item.Title>
-    <Item.Description>A 3-layer token system for scalable theming across your entire project.</Item.Description>
+    <Item.Title>Project brief.pdf</Item.Title>
+    <Item.Description>245 KB — Updated 2 hours ago</Item.Description>
   </Item.Content>
   <Item.Actions>
-    <button class="rounded-lg bg-surface-brand-primary px-3 py-1.5 text-xs font-medium text-text-statics-pure-white">
-      View
-    </button>
+    <Button variant="orphan" size="icon-sm">
+      <IconCross />
+    </Button>
   </Item.Actions>
 </Item.Root>`;
 
+  const variantsCode = `<!-- Default -->
+<Item.Root variant="default">
+  <Item.Content>
+    <Item.Title>Uploaded file</Item.Title>
+    <Item.Description>Ready to process</Item.Description>
+  </Item.Content>
+</Item.Root>
+
+<!-- Success -->
+<Item.Root variant="success">
+  <Item.Content>
+    <Item.Title>Upload complete</Item.Title>
+    <Item.Description>File processed successfully</Item.Description>
+  </Item.Content>
+</Item.Root>
+
+<!-- Error -->
+<Item.Root variant="error">
+  <Item.Content>
+    <Item.Title>Upload failed</Item.Title>
+    <Item.Description>File exceeds maximum size</Item.Description>
+  </Item.Content>
+</Item.Root>`;
+
   const groupCode = `<Item.Group>
-  <Item.Header>Recent items</Item.Header>
-
   <Item.Root>
-    <Item.Media>
-      <svg class="size-8 text-text-neutral-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    </Item.Media>
+    <Item.Media><IconPdf /></Item.Media>
     <Item.Content>
-      <Item.Title>Project brief.pdf</Item.Title>
-      <Item.Description>Updated 2 hours ago</Item.Description>
+      <Item.Title>Report Q4.pdf</Item.Title>
+      <Item.Description>1.2 MB</Item.Description>
     </Item.Content>
   </Item.Root>
-
   <Item.Separator />
-
   <Item.Root>
-    <Item.Media>
-      <svg class="size-8 text-text-neutral-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    </Item.Media>
+    <Item.Media><IconPhoto /></Item.Media>
     <Item.Content>
-      <Item.Title>Hero banner.png</Item.Title>
-      <Item.Description>Updated yesterday</Item.Description>
+      <Item.Title>Banner.png</Item.Title>
+      <Item.Description>340 KB</Item.Description>
     </Item.Content>
   </Item.Root>
-
-  <Item.Footer>
-    <span class="text-xs text-text-neutral-tertiary">2 items</span>
-  </Item.Footer>
 </Item.Group>`;
 
   const itemRootProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the root container.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Slot content — compose with Item.Media, Item.Content, Item.Actions, etc.",
-    },
+    { name: "variant", type: '"default" | "success" | "error"', default: '"default"', description: "Visual state variant — controls surface and border colors." },
+    { name: "class", type: "string", default: '""', description: "Additional CSS classes." },
+    { name: "children", type: "Snippet", default: "-", description: "Compose with Item.Media, Item.Content, Item.Actions." },
   ];
 
-  const itemGroupProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the group wrapper.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Slot for Item.Header, Item.Root, Item.Separator, and Item.Footer children.",
-    },
-  ];
-
-  const itemContentProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the content area.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Slot for Item.Title and Item.Description.",
-    },
-  ];
-
-  const itemTitleProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the title element.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Title text content.",
-    },
-  ];
-
-  const itemDescriptionProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the description element.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Description text content.",
-    },
-  ];
-
-  const itemMediaProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the media slot container.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Slot for an icon, avatar, image, or any visual element.",
-    },
-  ];
-
-  const itemActionsProps = [
-    {
-      name: "class",
-      type: "string",
-      default: '""',
-      description: "Additional CSS classes applied to the actions container.",
-    },
-    {
-      name: "children",
-      type: "Snippet",
-      default: "-",
-      description: "Slot for buttons, links, or interactive controls.",
-    },
+  const subComponentProps = [
+    { name: "Item.Content", description: "Flex column container for title + description. Takes remaining space." },
+    { name: "Item.Title", description: "Primary label. Color adapts to variant (default/success/error)." },
+    { name: "Item.Description", description: "Secondary text below title. 2-line clamp. Color adapts to variant." },
+    { name: "Item.Media", description: "Leading slot for icons, avatars, or thumbnails. Fixed size." },
+    { name: "Item.Actions", description: "Trailing slot for buttons or controls. Flex row with gap." },
+    { name: "Item.Group", description: "Wraps multiple items into a vertical list." },
+    { name: "Item.Separator", description: "Horizontal divider between items in a group." },
+    { name: "Item.Header", description: "Group header label." },
+    { name: "Item.Footer", description: "Group footer. Color adapts to variant for progress/status text." },
   ];
 </script>
+
+<Seo
+  title="Item"
+  description="A compound list item component with media, content, title, description, and action slots. Supports default, success, and error variants."
+/>
 
 <DocsPage>
   <PageHeader
     title="Item"
-    description="A compound list item component with slots for media, content, title, description, and actions."
+    description="A compound list item with slots for media, content, and actions. Three variants — default, success, error — powered by design tokens."
   />
 
-  <div class="flex flex-col gap-32 mt-28">
-    <!-- Component Source -->
+  <div class="mt-10 flex flex-col gap-12">
+
     <div>
       <ComponentSource name="item" path="$lib/components/ui/item/item.svelte" />
     </div>
 
     <!-- Installation -->
-    <section class="space-y-8">
+    <section class="flex flex-col gap-5">
       <h2 class="text-2xl font-bold tracking-tight">Installation</h2>
-      <CodeBlock
-        code={installationCode}
-        language="typescript"
-        title="Installation"
-      />
+      <CodeBlock code={installationCode} language="bash" title="CLI" />
+      <CodeBlock code={importCode} language="typescript" title="Import" />
     </section>
 
     <!-- Quick Start -->
-    <section class="space-y-8">
-      <div class="space-y-4">
-        <h2 class="text-2xl font-bold tracking-tight">Quick Start</h2>
-        <p class="text-text-neutral-secondary">
-          A basic item with a media icon, content area with title and description, and an action button.
-        </p>
-      </div>
+    <section class="flex flex-col gap-5">
+      <h2 class="text-2xl font-bold tracking-tight">Quick Start</h2>
       <ComponentPreview code={quickStartCode}>
         {#snippet preview()}
-          <div class="flex items-center justify-center p-10 w-full">
-            <div class="w-full max-w-md">
-              <Item.Root>
-                <Item.Media>
-                  <svg class="size-10 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                  </svg>
-                </Item.Media>
-                <Item.Content>
-                  <Item.Title>Design Tokens</Item.Title>
-                  <Item.Description>A 3-layer token system for scalable theming across your entire project.</Item.Description>
-                </Item.Content>
-                <Item.Actions>
-                  <button class="rounded-lg bg-surface-brand-primary px-3 py-1.5 text-xs font-medium text-text-statics-pure-white">
-                    View
-                  </button>
-                </Item.Actions>
-              </Item.Root>
-            </div>
+          <div class="w-full max-w-md mx-auto p-5">
+            <Item.Root>
+              <Item.Media>
+                <IconPdf />
+              </Item.Media>
+              <Item.Content>
+                <Item.Title>Project brief.pdf</Item.Title>
+                <Item.Description>245 KB — Updated 2 hours ago</Item.Description>
+              </Item.Content>
+              <Item.Actions>
+                <Button variant="orphan" size="icon-sm">
+                  <IconCross />
+                </Button>
+              </Item.Actions>
+            </Item.Root>
           </div>
         {/snippet}
       </ComponentPreview>
     </section>
 
-    <!-- Item Group with Separator -->
-    <section class="space-y-8">
-      <div class="space-y-4">
-        <h2 class="text-2xl font-bold tracking-tight">Item Group</h2>
-        <p class="text-text-neutral-secondary">
-          Use <code class="relative rounded bg-surface-neutral-l2 px-[0.3rem] py-[0.2rem] font-mono text-sm">Item.Group</code> to wrap multiple items with an optional header, footer, and separators between entries.
-        </p>
+    <!-- Interactive Playground -->
+    <section class="flex flex-col gap-5">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight">Interactive Playground</h2>
+        <p class="mt-1.5 text-sm text-text-neutral-secondary">Toggle variant, media, description, and actions.</p>
       </div>
+
+      <div class="grid lg:grid-cols-2 gap-5 items-start">
+        <!-- Preview -->
+        <div class="flex flex-col gap-5 rounded-xl border border-border-neutral-l4 p-5">
+          <div class="w-full">
+            <Item.Root variant={playgroundVariant}>
+              {#if showMedia}
+                <Item.Media>
+                  {#if playgroundVariant === "success"}
+                    <IconCheck />
+                  {:else if playgroundVariant === "error"}
+                    <IconCross />
+                  {:else}
+                    <IconPdf />
+                  {/if}
+                </Item.Media>
+              {/if}
+              <Item.Content>
+                <Item.Title>
+                  {playgroundVariant === "success" ? "Upload complete" : playgroundVariant === "error" ? "Upload failed" : "Document.pdf"}
+                </Item.Title>
+                {#if showDescription}
+                  <Item.Description>
+                    {playgroundVariant === "success" ? "File processed successfully" : playgroundVariant === "error" ? "File exceeds maximum size" : "245 KB — Updated 2 hours ago"}
+                  </Item.Description>
+                {/if}
+              </Item.Content>
+              {#if showActions}
+                <Item.Actions>
+                  <Button variant="orphan" size="icon-sm">
+                    <IconCross />
+                  </Button>
+                </Item.Actions>
+              {/if}
+            </Item.Root>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex flex-col gap-7 rounded-xl border border-border-neutral-l4 p-5">
+          <div class="flex flex-col gap-2.5">
+            <span class="text-sm font-semibold text-text-neutral-primary">Variant</span>
+            <div class="flex gap-2.5">
+              {#each variants as v (v.value)}
+                <Button
+                  variant={playgroundVariant === v.value ? "primary" : "tertiary"}
+                  size="sm"
+                  onclick={() => (playgroundVariant = v.value)}
+                >
+                  {v.label}
+                </Button>
+              {/each}
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <span class="text-sm font-semibold text-text-neutral-primary">Slots</span>
+            <label class="flex items-center gap-2.5 text-sm text-text-neutral-secondary">
+              <input type="checkbox" bind:checked={showMedia} class="accent-surface-brand-primary" />
+              Show Media
+            </label>
+            <label class="flex items-center gap-2.5 text-sm text-text-neutral-secondary">
+              <input type="checkbox" bind:checked={showDescription} class="accent-surface-brand-primary" />
+              Show Description
+            </label>
+            <label class="flex items-center gap-2.5 text-sm text-text-neutral-secondary">
+              <input type="checkbox" bind:checked={showActions} class="accent-surface-brand-primary" />
+              Show Actions
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <CodeBlock code={getPlaygroundCode()} language="svelte" title="Generated code" />
+    </section>
+
+    <!-- Variants -->
+    <section class="flex flex-col gap-5">
+      <h2 class="text-2xl font-bold tracking-tight">Variants</h2>
+      <ComponentPreview code={variantsCode}>
+        {#snippet preview()}
+          <div class="w-full max-w-md mx-auto p-5 flex flex-col gap-3">
+            <Item.Root variant="default">
+              <Item.Media><IconPdf /></Item.Media>
+              <Item.Content>
+                <Item.Title>Uploaded file</Item.Title>
+                <Item.Description>Ready to process</Item.Description>
+              </Item.Content>
+            </Item.Root>
+            <Item.Root variant="success">
+              <Item.Media><IconCheck /></Item.Media>
+              <Item.Content>
+                <Item.Title>Upload complete</Item.Title>
+                <Item.Description>File processed successfully</Item.Description>
+              </Item.Content>
+            </Item.Root>
+            <Item.Root variant="error">
+              <Item.Media><IconCross /></Item.Media>
+              <Item.Content>
+                <Item.Title>Upload failed</Item.Title>
+                <Item.Description>File exceeds maximum size</Item.Description>
+              </Item.Content>
+            </Item.Root>
+          </div>
+        {/snippet}
+      </ComponentPreview>
+    </section>
+
+    <!-- Item Group -->
+    <section class="flex flex-col gap-5">
+      <h2 class="text-2xl font-bold tracking-tight">Item Group</h2>
+      <p class="text-sm leading-relaxed text-text-neutral-secondary">
+        Wrap multiple items with <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">Item.Group</code> and separate them with <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">Item.Separator</code>.
+      </p>
       <ComponentPreview code={groupCode}>
         {#snippet preview()}
-          <div class="flex items-center justify-center p-10 w-full">
-            <div class="w-full max-w-md">
-              <Item.Group>
-                <Item.Header>Recent items</Item.Header>
-
-                <Item.Root>
-                  <Item.Media>
-                    <svg class="size-8 text-text-neutral-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </Item.Media>
-                  <Item.Content>
-                    <Item.Title>Project brief.pdf</Item.Title>
-                    <Item.Description>Updated 2 hours ago</Item.Description>
-                  </Item.Content>
-                </Item.Root>
-
-                <Item.Separator />
-
-                <Item.Root>
-                  <Item.Media>
-                    <svg class="size-8 text-text-neutral-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </Item.Media>
-                  <Item.Content>
-                    <Item.Title>Hero banner.png</Item.Title>
-                    <Item.Description>Updated yesterday</Item.Description>
-                  </Item.Content>
-                </Item.Root>
-
-                <Item.Footer>
-                  <span class="text-xs text-text-neutral-tertiary">2 items</span>
-                </Item.Footer>
-              </Item.Group>
-            </div>
+          <div class="w-full max-w-md mx-auto p-5">
+            <Item.Group>
+              <Item.Root>
+                <Item.Media><IconPdf /></Item.Media>
+                <Item.Content>
+                  <Item.Title>Report Q4.pdf</Item.Title>
+                  <Item.Description>1.2 MB</Item.Description>
+                </Item.Content>
+              </Item.Root>
+              <Item.Separator />
+              <Item.Root>
+                <Item.Media><IconPhoto /></Item.Media>
+                <Item.Content>
+                  <Item.Title>Banner.png</Item.Title>
+                  <Item.Description>340 KB</Item.Description>
+                </Item.Content>
+              </Item.Root>
+            </Item.Group>
           </div>
         {/snippet}
       </ComponentPreview>
     </section>
 
     <!-- API Reference -->
-    <section class="space-y-8">
+    <section class="flex flex-col gap-5">
       <h2 class="text-2xl font-bold tracking-tight">API Reference</h2>
 
-      <div class="space-y-20">
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Root</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            The root container for a single item. Lays out media, content, and actions horizontally.
-          </p>
+      <div class="flex flex-col gap-7">
+        <div class="flex flex-col gap-3">
+          <h3 class="text-lg font-semibold">Item.Root</h3>
           <PropsTable props={itemRootProps} />
         </div>
 
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Group</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            Wraps multiple items into a visually grouped list with optional header and footer.
-          </p>
-          <PropsTable props={itemGroupProps} />
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Content</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            Flexible content area within an item, typically containing a title and description.
-          </p>
-          <PropsTable props={itemContentProps} />
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Title</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            The primary label or heading for the item.
-          </p>
-          <PropsTable props={itemTitleProps} />
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Description</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            Secondary text providing additional context below the title.
-          </p>
-          <PropsTable props={itemDescriptionProps} />
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Media</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            A slot for visual content such as icons, avatars, or thumbnails displayed alongside the item.
-          </p>
-          <PropsTable props={itemMediaProps} />
-        </div>
-
-        <div class="space-y-4">
-          <h3 class="text-xl font-semibold">Item.Actions</h3>
-          <p class="text-text-neutral-secondary text-sm">
-            A trailing slot for interactive controls like buttons, toggles, or links.
-          </p>
-          <PropsTable props={itemActionsProps} />
+        <div class="flex flex-col gap-3">
+          <h3 class="text-lg font-semibold">Sub-components</h3>
+          <div class="overflow-x-auto rounded-xl border border-border-neutral-l4">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-border-neutral-l4 bg-surface-neutral-l2">
+                  <th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Component</th>
+                  <th class="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-text-neutral-tertiary">Description</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border-neutral-l4">
+                {#each subComponentProps as comp (comp.name)}
+                  <tr>
+                    <td class="px-5 py-3 font-mono text-xs text-text-brand-primary">{comp.name}</td>
+                    <td class="px-5 py-3 text-xs text-text-neutral-secondary">{comp.description}</td>
+                  </tr>
+                {/each}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
+
   </div>
 </DocsPage>

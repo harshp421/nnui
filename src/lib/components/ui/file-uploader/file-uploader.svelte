@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import IconUpload from "$lib/icons/icon-upload.svelte";
+  import IconUpload from "./icon-upload.svelte";
   import { cn } from "$lib/utils/tailwindUtil";
 
   let {

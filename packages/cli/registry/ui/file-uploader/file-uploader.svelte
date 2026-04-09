@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import IconUpload from "$lib/icons/icon-upload.svelte";
+  import IconUpload from "./icon-upload.svelte";
   import { cn } from "$lib/utils/tailwindUtil";
 
   let {
@@ -99,7 +99,7 @@
       ? "bg-darg-drop-box-active-surface border-darg-drop-box-active-border"
       : "bg-darg-drop-box-default-surface border-darg-drop-box-default-border",
     "hover:bg-darg-drop-box-active-surface hover:border-darg-drop-box-active-border",
-    "focus-within:ring-2 focus-within:ring-surface-brand-primary/50 focus-within:border-darg-drop-box-active-border",
+    "focus-within:border-darg-drop-box-active-border",
     errorMessage && "border-surface-destructive-primary",
     disable && "pointer-events-none opacity-50",
   )}

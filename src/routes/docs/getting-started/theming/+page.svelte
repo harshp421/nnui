@@ -7,8 +7,8 @@
 		applyPresetTheme,
 		exportCssTokens,
 		extractColorsFromImage,
-		askGeminiBrandColor,
-		askGeminiPickFromColors,
+		// askGeminiBrandColor,
+		// askGeminiPickFromColors,
 		PALETTE_STEPS,
 		type BrandPalette,
 		type PaletteStep
@@ -17,7 +17,7 @@
 
 	// ── Builder state ──────────────────────────────────────────────────
 
-	let activeTab = $state<'preset' | 'hex' | 'logo' | 'ai'>('preset');
+	let activeTab = $state<'preset' | 'hex' | 'logo'>('preset');
 	let activePreset = $state('green');
 
 	// Hex tab
@@ -33,12 +33,12 @@
 	let logoSelectedIdx = $state(0);
 	let logoInput = $state<HTMLInputElement | null>(null);
 
-	// AI tab
-	let geminiKey = $state('');
-	let brandDesc = $state('');
-	let aiLoading = $state(false);
-	let aiError = $state('');
-	let aiResult = $state<{ color: string; rationale: string } | null>(null);
+	// AI tab (coming soon)
+	// let geminiKey = $state('');
+	// let brandDesc = $state('');
+	// let aiLoading = $state(false);
+	// let aiError = $state('');
+	// let aiResult = $state<{ color: string; rationale: string } | null>(null);
 
 	// Current palette (always in sync with applied theme)
 	let currentPalette = $state<BrandPalette>(generatePalette('#30a46c'));
@@ -55,10 +55,17 @@
 		{ name: 'orange', label: 'Orange', hex: '#f76808' }
 	];
 
-	// Load saved API key on mount
-	$effect(() => {
-		const saved = localStorage.getItem('nnuikit_gemini_key');
-		if (saved) geminiKey = saved;
+	// Restore saved logo on mount
+	import { onMount } from 'svelte';
+	onMount(() => {
+		const savedLogo = localStorage.getItem('nnuikit_logo_image');
+		const savedColors = localStorage.getItem('nnuikit_logo_colors');
+		const savedIdx = localStorage.getItem('nnuikit_logo_selected');
+		if (savedLogo) logoPreviewUrl = savedLogo;
+		if (savedColors) {
+			try { extractedColors = JSON.parse(savedColors); } catch { /* ignore */ }
+		}
+		if (savedIdx) logoSelectedIdx = parseInt(savedIdx, 10);
 	});
 
 	// ── Actions ────────────────────────────────────────────────────────
@@ -97,18 +104,28 @@
 
 	async function handleLogoFile(file: File) {
 		if (!file.type.startsWith('image/')) return;
-		if (logoPreviewUrl) URL.revokeObjectURL(logoPreviewUrl);
-		logoPreviewUrl = URL.createObjectURL(file);
 		extracting = true;
 		extractedColors = [];
+
+		// Convert to base64 for persistence
+		const reader = new FileReader();
+		reader.onload = () => {
+			logoPreviewUrl = reader.result as string;
+			localStorage.setItem('nnuikit_logo_image', logoPreviewUrl);
+		};
+		reader.readAsDataURL(file);
+
 		extractedColors = await extractColorsFromImage(file);
 		extracting = false;
 		logoSelectedIdx = 0;
+		localStorage.setItem('nnuikit_logo_colors', JSON.stringify(extractedColors));
+		localStorage.setItem('nnuikit_logo_selected', '0');
 		if (extractedColors.length > 0) applyExtracted(0);
 	}
 
 	function applyExtracted(idx: number) {
 		logoSelectedIdx = idx;
+		localStorage.setItem('nnuikit_logo_selected', String(idx));
 		const color = extractedColors[idx];
 		if (!color) return;
 		currentPalette = generatePalette(color);
@@ -118,42 +135,18 @@
 		activePreset = 'custom';
 	}
 
-	async function generateAiColor() {
-		if (!geminiKey.trim()) { aiError = 'Enter your Gemini API key first.'; return; }
-		if (!brandDesc.trim()) { aiError = 'Describe your brand first.'; return; }
-		aiLoading = true; aiError = ''; aiResult = null;
-		try {
-			const result = await askGeminiBrandColor(geminiKey, brandDesc);
-			aiResult = result;
-			currentPalette = generatePalette(result.color);
-			hexColor = result.color;
-			hexInputText = result.color;
-			applyBrandPalette(currentPalette);
-			activePreset = 'custom';
-			localStorage.setItem('nnuikit_gemini_key', geminiKey);
-		} catch (e: unknown) {
-			aiError = e instanceof Error ? e.message : 'AI request failed.';
-		} finally {
-			aiLoading = false;
-		}
+	function removeLogo() {
+		logoPreviewUrl = null;
+		extractedColors = [];
+		logoSelectedIdx = 0;
+		localStorage.removeItem('nnuikit_logo_image');
+		localStorage.removeItem('nnuikit_logo_colors');
+		localStorage.removeItem('nnuikit_logo_selected');
 	}
 
-	async function aiPickFromLogo() {
-		if (!geminiKey.trim()) { aiError = 'Enter your Gemini API key first.'; return; }
-		if (extractedColors.length === 0) { aiError = 'Upload a logo first (in the Logo tab).'; return; }
-		aiLoading = true; aiError = ''; aiResult = null;
-		try {
-			const result = await askGeminiPickFromColors(geminiKey, extractedColors);
-			aiResult = result;
-			const idx = extractedColors.indexOf(result.color);
-			applyExtracted(idx >= 0 ? idx : 0);
-			localStorage.setItem('nnuikit_gemini_key', geminiKey);
-		} catch (e: unknown) {
-			aiError = e instanceof Error ? e.message : 'AI request failed.';
-		} finally {
-			aiLoading = false;
-		}
-	}
+	// AI functions (coming soon)
+	// async function generateAiColor() { ... }
+	// async function aiPickFromLogo() { ... }
 
 	function copyTokens() {
 		navigator.clipboard.writeText(exportCssTokens(currentPalette));
@@ -191,7 +184,7 @@
 
 			<!-- Tab bar -->
 			<div class="flex gap-1 my-12 rounded-xl border border-border-neutral-l4 bg-surface-statics-vv-white p-1">
-				{#each [['preset','Presets'], ['hex','Color'], ['logo','Logo'], ['ai','AI']] as [tab, label] (tab)}
+				{#each [['preset','Presets'], ['hex','Color'], ['logo','Logo']] as [tab, label] (tab)}
 					<Button
 						onclick={() => (activeTab = tab as typeof activeTab)}
 						variant={activeTab === tab ? 'primary' : 'orphan'}
@@ -252,42 +245,58 @@
 
 			<!-- ── Tab: Logo Upload ───────────────────────────────────────── -->
 			{:else if activeTab === 'logo'}
-				<div class="flex flex-col gap-4">
+				<div class="flex flex-col gap-5">
 					<p class="text-sm leading-relaxed text-text-neutral-secondary">
-						Upload your brand logo — dominant colors are extracted entirely in-browser using the Canvas API, no server required. Pick which color becomes your brand.
+						Upload your brand logo — dominant colors are extracted in-browser using the Canvas API. Pick which color becomes your brand.
 					</p>
 
-					<!-- Drop zone -->
-					<!-- svelte-ignore a11y_no_static_element_interactions -->
-					<div
-						role="button"
-						tabindex="0"
-						class="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-6 py-10 transition-colors
-							{isDragging ? 'border-border-brand-l3 bg-surface-brand-l1' : 'border-border-neutral-l3 hover:border-border-neutral-l2 hover:bg-surface-neutral-l1'}"
-						ondragover={(e) => { e.preventDefault(); isDragging = true; }}
-						ondragleave={() => (isDragging = false)}
-						ondrop={(e) => { e.preventDefault(); isDragging = false; const f = e.dataTransfer?.files[0]; if (f) handleLogoFile(f); }}
-						onclick={() => logoInput?.click()}
-						onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') logoInput?.click(); }}
-					>
-						<input
-							bind:this={logoInput}
-							type="file"
-							accept="image/*"
-							class="hidden"
-							onchange={(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) handleLogoFile(f); }}
-						/>
-						{#if logoPreviewUrl}
-							<img src={logoPreviewUrl} alt="Uploaded logo" class="h-16 w-auto rounded object-contain" />
-							<p class="text-xs text-text-neutral-tertiary">Click or drop to replace</p>
-						{:else}
+					{#if logoPreviewUrl}
+						<!-- Uploaded logo preview with remove -->
+						<div class="flex items-start gap-4 rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-4">
+							<img src={logoPreviewUrl} alt="Uploaded logo" class="h-14 w-auto shrink-0 rounded-lg border border-border-neutral-l4 bg-surface-statics-vv-white object-contain p-2" />
+							<div class="flex flex-1 flex-col gap-1.5">
+								<p class="text-sm font-medium text-text-neutral-primary">Logo uploaded</p>
+								<p class="text-xs text-text-neutral-tertiary">Colors extracted from your image. Click a swatch to apply.</p>
+							</div>
+							<button
+								onclick={removeLogo}
+								class="shrink-0 rounded-lg p-1.5 text-text-neutral-tertiary transition-colors hover:bg-surface-neutral-l3 hover:text-text-neutral-primary"
+								aria-label="Remove logo"
+							>
+								<svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+								</svg>
+							</button>
+						</div>
+					{:else}
+						<!-- Drop zone -->
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
+						<div
+							role="button"
+							tabindex="0"
+							class="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-5 py-10 transition-colors
+								{isDragging ? 'border-border-brand-l3 bg-surface-brand-l1' : 'border-border-neutral-l3 hover:border-border-neutral-l2 hover:bg-surface-neutral-l1'}"
+							ondragover={(e) => { e.preventDefault(); isDragging = true; }}
+							ondragleave={() => (isDragging = false)}
+							ondrop={(e) => { e.preventDefault(); isDragging = false; const f = e.dataTransfer?.files[0]; if (f) handleLogoFile(f); }}
+							onclick={() => logoInput?.click()}
+							onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') logoInput?.click(); }}
+						>
 							<svg class="size-9 text-text-neutral-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
 							</svg>
 							<p class="text-sm font-medium text-text-neutral-secondary">Drop your logo or click to upload</p>
 							<p class="text-xs text-text-neutral-tertiary">PNG, JPG, SVG, WebP</p>
-						{/if}
-					</div>
+						</div>
+					{/if}
+
+					<input
+						bind:this={logoInput}
+						type="file"
+						accept="image/*"
+						class="hidden"
+						onchange={(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) handleLogoFile(f); }}
+					/>
 
 					{#if extracting}
 						<div class="flex items-center gap-2 text-sm text-text-neutral-tertiary">
@@ -299,14 +308,14 @@
 					{:else if extractedColors.length > 0}
 						<div>
 							<p class="mb-2.5 text-xs font-medium text-text-neutral-secondary">Extracted colors — click to apply</p>
-							<div class="flex flex-wrap gap-2">
-								{#each extractedColors as color, i}
+							<div class="flex flex-wrap gap-2.5">
+								{#each extractedColors as color, i (color)}
 									<button
 										onclick={() => applyExtracted(i)}
 										title={color}
 										class="relative size-10 rounded-lg border-2 transition-all
 											{logoSelectedIdx === i
-												? 'scale-110 border-border-brand-l3'
+												? 'scale-110 border-border-brand-l3 shadow-sm'
 												: 'border-transparent hover:scale-105 hover:border-border-neutral-l2'}"
 										style="background-color: {color}"
 									>
@@ -321,97 +330,19 @@
 								{/each}
 							</div>
 						</div>
-					{/if}
-				</div>
 
-			<!-- ── Tab: AI Assistant ──────────────────────────────────────── -->
-			{:else if activeTab === 'ai'}
-				<div class="flex flex-col gap-4">
-
-					<!-- API Key -->
-					<div>
-						<label for="gemini-key" class="mb-1.5 block text-xs font-medium text-text-neutral-secondary">
-							Gemini API Key
-							<span class="ml-1 font-normal text-text-neutral-tertiary">— stored in your browser only</span>
-						</label>
-						<input
-							id="gemini-key"
-							type="password"
-							bind:value={geminiKey}
-							placeholder="AIzaSy..."
-							spellcheck={false}
-							class="w-full rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-3 py-2 font-mono text-sm outline-none focus:border-border-brand-l3"
-						/>
-						<p class="mt-1 text-xs text-text-neutral-tertiary">
-							Free key at
-							<a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer" class="text-text-brand-primary underline">aistudio.google.com</a>
-							— 1M tokens/day free with Gemini Flash.
-						</p>
-					</div>
-
-					<!-- Brand description -->
-					<div>
-						<label class="block">
-							<span class="mb-1.5 block text-xs font-medium text-text-neutral-secondary">Describe your brand</span>
-							<textarea
-								bind:value={brandDesc}
-								placeholder="e.g. A modern fintech startup — trustworthy, professional, minimal..."
-								rows={2}
-								class="w-full resize-none rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-3 py-2 text-sm outline-none focus:border-border-brand-l3"
-							></textarea>
-						</label>
-					</div>
-
-					<!-- Action buttons -->
-					<div class="flex flex-wrap gap-2">
+						<!-- Replace logo button -->
 						<button
-							onclick={generateAiColor}
-							disabled={aiLoading}
-							class="flex items-center gap-2 rounded-lg bg-surface-brand-primary px-4 py-2 text-sm font-medium text-text-statics-pure-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+							onclick={() => logoInput?.click()}
+							class="self-start text-xs font-medium text-text-brand-primary underline underline-offset-2 hover:opacity-80"
 						>
-							{#if aiLoading}
-								<svg class="size-4 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-								</svg>
-								Generating...
-							{:else}
-								<svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-								</svg>
-								Generate from description
-							{/if}
+							Upload a different logo
 						</button>
-
-						{#if extractedColors.length > 0}
-							<button
-								onclick={aiPickFromLogo}
-								disabled={aiLoading}
-								class="flex items-center gap-2 rounded-lg border border-border-neutral-l2 bg-surface-statics-vv-white px-4 py-2 text-sm font-medium text-text-neutral-secondary transition-colors hover:bg-surface-neutral-l2 disabled:cursor-not-allowed disabled:opacity-50"
-							>
-								<svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01" />
-								</svg>
-								AI pick from logo colors
-							</button>
-						{/if}
-					</div>
-
-					{#if aiError}
-						<div class="rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-xs text-red-700">
-							{aiError}
-						</div>
-					{/if}
-
-					{#if aiResult}
-						<div class="flex items-start gap-3 rounded-lg border border-border-brand-l3 bg-surface-brand-l1 p-3">
-							<div class="mt-0.5 size-6 shrink-0 rounded-full shadow-sm" style="background-color: {aiResult.color}"></div>
-							<div>
-								<p class="font-mono text-sm font-semibold text-text-neutral-primary">{aiResult.color}</p>
-								<p class="mt-0.5 text-xs text-text-neutral-secondary">{aiResult.rationale}</p>
-							</div>
-						</div>
 					{/if}
 				</div>
+
+			<!-- ── Tab: AI Assistant (coming soon) ────────────────────────── -->
+			<!-- AI tab is temporarily disabled — will be re-enabled soon -->
 			{/if}
 
 			<!-- ── Palette strip (always visible) ────────────────────────── -->

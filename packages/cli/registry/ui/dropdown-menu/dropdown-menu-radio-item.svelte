@@ -2,7 +2,7 @@
 	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
 	
 	import { cn, type WithoutChild } from "$lib/utils/tailwindUtil.js";
-    import IconCircle from "$lib/icons/icon-circle.svelte";
+    import IconCircle from "./icon-circle.svelte";
 
 	let {
 		ref = $bindable(null),

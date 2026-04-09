@@ -14,11 +14,10 @@
   bind:this={ref}
   data-slot="item-description"
   class={cn(
-    "text-text-neutral-secondary line-clamp-2 text-balance text-xs font-normal leading-normal",
-    "[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4",
-    "group-data-[variant=attachment]/item:text-darg-drop-attachment-default-text-file-size",
-    "group-data-[variant=attachment-success]/item:text-darg-drop-attachment-success-text-file-size",
-    "group-data-[variant=attachment-error]/item:text-darg-drop-attachment-error-text-file-size",
+    "line-clamp-2 text-balance text-xs font-normal leading-normal text-text-neutral-secondary",
+    "group-data-[variant=default]/item:text-item-default-description",
+    "group-data-[variant=success]/item:text-item-success-description",
+    "group-data-[variant=error]/item:text-item-error-description",
     className,
   )}
   {...restProps}

@@ -3,7 +3,8 @@
 	
 	import { cn, type WithoutChildrenOrChild } from "$lib/utils/tailwindUtil.js";
 	import type { Snippet } from "svelte";
-    import { IconCheck, IconMinus } from "$lib/icons";
+    import IconCheck from "./icon-check.svelte";
+    import IconMinus from "./icon-minus.svelte";
 
 	let {
 		ref = $bindable(null),

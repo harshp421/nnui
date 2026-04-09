@@ -5,32 +5,74 @@
    This file is automatically added when you run: npx nnuikit add item
 
    Dependencies: Requires global base palette + semantic tokens from layout.css
-   Note: Shares drag-drop attachment tokens with File Uploader component
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-	--color-darg-drop-attachment-default-surface: var(--color-surface-neutral-l1);
-	--color-darg-drop-attachment-default-border: var(--color-border-neutral-l1);
-	--color-darg-drop-attachment-default-primary-text: var(--color-text-neutral-primary);
-	--color-darg-drop-attachment-default-secondary-text: var(--color-text-neutral-secondary);
-	--color-darg-drop-attachment-default-icon: var(--color-icon-neutral-secondary);
-	--color-darg-drop-attachment-default-action-icon: var(--color-icon-neutral-tertiary);
-	--color-darg-drop-attachment-success-surface: var(--color-surface-success-l1);
-	--color-darg-drop-attachment-success-border: var(--color-border-success-primary);
-	--color-darg-drop-attachment-success-primary-text: var(--color-text-neutral-primary);
-	--color-darg-drop-attachment-success-secondary-text: var(--color-text-neutral-secondary);
-	--color-darg-drop-attachment-success-icon: var(--color-icon-success-primary);
-	--color-darg-drop-attachment-success-action-icon: var(--color-icon-neutral-tertiary);
-	--color-darg-drop-attachment-error-surface: var(--color-surface-destructive-l1);
-	--color-darg-drop-attachment-error-border: var(--color-border-destructive-primary);
-	--color-darg-drop-attachment-error-primary-text: var(--color-text-neutral-primary);
-	--color-darg-drop-attachment-error-secondary-text: var(--color-text-neutral-secondary);
-	--color-darg-drop-attachment-error-icon: var(--color-icon-destructive-primary);
-	--color-darg-drop-attachment-error-action-icon: var(--color-icon-neutral-tertiary);
-	--size-input-drag-drop-attachment-height: 0;
-	--size-input-drag-drop-attachment-gap: 0;
-	--size-input-drag-drop-attachment-padding-all-sides: 0;
-	--size-input-drag-drop-attachment-text-vertical-gap: 0;
-	--size-input-drag-drop-attachment-actions-gap: 0;
-	--size-input-drag-drop-attachment-radius: 0;
+	/* ── Color: Default ────────────────────────────────────────────── */
+	--color-item-default-surface: var(--color-surface-neutral-l1);
+	--color-item-default-border: var(--color-border-neutral-l1);
+	--color-item-default-title: var(--color-text-neutral-primary);
+	--color-item-default-description: var(--color-text-neutral-tertiary);
+	--color-item-default-icon: var(--color-icon-neutral-secondary);
+	--color-item-default-action-icon: var(--color-icon-neutral-tertiary);
+	--color-item-default-footer: var(--color-text-info-primary);
+
+	/* ── Color: Success ────────────────────────────────────────────── */
+	--color-item-success-surface: var(--color-surface-success-l1);
+	--color-item-success-border: var(--color-border-success-primary);
+	--color-item-success-title: var(--color-text-neutral-primary);
+	--color-item-success-description: var(--color-text-neutral-tertiary);
+	--color-item-success-icon: var(--color-icon-success-primary);
+	--color-item-success-action-icon: var(--color-icon-neutral-tertiary);
+	--color-item-success-footer: var(--color-text-success-primary);
+
+	/* ── Color: Error ──────────────────────────────────────────────── */
+	--color-item-error-surface: var(--color-surface-destructive-l1);
+	--color-item-error-border: var(--color-border-destructive-primary);
+	--color-item-error-title: var(--color-text-neutral-primary);
+	--color-item-error-description: var(--color-text-neutral-tertiary);
+	--color-item-error-icon: var(--color-icon-destructive-primary);
+	--color-item-error-action-icon: var(--color-icon-neutral-tertiary);
+	--color-item-error-footer: var(--color-text-destructive-primary);
+
+	/* ── Size ──────────────────────────────────────────────────────── */
+	--size-item-height: var(--spacing-56);
+	--size-item-gap: var(--spacing-12);
+	--size-item-padding: var(--spacing-12);
+	--size-item-text-gap: var(--spacing-4);
+	--size-item-actions-gap: var(--spacing-6);
+	--size-item-radius: var(--spacing-8);
+}
+
+@theme {
+	/* Color registrations */
+	--color-item-default-surface: var(--color-item-default-surface);
+	--color-item-default-border: var(--color-item-default-border);
+	--color-item-default-title: var(--color-item-default-title);
+	--color-item-default-description: var(--color-item-default-description);
+	--color-item-default-icon: var(--color-item-default-icon);
+	--color-item-default-action-icon: var(--color-item-default-action-icon);
+	--color-item-default-footer: var(--color-item-default-footer);
+	--color-item-success-surface: var(--color-item-success-surface);
+	--color-item-success-border: var(--color-item-success-border);
+	--color-item-success-title: var(--color-item-success-title);
+	--color-item-success-description: var(--color-item-success-description);
+	--color-item-success-icon: var(--color-item-success-icon);
+	--color-item-success-action-icon: var(--color-item-success-action-icon);
+	--color-item-success-footer: var(--color-item-success-footer);
+	--color-item-error-surface: var(--color-item-error-surface);
+	--color-item-error-border: var(--color-item-error-border);
+	--color-item-error-title: var(--color-item-error-title);
+	--color-item-error-description: var(--color-item-error-description);
+	--color-item-error-icon: var(--color-item-error-icon);
+	--color-item-error-action-icon: var(--color-item-error-action-icon);
+	--color-item-error-footer: var(--color-item-error-footer);
+
+	/* Size registrations */
+	--spacing-item-height: var(--size-item-height);
+	--spacing-item-gap: var(--size-item-gap);
+	--spacing-item-padding: var(--size-item-padding);
+	--spacing-item-text-gap: var(--size-item-text-gap);
+	--spacing-item-actions-gap: var(--size-item-actions-gap);
+	--radius-item-radius: var(--size-item-radius);
 }
