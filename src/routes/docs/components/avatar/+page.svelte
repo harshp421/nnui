@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from "$lib/components/seo.svelte";
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import Button from "$lib/components/ui/button/button.svelte";
   import { Checkbox } from "$lib/components/ui/checkbox";
@@ -7,6 +8,7 @@
     ComponentPreview,
     ComponentSource,
     DocsPage,
+    Icon,
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
@@ -93,6 +95,11 @@
     },
   ];
 </script>
+
+<Seo
+  title="Avatar"
+  description="An image element with a fallback for representing the user. Supports multiple sizes, shapes, and graceful fallback to initials."
+/>
 
 <DocsPage>
   <PageHeader
@@ -282,8 +289,26 @@
       </div>
     </section>
 
+    <!-- Accessibility -->
+    <section class="space-y-8">
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each [
+          'Images: alt text required on Avatar.Image',
+          'Fallback: initials shown when image fails to load',
+          'Keyboard: focusable when used as interactive element'
+        ] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <!-- API Reference -->
     <section class="space-y-6">
-      <h2 class="py-6 text-2xl font-bold tracking-tight">Props</h2>
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
       <h3 class="font-semibold">Avatar.Root</h3>
       <PropsTable props={avatarRootProps} />
       <h3 class="mt-4 font-semibold">Avatar.Image</h3>

@@ -21,6 +21,13 @@ const cliRoot = path.resolve(__dirname, "..");
 const projectRoot = path.resolve(cliRoot, "../..");
 const registryDir = path.join(cliRoot, "registry");
 
+// Backup registry.json before wiping
+let registryJsonBackup = null;
+const registryJsonFile = path.join(registryDir, "registry.json");
+if (fs.existsSync(registryJsonFile)) {
+  registryJsonBackup = fs.readFileSync(registryJsonFile, "utf-8");
+}
+
 // Clean old registry to remove deleted components
 if (fs.existsSync(registryDir)) {
   fs.removeSync(registryDir);
@@ -77,11 +84,23 @@ if (fs.existsSync(utilsDir)) {
   }
 }
 
-// ── 3. Sync registry.json ─────────────────────────────────────────
-const registryJsonSrc = path.join(projectRoot, "src/lib/registry/registry.json");
-if (fs.existsSync(registryJsonSrc)) {
-  fs.copyFileSync(registryJsonSrc, path.join(registryDir, "registry.json"));
-  console.log(`  COPY  registry.json`);
+// ── 3. Preserve registry.json ─────────────────────────────────────
+// registry.json lives at packages/cli/registry/registry.json
+// It was backed up before wiping, restore it now
+const registryJsonPath = path.join(registryDir, "registry.json");
+if (registryJsonBackup) {
+  fs.writeFileSync(registryJsonPath, registryJsonBackup);
+  console.log(`  KEEP  registry.json`);
+  count++;
+} else {
+  console.log("  WARN  No registry.json found — you may need to recreate it");
+}
+
+// ── 4. Sync base-tokens.css ──────────────────────────────────────
+const baseTokensSrc = path.join(projectRoot, "src/lib/nnuikit-tokens.css");
+if (fs.existsSync(baseTokensSrc)) {
+  fs.copyFileSync(baseTokensSrc, path.join(registryDir, "base-tokens.css"));
+  console.log(`  COPY  base-tokens.css`);
   count++;
 }
 

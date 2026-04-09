@@ -3,6 +3,7 @@
 	import DocsPage from '$lib/components/docs/docs-page.svelte';
 	import PageHeader from '$lib/components/docs/page-header.svelte';
 	import CodeBlock from '$lib/components/docs/code-block.svelte';
+	import Icon from '$lib/components/docs/icon.svelte';
 </script>
 
 <Seo
@@ -27,27 +28,19 @@
 			</p>
 			<ul class="flex flex-col gap-2">
 				<li class="flex items-start gap-2.5 text-sm leading-relaxed text-text-neutral-secondary">
-					<svg class="mt-0.5 size-16 shrink-0 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-					</svg>
+					<Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
 					You own 100% of the component code — modify anything freely
 				</li>
 				<li class="flex items-start gap-2.5 text-sm leading-relaxed text-text-neutral-secondary">
-					<svg class="mt-0.5 size-16 shrink-0 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-					</svg>
+					<Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
 					No version lock-in or breaking changes from upstream updates
 				</li>
 				<li class="flex items-start gap-2.5 text-sm leading-relaxed text-text-neutral-secondary">
-					<svg class="mt-0.5 size-16 shrink-0 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-					</svg>
+					<Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
 					3-layer design token system — brand color, dark mode, and per-component overrides
 				</li>
 				<li class="flex items-start gap-2.5 text-sm leading-relaxed text-text-neutral-secondary">
-					<svg class="mt-0.5 size-16 shrink-0 text-text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-					</svg>
+					<Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
 					Built for Svelte 5 with runes, Tailwind CSS v4, and full keyboard accessibility
 				</li>
 			</ul>

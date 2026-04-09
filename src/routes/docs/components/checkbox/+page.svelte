@@ -6,7 +6,8 @@
 		ComponentPreview,
 		CodeBlock,
 		PropsTable,
-		ComponentSource
+		ComponentSource,
+		Icon
 	} from '$lib/components/docs';
 	import { Checkbox } from '$lib/components/ui/checkbox';
 
@@ -149,7 +150,19 @@
 		</section>
 
 		<section class="space-y-8">
-			<h2 class="border-b py-6 text-2xl font-bold tracking-tight">Props</h2>
+			<h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+			<div class="flex flex-col gap-2.5">
+				{#each ["Native input: uses real <input type='checkbox'> for full browser support", "Keyboard: Space toggles checked state", "Indeterminate: supports aria-checked='mixed' state", "Label: associates with input via htmlFor"] as item (item)}
+					<div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+						<Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+						{item}
+					</div>
+				{/each}
+			</div>
+		</section>
+
+		<section class="space-y-8">
+			<h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">Props</h2>
 			<PropsTable props={checkboxProps} />
 		</section>
 	</div>

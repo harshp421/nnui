@@ -7,6 +7,7 @@
     ComponentPreview,
     ComponentSource,
     DocsPage,
+    Icon,
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
@@ -199,7 +200,19 @@
     </section>
 
     <section class="space-y-8">
-      <h2 class="py-6 text-2xl font-bold tracking-tight border-b">Props</h2>
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each ["Native input: uses <input type='checkbox' role='switch'>", "Keyboard: Space toggles the switch", "ARIA: aria-checked reflects current state", "Disabled: native disabled attribute + visual indicator"] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">Props</h2>
       <PropsTable props={switchProps} />
     </section>
   </div>

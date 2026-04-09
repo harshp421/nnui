@@ -1,12 +1,14 @@
 <script lang="ts">
   import * as Sheet from "$lib/components/ui/sheet";
   import Button from "$lib/components/ui/button/button.svelte";
+  import Seo from "$lib/components/seo.svelte";
   import {
     DocsPage,
     PageHeader,
     ComponentPreview,
     CodeBlock,
     ComponentSource,
+    Icon,
     PropsTable,
   } from "$lib/components/docs";
 
@@ -127,6 +129,11 @@
     },
   ];
 </script>
+
+<Seo
+  title="Sheet"
+  description="A side panel that slides in from the edge of the screen for secondary content and forms."
+/>
 
 <DocsPage>
   <PageHeader
@@ -336,7 +343,25 @@
     </section>
 
     <section class="space-y-8">
-      <h2 class="text-2xl font-bold tracking-tight">API Reference</h2>
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each [
+          'Focus trap: focus locked inside sheet when open',
+          'Keyboard: Escape closes the sheet',
+          'Click outside: clicking overlay dismisses the sheet',
+          'ARIA: role="dialog" with aria-modal="true"',
+          'Focus restore: returns focus to trigger on close'
+        ] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
 
       <div class="space-y-20">
         <div class="space-y-4">
@@ -358,6 +383,15 @@
           </p>
           <PropsTable props={sheetContentProps} />
         </div>
+      </div>
+
+      <div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 px-5 py-4">
+        <p class="text-sm text-text-neutral-secondary">
+          <strong class="text-text-neutral-primary">Built on bits-ui</strong> —
+          Sheet uses <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">Dialog</code> from bits-ui for focus trapping, portal rendering, and ARIA attributes.
+          For the full primitive API (animations, forceMount, etc.), see the
+          <a href="https://bits-ui.com/docs/components/dialog" target="_blank" rel="noopener noreferrer" class="text-text-brand-primary underline underline-offset-2">bits-ui Dialog docs</a>.
+        </p>
       </div>
     </section>
   </div>

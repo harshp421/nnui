@@ -2,11 +2,13 @@
   import { Button } from "$lib/components/ui/button";
   import { toast } from "$lib/components/ui/toast";
   import type { ToastMode } from "$lib/components/ui/toast";
+  import Seo from "$lib/components/seo.svelte";
   import {
     CodeBlock,
     ComponentPreview,
     ComponentSource,
     DocsPage,
+    Icon,
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
@@ -202,6 +204,11 @@
     setTimeout(() => toast.warning("Third notification"), 400);
 }`;
 </script>
+
+<Seo
+  title="Toast"
+  description="A succinct message that is displayed temporarily to provide feedback about an action or event."
+/>
 
 <DocsPage>
   <PageHeader
@@ -611,58 +618,25 @@
       </div>
     </section>
 
-    <section class="space-y-12">
-      <div class="space-y-4">
-        <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
-        <p class="text-text-neutral-secondary">
-          Accessibility features for screen readers and keyboard users.
-        </p>
-      </div>
-      <div class="border rounded-xl bg-card p-6 space-y-4">
-        <div class="space-y-2">
-          <h3 class="text-sm font-bold">ARIA Roles</h3>
-          <p class="text-sm text-muted-foreground">
-            Each toast has appropriate <code
-              class="px-1.5 py-0.5 rounded bg-muted">role="status"</code
-            >
-            or
-            <code class="px-1.5 py-0.5 rounded bg-muted">role="alert"</code> attributes
-            based on severity.
-          </p>
-        </div>
-        <div class="space-y-2">
-          <h3 class="text-sm font-bold">Live Regions</h3>
-          <p class="text-sm text-muted-foreground">
-            Uses <code class="px-1.5 py-0.5 rounded bg-muted"
-              >aria-live="polite"</code
-            >
-            for normal toasts and
-            <code class="px-1.5 py-0.5 rounded bg-muted"
-              >aria-live="assertive"</code
-            > for errors to ensure screen reader compatibility.
-          </p>
-        </div>
-        <div class="space-y-2">
-          <h3 class="text-sm font-bold">Keyboard Support</h3>
-          <p class="text-sm text-muted-foreground">
-            Dismiss buttons are fully keyboard accessible with proper focus
-            management and visible focus indicators.
-          </p>
-        </div>
-        <div class="space-y-2">
-          <h3 class="text-sm font-bold">Screen Reader Friendly</h3>
-          <p class="text-sm text-muted-foreground">
-            All content is announced to screen readers without stealing focus
-            from the user's current context.
-          </p>
-        </div>
+    <section class="space-y-8">
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each [
+          'Screen reader: role="status" and aria-live announce toasts',
+          'Auto-dismiss: configurable duration, pause on hover',
+          'Keyboard: Escape or click dismiss button to close',
+          'Position: fixed positioning doesn\'t interfere with page flow'
+        ] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
       </div>
     </section>
 
     <section class="space-y-8">
-      <h2 class="py-6 text-2xl font-bold tracking-tight border-b">
-        Props & API
-      </h2>
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
       <div class="space-y-20">
         <div>
           <h3 class="text-lg font-bold mb-4 px-4">Toaster Component</h3>
@@ -676,6 +650,15 @@
           <h3 class="text-lg font-bold mb-4 px-4">Toast Methods</h3>
           <PropsTable props={toastMethods} />
         </div>
+      </div>
+
+      <div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 px-5 py-4">
+        <p class="text-sm text-text-neutral-secondary">
+          <strong class="text-text-neutral-primary">Built on bits-ui</strong> —
+          Toast uses primitives from bits-ui for portal rendering and ARIA attributes.
+          For the full primitive API, see the
+          <a href="https://bits-ui.com/docs/components/toast" target="_blank" rel="noopener noreferrer" class="text-text-brand-primary underline underline-offset-2">bits-ui Toast docs</a>.
+        </p>
       </div>
     </section>
   </div>

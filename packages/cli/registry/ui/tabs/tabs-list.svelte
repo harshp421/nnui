@@ -26,7 +26,7 @@
       case "primary":
         return ""; // Only a bottom line
       case "contained":
-        return "border rounded-8 border-alphaviceversa-black-50";
+        return "border border-tab-hover-border rounded-tabs-radius";
     }
   });
 </script>
@@ -35,7 +35,7 @@
   bind:ref
   data-slot="tabs-list"
   class={cn(
-    "inline-flex w-full items-center justify-center",
+    "inline-flex w-full items-center justify-center ",
     listVariantClasses,
     variant === "contained"
       ? "rounded-tabs-radius bg-tab-default-contained-surface p-tabs-padding-all-sides"

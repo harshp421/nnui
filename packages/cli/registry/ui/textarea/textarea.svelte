@@ -19,7 +19,7 @@
   bind:this={ref}
   data-slot={dataSlot}
   class={cn(
-    "flex min-h-input-long-text-height w-full rounded-input-long-text-radius border p-input-long-text-padding-all-sides gap-input-long-text-gap text-base outline-none transition-[color,box-shadow,background-color] disabled:cursor-not-allowed md:text-sm",
+    "flex min-h-input-long-text-height w-full rounded-input-long-text-radius border p-input-long-text-padding-all-sides gap-input-long-text-gap text-base outline-none transition-[color,box-shadow,background-color] disabled:cursor-not-allowed md:text-sm glass:backdrop-blur-md",
     // Default state
     "bg-input-box-default-surface border-input-box-default-border text-input-box-default-text placeholder:text-input-box-default-icon",
     // Hover state

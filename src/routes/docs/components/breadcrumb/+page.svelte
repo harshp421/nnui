@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from "$lib/components/seo.svelte";
   import * as Breadcrumb from "$lib/components/ui/breadcrumb";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
   import IconChevronDown from "$lib/icons/icon-chevron-down.svelte";
@@ -10,6 +11,7 @@
     CodeBlock,
     PropsTable,
     ComponentSource,
+    Icon,
   } from "$lib/components/docs";
 
   const breadcrumbProps = [
@@ -141,6 +143,11 @@
  </Breadcrumb.List>
 </Breadcrumb.Root>`;
 </script>
+
+<Seo
+  title="Breadcrumb"
+  description="Displays the path to the current resource using a hierarchy of links. Supports custom separators, dropdowns, and collapsed states."
+/>
 
 <DocsPage>
   <PageHeader
@@ -281,8 +288,26 @@
       </div>
     </section>
 
+    <!-- Accessibility -->
+    <section class="space-y-8">
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each [
+          "Semantic: renders inside nav with aria-label='breadcrumb'",
+          "Current page: aria-current='page' on the last item",
+          'Keyboard: all links are focusable and navigable'
+        ] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <!-- API Reference -->
     <section class="space-y-6">
-      <h2 class="text-2xl font-bold tracking-tight">Props</h2>
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
       <PropsTable props={breadcrumbProps} />
       <h3 class="text-xl font-semibold tracking-tight pt-4">Breadcrumb.Link</h3>
       <PropsTable props={breadcrumbLinkProps} />

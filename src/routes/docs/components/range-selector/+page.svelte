@@ -6,9 +6,11 @@
     ComponentPreview,
     ComponentSource,
     DocsPage,
+    Icon,
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
+  import Seo from '$lib/components/seo.svelte';
 
   const orientations = [
     { value: "horizontal" as const, label: "Horizontal" },
@@ -79,6 +81,8 @@
     },
   ];
 </script>
+
+<Seo title="Range Selector" description="A slider component for selecting single values or ranges with keyboard, touch, and ARIA support." />
 
 <DocsPage>
   <PageHeader
@@ -261,7 +265,19 @@
     </section>
 
     <section class="space-y-8">
-      <h2 class="py-6 text-2xl font-bold tracking-tight border-b">Props</h2>
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each ["Keyboard: Arrow keys adjust value, Home/End for min/max", "ARIA: role='slider' with aria-valuenow, aria-valuemin, aria-valuemax", "Touch: supports touch drag on mobile", "Tooltip: shows current value on hover/drag"] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">Props</h2>
       <PropsTable props={rangeProps} />
     </section>
   </div>

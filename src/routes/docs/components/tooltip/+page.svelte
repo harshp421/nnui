@@ -1,11 +1,13 @@
 <script lang="ts">
   import * as Tooltip from "$lib/components/ui/tooltip";
   import Button from "$lib/components/ui/button/button.svelte";
+  import Seo from "$lib/components/seo.svelte";
   import {
     CodeBlock,
     ComponentPreview,
     ComponentSource,
     DocsPage,
+    Icon,
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
@@ -164,6 +166,11 @@
   ];
 </script>
 
+<Seo
+  title="Tooltip"
+  description="A popup that displays information related to an element on hover or focus."
+/>
+
 <DocsPage>
   <PageHeader
     title="Tooltip"
@@ -299,7 +306,24 @@
     </section>
 
     <section class="space-y-8">
-      <h2 class="text-2xl font-bold tracking-tight">API Reference</h2>
+      <h2 class="text-2xl font-bold tracking-tight">Accessibility</h2>
+      <div class="flex flex-col gap-2.5">
+        {#each [
+          'Keyboard: focus trigger to show tooltip',
+          'Screen reader: tooltip content is announced via aria-describedby',
+          'Hover: appears on mouse hover with configurable delay',
+          'Escape: pressing Escape dismisses the tooltip'
+        ] as item (item)}
+          <div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+            <Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+            {item}
+          </div>
+        {/each}
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
 
       <div class="space-y-20">
         <div class="space-y-4">
@@ -328,6 +352,15 @@
           </p>
           <PropsTable props={contentProps} />
         </div>
+      </div>
+
+      <div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 px-5 py-4">
+        <p class="text-sm text-text-neutral-secondary">
+          <strong class="text-text-neutral-primary">Built on bits-ui</strong> —
+          Tooltip uses <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">Tooltip</code> from bits-ui for positioning, portal rendering, and ARIA attributes.
+          For the full primitive API (animations, forceMount, etc.), see the
+          <a href="https://bits-ui.com/docs/components/tooltip" target="_blank" rel="noopener noreferrer" class="text-text-brand-primary underline underline-offset-2">bits-ui Tooltip docs</a>.
+        </p>
       </div>
     </section>
   </div>

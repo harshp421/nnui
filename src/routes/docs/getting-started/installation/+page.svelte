@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo.svelte';
 	import { DocsPage, PageHeader, CodeBlock, Icon } from '$lib/components/docs';
-	import favicon from '$lib/assets/favicon.svg';
+	
 
 	let selectedFramework = $state<'svelte' | 'react'>('svelte');
 </script>
@@ -46,7 +46,7 @@
 				<div class="flex flex-col gap-3">
 					{#each ['Svelte 5+ (runes support)', 'SvelteKit — recommended for routing and SSR', 'Tailwind CSS v4', 'TypeScript — recommended'] as item}
 						<div class="flex items-center gap-2.5 text-sm text-text-neutral-secondary">
-							<Icon name="check" class="size-4 shrink-0 text-text-brand-primary" />
+							<Icon name="check" class="size-16 shrink-0 text-text-brand-primary" />
 							{item}
 						</div>
 					{/each}

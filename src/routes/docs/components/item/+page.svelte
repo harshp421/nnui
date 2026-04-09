@@ -134,21 +134,21 @@ npx nnuikit add button`;
     description="A compound list item with slots for media, content, and actions. Three variants — default, success, error — powered by design tokens."
   />
 
-  <div class="mt-10 flex flex-col gap-12">
+  <div class="mt-28 flex flex-col gap-32">
 
     <div>
       <ComponentSource name="item" path="$lib/components/ui/item/item.svelte" />
     </div>
 
     <!-- Installation -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Installation</h2>
       <CodeBlock code={installationCode} language="bash" title="CLI" />
       <CodeBlock code={importCode} language="typescript" title="Import" />
     </section>
 
     <!-- Quick Start -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Quick Start</h2>
       <ComponentPreview code={quickStartCode}>
         {#snippet preview()}
@@ -173,10 +173,10 @@ npx nnuikit add button`;
     </section>
 
     <!-- Interactive Playground -->
-    <section class="flex flex-col gap-5">
-      <div>
+    <section class="space-y-20">
+      <div class="space-y-4">
         <h2 class="text-2xl font-bold tracking-tight">Interactive Playground</h2>
-        <p class="mt-1.5 text-sm text-text-neutral-secondary">Toggle variant, media, description, and actions.</p>
+        <p class="text-text-neutral-secondary">Toggle variant, media, description, and actions.</p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-5 items-start">
@@ -255,7 +255,7 @@ npx nnuikit add button`;
     </section>
 
     <!-- Variants -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Variants</h2>
       <ComponentPreview code={variantsCode}>
         {#snippet preview()}
@@ -287,7 +287,7 @@ npx nnuikit add button`;
     </section>
 
     <!-- Item Group -->
-    <section class="flex flex-col gap-5">
+    <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Item Group</h2>
       <p class="text-sm leading-relaxed text-text-neutral-secondary">
         Wrap multiple items with <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">Item.Group</code> and separate them with <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">Item.Separator</code>.
@@ -318,8 +318,8 @@ npx nnuikit add button`;
     </section>
 
     <!-- API Reference -->
-    <section class="flex flex-col gap-5">
-      <h2 class="text-2xl font-bold tracking-tight">API Reference</h2>
+    <section class="space-y-8">
+      <h2 class="py-6 text-2xl font-bold tracking-tight border-b border-border-neutral-l4">API Reference</h2>
 
       <div class="flex flex-col gap-7">
         <div class="flex flex-col gap-3">

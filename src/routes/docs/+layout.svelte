@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import favicon from '$lib/assets/favicon.svg';
+	import logo from '$lib/assets/logo.svg';
 	import ModeSwitch from '$lib/components/ui/theme-switch/modeSwitch.svelte';
 
 	let { children } = $props();
@@ -101,8 +101,9 @@
 
 		<!-- Logo -->
 		<a href="/" class="flex items-center gap-8 shrink-0">
-			<img src={favicon} alt="nnuikit" class="size-5" />
-			<span class="text-sm font-semibold tracking-tight text-text-neutral-primary">nnuikit</span>
+			
+			<span class="text-2xl font-semibold tracking-tight text-text-neutral-primary">nnuikit</span>
+			<img src={logo} alt="nnuikit" class="h-lh w-lh text-red-800" />
 		</a>
 
 		<!-- Vertical divider -->

@@ -55,9 +55,36 @@
 		{ name: 'orange', label: 'Orange', hex: '#f76808' }
 	];
 
-	// Restore saved logo on mount
+	// Restore saved state on mount
 	import { onMount } from 'svelte';
 	onMount(() => {
+		// Restore theme
+		const savedPreset = localStorage.getItem('nnuikit_theme_preset');
+		const savedHex = localStorage.getItem('nnuikit_theme_hex');
+		const savedTab = localStorage.getItem('nnuikit_theme_tab');
+
+		if (savedTab === 'preset' || savedTab === 'hex' || savedTab === 'logo') {
+			activeTab = savedTab;
+		}
+
+		if (savedPreset && savedPreset !== 'custom') {
+			const preset = PRESETS.find(p => p.name === savedPreset);
+			if (preset) {
+				activePreset = preset.name;
+				hexColor = preset.hex;
+				hexInputText = preset.hex;
+				currentPalette = generatePalette(preset.hex);
+				applyPresetTheme(preset.name);
+			}
+		} else if (savedHex && /^#[0-9a-fA-F]{6}$/.test(savedHex)) {
+			activePreset = 'custom';
+			hexColor = savedHex;
+			hexInputText = savedHex;
+			currentPalette = generatePalette(savedHex);
+			applyBrandPalette(currentPalette);
+		}
+
+		// Restore logo
 		const savedLogo = localStorage.getItem('nnuikit_logo_image');
 		const savedColors = localStorage.getItem('nnuikit_logo_colors');
 		const savedIdx = localStorage.getItem('nnuikit_logo_selected');
@@ -76,6 +103,9 @@
 		hexColor = hex;
 		hexInputText = hex;
 		applyPresetTheme(name);
+		localStorage.setItem('nnuikit_theme_preset', name);
+		localStorage.setItem('nnuikit_theme_hex', hex);
+		localStorage.setItem('nnuikit_theme_tab', 'preset');
 	}
 
 	function handleHexInput(val: string) {
@@ -87,6 +117,9 @@
 			currentPalette = generatePalette(clean);
 			applyBrandPalette(currentPalette);
 			activePreset = 'custom';
+			localStorage.setItem('nnuikit_theme_preset', 'custom');
+			localStorage.setItem('nnuikit_theme_hex', clean);
+			localStorage.setItem('nnuikit_theme_tab', 'hex');
 		} else {
 			hexError = 'Enter a valid 6-digit hex like #7c3aed';
 		}
@@ -100,6 +133,9 @@
 		currentPalette = generatePalette(val);
 		applyBrandPalette(currentPalette);
 		activePreset = 'custom';
+		localStorage.setItem('nnuikit_theme_preset', 'custom');
+		localStorage.setItem('nnuikit_theme_hex', val);
+		localStorage.setItem('nnuikit_theme_tab', 'hex');
 	}
 
 	async function handleLogoFile(file: File) {
@@ -133,6 +169,9 @@
 		hexInputText = color;
 		applyBrandPalette(currentPalette);
 		activePreset = 'custom';
+		localStorage.setItem('nnuikit_theme_preset', 'custom');
+		localStorage.setItem('nnuikit_theme_hex', color);
+		localStorage.setItem('nnuikit_theme_tab', 'logo');
 	}
 
 	function removeLogo() {
@@ -227,7 +266,7 @@
 							value={hexColor}
 							oninput={handleColorPicker}
 							onchange={handleColorPicker}
-							class="h-10 w-10 shrink-0 cursor-pointer rounded-lg border border-border-neutral-l2 p-0.5"
+							class="h-36 w-36 shrink-0 cursor-pointer rounded-lg border border-border-neutral-l2 p-0.5"
 						/>
 						<input
 							type="text"
@@ -253,7 +292,7 @@
 					{#if logoPreviewUrl}
 						<!-- Uploaded logo preview with remove -->
 						<div class="flex items-start gap-4 rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 p-4">
-							<img src={logoPreviewUrl} alt="Uploaded logo" class="h-14 w-auto shrink-0 rounded-lg border border-border-neutral-l4 bg-surface-statics-vv-white object-contain p-2" />
+							<img src={logoPreviewUrl} alt="Uploaded logo" class="h-44 w-auto shrink-0 rounded-lg border border-border-neutral-l4 bg-surface-statics-vv-white object-contain p-2" />
 							<div class="flex flex-1 flex-col gap-1.5">
 								<p class="text-sm font-medium text-text-neutral-primary">Logo uploaded</p>
 								<p class="text-xs text-text-neutral-tertiary">Colors extracted from your image. Click a swatch to apply.</p>
@@ -313,7 +352,7 @@
 									<button
 										onclick={() => applyExtracted(i)}
 										title={color}
-										class="relative size-10 rounded-lg border-2 transition-all
+										class="relative size-28 rounded-lg border-2 transition-all
 											{logoSelectedIdx === i
 												? 'scale-110 border-border-brand-l3 shadow-sm'
 												: 'border-transparent hover:scale-105 hover:border-border-neutral-l2'}"
@@ -321,7 +360,7 @@
 									>
 										{#if logoSelectedIdx === i}
 											<span class="absolute inset-0 flex items-center justify-center">
-												<svg class="size-4 drop-shadow-sm" fill="none" stroke="white" viewBox="0 0 24 24">
+												<svg class="size-16 drop-shadow-sm" fill="none" stroke="white" viewBox="0 0 24 24">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
 												</svg>
 											</span>

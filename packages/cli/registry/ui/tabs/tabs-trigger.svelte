@@ -27,13 +27,13 @@
         };
       case "primary":
         return {
-          base: " dark:border-transparent",
+          base: "",
           active:
             "border-b-2 data-[state=active]:border-b-tab-active-normal-border data-[state=active]:text-tab-active-normal-text data-[state=active]:[&>svg]:text-tab-active-normal-icon shadow-none",
         };
       case "contained":
         return {
-          base: "border-r",
+          base: "border border-tab-hover-border rounded-none first:rounded-l-[6px] last:rounded-r-[6px]",
           active:
             "data-[state=active]:bg-tab-active-normal-contained-surface data-[state=active]:text-tab-active-normal-text data-[state=active]:[&>svg]:text-tab-active-normal-icon shadow-none",
         };
