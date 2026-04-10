@@ -1,0 +1,8 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "nnui"
+pages_build_output_dir = "./build"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# No workers - static site only
