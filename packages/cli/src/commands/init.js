@@ -191,7 +191,7 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
           "",
           "/* ═══ nnuikit design tokens ═══════════════════════════════════════ */",
           "/* Auto-injected by: npx nnuikit init                               */",
-          "/* Docs: https://nnuikit.vercel.app/docs/getting-started/theming     */",
+          "/* Docs: https://nnuikit.com/docs/getting-started/theming     */",
           "/* ═════════════════════════════════════════════════════════════════ */",
           "",
           "@import '$lib/styles/typography.css';",
@@ -227,7 +227,7 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
   logger.break();
   logger.info("Next steps:");
   console.log("  1. Design tokens injected into " + response.cssPath);
-  console.log("  2. Customize brand color: https://nnuikit.vercel.app/docs/getting-started/theming");
+  console.log("  2. Customize brand color: https://nnuikit.com/docs/getting-started/theming");
   console.log("  3. Add components: npx nnuikit add button");
   console.log("  4. Import: import { Button } from '$lib/components/ui/button'");
   logger.break();

@@ -420,7 +420,7 @@
 				<p class="mb-3 text-[10px] font-semibold uppercase tracking-widest text-text-neutral-tertiary">Live preview</p>
 				<div class="nn-prose">
 					<h2>Getting started</h2>
-					<p>This is a paragraph inside <code>.nn-prose</code>. Links like <a href="https://nnuikit.vercel.app">this one</a> are styled automatically. <strong>Bold text</strong> gets the primary color.</p>
+					<p>This is a paragraph inside <code>.nn-prose</code>. Links like <a href="https://nnuikit.com">this one</a> are styled automatically. <strong>Bold text</strong> gets the primary color.</p>
 					<blockquote>Design tokens make theming composable. Change one variable, the cascade handles the rest.</blockquote>
 					<ul>
 						<li>Headings scale from h1 to h4</li>

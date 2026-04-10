@@ -1,4 +1,4 @@
-const SITE_URL = 'https://nnuikit.vercel.app';
+const SITE_URL = 'https://nnuikit.com';
 
 const pages = [
 	{ path: '/', priority: '1.0', changefreq: 'weekly' },
