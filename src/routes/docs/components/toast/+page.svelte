@@ -50,7 +50,9 @@
 });`;
   }
 
-  const installationCode = `import { Toaster, toast } from "$lib/components/ui/toast";`;
+  const installationCode = `npx nnuikit add toast
+
+import { Toaster, toast } from "$lib/components/ui/toast";`;
 
   const quickStartCode = `<script lang="ts">
   import { Button } from "$lib/components/ui/button";

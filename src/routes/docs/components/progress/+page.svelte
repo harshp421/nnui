@@ -33,7 +33,9 @@
     return `<Progress value={${v}} max={${max}}${variantAttr} />`;
   }
 
-  const installationCode = `import Progress from "$lib/components/ui/progress/progress.svelte";`;
+  const installationCode = `npx nnuikit add progress
+
+import Progress from "$lib/components/ui/progress/progress.svelte";`;
 
   const progressProps = [
     {

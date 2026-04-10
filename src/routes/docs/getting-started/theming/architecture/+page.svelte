@@ -269,14 +269,14 @@
 		<section class="flex flex-col gap-5">
 			<h2 class="text-2xl font-bold tracking-tight">Adding Tokens to Your Project</h2>
 			<p class="text-base leading-relaxed text-text-neutral-secondary">
-				When you run <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit init</code>, the base design tokens are written to <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/lib/nnuikit-tokens.css</code> and imported automatically. Component tokens are added when you run <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit add &lt;component&gt;</code>.
+				When you run <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit init</code>, the base design tokens are written to <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/routes/layout.css</code> and imported automatically. Component tokens are added when you run <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">npx nnuikit add &lt;component&gt;</code>.
 			</p>
 
 			<CodeBlock
 				language="css"
 				code={`/* layout.css — after running init and adding button */
 @import 'tailwindcss';
-@import '$lib/nnuikit-tokens.css';                        /* base palette + semantic tokens */
+/* base tokens are injected directly into layout.css by: npx nnuikit init */
 @import '$lib/components/ui/button/tokens.css';           /* button component tokens */`}
 			/>
 		</section>

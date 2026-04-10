@@ -18,7 +18,9 @@
 	let checkedIndeterminate = $state(true);
 	let checkedDisabled = $state(false);
 
-	const installationCode = `import { Checkbox } from "$lib/components/ui/checkbox";`;
+	const installationCode = `npx nnuikit add checkbox
+
+import { Checkbox } from "$lib/components/ui/checkbox";`;
 
 	const checkboxProps = [
 		{

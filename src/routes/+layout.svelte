@@ -6,6 +6,11 @@
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={logo} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={logo} />
+	<meta name="theme-color" content="#30a46c" />
+	<meta name="author" content="Harsh Parmar" />
+	<link rel="sitemap" href="/sitemap.xml" />
+</svelte:head>
 {@render children()}
 <Toaster position="top-right" mode="inline" />

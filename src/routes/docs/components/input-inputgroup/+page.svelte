@@ -66,7 +66,9 @@
     return `<InputGroup.Root>\n  <InputGroup.Input placeholder="Username" />${addon}${button}\n</InputGroup.Root>`;
   }
 
-  const installationCode = `import Input from "$lib/components/ui/input/input.svelte";
+  const installationCode = `npx nnuikit add input-inputgroup
+
+import Input from "$lib/components/ui/input/input.svelte";
 import * as InputGroup from "$lib/components/ui/input-group";`;
 
   const inputProps = [

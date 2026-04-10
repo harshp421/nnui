@@ -122,13 +122,8 @@
 								<span class="text-text-neutral-tertiary">—</span>
 								<span>project config</span>
 							</div>
-							<div class="flex items-center gap-2.5">
-								<code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/lib/nnuikit-tokens.css</code>
-								<span class="text-text-neutral-tertiary">—</span>
-								<span>full base design tokens</span>
-							</div>
 							<div class="flex items-center gap-2.5 text-xs text-text-neutral-tertiary">
-								Also adds <code class="mx-1 rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono">@import '$lib/nnuikit-tokens.css'</code> to your CSS file
+								Injects design tokens (base palette, semantic layer, dark mode, themes) directly into your CSS file
 							</div>
 						</div>
 					</div>
@@ -144,11 +139,11 @@
 						</h3>
 					</div>
 					<p class="pl-10 text-sm leading-relaxed text-text-neutral-secondary">
-						Open the <a href="/docs/getting-started/theming" class="text-text-brand-primary underline underline-offset-2">Theme Builder</a>, pick your brand color or upload your logo, then copy the generated tokens and paste them at the bottom of <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/lib/nnuikit-tokens.css</code>.
+						Open the <a href="/docs/getting-started/theming" class="text-text-brand-primary underline underline-offset-2">Theme Builder</a>, pick your brand color or upload your logo, then copy the generated tokens and paste them at the bottom of <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/routes/layout.css</code>.
 					</p>
 					<div class="pl-10">
 						<CodeBlock
-							code={`/* Paste at the bottom of src/lib/nnuikit-tokens.css */
+							code={`/* Paste at the bottom of src/routes/layout.css */
 :root {
   --color-brand-25:  #fdfcfe;
   --color-brand-700: #6e56cf;
@@ -235,9 +230,11 @@
 				After running <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">init</code> and adding a few components, your <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">src/lib/</code> directory will look like this:
 			</p>
 			<CodeBlock
-				code={`src/lib/
-├── nnuikit-tokens.css       # Base design tokens (written by init)
-├── components/
+				code={`src/
+├── routes/
+│   └── layout.css               # Base design tokens injected here by init
+├── lib/
+│   ├── components/
 │   └── ui/
 │       ├── button/
 │       │   ├── button.svelte    # Component source — yours to edit
@@ -247,6 +244,7 @@
 │           ├── checkbox.svelte
 │           ├── tokens.css
 │           └── index.ts
+│
 └── utils/
     └── tailwindUtil.ts          # cn() utility and shared types`}
 				language="text"

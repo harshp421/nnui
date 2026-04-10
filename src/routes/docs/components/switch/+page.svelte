@@ -33,7 +33,9 @@
     return `<div class="flex items-center gap-3">\n  <Switch${sizeAttr}${checkedAttr}${disabledAttr}${iconAttr} />\n  <span class="text-sm font-medium">Enable notifications</span>\n</div>`;
   }
 
-  const installationCode = `import Switch from "$lib/components/ui/switch/switch.svelte";`;
+  const installationCode = `npx nnuikit add switch
+
+import Switch from "$lib/components/ui/switch/switch.svelte";`;
 
   const switchProps = [
     {

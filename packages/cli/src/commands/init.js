@@ -122,6 +122,21 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
     logger.warn("utils/tailwindUtil.ts already exists, skipping");
   }
 
+  // Write typography styles
+  const stylesDir = path.resolve(process.cwd(), "src/lib/styles");
+  await fs.ensureDir(stylesDir);
+  const typographySrc = path.resolve(__dirname, "../../registry/styles/typography.css");
+  const typographyDest = path.resolve(stylesDir, "typography.css");
+
+  if (await fs.pathExists(typographySrc)) {
+    if (!(await fs.pathExists(typographyDest))) {
+      await fs.copyFile(typographySrc, typographyDest);
+      logger.success("Created styles/typography.css");
+    } else {
+      logger.warn("styles/typography.css already exists, skipping");
+    }
+  }
+
   // Install dependencies
   if (response.installDeps) {
     const deps = ["clsx", "tailwind-merge", "tailwind-variants"];
@@ -146,8 +161,8 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
     }
   }
 
-  // Write base design tokens to user's CSS file
-  const tokenSpinner = ora("Writing base design tokens...").start();
+  // Write base design tokens directly into user's CSS file
+  const tokenSpinner = ora("Injecting base design tokens into CSS...").start();
   try {
     const baseTokensSource = path.resolve(__dirname, "../../registry/base-tokens.css");
     const baseTokensContent = await fs.readFile(baseTokensSource, "utf-8");
@@ -155,41 +170,65 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
     const cssFilePath = path.resolve(process.cwd(), response.cssPath);
 
     if (await fs.pathExists(cssFilePath)) {
-      // Append @import for base tokens after any existing @import lines
       const existing = await fs.readFile(cssFilePath, "utf-8");
-      const importLine = `@import '$lib/nnuikit-tokens.css';`;
 
-      if (!existing.includes("nnuikit-tokens.css")) {
+      // Check if tokens are already injected
+      if (existing.includes("nnuikit design tokens")) {
+        tokenSpinner.succeed("Design tokens already present in " + response.cssPath);
+      } else {
+        // Find the insertion point — after @import 'tailwindcss' line
         const lines = existing.split("\n");
-        let insertAt = 0;
-        for (let i = 0; i < lines.length; i++) {
-          if (lines[i].trim().startsWith("@import")) insertAt = i + 1;
-        }
-        lines.splice(insertAt, 0, importLine);
-        await fs.writeFile(cssFilePath, lines.join("\n"));
-      }
-    }
+        let insertAt = lines.length; // default: end of file
 
-    // Write the token file to src/lib/
-    const tokenDest = path.resolve(process.cwd(), "src/lib/nnuikit-tokens.css");
-    await fs.ensureDir(path.dirname(tokenDest));
-    if (!(await fs.pathExists(tokenDest))) {
-      await fs.writeFile(tokenDest, baseTokensContent);
-      tokenSpinner.succeed("Created src/lib/nnuikit-tokens.css  (base design tokens)");
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].trim().startsWith("@import")) {
+            insertAt = i + 1;
+          }
+        }
+
+        // Inject tokens + typography import with a clear marker
+        const tokenBlock = [
+          "",
+          "/* ═══ nnuikit design tokens ═══════════════════════════════════════ */",
+          "/* Auto-injected by: npx nnuikit init                               */",
+          "/* Docs: https://nnuikit.vercel.app/docs/getting-started/theming     */",
+          "/* ═════════════════════════════════════════════════════════════════ */",
+          "",
+          "@import '$lib/styles/typography.css';",
+          "",
+          baseTokensContent,
+        ].join("\n");
+
+        lines.splice(insertAt, 0, tokenBlock);
+        await fs.writeFile(cssFilePath, lines.join("\n"));
+        tokenSpinner.succeed(`Injected design tokens into ${response.cssPath}`);
+      }
     } else {
-      tokenSpinner.succeed("src/lib/nnuikit-tokens.css already exists, skipping");
+      // CSS file doesn't exist — create it with tailwind + tokens
+      const content = [
+        "@import 'tailwindcss';",
+        "",
+        "/* ═══ nnuikit design tokens ═══════════════════════════════════════ */",
+        "",
+        baseTokensContent,
+      ].join("\n");
+
+      await fs.ensureDir(path.dirname(cssFilePath));
+      await fs.writeFile(cssFilePath, content);
+      tokenSpinner.succeed(`Created ${response.cssPath} with design tokens`);
     }
-  } catch {
-    tokenSpinner.warn("Could not write base tokens — copy them manually from the docs");
+  } catch (err) {
+    tokenSpinner.fail("Could not inject tokens");
+    logger.warn("Copy the base tokens manually from the docs into your CSS file.");
   }
 
   logger.break();
   logger.success("nnuikit initialized successfully!");
   logger.break();
   logger.info("Next steps:");
-  console.log("  1. Base design tokens written to src/lib/nnuikit-tokens.css");
-  console.log("  2. Customize your brand color: https://nnuikit.dev/docs/getting-started/theming");
-  console.log("  3. Run: npx nnuikit add button");
+  console.log("  1. Design tokens injected into " + response.cssPath);
+  console.log("  2. Customize brand color: https://nnuikit.vercel.app/docs/getting-started/theming");
+  console.log("  3. Add components: npx nnuikit add button");
   console.log("  4. Import: import { Button } from '$lib/components/ui/button'");
   logger.break();
 }

@@ -71,7 +71,12 @@ const utilsDir = path.join(projectRoot, "src/lib/utils");
 if (fs.existsSync(utilsDir)) {
   const files = fs.readdirSync(utilsDir);
 
+  // Only sync files needed by components (not docs-only utilities)
+  const skipUtils = ["theme-utils.ts"];
+
   for (const file of files) {
+    if (skipUtils.includes(file)) continue;
+
     const src = path.join(utilsDir, file);
     const dest = path.join(registryDir, "utils", file);
 
@@ -80,6 +85,25 @@ if (fs.existsSync(utilsDir)) {
     fs.ensureDirSync(path.dirname(dest));
     fs.copyFileSync(src, dest);
     console.log(`  COPY  utils/${file}`);
+    count++;
+  }
+}
+
+// ── 2b. Sync styles ──────────────────────────────────────────────
+const stylesDir = path.join(projectRoot, "src/lib/styles");
+
+if (fs.existsSync(stylesDir)) {
+  const files = fs.readdirSync(stylesDir);
+
+  for (const file of files) {
+    const src = path.join(stylesDir, file);
+    const dest = path.join(registryDir, "styles", file);
+
+    if (!fs.statSync(src).isFile()) continue;
+
+    fs.ensureDirSync(path.dirname(dest));
+    fs.copyFileSync(src, dest);
+    console.log(`  COPY  styles/${file}`);
     count++;
   }
 }
@@ -96,11 +120,30 @@ if (registryJsonBackup) {
   console.log("  WARN  No registry.json found — you may need to recreate it");
 }
 
-// ── 4. Sync base-tokens.css ──────────────────────────────────────
-const baseTokensSrc = path.join(projectRoot, "src/lib/nnuikit-tokens.css");
-if (fs.existsSync(baseTokensSrc)) {
-  fs.copyFileSync(baseTokensSrc, path.join(registryDir, "base-tokens.css"));
-  console.log(`  COPY  base-tokens.css`);
+// ── 4. Generate base-tokens.css from layout.css ─────────────────
+// Strip @import lines for component tokens and typography — keep only base tokens
+const layoutCssSrc = path.join(projectRoot, "src/routes/layout.css");
+if (fs.existsSync(layoutCssSrc)) {
+  const layoutContent = fs.readFileSync(layoutCssSrc, "utf-8");
+  const baseTokens = layoutContent
+    .split("\n")
+    .filter((line) => {
+      // Remove component @import lines
+      if (line.startsWith("@import") && line.includes("components/ui")) return false;
+      // Remove typography @import
+      if (line.startsWith("@import") && line.includes("typography.css")) return false;
+      // Remove tailwindcss @import (user adds their own)
+      if (line.startsWith("@import") && line.includes("tailwindcss")) return false;
+      // Remove Google Fonts @import (user adds their own)
+      if (line.startsWith("@import url(")) return false;
+      // Remove the comment on line 1
+      if (line.startsWith("/* Please do not")) return false;
+      return true;
+    })
+    .join("\n");
+
+  fs.writeFileSync(path.join(registryDir, "base-tokens.css"), baseTokens);
+  console.log(`  GEN   base-tokens.css (from layout.css)`);
   count++;
 }
 

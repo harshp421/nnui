@@ -12,7 +12,9 @@
     PropsTable,
   } from "$lib/components/docs";
 
-  const installationCode = `import * as Sheet from "$lib/components/ui/sheet";`;
+  const installationCode = `npx nnuikit add sheet
+
+import * as Sheet from "$lib/components/ui/sheet";`;
 
   const quickStartCode = `<Sheet.Root>
   <Sheet.Trigger>

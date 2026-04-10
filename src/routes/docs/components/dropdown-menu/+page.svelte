@@ -15,7 +15,9 @@
   } from "$lib/components/docs";
   import IconIndicator from "$lib/components/ui/icon-indicator/icon-indicator.svelte";
 
-  const installationCode = `import * as DropdownMenu from "$lib/components/ui/dropdown-menu";`;
+  const installationCode = `npx nnuikit add dropdown-menu
+
+import * as DropdownMenu from "$lib/components/ui/dropdown-menu";`;
 
   const basicUsageCode = `
 <DropdownMenu.Root>

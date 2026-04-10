@@ -12,7 +12,9 @@
     PropsTable,
   } from "$lib/components/docs";
 
-  const installationCode = `import * as Tooltip from "$lib/components/ui/tooltip";`;
+  const installationCode = `npx nnuikit add tooltip
+
+import * as Tooltip from "$lib/components/ui/tooltip";`;
 
   const quickStartCode = `
 <Tooltip.Provider>

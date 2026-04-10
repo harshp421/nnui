@@ -122,7 +122,9 @@
 		return code;
 	}
 
-	const installationCode = `import Button from "$lib/components/ui/button/button.svelte";`;
+	const installationCode = `npx nnuikit add button
+
+import Button from "$lib/components/ui/button/button.svelte";`;
 
 	const buttonProps = [
 		{

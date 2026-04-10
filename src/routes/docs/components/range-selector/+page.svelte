@@ -40,7 +40,9 @@
 <RangeSelector bind:value={rangeValue}${orient}${s} />`;
   }
 
-  const installationCode = `import RangeSelector from "$lib/components/ui/range-selector/range-selector.svelte";`;
+  const installationCode = `npx nnuikit add range-selector
+
+import RangeSelector from "$lib/components/ui/range-selector/range-selector.svelte";`;
 
   const rangeProps = [
     {

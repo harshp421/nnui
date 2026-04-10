@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import { tv, type VariantProps } from "tailwind-variants";
 	export const sheetVariants = tv({
-		base: "bg-sheet-surface border border-sheet-border text-sheet-text data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-16 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 glass:backdrop-blur-xl glass:backdrop-saturate-150",
+		base: "bg-sheet-surface px-12 border border-sheet-border text-sheet-text data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-16 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 glass:backdrop-blur-xl glass:backdrop-saturate-150",
 		variants: {
 			side: {
 				top: "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
@@ -47,7 +47,9 @@
 		class={cn(sheetVariants({ side }), className)}
 		{...restProps}
 	>
-		{@render children?.()}
+		
+			{@render children?.()}
+		
 		<SheetPrimitive.Close
 			class="absolute end-16 top-16 rounded-6 text-sheet-close-icon transition-opacity hover:text-sheet-close-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-surface-brand-primary/50 disabled:pointer-events-none"
 		>

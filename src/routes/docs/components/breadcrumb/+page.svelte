@@ -166,9 +166,14 @@
     <section class="space-y-8">
       <h2 class="text-2xl font-bold tracking-tight">Installation</h2>
       <CodeBlock
-        code={`import * as Breadcrumb from "$lib/components/ui/breadcrumb";`}
+        code={`npx nnuikit add breadcrumb`}
         language="bash"
-        title="Installation"
+        title="CLI"
+      />
+      <CodeBlock
+        code={`import * as Breadcrumb from "$lib/components/ui/breadcrumb";`}
+        language="typescript"
+        title="Import"
       />
     </section>
 

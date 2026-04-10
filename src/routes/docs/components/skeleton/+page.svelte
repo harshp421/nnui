@@ -11,7 +11,9 @@
   } from "$lib/components/docs";
   import Seo from '$lib/components/seo.svelte';
 
-  const installationCode = `import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";`;
+  const installationCode = `npx nnuikit add skeleton
+
+import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";`;
 
   const skeletonProps = [
     {

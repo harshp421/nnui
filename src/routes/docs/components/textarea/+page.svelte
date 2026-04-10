@@ -25,7 +25,9 @@
     return `<Textarea${placeholderAttr}${disabledAttr} />`;
   }
 
-  const installationCode = `import Textarea from "$lib/components/ui/textarea/textarea.svelte";`;
+  const installationCode = `npx nnuikit add textarea
+
+import Textarea from "$lib/components/ui/textarea/textarea.svelte";`;
 
   const textareaProps = [
     {

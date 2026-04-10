@@ -433,7 +433,7 @@
 				</div>
 				<pre class="overflow-x-auto px-4 py-3 font-mono text-xs leading-relaxed text-text-neutral-secondary">{exportCssTokens(currentPalette)}</pre>
 				<div class="border-t border-border-neutral-l4 px-4 py-3 text-xs text-text-neutral-tertiary">
-					Paste at the bottom of <code class="rounded bg-surface-neutral-l1 px-1 py-0.5 font-mono">src/lib/nnuikit-tokens.css</code> to override brand colors project-wide.
+					Paste at the bottom of <code class="rounded bg-surface-neutral-l1 px-1 py-0.5 font-mono">src/routes/layout.css</code> to override brand colors project-wide.
 				</div>
 			</div>
 

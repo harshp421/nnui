@@ -257,32 +257,36 @@ async function addCssImport(importPath, config) {
     return;
   }
 
-  // Find the best place to insert — after other @import lines
+  // Find the best place to insert:
+  // 1. After existing component @import lines (if any)
+  // 2. After @import 'tailwindcss' and @custom-variant lines
+  // 3. Before the nnuikit design tokens block
   const lines = content.split("\n");
-  let lastImportIndex = -1;
+  let insertAt = -1;
 
   for (let i = 0; i < lines.length; i++) {
-    if (lines[i].trim().startsWith("@import")) {
-      lastImportIndex = i;
+    const trimmed = lines[i].trim();
+    // Track last @import or @custom-variant line
+    if (trimmed.startsWith("@import") || trimmed.startsWith("@custom-variant")) {
+      insertAt = i + 1;
     }
-    // Stop scanning after we hit non-import, non-comment, non-empty content
-    if (
-      lastImportIndex > -1 &&
-      lines[i].trim() !== "" &&
-      !lines[i].trim().startsWith("@import") &&
-      !lines[i].trim().startsWith("/*") &&
-      !lines[i].trim().startsWith("*") &&
-      !lines[i].trim().startsWith("*/")
-    ) {
+    // Stop before the nnuikit tokens block
+    if (trimmed.includes("nnuikit design tokens")) {
+      // Insert right before this marker
+      if (insertAt === -1) insertAt = i;
+      break;
+    }
+    // Stop at first :root block if no marker found
+    if (trimmed === ":root {" && insertAt > -1) {
       break;
     }
   }
 
-  if (lastImportIndex > -1) {
-    lines.splice(lastImportIndex + 1, 0, importLine);
+  if (insertAt > -1) {
+    lines.splice(insertAt, 0, importLine);
   } else {
-    // No imports found — add at the top
-    lines.unshift(importLine);
+    // No good insertion point — add after first line
+    lines.splice(1, 0, importLine);
   }
 
   await fs.writeFile(cssPath, lines.join("\n"));

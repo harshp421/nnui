@@ -48,7 +48,9 @@
     return `<Avatar.Root size="${size}" shape="${shape}">${body}\n</Avatar.Root>`;
   }
 
-  const installationCode = `import * as Avatar from "$lib/components/ui/avatar/index.js";`;
+  const installationCode = `npx nnuikit add avatar
+
+import * as Avatar from "$lib/components/ui/avatar/index.js";`;
 
   const avatarRootProps = [
     // {

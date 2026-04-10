@@ -86,7 +86,9 @@
 		return code;
 	}
 
-	const installationCode = `import { Badge } from "$lib/components/ui/badge";`;
+	const installationCode = `npx nnuikit add badge
+
+import { Badge } from "$lib/components/ui/badge";`;
 
 	const badgeProps = [
 		{

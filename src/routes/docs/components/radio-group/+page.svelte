@@ -47,7 +47,9 @@
     return `<RadioGroup.Root bind:value${sizeAttr}${orientClass}>\n${items}\n</RadioGroup.Root>`;
   }
 
-  const installationCode = `import * as RadioGroup from "$lib/components/ui/radio-group";`;
+  const installationCode = `npx nnuikit add radio-group
+
+import * as RadioGroup from "$lib/components/ui/radio-group";`;
 
   const radioGroupProps = [
     {

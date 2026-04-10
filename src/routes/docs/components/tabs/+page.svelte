@@ -43,7 +43,9 @@
 </Tabs.Root>`;
   }
 
-  const installationCode = `import * as Tabs from "$lib/components/ui/tabs";`;
+  const installationCode = `npx nnuikit add tabs
+
+import * as Tabs from "$lib/components/ui/tabs";`;
 
   const quickStartCode = `<script lang="ts">
   import * as Tabs from "$lib/components/ui/tabs";
