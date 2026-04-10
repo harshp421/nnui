@@ -14,7 +14,7 @@
 		{ name: 'Avatar', desc: 'Image, fallback, status indicator', href: '/docs/components/avatar' },
 		{ name: 'Badge', desc: '18 variants, 3 sizes', href: '/docs/components/badge' },
 		{ name: 'Sheet', desc: 'Slide-in side panel overlay', href: '/docs/components/sheet' },
-{ name: 'Tooltip', desc: 'Contextual hint on hover', href: '/docs/components/tooltip' }
+		{ name: 'Tooltip', desc: 'Contextual hint on hover', href: '/docs/components/tooltip' }
 	];
 
 	const stats = [
@@ -56,6 +56,7 @@
 			icon: 'M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25H6.75z'
 		}
 	];
+	
 </script>
 
 <Seo

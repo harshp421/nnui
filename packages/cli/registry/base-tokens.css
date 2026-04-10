@@ -1,3 +1,24 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   nnuikit — Global Design Tokens
+   ═══════════════════════════════════════════════════════════════════════
+   This file contains the complete design token system:
+
+   1. Imports & Variants     — Tailwind, fonts, custom variants
+   2. Component Token Imports — Per-component design tokens (Layer 3)
+   3. Base Palette            — Raw color scales (Layer 1)
+   4. Semantic Tokens         — Role mappings: surface, text, icon, border (Layer 2)
+   5. Glass UI Tokens         — Frosted glass shared tokens
+   6. Responsive Overrides    — Tablet (1024px) and Desktop (1440px)
+   7. Dark Mode               — .dark class overrides
+   8. Color Themes            — .blue, .cyan, .orange, .pink, .violet
+   9. Glass Track             — .glass-track design track overrides
+   10. @theme                 — Tailwind v4 token registrations
+   11. Utilities              — .blanker, .noise, @layer base
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ── 1. Imports & Custom Variants ───────────────────────────────────── */
+
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant blue (&:is(.blue *));
@@ -7,7 +28,13 @@
 @custom-variant orange (&:is(.orange *));
 @custom-variant glass (&:is(.glass-track *));
 
-/* Root Variables (Default Theme) */
+
+/* ── 2. Component Token Imports (Layer 3) ───────────────────────────── */
+/* Each component ships its own tokens.css — added by: npx nnuikit add  */
+
+
+
+/* ── 3-5. Base Palette + Semantic Tokens + Glass UI (Layer 1 & 2) ──── */
 :root {
 
 	--color-glass-blur-surface: var(--color-alpha-pure-white-700);
@@ -31,7 +58,6 @@
 	--color-glass-border-l3: var(--color-alpha-viceversa-white-600);
 	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
 	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
-
 
 	--color-base-pure-white: #ffffff;
 	--color-base-pure-black: #000000;
@@ -245,7 +271,7 @@
 	--color-surface-destructive-primary: var(--color-red-900);
 	--color-surface-destructive-secondary: var(--color-red-800);
 	--color-surface-destructive-tertiary: var(--color-red-600);
-	--color-surface-destructive-qauternary: var(--color-red-400);
+	--color-surface-destructive-quaternary: var(--color-red-400);
 	--color-surface-warning-l1: var(--color-yellow-50);
 	--color-surface-warning-l2: var(--color-yellow-100);
 	--color-surface-warning-l3: var(--color-yellow-200);
@@ -315,7 +341,7 @@
 	--color-text-neutral-primary: var(--color-neutral-950);
 	--color-text-neutral-secondary: var(--color-neutral-900);
 	--color-text-neutral-tertiary: var(--color-neutral-700);
-	--color-text-neutral-qauternary: var(--color-neutral-600);
+	--color-text-neutral-quaternary: var(--color-neutral-600);
 	--color-text-info-primary: var(--color-blue-900);
 	--color-text-info-secondary: var(--color-blue-800);
 	--color-text-info-tertiary: var(--color-blue-600);
@@ -359,7 +385,7 @@
 	--color-icon-neutral-primary: var(--color-neutral-950);
 	--color-icon-neutral-secondary: var(--color-neutral-900);
 	--color-icon-neutral-tertiary: var(--color-neutral-700);
-	--color-icon-neutral-qauternary: var(--color-neutral-600);
+	--color-icon-neutral-quaternary: var(--color-neutral-600);
 	--color-icon-info-primary: var(--color-blue-900);
 	--color-icon-info-secondary: var(--color-blue-800);
 	--color-icon-info-tertiary: var(--color-blue-600);
@@ -596,36 +622,6 @@
 	--radius-32: 32px;
 	--radius-48: 48px;
 	--radius-full: 999px;
-	--size-screen-size: 375px;
-
-	--size-typescale-heading-scale-h1: 40px;
-	--size-typescale-heading-scale-h2: 36px;
-	--size-typescale-heading-scale-h3: 32px;
-	--size-typescale-heading-scale-h4: 28px;
-	--size-typescale-heading-scale-h5: 24px;
-	--size-typescale-heading-scale-h6: 20px;
-	--size-typescale-heading-lineheight-h1-lineheight: 56px;
-	--size-typescale-heading-lineheight-h2-lineheight: 48px;
-	--size-typescale-heading-lineheight-h3-lineheight: 44px;
-	--size-typescale-heading-lineheight-h4-lineheight: 36px;
-	--size-typescale-heading-lineheight-h5-lineheight: 32px;
-	--size-typescale-heading-lineheight-h6-lineheight: 32px;
-	--size-typescale-paragraph-scale-lg-paragraph: 24px;
-	--size-typescale-paragraph-scale-md-paragraph: 20px;
-	--size-typescale-paragraph-scale-sm-paragraph: 16px;
-	--size-typescale-paragraph-scale-xs-paragraph: 14px;
-	--size-typescale-paragraph-scale-xxs-paragraph: 12px;
-	--size-typescale-paragraph-lineheight-lg-paragraph-lineheight: 28px;
-	--size-typescale-paragraph-lineheight-md-paragraph-lineheight: 24px;
-	--size-typescale-paragraph-lineheight-sm-paragraph-lineheight: 20px;
-	--size-typescale-paragraph-lineheight-xs-paragraph-lineheight: 16px;
-	--size-typescale-paragraph-lineheight-xxs-paragraph-lineheight: 16px;
-	--size-typescale-overline-scale-lg-overline: 12px;
-	--size-typescale-overline-scale-md-overline: 10px;
-	--size-typescale-overline-scale-sm-overline: 10px;
-	--size-typescale-overline-scale-overline-lineheight-lg-overline-lineheight: 10px;
-	--size-typescale-overline-scale-overline-lineheight-md-overline-lineheight: 8px;
-	--size-typescale-overline-scale-overline-lineheight-sm-overline-lineheight: 8px;
 	--size-border-width-l1: 1px;
 	--size-border-width-l2: 1px;
 	--size-border-width-l3: 1.25px;
@@ -677,38 +673,12 @@
 	--size-list-card-text-padding-left-right: var(--spacing-8);
 }
 
-/* Tablet Overrides (min-width: 1024px) */
+/* ── 6. Responsive Overrides ─────────────────────────────────────────── */
+
+/* Tablet (1024px) */
 @media (min-width: 1024px) {
 	:root {
-		--size-screen-size: 1024px;
-		--size-typescale-heading-scale-h1: 56px;
-		--size-typescale-heading-scale-h2: 48px;
-		--size-typescale-heading-scale-h3: 40px;
-		--size-typescale-heading-scale-h4: 32px;
-		--size-typescale-heading-scale-h5: 28px;
-		--size-typescale-heading-scale-h6: 24px;
-		--size-typescale-heading-lineheight-h1-lineheight: 76px;
-		--size-typescale-heading-lineheight-h2-lineheight: 68px;
-		--size-typescale-heading-lineheight-h3-lineheight: 56px;
-		--size-typescale-heading-lineheight-h4-lineheight: 44px;
-		--size-typescale-heading-lineheight-h5-lineheight: 38px;
-		--size-typescale-heading-lineheight-h6-lineheight: 32px;
-		--size-typescale-paragraph-scale-lg-paragraph: 20px;
-		--size-typescale-paragraph-scale-md-paragraph: 16px;
-		--size-typescale-paragraph-scale-sm-paragraph: 14px;
-		--size-typescale-paragraph-scale-xs-paragraph: 12px;
-		--size-typescale-paragraph-scale-xxs-paragraph: 12px;
-		--size-typescale-paragraph-lineheight-lg-paragraph-lineheight: 28px;
-		--size-typescale-paragraph-lineheight-md-paragraph-lineheight: 24px;
-		--size-typescale-paragraph-lineheight-sm-paragraph-lineheight: 20px;
-		--size-typescale-paragraph-lineheight-xs-paragraph-lineheight: 16px;
-		--size-typescale-paragraph-lineheight-xxs-paragraph-lineheight: 16px;
-		--size-typescale-overline-scale-lg-overline: 14px;
-		--size-typescale-overline-scale-md-overline: 12px;
-		--size-typescale-overline-scale-sm-overline: 10px;
-		--size-typescale-overline-scale-overline-lineheight-lg-overline-lineheight: 12px;
-		--size-typescale-overline-scale-overline-lineheight-md-overline-lineheight: 10px;
-		--size-typescale-overline-scale-overline-lineheight-sm-overline-lineheight: 8px;
+		
 		--size-border-width-l1: 1px;
 		--size-border-width-l2: 1.25px;
 		--size-border-width-l3: 1.5px;
@@ -761,38 +731,10 @@
 	}
 }
 
-/* Desktop Overrides (min-width: 1440px) */
+/* Desktop (1440px) */
 @media (min-width: 1440px) {
 	:root {
-		--size-screen-size: 1440px;
-		--size-typescale-heading-scale-h1: 76px;
-		--size-typescale-heading-scale-h2: 60px;
-		--size-typescale-heading-scale-h3: 48px;
-		--size-typescale-heading-scale-h4: 36px;
-		--size-typescale-heading-scale-h5: 32px;
-		--size-typescale-heading-scale-h6: 24px;
-		--size-typescale-heading-lineheight-h1-lineheight: 104px;
-		--size-typescale-heading-lineheight-h2-lineheight: 84px;
-		--size-typescale-heading-lineheight-h3-lineheight: 68px;
-		--size-typescale-heading-lineheight-h4-lineheight: 56px;
-		--size-typescale-heading-lineheight-h5-lineheight: 44px;
-		--size-typescale-heading-lineheight-h6-lineheight: 32px;
-		--size-typescale-paragraph-scale-lg-paragraph: 20px;
-		--size-typescale-paragraph-scale-md-paragraph: 16px;
-		--size-typescale-paragraph-scale-sm-paragraph: 14px;
-		--size-typescale-paragraph-scale-xs-paragraph: 12px;
-		--size-typescale-paragraph-scale-xxs-paragraph: 10px;
-		--size-typescale-paragraph-lineheight-lg-paragraph-lineheight: 28px;
-		--size-typescale-paragraph-lineheight-md-paragraph-lineheight: 24px;
-		--size-typescale-paragraph-lineheight-sm-paragraph-lineheight: 20px;
-		--size-typescale-paragraph-lineheight-xs-paragraph-lineheight: 16px;
-		--size-typescale-paragraph-lineheight-xxs-paragraph-lineheight: 12px;
-		--size-typescale-overline-scale-lg-overline: 14px;
-		--size-typescale-overline-scale-md-overline: 12px;
-		--size-typescale-overline-scale-sm-overline: 10px;
-		--size-typescale-overline-scale-overline-lineheight-lg-overline-lineheight: 12px;
-		--size-typescale-overline-scale-overline-lineheight-md-overline-lineheight: 10px;
-		--size-typescale-overline-scale-overline-lineheight-sm-overline-lineheight: 8px;
+		
 		--size-border-width-l1: 1px;
 		--size-border-width-l2: 1.25px;
 		--size-border-width-l3: 1.5px;
@@ -845,7 +787,8 @@
 	}
 }
 
-/* Dark Mode Overrides */
+/* ── 7. Dark Mode ────────────────────────────────────────────────────── */
+
 .dark {
 	--color-glass-blur-surface: var(--color-alpha-pure-white-50);
 	--color-glass-blur-border: var(--color-alpha-pure-white-100);
@@ -1059,6 +1002,9 @@
 }
 
 
+/* ── 8. Color Themes ─────────────────────────────────────────────────── */
+/* Apply via class on <html>: class="blue", class="violet", etc.         */
+
 .blue {
 	--color-brand-25: var(--color-blue-25);
 	--color-brand-50: var(--color-blue-50);
@@ -1131,13 +1077,16 @@
 	--color-brand-900: var(--color-violet-900);
 	--color-brand-950: var(--color-violet-950);
 }
-/* ═══════════════════════════════════════════════════════════════════════
-   DESIGN TRACKS — Visual language presets
-   Apply via class on <html>: class="glass-track", class="violet glass-track dark"
-   Composable with color themes and dark mode.
-   ═══════════════════════════════════════════════════════════════════════ */
+/* ── 9. Glass Track (Design Tracks) ──────────────────────────────────── */
+/* Apply via: class="glass-track" — composable with themes + dark mode   */
+/* Currently only glassmorphism. More tracks (clay, neu, brutalist) soon. */
 
-/* Theme Configuration */
+/* NOTE: .glass-track class was removed during cleanup.                  */
+/*       Re-add it when design tracks feature is implemented.            */
+
+
+/* ── 10. @theme — Tailwind v4 Token Registrations ────────────────────── */
+
 @theme {
 	--breakpoint-sm: 375px;
 	--breakpoint-md: 1024px;
@@ -1381,7 +1330,7 @@
 	--color-surface-destructive-primary: var(--color-surface-destructive-primary);
 	--color-surface-destructive-secondary: var(--color-surface-destructive-secondary);
 	--color-surface-destructive-tertiary: var(--color-surface-destructive-tertiary);
-	--color-surface-destructive-qauternary: var(--color-surface-destructive-qauternary);
+	--color-surface-destructive-quaternary: var(--color-surface-destructive-quaternary);
 	--color-surface-warning-l1: var(--color-surface-warning-l1);
 	--color-surface-warning-l2: var(--color-surface-warning-l2);
 	--color-surface-warning-l3: var(--color-surface-warning-l3);
@@ -1451,7 +1400,7 @@
 	--color-text-neutral-primary: var(--color-text-neutral-primary);
 	--color-text-neutral-secondary: var(--color-text-neutral-secondary);
 	--color-text-neutral-tertiary: var(--color-text-neutral-tertiary);
-	--color-text-neutral-qauternary: var(--color-text-neutral-qauternary);
+	--color-text-neutral-quaternary: var(--color-text-neutral-quaternary);
 	--color-text-info-primary: var(--color-text-info-primary);
 	--color-text-info-secondary: var(--color-text-info-secondary);
 	--color-text-info-tertiary: var(--color-text-info-tertiary);
@@ -1495,7 +1444,7 @@
 	--color-icon-neutral-primary: var(--color-icon-neutral-primary);
 	--color-icon-neutral-secondary: var(--color-icon-neutral-secondary);
 	--color-icon-neutral-tertiary: var(--color-icon-neutral-tertiary);
-	--color-icon-neutral-qauternary: var(--color-icon-neutral-qauternary);
+	--color-icon-neutral-quaternary: var(--color-icon-neutral-quaternary);
 	--color-icon-info-primary: var(--color-icon-info-primary);
 	--color-icon-info-secondary: var(--color-icon-info-secondary);
 	--color-icon-info-tertiary: var(--color-icon-info-tertiary);
@@ -1671,7 +1620,6 @@
 
 	/*jumper keys */
 
-
 	 --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -1706,7 +1654,6 @@
     --drop-shadow-l6: 0px 24px 48px var(--color-surface-alpha-pure-black-l3);
     --drop-shadow-l7: 0px 32px 64px var(--color-surface-alpha-pure-black-l3);
 
-
    
     --blur-xs: 4px;
     --blur-sm: 8px;
@@ -1728,22 +1675,17 @@
 
 }
 
+
+/* ── 11. Utilities ───────────────────────────────────────────────────── */
+
 .blanker {
 	background-color: var(--color-blanket);
 	box-shadow: 2px 2px 12px 0 var(--color-alpha-pure-black-100, rgba(0, 0, 0, 0.15));
 	backdrop-filter: blur(6px);
 }
 
-.noise {
-	background-image: url('/svg/Noise.svg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-
 @layer base {
-    body {
-        @apply bg-base-vv-white text-base-vv-black;
-    }
+	body {
+		@apply bg-base-vv-white text-base-vv-black;
+	}
 }

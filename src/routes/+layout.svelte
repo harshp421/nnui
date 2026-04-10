@@ -2,10 +2,11 @@
 	import './layout.css';
 	import logo from '$lib/assets/logo.svg';
 	import { Toaster } from '$lib/components/ui/toast';
-
+	
 	let { children } = $props();
-</script>
 
+
+</script>
 <svelte:head>
 	<link rel="icon" href={logo} />
 	<meta name="theme-color" content="#30a46c" />

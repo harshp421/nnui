@@ -81,7 +81,7 @@
 	--color-button-destructive-focused-surface: var(--color-surface-destructive-secondary);
 	--color-button-destructive-focused-text: var(--color-text-statics-pure-white);
 	--color-button-destructive-focused-icon: var(--color-icon-statics-pure-white);
-	--color-button-destructive-disabled-surface: var(--color-surface-destructive-qauternary);
+	--color-button-destructive-disabled-surface: var(--color-surface-destructive-quaternary);
 	--color-button-destructive-disabled-icon: var(--color-icon-alpha-pure-black-tertiary);
 	--color-button-destructive-disabled-text: var(--color-text-alpha-pure-black-tertiary);
 	--color-button-warning-default-surface: var(--color-surface-warning-primary);

@@ -31,7 +31,6 @@
       "grid w-full max-w-[calc(100%-2rem)] sm:w-modal-width",
       "max-h-modal-max-height overflow-hidden",
       "gap-modal-gap ",
-     
       "data-[state=open]:animate-in data-[state=closed]:animate-out",
       "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200",

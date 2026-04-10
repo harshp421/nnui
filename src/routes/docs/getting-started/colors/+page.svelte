@@ -45,8 +45,14 @@
 
   const SCALES = [25, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
-  function getColorVar(palette: string, scale: number) {
-    // Special case for green-base-700 in app.css
+  function getColorName(palette: string, scale: number) {
+    if (palette === "green" && scale === 700) {
+      return `${palette}-base-${scale}`;
+    }
+    return `${palette}-${scale}`;
+  }
+
+  function getColorCss(palette: string, scale: number) {
     if (palette === "green" && scale === 700) {
       return `var(--color-green-base-700)`;
     }
@@ -98,8 +104,8 @@
     const newValues: Record<string, string> = {};
     PALETTES.forEach((p) => {
       SCALES.forEach((s) => {
-        const colorVar = getColorVar(p.key, s);
-        newValues[`${p.key}-${s}`] = getHexValue(colorVar);
+        const cssVar = getColorCss(p.key, s);
+        newValues[`${p.key}-${s}`] = getHexValue(cssVar);
       });
     });
     hexValues = newValues;
@@ -340,7 +346,8 @@
             </h3>
             <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-6">
               {#each SCALES as scale}
-                {@const colorVar = getColorVar(palette.key, scale)}
+                {@const colorVar = getColorName(palette.key, scale)}
+              {@const colorCss = getColorCss(palette.key, scale)}
                 <button
                   onclick={() => {
                     const hex = hexValues[`${palette.key}-${scale}`] || "";
@@ -350,7 +357,7 @@
                 >
                   <div
                     class="h-128 w-full rounded-lg shadow-sm transition-all relative overflow-hidden"
-                    style="background: {colorVar}"
+                    style="background: {colorCss}"
                   >
                     <div
                       class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100"

@@ -46,7 +46,7 @@
 					'border border-button-tertiary-default-border',
 					'hover:bg-button-tertiary-hover-surface hover:text-button-tertiary-hover-text hover:[&>svg]:text-button-tertiary-hover-icon hover:border-button-tertiary-hover-border',
 					'focus-visible:bg-button-tertiary-focused-surface focus-visible:text-button-tertiary-focused-text focus-visible:[&>svg]:text-button-tertiary-focused-icon focus-visible:border-button-tertiary-focused-border',
-					'focus-visible:ring-2 focus-visible:ring-button-tertiary-hover-surface',
+					'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-base-vv-white focus-visible:ring-button-tertiary-hover-surface',
 					'disabled:bg-button-tertiary-disabled-surface disabled:text-button-tertiary-disabled-text disabled:[&>svg]:text-button-tertiary-disabled-icon disabled:border-button-tertiary-disabled-border'
 				].join(' '),
 				orphan: [

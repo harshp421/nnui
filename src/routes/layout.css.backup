@@ -264,7 +264,7 @@
 	--color-surface-destructive-primary: var(--color-red-900);
 	--color-surface-destructive-secondary: var(--color-red-800);
 	--color-surface-destructive-tertiary: var(--color-red-600);
-	--color-surface-destructive-qauternary: var(--color-red-400);
+	--color-surface-destructive-quaternary: var(--color-red-400);
 	--color-surface-warning-l1: var(--color-yellow-50);
 	--color-surface-warning-l2: var(--color-yellow-100);
 	--color-surface-warning-l3: var(--color-yellow-200);
@@ -334,7 +334,7 @@
 	--color-text-neutral-primary: var(--color-neutral-950);
 	--color-text-neutral-secondary: var(--color-neutral-900);
 	--color-text-neutral-tertiary: var(--color-neutral-700);
-	--color-text-neutral-qauternary: var(--color-neutral-600);
+	--color-text-neutral-quaternary: var(--color-neutral-600);
 	--color-text-info-primary: var(--color-blue-900);
 	--color-text-info-secondary: var(--color-blue-800);
 	--color-text-info-tertiary: var(--color-blue-600);
@@ -378,7 +378,7 @@
 	--color-icon-neutral-primary: var(--color-neutral-950);
 	--color-icon-neutral-secondary: var(--color-neutral-900);
 	--color-icon-neutral-tertiary: var(--color-neutral-700);
-	--color-icon-neutral-qauternary: var(--color-neutral-600);
+	--color-icon-neutral-quaternary: var(--color-neutral-600);
 	--color-icon-info-primary: var(--color-blue-900);
 	--color-icon-info-secondary: var(--color-blue-800);
 	--color-icon-info-tertiary: var(--color-blue-600);
@@ -513,8 +513,8 @@
 	--color-input-box-filled-icon: var(--color-icon-neutral-primary);
 	--color-input-box-disabled-surface: var(--color-surface-neutral-l1);
 	--color-input-box-disabled-border: var(--color-border-neutral-l1);
-	--color-input-box-disabled-text: var(--color-text-neutral-qauternary);
-	--color-input-box-disabled-icon: var(--color-icon-neutral-qauternary);
+	--color-input-box-disabled-text: var(--color-text-neutral-quaternary);
+	--color-input-box-disabled-icon: var(--color-icon-neutral-quaternary);
 	--color-input-box-destructive-surface: var(--color-surface-destructive-l1);
 	--color-input-box-destructive-border: var(--color-border-destructive-primary);
 	--color-input-box-destructive-text: var(--color-text-neutral-primary);
@@ -649,7 +649,7 @@
 	--color-calendar-index-active-surface: var(--color-surface-success-l3);
 	--color-calendar-index-active-text: var(--color-text-brand-primary);
 	--color-calendar-index-disabled-surface: var(--color-surface-alpha-zero-transparency);
-	--color-calendar-index-disabled-text: var(--color-text-neutral-qauternary);
+	--color-calendar-index-disabled-text: var(--color-text-neutral-quaternary);
 	--color-calendar-presets-surface: var(--color-alpha-zero-transparency);
 	--color-calendar-presets-header: var(--color-text-info-secondary);
 	--color-calendar-presets-preset-default-surface: var(--color-surface-alpha-zero-transparency);
@@ -668,7 +668,7 @@
 	--color-calendar-days-current-border: var(--color-border-brand-primary);
 	--color-calendar-days-current-text: var(--color-text-neutral-primary);
 	--color-calendar-days-disabled-surface: var(--color-surface-alpha-zero-transparency);
-	--color-calendar-days-disabled-text: var(--color-text-neutral-qauternary);
+	--color-calendar-days-disabled-text: var(--color-text-neutral-quaternary);
 	--color-calendar-days-present-day-surface: var(--color-surface-alpha-zero-transparency);
 	--color-calendar-days-present-day-text: var(--color-text-destructive-secondary);
 	--color-calendar-days-blocked-surface: var(--color-neutral-50);
@@ -694,9 +694,9 @@
 	--color-table-cells-common-cell-active-border: var(--color-border-brand-primary);
 	--color-table-cells-common-cell-active-icon: var(--color-icon-neutral-primary);
 	--color-table-cells-common-cell-disabled-surface: var(--color-surface-alpha-zero-transparency);
-	--color-table-cells-common-cell-disabled-text: var(--color-text-neutral-qauternary);
+	--color-table-cells-common-cell-disabled-text: var(--color-text-neutral-quaternary);
 	--color-table-cells-common-cell-disabled-border: var(--color-border-neutral-l1);
-	--color-table-cells-common-cell-disabled-icon: var(--color-icon-neutral-qauternary);
+	--color-table-cells-common-cell-disabled-icon: var(--color-icon-neutral-quaternary);
 	--color-table-cells-common-cell-filled-custom-surface: var(--color-surface-brand-primary);
 	--color-table-cells-common-cell-filled-text: var(--color-text-statics-pure-white);
 	--color-table-cells-common-cell-filled-border: var(--color-border-neutral-l1);
@@ -2673,7 +2673,7 @@
 	--color-surface-destructive-primary: var(--color-surface-destructive-primary);
 	--color-surface-destructive-secondary: var(--color-surface-destructive-secondary);
 	--color-surface-destructive-tertiary: var(--color-surface-destructive-tertiary);
-	--color-surface-destructive-qauternary: var(--color-surface-destructive-qauternary);
+	--color-surface-destructive-quaternary: var(--color-surface-destructive-quaternary);
 	--color-surface-warning-l1: var(--color-surface-warning-l1);
 	--color-surface-warning-l2: var(--color-surface-warning-l2);
 	--color-surface-warning-l3: var(--color-surface-warning-l3);
@@ -2743,7 +2743,7 @@
 	--color-text-neutral-primary: var(--color-text-neutral-primary);
 	--color-text-neutral-secondary: var(--color-text-neutral-secondary);
 	--color-text-neutral-tertiary: var(--color-text-neutral-tertiary);
-	--color-text-neutral-qauternary: var(--color-text-neutral-qauternary);
+	--color-text-neutral-quaternary: var(--color-text-neutral-quaternary);
 	--color-text-info-primary: var(--color-text-info-primary);
 	--color-text-info-secondary: var(--color-text-info-secondary);
 	--color-text-info-tertiary: var(--color-text-info-tertiary);
@@ -2787,7 +2787,7 @@
 	--color-icon-neutral-primary: var(--color-icon-neutral-primary);
 	--color-icon-neutral-secondary: var(--color-icon-neutral-secondary);
 	--color-icon-neutral-tertiary: var(--color-icon-neutral-tertiary);
-	--color-icon-neutral-qauternary: var(--color-icon-neutral-qauternary);
+	--color-icon-neutral-quaternary: var(--color-icon-neutral-quaternary);
 	--color-icon-info-primary: var(--color-icon-info-primary);
 	--color-icon-info-secondary: var(--color-icon-info-secondary);
 	--color-icon-info-tertiary: var(--color-icon-info-tertiary);

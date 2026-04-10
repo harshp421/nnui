@@ -183,7 +183,7 @@ ${"</"+"script>"}
         {#snippet preview()}
           <div class="flex items-center justify-center p-10 w-full">
             <Dialog.Root>
-              <Dialog.Trigger>
+              <Dialog.Trigger >
                 <Button variant="primary">Open Dialog</Button>
               </Dialog.Trigger>
               <Dialog.Content>

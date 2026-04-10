@@ -31,8 +31,8 @@
 	--color-input-box-filled-icon: var(--color-icon-neutral-primary);
 	--color-input-box-disabled-surface: var(--color-surface-neutral-l1);
 	--color-input-box-disabled-border: var(--color-border-neutral-l1);
-	--color-input-box-disabled-text: var(--color-text-neutral-qauternary);
-	--color-input-box-disabled-icon: var(--color-icon-neutral-qauternary);
+	--color-input-box-disabled-text: var(--color-text-neutral-quaternary);
+	--color-input-box-disabled-icon: var(--color-icon-neutral-quaternary);
 	--color-input-box-destructive-surface: var(--color-surface-destructive-l1);
 	--color-input-box-destructive-border: var(--color-border-destructive-primary);
 	--color-input-box-destructive-text: var(--color-text-neutral-primary);

@@ -2,6 +2,8 @@
 	import { page } from '$app/state';
 	import logo from '$lib/assets/logo.svg';
 	import ModeSwitch from '$lib/components/ui/theme-switch/modeSwitch.svelte';
+import { onMount } from 'svelte';
+	import { applyPresetTheme, applyBrandPalette, generatePalette } from '$lib/utils/theme-utils';
 
 	let { children } = $props();
 	let isDark = $state(false);
@@ -83,6 +85,25 @@
 		// Close sidebar on route change
 		page.url.pathname;
 		sidebarOpen = false;
+	});
+		onMount(() => {
+		// Restore dark mode
+		const savedTheme = localStorage.getItem('theme');
+		if (savedTheme === 'dark') {
+			document.documentElement.classList.add('dark');
+		} else if (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.classList.add('dark');
+		}
+
+		// Restore color theme across all pages
+		const savedPreset = localStorage.getItem('nnuikit_theme_preset');
+		const savedHex = localStorage.getItem('nnuikit_theme_hex');
+
+		if (savedPreset && savedPreset !== 'custom') {
+			applyPresetTheme(savedPreset);
+		} else if (savedHex && /^#[0-9a-fA-F]{6}$/.test(savedHex)) {
+			applyBrandPalette(generatePalette(savedHex));
+		}
 	});
 </script>
 
