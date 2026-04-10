@@ -71,6 +71,14 @@
 
 	let sidebarOpen = $state(false);
 
+	// Normalize path — strip trailing slash for comparison
+	// Fixes active state when trailingSlash: 'always' is set
+	function normPath(p: string) {
+		return p.endsWith('/') && p.length > 1 ? p.slice(0, -1) : p;
+	}
+
+	const currentPath = $derived(normPath(page.url.pathname));
+
 	$effect(() => {
 		// Close sidebar on route change
 		page.url.pathname;
@@ -114,7 +122,7 @@
 			<a
 				href="/docs"
 				class="rounded-md px-3 py-1.5 text-sm transition-colors
-					{page.url.pathname === '/docs' || (page.url.pathname.startsWith('/docs/getting-started') && !page.url.pathname.startsWith('/docs/components'))
+					{currentPath === '/docs' || (currentPath.startsWith('/docs/getting-started') && !currentPath.startsWith('/docs/components'))
 						? 'text-text-neutral-primary font-medium'
 						: 'text-text-neutral-tertiary hover:text-text-neutral-primary'}"
 			>
@@ -123,7 +131,7 @@
 			<a
 				href="/docs/components"
 				class="rounded-md px-3 py-1.5 text-sm transition-colors
-					{page.url.pathname.startsWith('/docs/components')
+					{currentPath.startsWith('/docs/components')
 						? 'text-text-neutral-primary font-medium'
 						: 'text-text-neutral-tertiary hover:text-text-neutral-primary'}"
 			>
@@ -195,7 +203,7 @@
 							</h3>
 							<ul class="flex flex-col gap-0.5">
 								{#each section.items as item (item.href)}
-									{@const isActive = page.url.pathname === item.href}
+									{@const isActive = currentPath === item.href}
 									<li>
 										<a
 											href={item.href}
@@ -262,7 +270,7 @@
 							</h3>
 							<ul class="flex flex-col gap-0.5">
 								{#each section.items as item (item.href)}
-									{@const isActive = page.url.pathname === item.href}
+									{@const isActive = currentPath === item.href}
 									<li>
 										<a
 											href={item.href}
