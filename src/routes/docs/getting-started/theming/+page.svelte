@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo.svelte';
-	import { DocsPage, PageHeader, CodeBlock } from '$lib/components/docs';
+	import { DocsPage, PageHeader, CodeBlock, Icon } from '$lib/components/docs';
 	import {
 		generatePalette,
 		applyBrandPalette,
@@ -439,6 +439,163 @@
 
 		</section>
 		<!-- end Theme Builder -->
+
+		<!-- ═══════════════════════════════════════════════════════════════
+		     USING THEMES IN YOUR PROJECT
+		     ═══════════════════════════════════════════════════════════════ -->
+		<section class="flex flex-col gap-32 rounded-2xl border border-border-neutral-l4 bg-surface-neutral-l1 p-16">
+
+			<div>
+				<h2 class="text-xl font-bold tracking-tight">Using Themes in Your Project</h2>
+				<p class="mt-1 text-sm text-text-neutral-tertiary">
+					How to add color themes, dark mode, and custom brand colors to your app.
+				</p>
+			</div>
+
+			<!-- Color Themes -->
+			<div class="flex flex-col gap-8">
+				<h3 class="text-base font-semibold text-text-neutral-primary">1. Switch color themes</h3>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					Add a class to your <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">&lt;html&gt;</code> or <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">&lt;body&gt;</code> element. Every component updates instantly — no code changes needed.
+				</p>
+				<CodeBlock
+					language="html"
+					code={`<!-- Default (green) -->
+<html>
+
+<!-- Switch to blue -->
+<html class="blue">
+
+<!-- Switch to violet -->
+<html class="violet">
+
+<!-- Available themes: blue, violet, pink, cyan, orange -->`}
+				/>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					To switch themes at runtime with a button:
+				</p>
+				<CodeBlock
+					language="svelte"
+					code={`<script>
+  const themes = ['blue', 'violet', 'pink', 'cyan', 'orange'];
+  let current = $state('');
+
+  function setTheme(theme) {
+    // Remove all theme classes
+    themes.forEach(t => document.documentElement.classList.remove(t));
+    // Add the new one
+    if (theme) document.documentElement.classList.add(theme);
+    current = theme;
+  }
+${"</"+"script>"}
+
+<div class="flex gap-2">
+  <button onclick={() => setTheme('')}>Green</button>
+  <button onclick={() => setTheme('blue')}>Blue</button>
+  <button onclick={() => setTheme('violet')}>Violet</button>
+  <button onclick={() => setTheme('pink')}>Pink</button>
+  <button onclick={() => setTheme('cyan')}>Cyan</button>
+  <button onclick={() => setTheme('orange')}>Orange</button>
+</div>`}
+				/>
+			</div>
+
+			<!-- Dark Mode -->
+			<div class="flex flex-col gap-8">
+				<h3 class="text-base font-semibold text-text-neutral-primary">2. Add dark mode</h3>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					Add the <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">dark</code> class to <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">&lt;html&gt;</code>. All semantic tokens remap automatically — surfaces go dark, text goes light.
+				</p>
+				<CodeBlock
+					language="svelte"
+					code={`<script>
+  import { onMount } from 'svelte';
+
+  let isDark = $state(false);
+
+  onMount(() => {
+    // Load saved preference
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') isDark = true;
+    else if (!saved) isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    document.documentElement.classList.toggle('dark', isDark);
+  });
+
+  function toggleDark() {
+    isDark = !isDark;
+    document.documentElement.classList.toggle('dark', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+${"</"+"script>"}
+
+<button onclick={toggleDark}>
+  {isDark ? 'Light Mode' : 'Dark Mode'}
+</button>`}
+				/>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					Or use the built-in <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">ModeSwitch</code> component:
+				</p>
+				<CodeBlock
+					language="svelte"
+					code={`<script>
+  import ModeSwitch from '$lib/components/ui/theme-switch/modeSwitch.svelte';
+  let isDark = $state(false);
+${"</"+"script>"}
+
+<ModeSwitch bind:isDark size="sm" />`}
+				/>
+			</div>
+
+			<!-- Custom Brand Color -->
+			<div class="flex flex-col gap-8">
+				<h3 class="text-base font-semibold text-text-neutral-primary">3. Use a custom brand color</h3>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					Use the Theme Builder above to pick your color, then paste the generated tokens at the bottom of your <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">layout.css</code>. They override the default green palette.
+				</p>
+				<CodeBlock
+					language="css"
+					code={`/* Paste at the bottom of src/routes/layout.css */
+:root {
+  --color-brand-25:  #fdfcfe;
+  --color-brand-50:  #faf5ff;
+  --color-brand-100: #f3e8ff;
+  --color-brand-200: #e9d5ff;
+  --color-brand-300: #d8b4fe;
+  --color-brand-400: #c084fc;
+  --color-brand-500: #a855f7;
+  --color-brand-600: #9333ea;
+  --color-brand-700: #7c3aed;
+  --color-brand-800: #6d28d9;
+  --color-brand-900: #581c87;
+  --color-brand-950: #3b0764;
+}`}
+				/>
+			</div>
+
+			<!-- Composing -->
+			<div class="flex flex-col gap-8">
+				<h3 class="text-base font-semibold text-text-neutral-primary">4. Compose everything</h3>
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					Color themes, dark mode, and custom brand colors all compose. Every component adapts with zero code changes.
+				</p>
+				<div class="flex flex-col gap-2.5">
+					{#each [
+						'class="" → default green, light mode',
+						'class="dark" → default green, dark mode',
+						'class="violet" → violet theme, light mode',
+						'class="violet dark" → violet theme, dark mode',
+						'Custom :root overrides → your brand color, works with dark too'
+					] as item (item)}
+						<div class="flex items-start gap-2.5 text-sm text-text-neutral-secondary">
+							<Icon name="check" class="size-16 shrink-0 mt-0.5 text-text-brand-primary" />
+							{item}
+						</div>
+					{/each}
+				</div>
+			</div>
+
+		</section>
 
 		<!-- Link to Architecture docs -->
 		<a
