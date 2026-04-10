@@ -1,19 +1,12 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-cloudflare';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html',
-			precompress: false,
-			strict: true
-		}),
+		adapter: adapter(),
 		prerender: {
 			entries: ['*'],
 			handleHttpError: ({ path }) => {
-				// Ignore missing OG image and other static assets during prerender
 				if (path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.svg')) {
 					return;
 				}
@@ -21,8 +14,7 @@ const config = {
 		}
 	},
 	vitePlugin: {
-		dynamicCompileOptions: ({ filename }) =>
-			filename.includes('node_modules') ? undefined : { runes: true }
+		dynamicCompileOptions: ({ filename }) => filename.includes('node_modules') ? undefined : { runes: true }
 	}
 };
 
