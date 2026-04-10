@@ -992,7 +992,7 @@
 	--size-input-long-text-padding-all-sides: var(--radius-10);
 	--size-input-long-text-text-padding-left-right: var(--radius-10);
 	--size-input-long-text-icon-size: var(--radius-10);
-	--size-icon-broder-size: var(--border-width-l2);
+	--size-icon-border-size: var(--border-width-l2);
 	--size-icon-size-sm: var(--spacing-16);
 	--size-icon-size-md: var(--spacing-20);
 	--size-icon-size-lg: var(--spacing-24);
@@ -1325,7 +1325,7 @@
 		--size-input-long-text-padding-all-sides: var(--radius-10);
 		--size-input-long-text-text-padding-left-right: var(--radius-10);
 		--size-input-long-text-icon-size: var(--radius-10);
-		--size-icon-broder-size: var(--border-width-l2);
+		--size-icon-border-size: var(--border-width-l2);
 		--size-icon-size-sm: var(--spacing-16);
 		--size-icon-size-md: var(--spacing-20);
 		--size-icon-size-lg: var(--spacing-24);
@@ -1659,7 +1659,7 @@
 		--size-input-long-text-padding-all-sides: var(--spacing-10);
 		--size-input-long-text-text-padding-left-right: var(--spacing-4);
 		--size-input-long-text-icon-size: var(--spacing-16);
-		--size-icon-broder-size: var(--border-width-l1);
+		--size-icon-border-size: var(--border-width-l1);
 		--size-icon-size-sm: var(--spacing-16);
 		--size-icon-size-md: var(--spacing-20);
 		--size-icon-size-lg: var(--spacing-24);
@@ -3429,7 +3429,7 @@
 		--size-input-long-text-text-padding-left-right
 	);
 	--spacing-input-long-text-icon-size: var(--size-input-long-text-icon-size);
-	--spacing-icon-broder-size: var(--size-icon-broder-size);
+	--spacing-icon-border-size: var(--size-icon-border-size);
 	--spacing-icon-size-sm: var(--size-icon-size-sm);
 	--spacing-icon-size-md: var(--size-icon-size-md);
 	--spacing-icon-size-lg: var(--size-icon-size-lg);

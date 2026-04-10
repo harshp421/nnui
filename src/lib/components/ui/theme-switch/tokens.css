@@ -1,42 +1,25 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   SWITCH — Design Tokens
+   MODE SWITCH — Design Tokens
    ═══════════════════════════════════════════════════════════════════════
-   These tokens power the Switch and Mode Switch components.
-   This file is automatically added when you run: npx nnuikit add switch
+   These tokens power the Mode Switch (dark/light toggle) component.
+   This file is automatically added when you run: npx nnuikit add theme-switch
 
    Dependencies: Requires global base palette + semantic tokens from layout.css
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-	/* ── Switch colors ─────────────────────────────────────────────── */
-	--color-toggles-switch-off-default: var(--color-surface-neutral-l5);
-	--color-toggles-switch-off-hover: var(--color-surface-neutral-quaternary);
-	--color-toggles-switch-off-disabled: var(--color-surface-neutral-l4);
-	--color-toggles-switch-handle-default: var(--color-surface-statics-pure-white);
-	--color-toggles-switch-handle-disabled: var(--color-surface-statics-pure-white);
-	--color-toggles-switch-on-default: var(--color-surface-brand-primary);
-	--color-toggles-switch-on-hover: var(--color-surface-brand-secondary);
-	--color-toggles-switch-on-disabled: var(--color-surface-brand-tertiary);
-
-	/* ── Mode switch (dark/light toggle) colors ───────────────────── */
+	/* ── Colors ────────────────────────────────────────────────────── */
 	--color-toggles-dark-night-border: var(--color-border-neutral-l3);
 	--color-toggles-dark-night-active-surface: var(--color-surface-brand-primary);
 	--color-toggles-dark-night-icon-inactive: var(--color-icon-neutral-secondary);
 	--color-toggles-dark-night-icon-active: var(--color-icon-statics-pure-white);
 
-	/* ── Switch sizes (basic toggle) ──────────────────────────────── */
-	--size-toggle-basic-handle: var(--spacing-12);
-	--size-toggle-basic-height: var(--spacing-16);
-	--size-toggle-basic-width: var(--spacing-32);
-	--size-toggle-basic-padding-all-sides: var(--spacing-2);
-	--size-toggle-basic-radius: var(--radius-full);
-
-	/* ── Mode switch sizes (season switcher) ──────────────────────── */
+	/* ── Shared sizes ─────────────────────────────────────────────── */
 	--size-toggle-season-switcher-border: var(--border-width-l1);
 	--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
 	--size-toggle-season-switcher-selector: var(--spacing-24);
 
-	/* Large */
+	/* ── Large ─────────────────────────────────────────────────────── */
 	--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
 	--size-toggle-season-switcher-large-height: var(--spacing-40);
 	--size-toggle-season-switcher-large-width: var(--spacing-72);
@@ -44,7 +27,7 @@
 	--size-toggle-season-switcher-large-gap: var(--spacing-8);
 	--size-toggle-season-switcher-large-padding: var(--spacing-8);
 
-	/* Medium */
+	/* ── Medium ────────────────────────────────────────────────────── */
 	--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
 	--size-toggle-season-switcher-medium-height: var(--spacing-32);
 	--size-toggle-season-switcher-medium-width: var(--spacing-64);
@@ -52,7 +35,7 @@
 	--size-toggle-season-switcher-medium-gap: var(--spacing-8);
 	--size-toggle-season-switcher-medium-padding: var(--spacing-4);
 
-	/* Small */
+	/* ── Small ─────────────────────────────────────────────────────── */
 	--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
 	--size-toggle-season-switcher-small-height: var(--spacing-28);
 	--size-toggle-season-switcher-small-width: var(--spacing-56);
@@ -63,27 +46,12 @@
 
 @theme {
 	/* Color registrations */
-	--color-toggles-switch-off-default: var(--color-toggles-switch-off-default);
-	--color-toggles-switch-off-hover: var(--color-toggles-switch-off-hover);
-	--color-toggles-switch-off-disabled: var(--color-toggles-switch-off-disabled);
-	--color-toggles-switch-handle-default: var(--color-toggles-switch-handle-default);
-	--color-toggles-switch-handle-disabled: var(--color-toggles-switch-handle-disabled);
-	--color-toggles-switch-on-default: var(--color-toggles-switch-on-default);
-	--color-toggles-switch-on-hover: var(--color-toggles-switch-on-hover);
-	--color-toggles-switch-on-disabled: var(--color-toggles-switch-on-disabled);
 	--color-toggles-dark-night-border: var(--color-toggles-dark-night-border);
 	--color-toggles-dark-night-active-surface: var(--color-toggles-dark-night-active-surface);
 	--color-toggles-dark-night-icon-inactive: var(--color-toggles-dark-night-icon-inactive);
 	--color-toggles-dark-night-icon-active: var(--color-toggles-dark-night-icon-active);
 
-	/* Size registrations — basic toggle */
-	--spacing-toggle-basic-handle: var(--size-toggle-basic-handle);
-	--spacing-toggle-basic-height: var(--size-toggle-basic-height);
-	--spacing-toggle-basic-width: var(--size-toggle-basic-width);
-	--spacing-toggle-basic-padding-all-sides: var(--size-toggle-basic-padding-all-sides);
-	--radius-toggle-basic-radius: var(--size-toggle-basic-radius);
-
-	/* Size registrations — season switcher */
+	/* Size registrations */
 	--spacing-toggle-season-switcher-border: var(--size-toggle-season-switcher-border);
 	--spacing-toggle-season-switcher-icon-wrapper-size: var(--size-toggle-season-switcher-icon-wrapper-size);
 	--spacing-toggle-season-switcher-selector: var(--size-toggle-season-switcher-selector);

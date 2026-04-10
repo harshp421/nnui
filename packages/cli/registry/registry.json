@@ -860,6 +860,39 @@
       ],
       "cssImport": "$lib/components/ui/tooltip/tokens.css",
       "docs": "/docs/components/tooltip"
+    },
+    "theme-switch": {
+      "name": "theme-switch",
+      "description": "Light/dark mode toggle with system preference detection and localStorage persistence",
+      "files": [
+        {
+          "path": "ui/theme-switch/modeSwitch.svelte",
+          "source": "src/lib/components/ui/theme-switch/modeSwitch.svelte"
+        },
+        {
+          "path": "ui/theme-switch/icon-moon.svelte",
+          "source": "src/lib/components/ui/theme-switch/icon-moon.svelte"
+        },
+        {
+          "path": "ui/theme-switch/icon-sun.svelte",
+          "source": "src/lib/components/ui/theme-switch/icon-sun.svelte"
+        },
+        {
+          "path": "ui/theme-switch/index.ts",
+          "source": "src/lib/components/ui/theme-switch/index.ts"
+        },
+        {
+          "path": "ui/theme-switch/tokens.css",
+          "source": "src/lib/components/ui/theme-switch/tokens.css",
+          "type": "tokens"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "docs": "/docs/components/mode-switch",
+      "cssImport": "$lib/components/ui/theme-switch/tokens.css"
     }
   },
   "utils": {

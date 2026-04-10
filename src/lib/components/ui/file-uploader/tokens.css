@@ -37,13 +37,8 @@
 	--color-darg-drop-attachment-error-text-file-title: var(--color-text-neutral-primary);
 	--color-darg-drop-attachment-error-text-flie-size: var(--color-text-neutral-tertiary);
 	--color-darg-drop-attachment-error-text-progress: var(--color-text-destructive-primary);
-	--size-input-drag-drop-attachment-height: 0;
-	--size-input-drag-drop-attachment-gap: 0;
-	--size-input-drag-drop-attachment-padding-all-sides: 0;
-	--size-input-drag-drop-attachment-text-vertical-gap: 0;
-	--size-input-drag-drop-attachment-actions-gap: 0;
-	--size-input-drag-drop-attachment-radius: 0;
-	--size-input-drag-drop-box-icon-indicator-size: String value;
+	
+
 	--size-input-drag-drop-box-radius: var(--radius-10);
 	--size-input-drag-drop-box-gap: var(--radius-10);
 	--size-input-drag-drop-box-text-gap: var(--radius-10);
@@ -53,13 +48,7 @@
 /* Tablet */
 @media (min-width: 1024px) {
 	:root {
-		--size-input-drag-drop-attachment-height: 0;
-		--size-input-drag-drop-attachment-gap: 0;
-		--size-input-drag-drop-attachment-padding-all-sides: 0;
-		--size-input-drag-drop-attachment-text-vertical-gap: 0;
-		--size-input-drag-drop-attachment-actions-gap: 0;
-		--size-input-drag-drop-attachment-radius: 0;
-		--size-input-drag-drop-box-icon-indicator-size: md;
+		
 		--size-input-drag-drop-box-radius: var(--radius-10);
 		--size-input-drag-drop-box-gap: var(--spacing-18);
 		--size-input-drag-drop-box-text-gap: var(--spacing-6);
@@ -70,13 +59,7 @@
 /* Desktop */
 @media (min-width: 1440px) {
 	:root {
-		--size-input-drag-drop-attachment-height: var(--spacing-56);
-		--size-input-drag-drop-attachment-gap: var(--spacing-12);
-		--size-input-drag-drop-attachment-padding-all-sides: var(--spacing-12);
-		--size-input-drag-drop-attachment-text-vertical-gap: var(--spacing-4);
-		--size-input-drag-drop-attachment-actions-gap: var(--spacing-6);
-		--size-input-drag-drop-attachment-radius: var(--spacing-8);
-		--size-input-drag-drop-box-icon-indicator-size: md;
+		
 		--size-input-drag-drop-box-radius: var(--radius-8);
 		--size-input-drag-drop-box-gap: var(--spacing-16);
 		--size-input-drag-drop-box-text-gap: var(--spacing-6);

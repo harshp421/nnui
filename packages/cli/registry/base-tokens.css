@@ -36,29 +36,6 @@
 
 /* ── 3-5. Base Palette + Semantic Tokens + Glass UI (Layer 1 & 2) ──── */
 :root {
-
-	--color-glass-blur-surface: var(--color-alpha-pure-white-700);
-	--color-glass-blur-border: var(--color-alpha-pure-white-800);
-	--color-glass-blanket: var(--color-alpha-viceversa-black-50);
-	--color-glass-text-primary: var(--color-alpha-viceversa-black-500);
-	--color-glass-text-secondary: var(--color-alpha-viceversa-black-600);
-	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-400);
-	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
-	--color-glass-surface-default: var(--color-alpha-viceversa-white-500);
-	--color-glass-surface-hover: var(--color-alpha-viceversa-white-500);
-	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
-	--color-glass-surface-disabled: var(--color-alpha-viceversa-white-200);
-	--color-glass-icon-default: var(--color-alpha-viceversa-black-500);
-	--color-glass-icon-hover: var(--color-alpha-viceversa-black-600);
-	--color-glass-icon-active: var(--color-alpha-viceversa-white-950);
-	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-200);
-	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
-	--color-glass-border-l1: var(--color-alpha-viceversa-white-400);
-	--color-glass-border-l2: var(--color-alpha-viceversa-white-500);
-	--color-glass-border-l3: var(--color-alpha-viceversa-white-600);
-	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
-	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
-
 	--color-base-pure-white: #ffffff;
 	--color-base-pure-black: #000000;
 	--color-base-vv-white: #ffffff;
@@ -487,70 +464,36 @@
 	--color-border-statics-vv-black: var(--color-base-vv-black);
 	--color-border-statics-vv-white: var(--color-base-vv-white);
 	
+
+	--color-glass-blur-surface: var(--color-alpha-pure-white-700);
+	--color-glass-blur-border: var(--color-alpha-pure-white-800);
+	--color-glass-blanket: var(--color-alpha-viceversa-black-50);
+	--color-glass-text-primary: var(--color-alpha-viceversa-black-500);
+	--color-glass-text-secondary: var(--color-alpha-viceversa-black-600);
+	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-400);
+	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
+	--color-glass-surface-default: var(--color-alpha-viceversa-white-500);
+	--color-glass-surface-hover: var(--color-alpha-viceversa-white-500);
+	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
+	--color-glass-surface-disabled: var(--color-alpha-viceversa-white-200);
+	--color-glass-icon-default: var(--color-alpha-viceversa-black-500);
+	--color-glass-icon-hover: var(--color-alpha-viceversa-black-600);
+	--color-glass-icon-active: var(--color-alpha-viceversa-white-950);
+	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-200);
+	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
+	--color-glass-border-l1: var(--color-alpha-viceversa-white-400);
+	--color-glass-border-l2: var(--color-alpha-viceversa-white-500);
+	--color-glass-border-l3: var(--color-alpha-viceversa-white-600);
+	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
+	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
+
 	
 	--color-input-optional: var(--color-text-neutral-tertiary);
 	--color-input-mantatory: var(--color-text-destructive-primary);
 	--color-input-support-icon: var(--color-icon-neutral-tertiary);
-	--color-status-battery---100-: var(--color-icon-success-secondary);
-	--color-status-battery---75-: var(--color-icon-info-secondary);
-	--color-status-battery---50-: var(--color-icon-warning-secondary);
-	--color-status-battery---25-: var(--color-icon-destructive-secondary);
-	--color-status-battery-charging: var(--color-icon-neutral-primary);
-	--color-status-complain-resolved: var(--color-icon-success-secondary);
-	--color-status-complain-active: var(--color-icon-warning-secondary);
-	--color-status-complain-on-going: var(--color-icon-info-secondary);
-	--color-status-complain-border: var(--color-border-alpha-vv-black-l2);
-	--color-status-priority-high: var(--color-surface-destructive-secondary);
-	--color-status-priority-medium: var(--color-surface-warning-secondary);
-	--color-status-priority-low: var(--color-surface-info-seconadry);
-	--color-status-device-online: var(--color-icon-success-secondary);
-	--color-status-device-offline: var(--color-icon-destructive-secondary);
-	--color-status-report-active: var(--color-icon-success-secondary);
-	--color-status-report-inactive: var(--color-icon-destructive-secondary);
-	--color-file-extensions-folder: var(--color-purple-700);
-	--color-file-extensions-document: var(--color-red-800);
-	--color-file-extensions-image: var(--color-cyan-700);
-	--color-file-extensions-video: var(--color-cyan-700);
-	--color-file-extensions-music: var(--color-blue-700);
-	--color-file-extensions-mp3: var(--color-pink-700);
-	--color-file-extensions-code: var(--color-violet-700);
-	--color-file-extensions-sheets: var(--color-green-base-700);
-	--color-file-extensions-icon: var(--color-icon-statics-pure-white);
-	--color-file-extensions-fold: var(--color-surface-alpha-pure-white-l4);
-	--color-toggles-switch-off-default: var(--color-surface-neutral-l5);
-	--color-toggles-switch-off-hover: var(--color-surface-neutral-quaternary);
-	--color-toggles-switch-off-disabled: var(--color-surface-neutral-l4);
-	--color-toggles-switch-handle-default: var(--color-surface-statics-pure-white);
-	--color-toggles-switch-handle-disabled: var(--color-surface-statics-pure-white);
-	--color-toggles-switch-on-default: var(--color-surface-brand-primary);
-	--color-toggles-switch-on-hover: var(--color-surface-brand-secondary);
-	--color-toggles-switch-on-disabled: var(--color-surface-brand-tertiary);
-	--color-toggles-dark-night-border: var(--color-border-neutral-l3);
-	--color-toggles-dark-night-active-surface: var(--color-surface-brand-primary);
-	--color-toggles-dark-night-icon-inactive: var(--color-icon-neutral-secondary);
-	--color-toggles-dark-night-icon-active: var(--color-icon-statics-pure-white);
-		
 	--color-divider: var(--color-border-neutral-l2);
 	--color-blanket: var(--color-surface-alpha-vv-black-l2);
-	--color-banner-brand-surface: var(--color-surface-brand-l2);
-	--color-banner-brand-text: var(--color-text-brand-primary);
-	--color-banner-brand-icon: var(--color-icon-brand-primary);
-	--color-banner-neutral-surface: var(--color-surface-neutral-l3);
-	--color-banner-neutral-text: var(--color-text-neutral-secondary);
-	--color-banner-neutral-icon: var(--color-icon-neutral-secondary);
-	--color-banner-destructive-surface: var(--color-surface-destructive-l2);
-	--color-banner-destructive-text: var(--color-text-destructive-primary);
-	--color-banner-destructive-icon: var(--color-icon-destructive-primary);
-	--color-banner-warning-surface: var(--color-surface-warning-l2);
-	--color-banner-warning-text: var(--color-text-warning-primary);
-	--color-banner-warning-icon: var(--color-icon-warning-primary);
-	--color-banner-success-surface: var(--color-surface-success-l2);
-	--color-banner-success-text: var(--color-text-success-primary);
-	--color-banner-success-icon: var(--color-icon-success-primary);
-	--color-banner-info-surface: var(--color-surface-info-l2);
-	--color-banner-info-text: var(--color-text-info-primary);
-	--color-banner-info-icon: var(--color-icon-info-primary);
-
+	
 
 	--spacing-0: var(--spacing-0);
 	--spacing-1: var(--spacing-1);
@@ -626,52 +569,12 @@
 	--size-border-width-l2: 1px;
 	--size-border-width-l3: 1.25px;
 	--size-border-width-l4: 1.25px;
-	--size-brand-icon-l1: 0;
-	--size-brand-icon-l2: 0;
-	--size-brand-icon-l3: 0;
-	--size-brand-icon-l4: 0;
-	--size-brand-icon-l5: 0;
-	--size-brand-icon-l6: 0;
-	--size-file-extensions-size: var(--spacing-32);
-	--size-file-extensions-icon-size: var(--spacing-16);
-	--size-file-extensions-icon-border: var(--border-width-l4);
-	--size-icon-broder-size: var(--border-width-l2);
+	--size-icon-border-size: var(--border-width-l2);
 	--size-icon-size-sm: var(--spacing-16);
 	--size-icon-size-md: var(--spacing-20);
 	--size-icon-size-lg: var(--spacing-24);
-	--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
-	--size-toggle-season-switcher-large-height: var(--spacing-40);
-	--size-toggle-season-switcher-large-width: var(--spacing-72);
-	--size-toggle-season-switcher-large-radius: var(--radius-full);
-	--size-toggle-season-switcher-large-gap: var(--spacing-8);
-	--size-toggle-season-switcher-large-padding: var(--spacing-8);
-	--size-toggle-season-switcher-border: var(--border-width-l1);
-	--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
-	--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
-	--size-toggle-season-switcher-medium-height: var(--spacing-32);
-	--size-toggle-season-switcher-medium-width: var(--spacing-64);
-	--size-toggle-season-switcher-medium-radius: var(--radius-full);
-	--size-toggle-season-switcher-medium-gap: var(--spacing-8);
-	--size-toggle-season-switcher-medium-padding: var(--spacing-4);
-	--size-toggle-season-switcher-selector: var(--spacing-24);
-	--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
-	--size-toggle-season-switcher-small-height: var(--spacing-28);
-	--size-toggle-season-switcher-small-width: var(--spacing-56);
-	--size-toggle-season-switcher-small-radius: var(--radius-full);
-	--size-toggle-season-switcher-small-gap: var(--spacing-4);
-	--size-toggle-season-switcher-small-padding: var(--spacing-2);
-	--size-banner-height: 0;
-	--size-banner-icon-size: 0;
-	--size-banner-padding-all-sides: 0;
-	--size-banner-gap: 0;
-	--size-list-card-height: var(--spacing-56);
-	--size-list-card-padding-left-right: var(--spacing-10);
-	--size-list-card-padding-top-bottom: var(--spacing-8);
-	--size-list-card-gap: var(--spacing-2);
-	--size-list-card-text-gap: var(--spacing-4);
-	--size-list-card-sub-text-gap: var(--spacing-6);
-	--size-list-card-text-padding-left-right: var(--spacing-8);
-}
+	
+	}
 
 /* ── 6. Responsive Overrides ─────────────────────────────────────────── */
 
@@ -683,108 +586,21 @@
 		--size-border-width-l2: 1.25px;
 		--size-border-width-l3: 1.5px;
 		--size-border-width-l4: 2px;
-		--size-brand-icon-l1: 0;
-		--size-brand-icon-l2: 0;
-		--size-brand-icon-l3: 0;
-		--size-brand-icon-l4: 0;
-		--size-brand-icon-l5: 0;
-		--size-brand-icon-l6: 0;
-		--size-file-extensions-size: var(--spacing-32);
-		--size-file-extensions-icon-size: var(--spacing-16);
-		--size-file-extensions-icon-border: var(--border-width-l4);
-		--size-icon-broder-size: var(--border-width-l2);
+		--size-icon-border-size: var(--border-width-l2);
 		--size-icon-size-sm: var(--spacing-16);
 		--size-icon-size-md: var(--spacing-20);
 		--size-icon-size-lg: var(--spacing-24);
-		--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
-		--size-toggle-season-switcher-large-height: var(--spacing-40);
-		--size-toggle-season-switcher-large-width: var(--spacing-72);
-		--size-toggle-season-switcher-large-radius: var(--radius-full);
-		--size-toggle-season-switcher-large-gap: var(--spacing-8);
-		--size-toggle-season-switcher-large-padding: var(--spacing-8);
-		--size-toggle-season-switcher-border: var(--border-width-l1);
-		--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
-		--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
-		--size-toggle-season-switcher-medium-height: var(--spacing-32);
-		--size-toggle-season-switcher-medium-width: var(--spacing-64);
-		--size-toggle-season-switcher-medium-radius: var(--radius-full);
-		--size-toggle-season-switcher-medium-gap: var(--spacing-8);
-		--size-toggle-season-switcher-medium-padding: var(--spacing-4);
-		--size-toggle-season-switcher-selector: var(--spacing-24);
-		--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
-		--size-toggle-season-switcher-small-height: var(--spacing-28);
-		--size-toggle-season-switcher-small-width: var(--spacing-56);
-		--size-toggle-season-switcher-small-radius: var(--radius-full);
-		--size-toggle-season-switcher-small-gap: var(--spacing-4);
-		--size-toggle-season-switcher-small-padding: var(--spacing-2);
-		--size-banner-height: 0;
-		--size-banner-icon-size: 0;
-		--size-banner-padding-all-sides: 0;
-		--size-banner-gap: 0;
-		--size-list-card-height: var(--spacing-56);
-		--size-list-card-padding-left-right: var(--spacing-10);
-		--size-list-card-padding-top-bottom: var(--spacing-8);
-		--size-list-card-gap: var(--spacing-2);
-		--size-list-card-text-gap: var(--spacing-4);
-		--size-list-card-sub-text-gap: var(--spacing-6);
-		--size-list-card-text-padding-left-right: var(--spacing-8);
 	}
 }
 
 /* Desktop (1440px) */
 @media (min-width: 1440px) {
 	:root {
-		
 		--size-border-width-l1: 1px;
 		--size-border-width-l2: 1.25px;
 		--size-border-width-l3: 1.5px;
 		--size-border-width-l4: 2px;
-		--size-brand-icon-l1: var(--spacing-24);
-		--size-brand-icon-l2: var(--spacing-32);
-		--size-brand-icon-l3: var(--spacing-40);
-		--size-brand-icon-l4: var(--spacing-48);
-		--size-brand-icon-l5: var(--spacing-64);
-		--size-brand-icon-l6: var(--spacing-72);
-		--size-file-extensions-size: var(--spacing-32);
-		--size-file-extensions-icon-size: var(--spacing-16);
-		--size-file-extensions-icon-border: var(--border-width-l4);
-		--size-icon-broder-size: var(--border-width-l1);
-		--size-icon-size-sm: var(--spacing-16);
-		--size-icon-size-md: var(--spacing-20);
-		--size-icon-size-lg: var(--spacing-24);
-		--size-toggle-season-switcher-large-icon-size: var(--spacing-16);
-		--size-toggle-season-switcher-large-height: var(--spacing-40);
-		--size-toggle-season-switcher-large-width: var(--spacing-72);
-		--size-toggle-season-switcher-large-radius: var(--radius-full);
-		--size-toggle-season-switcher-large-gap: var(--spacing-8);
-		--size-toggle-season-switcher-large-padding: var(--spacing-8);
-		--size-toggle-season-switcher-border: var(--border-width-l1);
-		--size-toggle-season-switcher-icon-wrapper-size: var(--spacing-24);
-		--size-toggle-season-switcher-medium-icon-size: var(--spacing-16);
-		--size-toggle-season-switcher-medium-height: var(--spacing-32);
-		--size-toggle-season-switcher-medium-width: var(--spacing-64);
-		--size-toggle-season-switcher-medium-radius: var(--radius-full);
-		--size-toggle-season-switcher-medium-gap: var(--spacing-8);
-		--size-toggle-season-switcher-medium-padding: var(--spacing-4);
-		--size-toggle-season-switcher-selector: var(--spacing-24);
-		--size-toggle-season-switcher-small-icon-size: var(--spacing-16);
-		--size-toggle-season-switcher-small-height: var(--spacing-28);
-		--size-toggle-season-switcher-small-width: var(--spacing-56);
-		--size-toggle-season-switcher-small-radius: var(--radius-full);
-		--size-toggle-season-switcher-small-gap: var(--spacing-4);
-		--size-toggle-season-switcher-small-padding: var(--spacing-2);
-		--size-banner-height: var(--spacing-32);
-		--size-banner-icon-size: var(--spacing-16);
-		--size-banner-padding-all-sides: var(--spacing-8);
-		--size-banner-gap: var(--spacing-8);
-		--size-list-card-height: var(--spacing-56);
-		--size-list-card-padding-left-right: var(--spacing-10);
-		--size-list-card-padding-top-bottom: var(--spacing-8);
-		--size-list-card-gap: var(--spacing-2);
-		--size-list-card-text-gap: var(--spacing-4);
-		--size-list-card-sub-text-gap: var(--spacing-6);
-		--size-list-card-text-padding-left-right: var(--spacing-8);
-	}
+			}
 }
 
 /* ── 7. Dark Mode ────────────────────────────────────────────────────── */
@@ -1090,33 +906,7 @@
 @theme {
 	--breakpoint-sm: 375px;
 	--breakpoint-md: 1024px;
-	--breakpoint-lg: 1440px;
-	
-
-	
-	--color-glass-blur-surface: var(--color-glass-blur-surface);
-	--color-glass-blur-border: var(--color-glass-blur-border);
-	--color-glass-blanket: var(--color-glass-blanket);
-	--color-glass-text-primary: var(--color-glass-text-primary);
-	--color-glass-text-secondary: var(--color-glass-text-secondary);
-	--color-glass-text-tertiary: var(--color-glass-text-tertiary);
-	--color-glass-surface-brand-active: var(--color-glass-surface-brand-active);
-	--color-glass-surface-default: var(--color-glass-surface-default);
-	--color-glass-surface-hover: var(--color-glass-surface-hover);
-	--color-glass-surface-active: var(--color-glass-surface-active);
-	--color-glass-surface-disabled: var(--color-glass-surface-disabled);
-	--color-glass-icon-default: var(--color-glass-icon-default);
-	--color-glass-icon-hover: var(--color-glass-icon-hover);
-	--color-glass-icon-active: var(--color-glass-icon-active);
-	--color-glass-icon-disabled: var(--color-glass-icon-disabled);
-	--color-glass-icon-icon-action-ative: var(--color-glass-icon-icon-action-ative);
-	--color-glass-border-l1: var(--color-glass-border-l1);
-	--color-glass-border-l2: var(--color-glass-border-l2);
-	--color-glass-border-l3: var(--color-glass-border-l3);
-	--color-glass-border-l4: var(--color-glass-border-l4);
-	--color-glass-border-l5: var(--color-glass-border-l5);
-
-
+	--breakpoint-lg: 1440px;	
 	
 	--color-base-pure-white: var(--color-base-pure-white);
 	--color-base-pure-black: var(--color-base-pure-black);
@@ -1558,14 +1348,33 @@
 	--spacing-brand-icon-l4: var(--size-brand-icon-l4);
 	--spacing-brand-icon-l5: var(--size-brand-icon-l5);
 	--spacing-brand-icon-l6: var(--size-brand-icon-l6);
-	--spacing-file-extensions-size: var(--size-file-extensions-size);
-	--spacing-file-extensions-icon-size: var(--size-file-extensions-icon-size);
-	--spacing-file-extensions-icon-border: var(--size-file-extensions-icon-border);
-	--spacing-icon-broder-size: var(--size-icon-broder-size);
+	
+	--spacing-icon-border-size: var(--size-icon-border-size);
 	--spacing-icon-size-sm: var(--size-icon-size-sm);
 	--spacing-icon-size-md: var(--size-icon-size-md);
 	--spacing-icon-size-lg: var(--size-icon-size-lg);	
 
+	--color-glass-blur-surface: var(--color-glass-blur-surface);
+	--color-glass-blur-border: var(--color-glass-blur-border);
+	--color-glass-blanket: var(--color-glass-blanket);
+	--color-glass-text-primary: var(--color-glass-text-primary);
+	--color-glass-text-secondary: var(--color-glass-text-secondary);
+	--color-glass-text-tertiary: var(--color-glass-text-tertiary);
+	--color-glass-surface-brand-active: var(--color-glass-surface-brand-active);
+	--color-glass-surface-default: var(--color-glass-surface-default);
+	--color-glass-surface-hover: var(--color-glass-surface-hover);
+	--color-glass-surface-active: var(--color-glass-surface-active);
+	--color-glass-surface-disabled: var(--color-glass-surface-disabled);
+	--color-glass-icon-default: var(--color-glass-icon-default);
+	--color-glass-icon-hover: var(--color-glass-icon-hover);
+	--color-glass-icon-active: var(--color-glass-icon-active);
+	--color-glass-icon-disabled: var(--color-glass-icon-disabled);
+	--color-glass-icon-icon-action-ative: var(--color-glass-icon-icon-action-ative);
+	--color-glass-border-l1: var(--color-glass-border-l1);
+	--color-glass-border-l2: var(--color-glass-border-l2);
+	--color-glass-border-l3: var(--color-glass-border-l3);
+	--color-glass-border-l4: var(--color-glass-border-l4);
+	--color-glass-border-l5: var(--color-glass-border-l5);
 
 	--spacing-0: var(--spacing-0);
 	--spacing-1: var(--spacing-1);
@@ -1620,7 +1429,7 @@
 
 	/*jumper keys */
 
-	 --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+	--shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -1675,9 +1484,6 @@
 
 }
 
-
-/* ── 11. Utilities ───────────────────────────────────────────────────── */
-
 .blanker {
 	background-color: var(--color-blanket);
 	box-shadow: 2px 2px 12px 0 var(--color-alpha-pure-black-100, rgba(0, 0, 0, 0.15));
@@ -1685,7 +1491,7 @@
 }
 
 @layer base {
-	body {
-		@apply bg-base-vv-white text-base-vv-black;
-	}
+    body {
+        @apply bg-base-vv-white text-base-vv-black;
+    }
 }

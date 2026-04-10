@@ -26,7 +26,9 @@
     return `<ModeSwitch${sizeAttr}${isDarkAttr} />`;
   }
 
-  const installationCode = `import ModeSwitch from "$lib/components/shared/theme-switch/modeSwitch.svelte";`;
+  const installationCode = `npx nnuikit add theme-switch
+
+import { ModeSwitch } from "$lib/components/ui/theme-switch";`;
 
   const modeSwitchProps = [
     {
