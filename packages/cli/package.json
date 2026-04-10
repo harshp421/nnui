@@ -1,6 +1,6 @@
 {
   "name": "nnuikit",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "CLI for adding nnuikit components to your Svelte project",
   "type": "module",
   "license": "MIT",
