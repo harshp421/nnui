@@ -12,7 +12,7 @@
 	const SITE_NAME = 'nnuikit';
 	const SITE_URL = 'https://nnuikit.com';
 	const DEFAULT_DESCRIPTION = 'A design-token-driven Svelte 5 component library with 22 accessible components, 3-layer token architecture, and CLI. Copy components into your project with npx nnuikit add.';
-	const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+	const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 	let {
 		title,

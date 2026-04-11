@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- 3-layer stack -->
+  <rect x="2" y="6" width="16" height="16" rx="3" fill="#30a46c" opacity="0.2"/>
+  <rect x="4" y="3.5" width="16" height="16" rx="3" fill="#30a46c" opacity="0.4"/>
+  <rect x="6" y="1" width="16" height="16" rx="3" fill="#30a46c"/>
+  <!-- nn -->
+  <path d="M10.5 12V8C10.5 7.17 11.17 6.5 12 6.5S13.5 7.17 13.5 8V12" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13.5 12V8C13.5 7.17 14.17 6.5 15 6.5S16.5 7.17 16.5 8V12" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

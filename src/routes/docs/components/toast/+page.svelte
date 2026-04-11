@@ -236,19 +236,17 @@ import { Toaster, toast } from "$lib/components/ui/toast";`;
     <ComponentPreview code={quickStartCode}>
       {#snippet preview()}
         <div
-          class="w-full max-w-sm mx-auto p-4 border rounded-xl bg-card shadow-sm"
+          class="w-full max-w-sm flex items-center justify-center mx-auto p-4 rounded-xl"
         >
-          <div class="space-y-4">
-            <p class="text-sm text-muted-foreground">
-              Click the button to trigger a toast notification.
-            </p>
+       
+            
             <Button
               onclick={() =>
                 toast.success("Your changes have been saved successfully!")}
             >
               Show Toast
             </Button>
-          </div>
+          
         </div>
       {/snippet}
     </ComponentPreview>
