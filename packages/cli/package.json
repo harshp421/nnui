@@ -1,6 +1,6 @@
 {
   "name": "nnuikit",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "CLI for adding nnuikit components to your Svelte project",
   "type": "module",
   "license": "MIT",
@@ -29,5 +29,11 @@
     "chalk": "^5.4.0",
     "ora": "^8.1.0",
     "fs-extra": "^11.2.0"
-  }
+  },
+  "homepage": "https://nnuikit.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harshp421/nnui.git"
+  },
+  "author": "Harsh Parmar"
 }

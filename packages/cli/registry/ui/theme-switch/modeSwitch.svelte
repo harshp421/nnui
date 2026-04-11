@@ -3,7 +3,6 @@
 	import IconMoon from './icon-moon.svelte';
 	import IconSun from './icon-sun.svelte';
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	type ModeSwitchProps = Omit<WithElementRef<HTMLInputAttributes>, 'size'> & {
@@ -52,21 +51,15 @@
 
 	let mounted = $state(false);
 
+	// Sync toggle position with saved theme (app.html already applied the class)
 	onMount(() => {
-		const saved = localStorage.getItem('theme');
-		if (saved === 'dark') {
-			isDark = true;
-		} else if (saved === 'light') {
-			isDark = false;
-		} else {
-			isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		}
-		document.documentElement.classList.toggle('dark', isDark);
+		isDark = document.documentElement.classList.contains('dark');
 		mounted = true;
 	});
 
+	// On user toggle — update DOM + save
 	$effect(() => {
-		if (!mounted || !browser) return;
+		if (!mounted) return;
 		document.documentElement.classList.toggle('dark', isDark);
 		localStorage.setItem('theme', isDark ? 'dark' : 'light');
 	});

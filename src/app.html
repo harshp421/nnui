@@ -4,6 +4,52 @@
 		<meta charset="utf-8" />
 		<meta name="google-site-verification" content="TS8fZi3P1nFnqMoKu-ok2eC_ro74q3Mh8xnMmiKhCWU" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			// Prevent flash of wrong theme — runs before first paint
+			(function() {
+				var d = document.documentElement;
+
+				// Dark mode
+				var theme = localStorage.getItem('theme');
+				if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+					d.classList.add('dark');
+				}
+
+				// Color theme preset (blue, violet, etc.)
+				var preset = localStorage.getItem('nnuikit_theme_preset');
+				if (preset && preset !== 'custom') {
+					d.classList.add(preset);
+				}
+
+				// Custom hex — restore brand palette variables
+				if (preset === 'custom') {
+					var hex = localStorage.getItem('nnuikit_theme_hex');
+					if (hex && /^#[0-9a-fA-F]{6}$/.test(hex)) {
+						// Lightweight tint/shade generator — same math as theme-utils.ts
+						function hexToRgb(h) {
+							var r = parseInt(h.slice(1,3),16), g = parseInt(h.slice(3,5),16), b = parseInt(h.slice(5,7),16);
+							return [r,g,b];
+						}
+						function rgbToHex(r,g,b) {
+							return '#' + [r,g,b].map(function(x) { return Math.round(Math.max(0,Math.min(255,x))).toString(16).padStart(2,'0'); }).join('');
+						}
+						function mix(c, t, w) { return c.map(function(v,i) { return v + (t[i]-v)*w; }); }
+						var rgb = hexToRgb(hex);
+						var w = [255,255,255], b2 = [0,0,0];
+						var steps = {
+							25: mix(rgb,w,0.95), 50: mix(rgb,w,0.9), 100: mix(rgb,w,0.8),
+							200: mix(rgb,w,0.65), 300: mix(rgb,w,0.45), 400: mix(rgb,w,0.25),
+							500: mix(rgb,w,0.1), 600: rgb, 700: rgb,
+							800: mix(rgb,b2,0.15), 900: mix(rgb,b2,0.35), 950: mix(rgb,b2,0.55)
+						};
+						for (var k in steps) {
+							var c = steps[k];
+							d.style.setProperty('--color-brand-'+k, rgbToHex(c[0],c[1],c[2]));
+						}
+					}
+				}
+			})();
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

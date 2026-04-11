@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from "$lib/components/seo.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
   import IconDevices from "$lib/icons/icon-devices.svelte";
@@ -13,7 +14,6 @@
     PageHeader,
     PropsTable,
   } from "$lib/components/docs";
-  import IconIndicator from "$lib/components/ui/icon-indicator/icon-indicator.svelte";
 
   const installationCode = `npx nnuikit add dropdown-menu
 
@@ -172,6 +172,8 @@ let showPanel = $state(false);
 
  
 </script>
+
+<Seo title="Dropdown Menu" />
 
 <DocsPage>
   <PageHeader

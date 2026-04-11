@@ -111,12 +111,12 @@
 	--color-button-success-default-surface: var(--color-surface-success-primary);
 	--color-button-success-default-icon: var(--color-icon-statics-pure-white);
 	--color-button-success-default-text: var(--color-text-statics-pure-white);
-	--color-button-success-hover-surface: var(--color-surface-success-secoandry);
+	--color-button-success-hover-surface: var(--color-surface-success-secondary);
 	--color-button-success-hover-icon: var(--color-icon-statics-pure-white);
 	--color-button-success-hover-text: var(--color-text-statics-pure-white);
 	--color-button-success-focused-text: var(--color-text-statics-pure-white);
 	--color-button-success-focused-icon: var(--color-icon-statics-pure-white);
-	--color-button-success-focused-surface: var(--color-surface-success-secoandry);
+	--color-button-success-focused-surface: var(--color-surface-success-secondary);
 	--color-button-success-disabled-surface: var(--color-surface-success-quaternary);
 	--color-button-success-disabled-icon: var(--color-icon-alpha-pure-black-tertiary);
 	--color-button-success-disabled-text: var(--color-text-alpha-pure-black-tertiary);

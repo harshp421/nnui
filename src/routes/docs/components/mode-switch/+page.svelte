@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from "$lib/components/seo.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import ModeSwitch from "$lib/components/ui/theme-switch/modeSwitch.svelte";
   import {
@@ -52,6 +53,8 @@ import { ModeSwitch } from "$lib/components/ui/theme-switch";`;
     },
   ];
 </script>
+
+<Seo title="Mode Switch" />
 
 <DocsPage>
   <PageHeader

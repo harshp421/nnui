@@ -22,7 +22,7 @@ get along, so we shut typescript up by casting `value` to `never`.
   data-slot="slider"
   {orientation}
   class={cn(
-    "relative flex w-full touch-none select-none items-center data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col ",
+    "relative flex w-full touch-none select-none items-center py-2 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
     className,
   )}
   {...restProps}
@@ -51,7 +51,7 @@ get along, so we shut typescript up by casting `value` to `never`.
               {...props}
               data-slot="slider-thumb"
               index={thumb}
-              class="data-disabled:invisible h-range-selector-handle-height w-range-selector-handle-width active:border-range-selector-handle-active-border border-range-selector-handle-default-border bg-range-selector-handle-active-surface   focus-visible:outline-hidden block size-16 shrink-0 rounded-range-selector-handle-radius border shadow-sm transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50"
+              class="data-disabled:invisible h-range-selector-handle-height w-range-selector-handle-width active:border-range-selector-handle-active-border border-range-selector-handle-default-border bg-range-selector-handle-active-surface focus-visible:outline-hidden block shrink-0 rounded-range-selector-handle-radius border shadow-sm transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50"
             />
           {/snippet}
         </Tooltip.Trigger>

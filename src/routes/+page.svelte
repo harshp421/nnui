@@ -18,7 +18,7 @@
 	];
 
 	const stats = [
-		{ value: '25+', label: 'Components' },
+		{ value: '23', label: 'Components' },
 		{ value: '3', label: 'Token Layers' },
 		{ value: '5', label: 'Color Themes' },
 		{ value: '100%', label: 'Accessible' }
@@ -60,7 +60,7 @@
 </script>
 
 <Seo
-	description="A design-token-driven Svelte 5 component library with 25+ accessible components, 3-layer token architecture, and 5 built-in themes. Add components via CLI — npx nnuikit add. Built with Tailwind CSS v4 and Bits UI."
+	description="A design-token-driven Svelte 5 component library with 23 accessible components, 3-layer token architecture, and 5 built-in themes. Add components via CLI — npx nnuikit add. Built with Tailwind CSS v4 and Bits UI."
 	keywords="svelte 5 ui library, svelte component library, design tokens, tailwindcss v4, shadcn svelte, CLI component library, accessible components"
 />
 
@@ -146,7 +146,7 @@
 	<section class="mx-auto w-full max-w-[960px] px-24 py-80">
 		<div class="mb-48 text-center">
 			<h2 class="text-[32px] font-bold tracking-tight text-text-neutral-primary md:text-[40px]">
-				25+ Components
+				23 Components
 				<span class="text-text-neutral-tertiary">&amp; growing</span>
 			</h2>
 			<p class="mt-12 text-[15px] text-text-neutral-tertiary">Each component ships with its own design tokens. From forms to overlays, everything you need.</p>
@@ -265,7 +265,7 @@
 				<a href="/docs/components" class="hover:text-text-neutral-primary transition-colors">Components</a>
 				<a href="https://github.com/harshp421/nnui" class="hover:text-text-neutral-primary transition-colors">GitHub</a>
 			</div>
-			<p class="text-[11px] text-text-neutral-tertiary">Built by Harsh Parmar</p>
+			<a href="https://www.linkedin.com/in/harsh-parmar-717834232/" target="_blank" rel="noopener noreferrer" class="text-[11px] text-text-neutral-tertiary">Built by Harsh Parmar</a>
 		</div>
 	</footer>
 </div>

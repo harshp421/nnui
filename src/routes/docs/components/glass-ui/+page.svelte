@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from "$lib/components/seo.svelte";
   import { cn } from "$lib/utils/tailwindUtil";
   import {
     DocsPage,
@@ -98,6 +99,8 @@
     { name: "Tertiary", class: "text-glass-text-tertiary", token: "--color-glass-text-tertiary" },
   ];
 </script>
+
+<Seo title="Glass Ui" />
 
 <DocsPage>
   <PageHeader

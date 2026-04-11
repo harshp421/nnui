@@ -40,7 +40,6 @@
 	--color-base-pure-black: #000000;
 	--color-base-vv-white: #ffffff;
 	--color-base-vv-black: #000000;
-	--color-base-transparent: rgba(255, 255, 255, 0.001);
 	--color-brand-25: #fbfefc;
 	--color-brand-50: #f2fcf5;
 	--color-brand-100: #e9f9ee;
@@ -270,7 +269,7 @@
 	--color-surface-success-l3: var(--color-green-200);
 	--color-surface-success-l4: var(--color-green-300);
 	--color-surface-success-primary: var(--color-green-800);
-	--color-surface-success-secoandry: var(--color-green-base-700);
+	--color-surface-success-secondary: var(--color-green-base-700);
 	--color-surface-success-tertiary: var(--color-green-600);
 	--color-surface-success-quaternary: var(--color-green-400);
 	--color-surface-statics-pure-white: var(--color-base-pure-white);
@@ -284,7 +283,7 @@
 	--color-surface-alpha-pure-white-l3: var(--color-alpha-pure-white-100);
 	--color-surface-alpha-pure-white-l4: var(--color-alpha-pure-white-200);
 	--color-surface-alpha-pure-white-primary: var(--color-alpha-pure-white-800);
-	--color-surface-alpha-pure-white-secoandry: var(--color-alpha-pure-white-700);
+	--color-surface-alpha-pure-white-secondary: var(--color-alpha-pure-white-700);
 	--color-surface-alpha-pure-white-tertiary: var(--color-alpha-pure-white-500);
 	--color-surface-alpha-pure-white-quaternary: var(--color-alpha-pure-white-400);
 	--color-surface-alpha-vv-white-l1: var(--color-alpha-viceversa-white-25);
@@ -292,7 +291,8 @@
 	--color-surface-alpha-vv-white-l3: var(--color-alpha-viceversa-white-100);
 	--color-surface-alpha-vv-white-l4: var(--color-alpha-viceversa-white-200);
 	--color-surface-alpha-vv-white-primary: var(--color-alpha-viceversa-white-800);
-	--color-surface-alpha-vv-white-secoandry: var(--color-alpha-viceversa-white-700);
+	--color-surface-alpha-vv-white-secondary: var(--color-alpha-viceversa-white-700);
+
 	--color-surface-alpha-vv-white-tertiary: var(--color-alpha-viceversa-white-500);
 	--color-surface-alpha-vv-white-quaternary: var(--color-alpha-viceversa-white-400);
 	--color-surface-alpha-pure-black-l1: var(--color-alpha-pure-black-25);
@@ -300,7 +300,7 @@
 	--color-surface-alpha-pure-black-l3: var(--color-alpha-pure-black-100);
 	--color-surface-alpha-pure-black-l4: var(--color-alpha-pure-black-200);
 	--color-surface-alpha-pure-black-primary: var(--color-alpha-pure-black-800);
-	--color-surface-alpha-pure-black-secoandry: var(--color-alpha-pure-black-700);
+	--color-surface-alpha-pure-black-secondary: var(--color-alpha-pure-black-700);
 	--color-surface-alpha-pure-black-tertiary: var(--color-alpha-pure-black-500);
 	--color-surface-alpha-pure-black-quaternary: var(--color-alpha-pure-black-400);
 	--color-surface-alpha-vv-black-l1: var(--color-alpha-viceversa-black-25);
@@ -308,7 +308,7 @@
 	--color-surface-alpha-vv-black-l3: var(--color-alpha-viceversa-black-100);
 	--color-surface-alpha-vv-black-l4: var(--color-alpha-viceversa-black-200);
 	--color-surface-alpha-vv-black-primary: var(--color-alpha-viceversa-black-800);
-	--color-surface-alpha-vv-black-secoandry: var(--color-alpha-viceversa-black-700);
+	--color-surface-alpha-vv-black-secondary: var(--color-alpha-viceversa-black-700);
 	--color-surface-alpha-vv-black-tertiary: var(--color-alpha-viceversa-black-500);
 	--color-surface-alpha-vv-black-quaternary: var(--color-alpha-viceversa-black-400);
 	--color-text-brand-primary: var(--color-brand-900);
@@ -487,13 +487,8 @@
 	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
 	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
 
-	
-	--color-input-optional: var(--color-text-neutral-tertiary);
-	--color-input-mantatory: var(--color-text-destructive-primary);
-	--color-input-support-icon: var(--color-icon-neutral-tertiary);
 	--color-divider: var(--color-border-neutral-l2);
 	--color-blanket: var(--color-surface-alpha-vv-black-l2);
-	
 
 	--spacing-0: var(--spacing-0);
 	--spacing-1: var(--spacing-1);
@@ -581,7 +576,6 @@
 /* Tablet (1024px) */
 @media (min-width: 1024px) {
 	:root {
-		
 		--size-border-width-l1: 1px;
 		--size-border-width-l2: 1.25px;
 		--size-border-width-l3: 1.5px;
@@ -600,7 +594,10 @@
 		--size-border-width-l2: 1.25px;
 		--size-border-width-l3: 1.5px;
 		--size-border-width-l4: 2px;
-			}
+	    --size-icon-size-sm: var(--spacing-16);
+		--size-icon-size-md: var(--spacing-20);
+		--size-icon-size-lg: var(--spacing-24);
+	}
 }
 
 /* ── 7. Dark Mode ────────────────────────────────────────────────────── */
@@ -1142,7 +1139,7 @@
 	--color-surface-success-l3: var(--color-surface-success-l3);
 	--color-surface-success-l4: var(--color-surface-success-l4);
 	--color-surface-success-primary: var(--color-surface-success-primary);
-	--color-surface-success-secoandry: var(--color-surface-success-secoandry);
+	--color-surface-success-secondary: var(--color-surface-success-secondary);
 	--color-surface-success-tertiary: var(--color-surface-success-tertiary);
 	--color-surface-success-quaternary: var(--color-surface-success-quaternary);
 	--color-surface-statics-pure-white: var(--color-surface-statics-pure-white);
@@ -1156,7 +1153,7 @@
 	--color-surface-alpha-pure-white-l3: var(--color-surface-alpha-pure-white-l3);
 	--color-surface-alpha-pure-white-l4: var(--color-surface-alpha-pure-white-l4);
 	--color-surface-alpha-pure-white-primary: var(--color-surface-alpha-pure-white-primary);
-	--color-surface-alpha-pure-white-secoandry: var(--color-surface-alpha-pure-white-secoandry);
+	--color-surface-alpha-pure-white-secondary: var(--color-surface-alpha-pure-white-secondary);
 	--color-surface-alpha-pure-white-tertiary: var(--color-surface-alpha-pure-white-tertiary);
 	--color-surface-alpha-pure-white-quaternary: var(--color-surface-alpha-pure-white-quaternary);
 	--color-surface-alpha-vv-white-l1: var(--color-surface-alpha-vv-white-l1);
@@ -1164,7 +1161,7 @@
 	--color-surface-alpha-vv-white-l3: var(--color-surface-alpha-vv-white-l3);
 	--color-surface-alpha-vv-white-l4: var(--color-surface-alpha-vv-white-l4);
 	--color-surface-alpha-vv-white-primary: var(--color-surface-alpha-vv-white-primary);
-	--color-surface-alpha-vv-white-secoandry: var(--color-surface-alpha-vv-white-secoandry);
+	--color-surface-alpha-vv-white-secondary: var(--color-surface-alpha-vv-white-secondary);
 	--color-surface-alpha-vv-white-tertiary: var(--color-surface-alpha-vv-white-tertiary);
 	--color-surface-alpha-vv-white-quaternary: var(--color-surface-alpha-vv-white-quaternary);
 	--color-surface-alpha-pure-black-l1: var(--color-surface-alpha-pure-black-l1);
@@ -1172,7 +1169,7 @@
 	--color-surface-alpha-pure-black-l3: var(--color-surface-alpha-pure-black-l3);
 	--color-surface-alpha-pure-black-l4: var(--color-surface-alpha-pure-black-l4);
 	--color-surface-alpha-pure-black-primary: var(--color-surface-alpha-pure-black-primary);
-	--color-surface-alpha-pure-black-secoandry: var(--color-surface-alpha-pure-black-secoandry);
+	--color-surface-alpha-pure-black-secondary: var(--color-surface-alpha-pure-black-secondary);
 	--color-surface-alpha-pure-black-tertiary: var(--color-surface-alpha-pure-black-tertiary);
 	--color-surface-alpha-pure-black-quaternary: var(--color-surface-alpha-pure-black-quaternary);
 	--color-surface-alpha-vv-black-l1: var(--color-surface-alpha-vv-black-l1);
@@ -1180,7 +1177,7 @@
 	--color-surface-alpha-vv-black-l3: var(--color-surface-alpha-vv-black-l3);
 	--color-surface-alpha-vv-black-l4: var(--color-surface-alpha-vv-black-l4);
 	--color-surface-alpha-vv-black-primary: var(--color-surface-alpha-vv-black-primary);
-	--color-surface-alpha-vv-black-secoandry: var(--color-surface-alpha-vv-black-secoandry);
+	--color-surface-alpha-vv-black-secondary: var(--color-surface-alpha-vv-black-secondary);
 	--color-surface-alpha-vv-black-tertiary: var(--color-surface-alpha-vv-black-tertiary);
 	--color-surface-alpha-vv-black-quaternary: var(--color-surface-alpha-vv-black-quaternary);
 	--color-text-brand-primary: var(--color-text-brand-primary);
