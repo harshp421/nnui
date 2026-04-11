@@ -122,6 +122,53 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
     logger.warn("utils/tailwindUtil.ts already exists, skipping");
   }
 
+  // Write CLAUDE.md for AI tool context
+  const claudeMdDest = path.resolve(process.cwd(), "CLAUDE.md");
+  if (!(await fs.pathExists(claudeMdDest))) {
+    const claudeMdContent = `# nnuikit — AI Assistant Context
+
+## CRITICAL: Custom Tailwind Spacing Scale
+
+This project uses a **custom Tailwind CSS v4 spacing scale** where numeric values are overridden to 1px per unit.
+
+**Numbers in this set = 1px per unit (NOT default Tailwind 4px/unit):**
+\`{0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 56, 64, 72, 80, 96, 128, 256, 320, 520}\`
+
+Examples:
+- \`p-4\` = **4px** (NOT 16px)
+- \`p-16\` = **16px**
+- \`gap-8\` = **8px** (NOT 32px)
+- \`h-56\` = **56px** (NOT 224px)
+
+**Numbers NOT in the set use default Tailwind scale (4px/unit):**
+- \`p-3\` = 12px, \`p-5\` = 20px, \`gap-1.5\` = 6px, \`py-2.5\` = 10px
+
+## Quick Reference
+
+| Want this | Use this class | NOT this |
+|-----------|---------------|----------|
+| 8px padding | \`p-8\` | \`p-2\` |
+| 16px padding | \`p-16\` | \`p-4\` (=4px!) |
+| 20px padding | \`p-5\` (default) | \`p-20\` (=20px too) |
+| 24px gap | \`gap-24\` | \`gap-6\` (=6px!) |
+| 48px margin | \`mt-48\` | \`mt-12\` (=12px!) |
+
+## Custom Breakpoints
+
+- \`sm\`: 375px (NOT 640px)
+- \`md\`: 1024px (NOT 768px)
+- \`lg\`: 1440px (NOT 1024px)
+
+## Design Tokens
+
+Use semantic token classes: \`bg-surface-brand-primary\`, \`text-text-neutral-secondary\`, \`border-border-neutral-l4\`
+
+Components use Svelte 5 runes: \`$props()\`, \`$state()\`, \`$bindable()\`, \`$derived()\`
+`;
+    await fs.writeFile(claudeMdDest, claudeMdContent);
+    logger.success("Created CLAUDE.md (AI assistant context)");
+  }
+
   // Write typography styles
   const stylesDir = path.resolve(process.cwd(), "src/lib/styles");
   await fs.ensureDir(stylesDir);

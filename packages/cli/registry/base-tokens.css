@@ -473,19 +473,19 @@
 	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-400);
 	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
 	--color-glass-surface-default: var(--color-alpha-viceversa-white-500);
-	--color-glass-surface-hover: var(--color-alpha-viceversa-white-500);
+	--color-glass-surface-hover: var(--color-alpha-viceversa-black-50);
 	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
 	--color-glass-surface-disabled: var(--color-alpha-viceversa-white-200);
 	--color-glass-icon-default: var(--color-alpha-viceversa-black-500);
 	--color-glass-icon-hover: var(--color-alpha-viceversa-black-600);
-	--color-glass-icon-active: var(--color-alpha-viceversa-white-950);
+	--color-glass-icon-active: var(--color-alpha-viceversa-black-400);
 	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-200);
 	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
-	--color-glass-border-l1: var(--color-alpha-viceversa-white-400);
-	--color-glass-border-l2: var(--color-alpha-viceversa-white-500);
-	--color-glass-border-l3: var(--color-alpha-viceversa-white-600);
-	--color-glass-border-l4: var(--color-alpha-viceversa-white-700);
-	--color-glass-border-l5: var(--color-alpha-viceversa-white-800);
+	--color-glass-border-l1: var(--color-alpha-viceversa-black-25);
+	--color-glass-border-l2: var(--color-alpha-viceversa-black-50);
+	--color-glass-border-l3: var(--color-alpha-viceversa-black-100);
+	--color-glass-border-l4: var(--color-alpha-viceversa-black-200);
+	--color-glass-border-l5: var(--color-alpha-viceversa-black-300);
 
 	--color-divider: var(--color-border-neutral-l2);
 	--color-blanket: var(--color-surface-alpha-vv-black-l2);
@@ -616,7 +616,7 @@
 	--color-glass-surface-disabled: var(--color-alpha-viceversa-black-25);
 	--color-glass-icon-default: var(--color-alpha-viceversa-black-700);
 	--color-glass-icon-hover: var(--color-alpha-viceversa-black-700);
-	--color-glass-icon-active: var(--color-alpha-viceversa-white-950);
+	--color-glass-icon-active: var(--color-alpha-viceversa-black-400);
 	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-500);
 	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
 	--color-glass-border-l1: var(--color-alpha-viceversa-black-25);
@@ -624,6 +624,10 @@
 	--color-glass-border-l3: var(--color-alpha-viceversa-black-100);
 	--color-glass-border-l4: var(--color-alpha-viceversa-black-200);
 	--color-glass-border-l5: var(--color-alpha-viceversa-black-300);
+
+	--color-divider: var();
+	--color-blanket: var(--color-surface-alpha-vv-black-l2);
+
 	--color-base-pure-white: #ffffff;
 	--color-base-pure-black: #000000;
 	--color-base-vv-white: #000000;

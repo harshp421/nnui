@@ -251,5 +251,18 @@
 			/>
 		</section>
 
+		<!-- AI Tools Note -->
+		<section class="flex flex-col gap-5 ">
+			<h2 class="text-2xl font-bold tracking-tight">Using with AI Tools</h2>
+			<div class="rounded-xl border border-border-neutral-l4 bg-surface-neutral-l1 px-5 py-16">
+				<p class="text-sm leading-relaxed text-text-neutral-secondary">
+					<strong class="text-text-neutral-primary">Important:</strong> This project uses a custom Tailwind spacing scale where <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">p-4 = 4px</code> (not 16px). AI assistants like Cursor, Copilot, and ChatGPT will assume default Tailwind sizes.
+				</p>
+				<p class="mt-2.5 text-sm leading-relaxed text-text-neutral-secondary">
+					The project includes a <code class="rounded bg-surface-neutral-l2 px-1.5 py-0.5 font-mono text-xs">CLAUDE.md</code> file that AI tools read automatically. If your AI generates wrong spacing, remind it: <em>"This project uses custom spacing — p-4 = 4px, p-16 = 16px."</em>
+				</p>
+			</div>
+		</section>
+
 	</div>
 </DocsPage>
