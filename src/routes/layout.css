@@ -623,31 +623,6 @@
 /* ── 7. Dark Mode ────────────────────────────────────────────────────── */
 
 .dark {
-	--color-glass-blur-surface: var(--color-alpha-pure-white-50);
-	--color-glass-blur-border: var(--color-alpha-pure-white-100);
-	--color-glass-blanket: var(--color-alpha-viceversa-white-400);
-	--color-glass-text-primary: var(--color-alpha-viceversa-black-500);
-	--color-glass-text-secondary: var(--color-alpha-viceversa-black-700);
-	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-500);
-	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
-	--color-glass-surface-default: var(--color-alpha-viceversa-black-25);
-	--color-glass-surface-hover: var(--color-alpha-viceversa-black-100);
-	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
-	--color-glass-surface-disabled: var(--color-alpha-viceversa-black-25);
-	--color-glass-icon-default: var(--color-alpha-viceversa-black-700);
-	--color-glass-icon-hover: var(--color-alpha-viceversa-black-700);
-	--color-glass-icon-active: var(--color-alpha-viceversa-black-400);
-	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-500);
-	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
-	--color-glass-border-l1: var(--color-alpha-viceversa-black-25);
-	--color-glass-border-l2: var(--color-alpha-viceversa-black-50);
-	--color-glass-border-l3: var(--color-alpha-viceversa-black-100);
-	--color-glass-border-l4: var(--color-alpha-viceversa-black-200);
-	--color-glass-border-l5: var(--color-alpha-viceversa-black-300);
-
-	--color-divider: var();
-	--color-blanket: var(--color-surface-alpha-vv-black-l2);
-
 	--color-base-pure-white: #ffffff;
 	--color-base-pure-black: #000000;
 	--color-base-vv-white: #000000;
@@ -836,6 +811,32 @@
 	--color-alpha-zero-transparency: rgba(0, 0, 0, 0);
 	--color-alpha-point1-transparency: rgba(0, 0, 0, 0.001);
 	
+
+	--color-glass-blur-surface: var(--color-alpha-pure-white-50);
+	--color-glass-blur-border: var(--color-alpha-pure-white-100);
+    --color-glass-blanket: var(--color-alpha-viceversa-white-400);
+	--color-glass-text-primary: var(--color-alpha-viceversa-black-500);
+	--color-glass-text-secondary: var(--color-alpha-viceversa-black-700);
+	--color-glass-text-tertiary: var(--color-alpha-viceversa-black-500);
+	--color-glass-surface-brand-active: var(--color-surface-brand-primary);
+	--color-glass-surface-default: var(--color-alpha-viceversa-black-25);
+	--color-glass-surface-hover: var(--color-alpha-viceversa-black-100);
+	--color-glass-surface-active: var(--color-alpha-viceversa-black-950);
+	--color-glass-surface-disabled: var(--color-alpha-viceversa-black-25);
+	--color-glass-icon-default: var(--color-alpha-viceversa-black-700);
+	--color-glass-icon-hover: var(--color-alpha-viceversa-black-700);
+	--color-glass-icon-active: var(--color-alpha-viceversa-black-400);
+	--color-glass-icon-disabled: var(--color-alpha-viceversa-black-500);
+	--color-glass-icon-icon-action-ative: var(--color-alpha-viceversa-black-950);
+	--color-glass-border-l1: var(--color-alpha-viceversa-black-25);
+	--color-glass-border-l2: var(--color-alpha-viceversa-black-50);
+	--color-glass-border-l3: var(--color-alpha-viceversa-black-100);
+	--color-glass-border-l4: var(--color-alpha-viceversa-black-200);
+	--color-glass-border-l5: var(--color-alpha-viceversa-black-300);
+
+    --color-divider: var(--color-alpha-viceversa-black-25);
+	--color-blanket: var(--color-surface-alpha-vv-black-l2);
+
 }
 
 
